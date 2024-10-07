@@ -43,10 +43,10 @@ npm run scss
 ### 📂 6. Open the project
 Open the `index.html` file in your web browser to view the application.
 
-## 🤝 Contributing
+### 🤝 Contributing
 This project is part of a learning process, but contributions and suggestions are always welcome!
 
-## 👨‍💻 Contributors
+### 👨‍💻 Contributors
 - [Mirko Rinke](https://github.com/MirkoRinke)
 - [David Dev](https://github.com/DavidDev25)
 - [Richard Streu](https://github.com/RichardStreu)
