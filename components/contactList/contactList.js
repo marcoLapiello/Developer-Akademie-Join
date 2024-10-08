@@ -2,13 +2,12 @@ import { getUsersArray } from "../../js/script.js";
 
 async function sortUsers() {
   let usersArray = await getUsersArray();
-
   let sortedUsersArray = Object.values(usersArray); // https://www.w3schools.com/jsref/jsref_object_values.asp
   sortedUsersArray.sort((userA, userB) => {
     // https://www.w3schools.com/js/js_array_sort.asp
-    const lastNameA = userA[1].profile.last_name.toLowerCase();
-    const lastNameB = userB[1].profile.last_name.toLowerCase();
-    return lastNameA.localeCompare(lastNameB, "de"); // https://www.w3schools.com/jsref/jsref_localecompare.asp
+    const firstNameA = userA[1].profile.first_name.toLowerCase();
+    const firstNameB = userB[1].profile.first_name.toLowerCase();
+    return firstNameA.localeCompare(firstNameB, "de"); // https://www.w3schools.com/jsref/jsref_localecompare.asp
   });
   return sortedUsersArray;
 }
@@ -17,7 +16,7 @@ async function groupedUsers() {
   let sortedUsersArray = await sortUsers();
   let groupedUsersObjekt = {};
   sortedUsersArray.forEach((user) => {
-    const firstLetter = user[1].profile.last_name.toUpperCase().charAt(0); // Get the first letter of the last name and convert it to uppercase
+    const firstLetter = user[1].profile.first_name.toUpperCase().charAt(0); // Get the first letter of the last name and convert it to uppercase
     if (!groupedUsersObjekt[firstLetter]) {
       groupedUsersObjekt[firstLetter] = []; // Create an empty array for the first letter if it doesn't exist
     }
