@@ -47,7 +47,7 @@ export async function renderContactList() {
       renderList += /*html*/ `        
             <li onclick="console.log('Example User ID Parameter for later ${user[1].id}')" class="userListItem">
                 <span class="userInitials" style="background-color: ${user[1].user_color};" >
-                  ${user[1].profile.first_name.toUpperCase()}  ${user[1].profile.last_name.toUpperCase()}
+                  ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
                 </span>
                 <div class="userProfile">
                     <span class="userName">
