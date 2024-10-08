@@ -4,11 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/icons/fav.png" type="image/png" />
+    <link rel="stylesheet" href="./scss/style.css" />
     <script type="module" src="./js/contact.js" defer></script>
     <title>Contacts</title>
   </head>
   <body>
-    <div id="contactModal" class="contactModal d_none"></div>
+    <div id="contactModal" class="contactModal">
+      <div id="addContactContainer">
+        <input type="text" placeholder="Name" />
+        <input type="email" name="" id="" placeholder="Email" />
+        <input type="tel" name="" id="" placeholder="Phone" />
+        <button>Cancel</button>
+        <button>Create Contact</button>
+      </div>
+    </div>
     <nav id="sidebar" class="sidebar"></nav>
     <main id="content" class="content">
       <header id="header" class="header"></header>
