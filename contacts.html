@@ -9,17 +9,17 @@
     <title>Contacts</title>
   </head>
   <body>
-    <div id="contactModal" class="contactModal">
+    <div id="contactModal" class="contactModal d_none">
       <div id="addContactContainer">
         <input type="text" placeholder="Name" />
         <input type="email" name="" id="" placeholder="Email" />
         <input type="tel" name="" id="" placeholder="Phone" />
-        <button>Cancel</button>
+        <button onclick="hideAddNewUserDialog()">Cancel</button>
         <button>Create Contact</button>
       </div>
     </div>
     <!-- Just a temporary button to write/call "addNewContact" function -->
-    <button>Add new Contact</button>
+    <button onclick="showAddNewUserDialog()">Add new Contact</button>
     <nav id="sidebar" class="sidebar"></nav>
     <main id="content" class="content">
       <header id="header" class="header"></header>
