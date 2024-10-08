@@ -5,3 +5,5 @@ export function showAddNewUserDialog() {
 export function hideAddNewUserDialog() {
   document.getElementById("contactModal").classList.add("d_none");
 }
+
+export function getNewUser() {}
