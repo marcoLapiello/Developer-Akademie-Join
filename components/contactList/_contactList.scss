@@ -1,0 +1,83 @@
+.contactList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 928px;
+  width: 456px;
+  overflow-y: scroll;
+  scrollbar-width: auto;
+  scroll-behavior: smooth;
+  scrollbar-color: rgb(168, 168, 168) rgb(255, 255, 255);
+
+  .contactListContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 400px;
+
+    .alphabetSection {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      padding-left: 36px;
+      height: 58px;
+      width: 352px;
+    }
+    .horizontalLine {
+      height: 1px;
+      width: 100%;
+      margin: 15px;
+      background-color: rgb(209, 209, 209);
+      border: unset;
+    }
+    .userListItem {
+      display: flex;
+      align-items: center;
+      padding-left: 24px;
+      gap: 35px;
+      height: 78px;
+      width: 352px;
+      list-style-type: none;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #2a3647;
+        border: 0px solid transparent;
+        border-radius: 10px;
+      }
+
+      &:hover .userInitials {
+        border: 2px solid rgb(255, 255, 255);
+      }
+
+      &:hover .userProfile {
+        color: #ffffff;
+      }
+
+      &:hover .userInitials {
+        color: #ffffff;
+      }
+
+      .userProfile {
+        display: flex;
+        flex-direction: column;
+
+        .usersMail {
+          color: #007cee;
+        }
+      }
+
+      .userInitials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        height: 42px;
+        width: 42px;
+        border: 0px solid transparent;
+        border-radius: 100%;
+      }
+    }
+  }
+}
