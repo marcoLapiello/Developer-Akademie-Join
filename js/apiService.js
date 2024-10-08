@@ -1,22 +1,22 @@
 let users = [];
 
-const baseUrl ="https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
+const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
 
-async function postData(path = "", data = {}) {
-  let response = await fetch(baseUrl + path + ".json", {
-    method: "POST",
-    header: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  return (responseAsJson = await response.json());
-}
+// async function postData(path = "", data = {}) {
+//   let response = await fetch(baseUrl + path + ".json", {
+//     method: "POST",
+//     header: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(data),
+//   });
+//   return (responseAsJson = await response.json());
+// }
 
 async function addContact() {
   let name = document.getElementById("name").value;
   let surname = document.getElementById("surname").value;
-  
+
   let userInitials = name.charAt(0) + surname.charAt(0);
 
   let id = userInitials + Date.now();

@@ -3,10 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/icons/fav.png" type="image/png" />
+    <link rel="stylesheet" href="./scss/style.css" />
+    <script type="module" src="./js/script.js" defer></script>
     <title>Contacts</title>
   </head>
   <body>
-    <div id="contactModal" class="contactModal d_none"></div>
+    <div id="contactModal" class="contactModal d_none">
+      <div id="addContactContainer">
+        <input id="addContactNameInput" type="text" placeholder="Name" />
+        <input id="addContactEmailInput" type="email" name="" id="" placeholder="Email" />
+        <input id="addContactPhoneInput" type="tel" name="" id="" placeholder="Phone" />
+        <button onclick="hideAddNewUserDialog()">Cancel</button>
+        <button>Create Contact</button>
+      </div>
+    </div>
+    <!-- Just a temporary button to write/call "addNewContact" function -->
+    <button onclick="showAddNewUserDialog()">Add new Contact</button>
     <nav id="sidebar" class="sidebar"></nav>
     <main id="content" class="content">
       <header id="header" class="header"></header>
