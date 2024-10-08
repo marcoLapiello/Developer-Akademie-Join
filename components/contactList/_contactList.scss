@@ -3,12 +3,12 @@
   flex-direction: column;
   align-items: center;
   height: 928px;
-  width: 456px;
+  width: 453px;
+  padding-bottom: 32px;
   overflow-y: scroll;
   scrollbar-width: thin;
   scroll-behavior: smooth;
   scrollbar-color: rgb(168, 168, 168) rgb(255, 255, 255);
-  padding-bottom: 32px;
 
   .newContactButton {
     display: flex;
@@ -50,12 +50,13 @@
       padding-left: 36px;
       height: 58px;
       width: 352px;
+      line-height: 120%;
     }
     .horizontalLine {
       height: 1px;
       width: 352px;
       margin: 15px;
-      background-color: rgb(209, 209, 209);
+      background-color: #d1d1d1;
       border: unset;
     }
     .userListItem {
@@ -67,19 +68,17 @@
       width: 352px;
       list-style-type: none;
 
-      &:hover {
-        cursor: pointer;
-        background-color: #2a3647;
-        border: 0px solid transparent;
-        border-radius: 10px;
-      }
-
-      &:hover .userInitials {
-        border: 2px solid rgb(255, 255, 255);
-      }
-
-      &:hover .userProfile {
+      .userInitials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        line-height: 120%;
         color: #ffffff;
+        height: 42px;
+        width: 42px;
+        border: 0px solid transparent;
+        border-radius: 100%;
       }
 
       .userProfile {
@@ -93,21 +92,25 @@
         }
 
         .usersMail {
+          font-size: 16px;
           color: #007cee;
           line-height: 120%;
         }
       }
 
-      .userInitials {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;
-        color: #ffffff;
-        height: 42px;
-        width: 42px;
+      &:hover {
+        cursor: pointer;
+        background-color: #2a3647;
         border: 0px solid transparent;
-        border-radius: 100%;
+        border-radius: 10px;
+      }
+
+      &:hover .userInitials {
+        border: 2px solid rgb(255, 255, 255);
+      }
+
+      &:hover .userName {
+        color: #ffffff;
       }
     }
   }
