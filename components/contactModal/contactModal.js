@@ -18,6 +18,12 @@ let userColors = [
   "#FFBB2B",
 ];
 
+function getRandomUserColor() {
+  let randomIndex = Math.floor(Math.random() * userColors.length);
+  let randomColor = userColors[randomIndex];
+  return randomColor;
+}
+
 export function getNewUser() {
   let fullName = addContactNameInputRef.value;
   let nameParts = fullName.split(" ");
@@ -30,7 +36,7 @@ export function getNewUser() {
   let user = {
     id: id,
     password: "",
-    user_color: "",
+    user_color: getRandomUserColor(),
     profile: {
       first_name: name,
       last_name: surname,
