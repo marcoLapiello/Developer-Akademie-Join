@@ -5,9 +5,36 @@
   height: 928px;
   width: 456px;
   overflow-y: scroll;
-  scrollbar-width: auto;
+  scrollbar-width: thin;
   scroll-behavior: smooth;
   scrollbar-color: rgb(168, 168, 168) rgb(255, 255, 255);
+  padding-bottom: 32px;
+
+  .newContactButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    min-height: 56px;
+    min-width: 352px;
+    border: 0px solid transparent;
+    border-radius: 10px;
+    background-color: #2a3647;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 120%;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #29abe2;
+    }
+
+    .newContactButtonIcon {
+      height: 32px;
+      width: 32px;
+    }
+  }
 
   .contactListContent {
     display: flex;
@@ -26,7 +53,7 @@
     }
     .horizontalLine {
       height: 1px;
-      width: 100%;
+      width: 352px;
       margin: 15px;
       background-color: rgb(209, 209, 209);
       border: unset;
@@ -55,16 +82,19 @@
         color: #ffffff;
       }
 
-      &:hover .userInitials {
-        color: #ffffff;
-      }
-
       .userProfile {
         display: flex;
         flex-direction: column;
 
+        .userName {
+          font-size: 20px;
+          color: #000000;
+          line-height: 120%;
+        }
+
         .usersMail {
           color: #007cee;
+          line-height: 120%;
         }
       }
 
@@ -73,6 +103,7 @@
         justify-content: center;
         align-items: center;
         font-size: 12px;
+        color: #ffffff;
         height: 42px;
         width: 42px;
         border: 0px solid transparent;
