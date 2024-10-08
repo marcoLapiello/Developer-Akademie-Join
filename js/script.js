@@ -12,9 +12,10 @@ export let addContactNameInputRef = document.getElementById("addContactNameInput
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
 export let addContactPhoneInputRef = document.getElementById("addContactPhoneInput");
 
-async function getUsersArray() {
+export async function getUsersArray() {
   let usersArray = await loadUsers();
-  console.log(usersArray);
+  // console.log(usersArray);
+  return usersArray;
 }
 
 getUsersArray();
