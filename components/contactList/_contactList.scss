@@ -26,15 +26,21 @@
     font-weight: bold;
     line-height: 120%;
 
+    & svg {
+      height: 32px;
+      width: 32px;
+      fill: #ffffff;
+    }
+
     &:hover {
       cursor: pointer;
       background-color: #29abe2;
     }
 
-    .newContactButtonIcon {
-      height: 32px;
-      width: 32px;
-    }
+    // .newContactButtonIcon {
+    //   height: 32px;
+    //   width: 32px;
+    // }
   }
 
   .contactListContent {
