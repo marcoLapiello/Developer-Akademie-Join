@@ -1,4 +1,5 @@
 import { getUsersArray } from "../../js/script.js";
+import { returnIcon } from "../icons.js";
 
 async function sortUsers() {
   let usersArray = await getUsersArray();
@@ -31,7 +32,7 @@ export async function renderContactList() {
   let renderList = "";
   renderList += /*html*/ `
                 <button class="newContactButton" onclick="showAddNewUserDialog()">Add new Contact 
-                  <img class="newContactButtonIcon" src="../../assets/icons/person_add.svg" alt="">
+                    ${returnIcon("person")}
                 </button>
               `;
   Object.keys(groupedUsersObj).forEach((letter) => {
