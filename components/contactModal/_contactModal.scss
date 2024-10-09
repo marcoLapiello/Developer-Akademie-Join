@@ -37,6 +37,19 @@
         top: 204px;
         left: 550px;
     }
+
+    .closeModal {
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        position: absolute;
+        top: 48px;
+        left: 1132px;
+        &:hover {
+            cursor: pointer;
+            background-color: #D1D1D1;
+        }
+    }
     
 }
 
@@ -98,6 +111,8 @@
         display: flex;
         button {
             height: 56px;
+            display: flex;
+            justify-content: space-between;
             &:hover {
                 cursor: pointer;
             }   

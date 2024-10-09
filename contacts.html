@@ -9,10 +9,11 @@
     <title>Contacts</title>
   </head>
   <body>
-    <div id="contactModal" class="contactModal d_none">
+    <div id="contactModal" class="contactModal">
       <div id="addContactContainer" class="addContactContainer">
         <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
-        <img class="newUserLogo" src="./assets/icons/newUser.svg" alt="">
+        <img class="newUserLogo" src="./assets/icons/newUser.svg" alt="" />
+        <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideAddNewUserDialog()" alt="">
         <div class="addContactContainerLeft">
           <h1>Add Contact</h1>
           <span>Tasks are better with a team!</span>
@@ -21,35 +22,28 @@
         <div class="addContactContainerRight">
           <div class="modalInputsContainer">
             <input id="addContactNameInput" type="text" placeholder="Name" />
-            <input
-              id="addContactEmailInput"
-              type="email"
-              name=""
-              id=""
-              placeholder="Email"
-            />
-            <input
-              id="addContactPhoneInput"
-              type="tel"
-              name=""
-              id=""
-              placeholder="Phone"
-              />
+            <input id="addContactEmailInput" type="email" placeholder="Email" />
+            <input id="addContactPhoneInput" type="tel" placeholder="Phone" />
           </div>
-          
+
           <div class="modalInputsBtnContainer">
-            <button class="cancelBtn" onclick="hideAddNewUserDialog()">Cancel </button>
-            <button class="createBtn" onclick="addContact()">Create Contact</button>
+            <button class="cancelBtn" onclick="hideAddNewUserDialog()">
+              Cancel
+              <img src="./assets/icons/x_btn.svg" alt="" />
+            </button>
+            <button class="createBtn" onclick="addContact()">
+              Create Contact
+              <img src="./assets/icons/check.svg" alt="" />
+            </button>
           </div>
-          
         </div>
       </div>
     </div>
 
-    <div id="contactModal" class="contactModal d_none">
-      <div id="addContactContainer" class="addContactContainer">
+    <div id="editContactModal" class="contactModal d_none">
+      <div id="editContactContainer" class="addContactContainer">
         <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
-        <img class="newUserLogo" src="./assets/icons/newUser.svg" alt="">
+        <img class="userInitials" src="./assets/icons/newUser.svg" alt="" />
         <div class="addContactContainerLeft">
           <h1>Add Contact</h1>
           <span>Tasks are better with a team!</span>
@@ -71,14 +65,15 @@
               name=""
               id=""
               placeholder="Phone"
-              />
+            />
           </div>
-          
+
           <div class="modalInputsBtnContainer">
-            <button class="cancelBtn" onclick="hideAddNewUserDialog()">Cancel </button>
+            <button class="cancelBtn" onclick="hideAddNewUserDialog()">
+              Cancel
+            </button>
             <button class="createBtn" onclick="">Create Contact</button>
           </div>
-          
         </div>
       </div>
     </div>
