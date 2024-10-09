@@ -1,7 +1,7 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
 
-export async function renderDetails(id) {
+export async function renderContactDetails(id) {
   const contactDetailsRef = document.getElementById("contactDetails");
   if (!id) {
     contactDetailsRef.innerHTML = renderDetailsTemplateFallback();
@@ -11,6 +11,11 @@ export async function renderDetails(id) {
   let userId = id;
   let user = usersArray.find((user) => user[0] === userId);
   contactDetailsRef.innerHTML = renderDetailsTemplate(user);
+}
+
+export function renderAfterDelete(userId) {
+  deleteChosenUser(userId);
+  renderContactDetails();
 }
 
 function renderDetailsTemplate(user) {
@@ -29,7 +34,7 @@ function renderDetailsTemplate(user) {
                 </div>
                 <div class="userProfileButtons">
                     <button class="editButton" onclick="editChosenUser('${user[1].id}')">${returnIcon("edit")}Edit</button>
-                    <button class="deleteButton" onclick="deleteChosenUser('${user[1].id}')">${returnIcon("delete")}Delete</button>
+                    <button class="deleteButton" onclick="renderAfterDelete('${user[1].id}')">${returnIcon("delete")}Delete</button>
                 </div>                
             </div>
         </div>
