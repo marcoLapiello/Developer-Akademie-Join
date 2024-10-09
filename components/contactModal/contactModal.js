@@ -49,9 +49,9 @@ export function getNewUser() {
 }
 
 export function showAddNewUserDialog() {
-  document.getElementById("contactModal").classList.remove("d_none");
+  document.getElementById("contactModal").classList.toggle("d_none");
 }
 
 export function hideAddNewUserDialog() {
-  document.getElementById("contactModal").classList.add("d_none");
+  document.getElementById("contactModal").classList.toggle("d_none");
 }
