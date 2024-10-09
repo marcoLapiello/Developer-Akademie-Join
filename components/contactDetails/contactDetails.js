@@ -3,19 +3,22 @@ import { getUsersArray } from "../../js/script.js";
 
 export async function renderContactDetails(id) {
   const contactDetailsRef = document.getElementById("contactDetails");
-  if (!id) {
+  if (!id && contactDetailsRef) {
     contactDetailsRef.innerHTML = renderDetailsTemplateFallback();
     return;
   }
   let usersArray = await getUsersArray();
   let userId = id;
   let user = usersArray.find((user) => user[0] === userId);
-  contactDetailsRef.innerHTML = renderDetailsTemplate(user);
+  if (contactDetailsRef) contactDetailsRef.innerHTML = renderDetailsTemplate(user);
 }
 
 export function renderAfterDelete(userId) {
   deleteChosenUser(userId);
   renderContactDetails();
+  setInterval(() => {
+    renderContactList();
+  }, 100);
 }
 
 function renderDetailsTemplate(user) {
