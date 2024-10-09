@@ -26,8 +26,8 @@ async function groupedUsers() {
 }
 
 export async function renderContactList() {
-  let groupedUsersObj = await groupedUsers();
   const contactListRef = document.getElementById("contactList");
+  let groupedUsersObj = await groupedUsers();
   let renderList = "";
   renderList += /*html*/ `
                 <button class="newContactButton" onclick="showAddNewUserDialog()">Add new Contact 
@@ -58,7 +58,7 @@ export async function renderContactList() {
     });
     renderList += /*html*/ `</ul></div> `; // Close the list for the letter
   });
-  contactListRef.innerHTML = renderList;
+  if (contactListRef) contactListRef.innerHTML = renderList;
 }
 
 window.renderContactList = renderContactList;
