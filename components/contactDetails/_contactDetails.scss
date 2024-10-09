@@ -1,0 +1,130 @@
+.contactDetails {
+  margin-top: 110px;
+  margin-left: 58px;
+  .headings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 73px;
+    height: 100%;
+    max-width: 596px;
+    width: 100%;
+
+    .heading {
+      font-size: 61px;
+      font-weight: bold;
+
+      &::after {
+        content: " ";
+        border-left: 3px solid #29abe2;
+        border-radius: 10px;
+        margin-inline: 30px;
+      }
+    }
+
+    .subHeading {
+      font-size: 27px;
+      font-weight: 400;
+      color: #2a3647;
+    }
+  }
+  .userQuickInfo {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-height: 120px;
+    height: 100%;
+    width: 100%;
+    margin-top: 33px;
+
+    .userInitials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: goldenrod;
+      max-height: 120px;
+      height: 100%;
+      max-width: 120px;
+      width: 100%;
+      border: 0px solid transparent;
+      border-radius: 50%;
+      font-size: 47px;
+      font-weight: 400;
+      color: #ffffff;
+    }
+
+    .userActions {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .userName {
+        font-size: 47px;
+        font-weight: 400;
+        line-height: 120%;
+      }
+      .userProfileButtons {
+        display: flex;
+        gap: 16px;
+
+        .editButton,
+        .deleteButton {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background-color: unset;
+          border: unset;
+
+          &:hover {
+            cursor: pointer;
+            color: #29abe2;
+            fill: #29abe2;
+          }
+
+          & svg {
+            height: 24px;
+            width: 24px;
+          }
+        }
+      }
+    }
+  }
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+
+    .heading {
+      display: flex;
+      align-items: center;
+      height: 74px;
+      max-width: 207px;
+      width: 100%;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+
+    .contactEmail {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .type {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    .contactPhone {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .type {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }
+}
