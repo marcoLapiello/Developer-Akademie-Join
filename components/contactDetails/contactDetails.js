@@ -1,10 +1,57 @@
-export function renderDetails() {
+import { returnIcon } from "../icons.js";
+import { getUsersArray } from "../../js/script.js";
+
+export async function renderDetails(id) {
   const contactDetailsRef = document.getElementById("contactDetails");
-  contactDetailsRef.innerHTML = renderDetailsTemplate();
+  if (!id) {
+    contactDetailsRef.innerHTML = renderDetailsTemplateFallback();
+    return;
+  }
+  let usersArray = await getUsersArray();
+  let userId = id;
+  let user = usersArray.find((user) => user[0] === userId);
+  contactDetailsRef.innerHTML = renderDetailsTemplate(user);
 }
 
-function renderDetailsTemplate() {
+function renderDetailsTemplate(user) {
   return /*html*/ `
-        <p>Hallo Welt</p>
+        <div class="headings" >
+            <span class="heading">Contacts</span>
+            <span class="subHeading" >Better with a team</span>
+        </div>
+        <div class="userQuickInfo">
+            <div class="userInitials" >
+            ${user[1].profile.initials}
+            </div>
+            <div class="userActions">
+                <div class="userName">
+                ${user[1].profile.first_name} ${user[1].profile.last_name}
+                </div>
+                <div class="userProfileButtons">
+                    <button class="editButton" onclick="editChosenUser('${user[1].id}')">${returnIcon("edit")}Edit</button>
+                    <button class="deleteButton" onclick="deleteChosenUser('${user[1].id}')">${returnIcon("delete")}Delete</button>
+                </div>                
+            </div>
+        </div>
+        <div class="contactInfo">
+            <div class="heading">Contact Information</div>                    
+        <div class="contactEmail">
+            <div class="type">Email</div>
+            <a href="mailto:${user[1].profile.email}">${user[1].profile.email}</a>            
+        </div>
+        <div class="contactPhone">
+        <div class="type">Phone</div>
+            <a href="tel:${user[1].profile.phone}">${user[1].profile.phone}</a>
+        </div>
+        </div>
+    `;
+}
+
+function renderDetailsTemplateFallback() {
+  return /*html*/ `
+        <div class="headings" >
+            <span class="heading">Contacts</span>
+            <span class="subHeading" >Better with a team</span>
+        </div>
     `;
 }
