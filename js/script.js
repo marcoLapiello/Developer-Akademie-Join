@@ -3,6 +3,7 @@ renderContactList();
 
 import { renderDetails } from "../components/contactDetails/contactDetails.js";
 renderDetails();
+window.renderDetails = renderDetails;
 
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
