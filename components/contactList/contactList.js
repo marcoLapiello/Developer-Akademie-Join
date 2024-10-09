@@ -44,7 +44,7 @@ export async function renderContactList() {
     groupedUsersObj[letter].forEach((user) => {
       // Loop through each user in the array for the letter
       renderList += /*html*/ `        
-            <li onclick="console.log('Example User ID Parameter for later ${user[1].id}')" class="userListItem">
+            <li onclick="renderDetails('${user[1].id}')" class="userListItem">
                 <span class="userInitials" style="background-color: ${user[1].user_color};" >
                   ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
                 </span>
@@ -52,7 +52,7 @@ export async function renderContactList() {
                     <span class="userName">
                         ${user[1].profile.first_name} ${user[1].profile.last_name}
                     </span>             
-                    <a class="usersMail" href="mailto:${user[1].profile.email}">${user[1].profile.email}</a>
+                    <a class="usersMail">${user[1].profile.email}</a>
                 </div>
             </li>`; // Add the user to the list. Name , Last Name , Email
     });
