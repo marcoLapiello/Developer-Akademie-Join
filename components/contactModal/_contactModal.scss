@@ -1,23 +1,32 @@
 .contactModal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px black solid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px black solid;
 }
 
 .addContactContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1212px;
-  height: 592px;
-  background-color: white;
-  border-radius: 30px;
-  display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1212px;
+    height: 592px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+
+    .modalLogo {
+        z-index: 1;
+        position: absolute;
+        top: 150px;
+        left: 48px;
+        height: 66.48px;
+        width: 55.6px;
+    }
 
     .newUserLogo {
         width: 120px;
@@ -35,86 +44,68 @@
         position: absolute;
         top: 48px;
         left: 1132px;
+
         &:hover {
             cursor: pointer;
             background-color: #D1D1D1;
         }
     }
-    
+
 }
 
 .addContactContainerLeft {
-  width: 467px;
-  height: 100%;
-  padding: 66px 48px;
-  background-color: #2a3647;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: white;
+    width: 467px;
+    height: 100%;
+    padding: 66px 48px;
+    background-color: #2a3647;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
 
-  h1 {
-    font-size: 61px;
-    font-weight: 700;
-  }
-  span {
-    font-size: 27px;
-    margin-bottom: 10px;
-  }
-  .vector {
-    width: 90px;
-    height: 2px;
-    background-color: #29abe2;
-  }
+    h1 {
+        font-size: 61px;
+        font-weight: 700;
+    }
+
+    span {
+        font-size: 27px;
+        margin-bottom: 10px;
+    }
+
+    .vector {
+        width: 90px;
+        height: 2px;
+        background-color: #29abe2;
+    }
 }
 
 .addContactContainerRight {
-  width: 745px;
-  height: 100%;
-  padding: 66px 48px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  .modalInputsContainer {
-    width: 422px;
-    height: 215px;
-    gap: 32px;
+    width: 745px;
+    height: 100%;
+    padding: 66px 48px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
     display: flex;
     flex-direction: column;
-    input {
-      height: 50px;
-      border: 1px solid #d1d1d1;
-      border-radius: 10px;
-      padding: 13px 21px;
-    }
-  }
+    justify-content: center;
+    align-items: end;
 
-  .modalInputsBtnContainer {
-    width: 422px;
-    height: 57px;
-    margin-top: 50px;
-    display: flex;
-    button {
-      height: 56px;
-      &:hover {
-        cursor: pointer;
-      }
-    }
-    .cancelBtn {
-      width: 126px;
-      padding: 16px;
-      border-radius: 10px;
-      border: 1px solid #2a3647;
-      background-color: white;
-      font-size: 20px;
-      font-weight: 400;
-      color: #2a3647;
-      margin-right: 24px;
+    .modalInputsContainer {
+        width: 422px;
+        height: 215px;
+        gap: 32px;
+        display: flex;
+        flex-direction: column;
+
+        input {
+            height: 50px;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px;
+            padding: 13px 21px;
+        }
     }
 
     .modalInputsBtnContainer {
@@ -122,14 +113,38 @@
         height: 57px;
         margin-top: 50px;
         display: flex;
+
+        button {
+            height: 56px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .cancelBtn {
+            width: 126px;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #2a3647;
+            background-color: white;
+            font-size: 20px;
+            font-weight: 400;
+            color: #2a3647;
+            margin-right: 24px;
+        }
+
+
         button {
             height: 56px;
             display: flex;
             justify-content: space-between;
+
             &:hover {
                 cursor: pointer;
-            }   
+            }
         }
+
         .cancelBtn {
             width: 126px;
             padding: 16px;
@@ -151,12 +166,12 @@
             font-weight: 700;
             color: white;
         }
+
     }
-  }
 }
 
 .currentUserInitials {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
