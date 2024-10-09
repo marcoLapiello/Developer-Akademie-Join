@@ -5,8 +5,9 @@ import { showAddNewUserDialog, hideAddNewUserDialog } from "../components/contac
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;
 
-import { addContact, loadUsers } from "../js/apiService.js";
+import { addContact, deleteChoosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
+window.deleteChoosenUser = deleteChoosenUser;
 
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
@@ -14,8 +15,8 @@ export let addContactPhoneInputRef = document.getElementById("addContactPhoneInp
 
 export async function getUsersArray() {
   let usersArray = await loadUsers();
-  // console.log(usersArray);
   return usersArray;
 }
 
+// später diese funktion in eine "onload init funktion packen"
 getUsersArray();

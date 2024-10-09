@@ -9,6 +9,21 @@ export async function addContact() {
   await loadUsers();
 }
 
+export async function deleteChoosenUser(id) {
+  await deleteUserData(id);
+  await loadUsers();
+}
+
+async function deleteUserData(id) {
+  let path = `/user/${id}`;
+  let response = await fetch(baseUrl + path + ".json", {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+}
+
 async function patchNewUser() {
   let newUser = getNewUser();
   let id = newUser.id;
@@ -19,10 +34,16 @@ async function patchNewUser() {
     },
     body: JSON.stringify(newUser),
   });
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
 }
 
 export async function loadUsers() {
   let response = await fetch(baseUrl + ".json");
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
   let responseAsJson = await response.json();
   let users = Object.entries(responseAsJson.user);
   return users;
