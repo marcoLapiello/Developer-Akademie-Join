@@ -16,7 +16,7 @@ export async function deleteChoosenUser(id) {
 
 async function deleteUserData(id) {
   let path = `/user/${id}`;
-  let response = await fetch(BASE_URL + path + ".json", {
+  let response = await fetch(baseUrl + path + ".json", {
     method: "DELETE",
   });
   if (!response.ok) {
