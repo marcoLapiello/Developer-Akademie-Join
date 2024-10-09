@@ -1,9 +1,10 @@
 import { renderContactList } from "../components/contactList/contactList.js";
 renderContactList();
 
-import { renderDetails } from "../components/contactDetails/contactDetails.js";
-renderDetails();
-window.renderDetails = renderDetails;
+import { renderContactDetails, renderAfterDelete } from "../components/contactDetails/contactDetails.js";
+renderContactDetails();
+window.renderContactDetails = renderContactDetails;
+window.renderAfterDelete = renderAfterDelete;
 
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
