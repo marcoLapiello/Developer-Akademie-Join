@@ -12,7 +12,9 @@
 }
 
 .active {
-  background-color: #091931;
+  & img {
+    background-color: #091931;
+  }
 }
 
 #informations {
