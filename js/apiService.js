@@ -10,7 +10,7 @@ export async function addContact() {
   hideAddNewUserDialog();
 }
 
-export async function deleteChoosenUser(id) {
+export async function deleteChosenUser(id) {
   await deleteUserData(id);
   await loadUsers();
 }

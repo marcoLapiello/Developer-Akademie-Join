@@ -5,9 +5,9 @@ import { showAddNewUserDialog, hideAddNewUserDialog } from "../components/contac
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;
 
-import { addContact, deleteChoosenUser, loadUsers } from "../js/apiService.js";
+import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
-window.deleteChoosenUser = deleteChoosenUser;
+window.deleteChoosenUser = deleteChosenUser;
 
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
