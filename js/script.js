@@ -1,6 +1,9 @@
 import { renderContactList } from "../components/contactList/contactList.js";
 renderContactList();
 
+import { renderDetails } from "../components/contactDetails/contactDetails.js";
+renderDetails();
+
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
 
