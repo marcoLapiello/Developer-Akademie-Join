@@ -4,21 +4,22 @@
     left: 0;
     height: 100vh;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.155);
+    background-color: rgba(0, 0, 0, 0.1);
     border: 1px black solid;
-    position: relative;
+    
 }
 
 .addContactContainer {
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
     width: 1212px;
     height: 592px;
     background-color: white;
     border-radius: 30px;
     display: flex;
-    position: relative;
+    
     .modalLogo {
         z-index: 1;
         position: absolute;
@@ -50,7 +51,7 @@
     flex-direction: column;
     justify-content: center;
     color: white;
-    position: relative;
+    
     h1 {
         font-size: 61px;
         font-weight: 700;
@@ -97,6 +98,9 @@
         display: flex;
         button {
             height: 56px;
+            &:hover {
+                cursor: pointer;
+            }   
         }
         .cancelBtn {
             width: 126px;
@@ -121,3 +125,7 @@
         }
     }
 }
+
+// .button:hover {
+//     cursor: pointer;
+// }
