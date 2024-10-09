@@ -5,6 +5,8 @@
 
 main {
   display: flex;
+  max-width: 1440px;
+  width: 100%;
 
   .contactContent {
     display: flex;
