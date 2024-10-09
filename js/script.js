@@ -14,8 +14,8 @@ export let addContactPhoneInputRef = document.getElementById("addContactPhoneInp
 
 export async function getUsersArray() {
   let usersArray = await loadUsers();
-  // console.log(usersArray);
   return usersArray;
 }
 
+// später diese funktion in eine "onload init funktion packen"
 getUsersArray();
