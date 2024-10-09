@@ -10,7 +10,7 @@ window.hideAddNewUserDialog = hideAddNewUserDialog;
 
 import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
-window.deleteChoosenUser = deleteChosenUser;
+window.deleteChosenUser = deleteChosenUser;
 
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
@@ -21,5 +21,5 @@ export async function getUsersArray() {
   return usersArray;
 }
 
-// später diese funktion in eine "onload init funktion packen"
+// später diese Funktion in eine "onload init Funktion packen"
 getUsersArray();
