@@ -1,6 +1,9 @@
 import { renderContactList } from "../components/contactList/contactList.js";
 renderContactList();
 
+import { renderSidebar } from "../components/sidebar/sidebar.js";
+renderSidebar();
+
 import { showAddNewUserDialog, hideAddNewUserDialog } from "../components/contactModal/contactModal.js";
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;

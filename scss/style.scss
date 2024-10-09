@@ -2,3 +2,7 @@
 @import "./var.scss";
 @import "./default.scss";
 @import "../components/components.scss";
+
+main {
+  display: flex;
+}

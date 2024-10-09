@@ -9,70 +9,70 @@
     <title>Contacts</title>
   </head>
   <body>
-    <div id="contactModal" class="contactModal d_none">
-      <div id="addContactContainer" class="addContactContainer">
-        <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
-        <img class="newUserLogo" src="./assets/icons/newUser.svg" alt="" />
-        <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideAddNewUserDialog()" alt="" />
-        <div class="addContactContainerLeft">
-          <h1>Add Contact</h1>
-          <span>Tasks are better with a team!</span>
-          <div class="vector"></div>
-        </div>
-        <div class="addContactContainerRight">
-          <div class="modalInputsContainer">
-            <input id="addContactNameInput" type="text" placeholder="Name" />
-            <input id="addContactEmailInput" type="email" placeholder="Email" />
-            <input id="addContactPhoneInput" type="tel" placeholder="Phone" />
+    <main>
+      <div id="contactModal" class="contactModal d_none">
+        <div id="addContactContainer" class="addContactContainer">
+          <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
+          <img class="newUserLogo" src="./assets/icons/newUser.svg" alt="" />
+          <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideAddNewUserDialog()" alt="" />
+          <div class="addContactContainerLeft">
+            <h1>Add Contact</h1>
+            <span>Tasks are better with a team!</span>
+            <div class="vector"></div>
           </div>
+          <div class="addContactContainerRight">
+            <div class="modalInputsContainer">
+              <input id="addContactNameInput" type="text" placeholder="Name" />
+              <input id="addContactEmailInput" type="email" placeholder="Email" />
+              <input id="addContactPhoneInput" type="tel" placeholder="Phone" />
+            </div>
 
-          <div class="modalInputsBtnContainer">
-            <button class="cancelBtn" onclick="hideAddNewUserDialog()">
-              Cancel
-              <img src="./assets/icons/x_btn.svg" alt="" />
-            </button>
-            <button class="createBtn" onclick="addContact()">
-              Create Contact
-              <img src="./assets/icons/check.svg" alt="" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="editContactModal" class="contactModal d_none">
-      <div id="editContactContainer" class="addContactContainer">
-        <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
-        <div class="newUserLogo"></div>
-        <div class="addContactContainerLeft">
-          <h1>Add Contact</h1>
-          <span>Tasks are better with a team!</span>
-          <div class="vector"></div>
-        </div>
-        <div class="addContactContainerRight">
-          <div class="modalInputsContainer">
-            <input id="editContactNameInput" type="text" placeholder="Name" />
-            <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" />
-            <input id="editContactPhoneInput" type="tel" name="" id="" placeholder="Phone" />
-          </div>
-
-          <div class="modalInputsBtnContainer">
-            <button class="cancelBtn" onclick="hideAddNewUserDialog()">Cancel</button>
-            <button class="createBtn" onclick="">Create Contact</button>
+            <div class="modalInputsBtnContainer">
+              <button class="cancelBtn" onclick="hideAddNewUserDialog()">
+                Cancel
+                <img src="./assets/icons/x_btn.svg" alt="" />
+              </button>
+              <button class="createBtn" onclick="addContact()">
+                Create Contact
+                <img src="./assets/icons/check.svg" alt="" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div id="editContactModal" class="contactModal d_none">
+        <div id="editContactContainer" class="addContactContainer">
+          <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
+          <div class="newUserLogo"></div>
+          <div class="addContactContainerLeft">
+            <h1>Add Contact</h1>
+            <span>Tasks are better with a team!</span>
+            <div class="vector"></div>
+          </div>
+          <div class="addContactContainerRight">
+            <div class="modalInputsContainer">
+              <input id="editContactNameInput" type="text" placeholder="Name" />
+              <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" />
+              <input id="editContactPhoneInput" type="tel" name="" id="" placeholder="Phone" />
+            </div>
 
-    <!-- temporaray buttons for functions developing -->
-    <button onclick="editChosenUser('id')">Edit</button><button onclick="deleteChosenUser('id')">Delete</button>
-    <nav id="sidebar" class="sidebar"></nav>
-    <main id="content" class="content">
-      <header id="header" class="header"></header>
-      <div id="contactContent" class="contactContent">
-        <div id="contactList" class="contactList"></div>
-        <div id="contactDetails" class="contactDetails"></div>
+            <div class="modalInputsBtnContainer">
+              <button class="cancelBtn" onclick="hideAddNewUserDialog()">Cancel</button>
+              <button class="createBtn" onclick="">Create Contact</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- temporaray buttons for functions developing -->
+      <button onclick="editChosenUser('id')">Edit</button><button onclick="deleteChosenUser('id')">Delete</button>
+      <nav id="sidebar" class="sidebar"></nav>
+      <section id="content" class="content">
+        <header id="header" class="header"></header>
+        <div id="contactContent" class="contactContent">
+          <div id="contactList" class="contactList"></div>
+          <div id="contactDetails" class="contactDetails"></div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
