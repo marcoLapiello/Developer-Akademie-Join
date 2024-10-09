@@ -4,9 +4,8 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.155);
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px black solid;
-  position: relative;
 }
 
 .addContactContainer {
@@ -22,19 +21,32 @@
   .modalLogo {
     z-index: 1;
     position: absolute;
-    top: 150px;
-    left: 48px;
-    height: 66.48px;
-    width: 55.6px;
-  }
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1212px;
+    height: 592px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
 
-  .newUserLogo {
-    width: 120px;
-    height: 120px;
-    border-radius: 70px;
-    position: absolute;
-    top: 204px;
-    left: 550px;
+    .modalLogo {
+      z-index: 1;
+      position: absolute;
+      top: 150px;
+      left: 48px;
+      height: 66.48px;
+      width: 55.6px;
+    }
+
+    .newUserLogo {
+      width: 120px;
+      height: 120px;
+      border-radius: 70px;
+      position: absolute;
+      top: 204px;
+      left: 550px;
+    }
   }
 }
 
@@ -49,7 +61,7 @@
   flex-direction: column;
   justify-content: center;
   color: white;
-  position: relative;
+
   h1 {
     font-size: 61px;
     font-weight: 700;
@@ -109,14 +121,42 @@
       margin-right: 24px;
     }
 
-    .createBtn {
-      width: 214px;
-      padding: 16px;
-      border-radius: 10px;
-      background-color: #2a3647;
-      font-size: 20px;
-      font-weight: 700;
-      color: white;
+    .modalInputsBtnContainer {
+      width: 422px;
+      height: 57px;
+      margin-top: 50px;
+      display: flex;
+      button {
+        height: 56px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .cancelBtn {
+        width: 126px;
+        padding: 16px;
+        border-radius: 10px;
+        border: 1px solid #2a3647;
+        background-color: white;
+        font-size: 20px;
+        font-weight: 400;
+        color: #2a3647;
+        margin-right: 24px;
+      }
+
+      .createBtn {
+        width: 214px;
+        padding: 16px;
+        border-radius: 10px;
+        background-color: #2a3647;
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+      }
     }
   }
+
+  // .button:hover {
+  //     cursor: pointer;
+  // }
 }
