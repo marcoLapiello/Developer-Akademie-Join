@@ -49,9 +49,17 @@ export function getNewUser() {
 }
 
 export function showAddNewUserDialog() {
-  document.getElementById("contactModal").classList.toggle("d_none");
+  document.getElementById("contactModal").classList.remove("d_none");
 }
 
 export function hideAddNewUserDialog() {
-  document.getElementById("contactModal").classList.toggle("d_none");
+  document.getElementById("contactModal").classList.add("d_none");
+}
+
+export function editChosenUser() {
+  document.getElementById("editContactModal").classList.remove("d_none");
+}
+
+export function hideEditChosenUserDialog() {
+  document.getElementById("editContactModal").classList.add("d_none");
 }
