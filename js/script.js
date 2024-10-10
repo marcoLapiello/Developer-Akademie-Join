@@ -9,9 +9,11 @@ window.renderAfterDelete = renderAfterDelete;
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
 
-import { showAddNewUserDialog, hideAddNewUserDialog } from "../components/contactModal/contactModal.js";
+import { showAddNewUserDialog, hideAddNewUserDialog, editChosenUser, hideEditChosenUserDialog } from "../components/contactModal/contactModal.js";
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;
+window.editChosenUser = editChosenUser;
+window.hideEditChosenUserDialog = hideEditChosenUserDialog;
 
 import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
