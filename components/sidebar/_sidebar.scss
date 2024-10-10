@@ -19,5 +19,24 @@
 
 #informations {
   padding-left: 52px;
-  gap: 4px;
+  gap: 8px;
+
+  & a {
+    color: #a8a8a8;
+    width: 105px;
+    height: 19px;
+  }
+}
+
+.sidebar-Block {
+  width: 232px;
+  gap: 15px;
+}
+
+.sidebar-Block a {
+  color: #ffffff;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.2px;
 }
