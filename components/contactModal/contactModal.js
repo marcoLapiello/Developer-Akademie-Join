@@ -20,7 +20,7 @@ let userColors = [
   "#FFBB2B",
 ];
 
-let users;
+let users = await getUsersArray();
 
 function getRandomUserColor() {
   let randomIndex = Math.floor(Math.random() * userColors.length);
@@ -55,52 +55,27 @@ export function getNewUser() {
 export function showAddNewUserDialog() {
   document.getElementById("contactModal").classList.remove("d_none");
   setTimeout(() => {
-    executeOpenAnimation();
-  }, 100);
+    document.getElementById("addContactContainer").style.left = "50%";
+  }, 50);
 }
 
 export function hideAddNewUserDialog() {
-  // document.getElementById("contactModal").classList.add("d_none");
-  executeClosingAnimation();
+  document.getElementById("addContactContainer").style.left = "150%";
   setTimeout(() => {
     document.getElementById("contactModal").classList.add("d_none");
-  }, 500);
+  }, 550);
 }
 
-export function editChosenUser(id) {
+export function showEditChosenUserDialog(id) {
   document.getElementById("editContactModal").classList.remove("d_none");
+  setTimeout(() => {
+    document.getElementById("editContactContainer").style.left = "50%";
+  }, 50);
 }
 
 export function hideEditChosenUserDialog() {
-  document.getElementById("editContactModal").classList.add("d_none");
-  executeClosingAnimation();
+  document.getElementById("editContactContainer").style.left = "150%";
   setTimeout(() => {
     document.getElementById("editContactModal").classList.add("d_none");
-  }, 500);
-}
-
-function getModalCoordinates() {
-  let modalElement = document.getElementById("addContactContainer");
-  if (modalElement) {
-    let rect = modalElement.getBoundingClientRect();
-    return {
-      top: rect.top,
-      left: rect.left,
-      width: rect.width,
-      height: rect.height,
-    };
-  }
-  return null;
-}
-
-function executeOpenAnimation() {
-  getModalCoordinates();
-  let modalElement = document.getElementById("addContactContainer");
-  modalElement.style.left = "50%";
-}
-
-function executeClosingAnimation() {
-  getModalCoordinates();
-  let modalElement = document.getElementById("addContactContainer");
-  modalElement.style.left = "150%";
+  }, 550);
 }
