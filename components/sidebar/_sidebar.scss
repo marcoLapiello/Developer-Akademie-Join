@@ -1,7 +1,7 @@
 .sidebar {
   max-width: 1920px;
   display: flex;
-  width: 232px;
+  min-width: 232px;
   height: 100vh;
   background-color: #2a3647;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   background-color: #091931;
 }
 
-#informations {
+#information {
   padding-left: 52px;
   gap: 8px;
 
@@ -27,13 +27,15 @@
 .sidebar-Block {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   gap: 15px;
   padding: 0;
+  width: 100%;
 }
 
 .sidebar-Block a {
   display: flex;
+  align-items: center;
   color: #ffffff;
   font-family: "Inter";
   font-weight: 400;
@@ -41,14 +43,23 @@
   line-height: 19.2px;
   gap: 15px;
   padding: 0;
+  padding-inline: 20%;
   opacity: 100%;
-  align-items: center;
+  width: 100%;
 }
 
-#informations {
+#information {
   display: flex;
   flex-direction: column;
   width: 121px;
   height: 35px;
   padding: 0;
+  width: 100%;
+
+  & a {
+    display: flex;
+    align-items: center;
+    padding-inline: 20%;
+    width: 100%;
+  }
 }
