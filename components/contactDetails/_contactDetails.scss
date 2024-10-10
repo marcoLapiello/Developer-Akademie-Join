@@ -5,6 +5,7 @@
   width: 100%;
 
   @media (max-width: $breakpoint-lg) {
+    display: none;
     max-width: 400px;
   }
 
