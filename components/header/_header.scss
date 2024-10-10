@@ -3,15 +3,13 @@ header {
   height: 96px;
   justify-content: space-between;
   display: flex;
-  padding-top: 20px;
-  padding-right: 40px;
-  padding-bottom: 20px;
-  padding-left: 348px;
+  padding: 20px 40px 20px 348px;
+  position: relative;
 }
+
 .user-Profile-Initials {
   width: 56px;
   height: 56px;
-  background-color: red($color: #000000);
   border: 3px solid #2a3647;
   border-radius: 50%;
 }
@@ -20,4 +18,62 @@ header {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.dropDown {
+  width: 160px;
+  height: 158px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 20px;
+  background-color: #2a3647;
+  position: absolute;
+  top: 96px;
+
+  & a {
+    color: #cdcdcd;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-align: left;
+  }
+
+  & .legalNotice {
+    width: 130px;
+    height: 46px;
+    border-radius: 8px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    gap: 8px;
+  }
+
+  & .privacyPolicy {
+    width: 137px;
+    height: 46px;
+    border-radius: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    gap: 8px;
+  }
+
+  & .logOut {
+    width: 130px;
+    height: 46px;
+    border-radius: 8px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-left: 8xp;
+    padding-left: 16px;
+    gap: 8px;
+  }
+}
+
+.dNone {
+  display: none;
 }
