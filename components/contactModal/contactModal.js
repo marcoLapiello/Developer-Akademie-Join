@@ -1,4 +1,5 @@
 import {
+  getUsersArray,
   addContactNameInputRef,
   addContactEmailInputRef,
   addContactPhoneInputRef,
@@ -6,9 +7,10 @@ import {
   editContactEmailInputRef,
   editContactPhoneInputRef,
   editNewUserLogoRef,
+  saveEditedUserButtonRef,
 } from "../../js/script.js";
 
-import { getUsersArray } from "../../js/script.js";
+import { editExistingUser } from "../../js/apiService.js";
 
 let userColors = [
   "#FF7A00",
@@ -60,6 +62,25 @@ export function getNewUser() {
   return user;
 }
 
+export function getEditUserObject(id, user) {
+  let fullName = editContactNameInputRef.value;
+  let email = editContactEmailInputRef.value;
+  let phoneNumber = editContactPhoneInputRef.value;
+  let nameParts = fullName.split(" ");
+  let name = nameParts[0];
+  let surname = nameParts[1];
+  let editUserProfile = {
+    first_name: name,
+    last_name: surname,
+    initials: user[1].profile.initials,
+    email: email,
+    phone: phoneNumber,
+  };
+  console.log(editUserProfile);
+
+  return editUserProfile;
+}
+
 export function showAddNewUserDialog() {
   document.getElementById("contactModal").classList.remove("d_none");
   setTimeout(() => {
@@ -82,6 +103,9 @@ export async function showEditChosenUserDialog(id) {
   editContactPhoneInputRef.value = user[1].profile.phone;
   editNewUserLogoRef.style.backgroundColor = user[1].user_color;
   editNewUserLogoRef.innerHTML = `<span>${user[1].profile.initials}</span>`;
+  saveEditedUserButtonRef.addEventListener("click", () => {
+    editExistingUser(id, user);
+  });
   document.getElementById("editContactModal").classList.remove("d_none");
   setTimeout(() => {
     document.getElementById("editContactContainer").style.left = "50%";

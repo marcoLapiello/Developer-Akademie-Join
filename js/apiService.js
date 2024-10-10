@@ -1,6 +1,6 @@
 const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
 
-import { getNewUser, hideAddNewUserDialog } from "../components/contactModal/contactModal.js";
+import { getNewUser, hideAddNewUserDialog, getEditUserObject } from "../components/contactModal/contactModal.js";
 
 // export let usersArray = [];
 
@@ -38,6 +38,10 @@ async function patchNewUser() {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
+}
+
+export async function editExistingUser(id, user) {
+  getEditUserObject(id, user);
 }
 
 export async function loadUsers() {
