@@ -1,6 +1,6 @@
 import { addContactNameInputRef, addContactEmailInputRef, addContactPhoneInputRef } from "../../js/script.js";
 
-import { getUsersArray } from "../../js/script.js";
+// import { getUsersArray } from "../../js/script.js";
 
 let userColors = [
   "#FF7A00",
@@ -20,7 +20,7 @@ let userColors = [
   "#FFBB2B",
 ];
 
-let users = await getUsersArray();
+// let users = await getUsersArray();
 
 function getRandomUserColor() {
   let randomIndex = Math.floor(Math.random() * userColors.length);
