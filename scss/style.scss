@@ -8,8 +8,12 @@ main {
   max-width: 1440px;
   width: 100%;
 
-  .contactContent {
-    display: flex;
+  .content {
+    width: 100%;
+
+    .contactContent {
+      display: flex;
+    }
   }
 }
 
