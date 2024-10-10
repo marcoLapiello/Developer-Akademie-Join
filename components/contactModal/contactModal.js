@@ -10,6 +10,7 @@ import {
   saveEditedUserButtonRef,
   addedUserFeedbackRef,
   confirmDeleteUserModalRef,
+  deleteChosenUserBtnRef,
 } from "../../js/script.js";
 
 import { editExistingUser } from "../../js/apiService.js";
@@ -120,6 +121,9 @@ export async function showEditChosenUserDialog(id) {
   saveEditedUserButtonRef.addEventListener("click", () => {
     editExistingUser(id, user);
   });
+  deleteChosenUserBtnRef.addEventListener("click", () => {
+    showConfirmDeleteUserDialog(id);
+  });
   document.getElementById("editContactModal").classList.remove("d_none");
   setTimeout(() => {
     document.getElementById("editContactContainer").style.left = "50%";
@@ -133,7 +137,7 @@ export function hideEditChosenUserDialog() {
   }, 550);
 }
 
-export function showConfirmDeleteUserDialog() {
+export function showConfirmDeleteUserDialog(id) {
   confirmDeleteUserModalRef.classList.remove("d_none");
 }
 
