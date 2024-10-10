@@ -1,4 +1,8 @@
-import { addContactNameInputRef, addContactEmailInputRef, addContactPhoneInputRef } from "../../js/script.js";
+import {
+  addContactNameInputRef,
+  addContactEmailInputRef,
+  addContactPhoneInputRef,
+} from "../../js/script.js";
 
 let userColors = [
   "#FF7A00",
@@ -49,9 +53,42 @@ export function getNewUser() {
 }
 
 export function showAddNewUserDialog() {
-  document.getElementById("contactModal").classList.toggle("d_none");
+  document.getElementById("contactModal").classList.remove("d_none");
+  setTimeout(() => {
+    executeOpenAnimation();
+  }, 100);
+  
+}
+
+function executeOpenAnimation() {
+  getModalCoordinates();
+  let modalElement = document.getElementById("addContactContainer");
+  modalElement.style.left = "50%";
+}
+
+function getModalCoordinates() {
+  let modalElement = document.getElementById("addContactContainer");
+  if (modalElement) {
+    let rect = modalElement.getBoundingClientRect();
+    return {
+      top: rect.top,
+      left: rect.left,
+      width: rect.width,
+      height: rect.height,
+    };
+  }
+  return null;
+}
+
+function executeClosingAnimation() {
+  getModalCoordinates();
+  let modalElement = document.getElementById("addContactContainer");
+  modalElement.style.left = "150%";
 }
 
 export function hideAddNewUserDialog() {
-  document.getElementById("contactModal").classList.toggle("d_none");
+  executeClosingAnimation();
+  setTimeout(() => {
+    document.getElementById("contactModal").classList.add("d_none");
+  }, 500);
 }
