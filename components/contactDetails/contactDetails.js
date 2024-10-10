@@ -45,7 +45,7 @@ function renderDetailsTemplate(user) {
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
-            <button class="switchMobileButton" onclick="switchMobile()"><-</button>            
+            <div class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>            
         </div>        
         <div class="userQuickInfo">
             <div class="userInitials" >
@@ -83,7 +83,7 @@ function renderDetailsTemplateFallback() {
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
-            <button class="switchMobileButton" onclick="switchMobile()"><-</button>
+            <div class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>
         </div>
       </div>
     `;
