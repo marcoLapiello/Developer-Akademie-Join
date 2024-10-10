@@ -1,5 +1,6 @@
 .contactModal {
   position: absolute;
+  z-index: 1000;
   top: 0;
   left: 0;
   height: 100vh;
@@ -36,6 +37,11 @@
     position: absolute;
     top: 204px;
     left: 550px;
+    color: white;
+    font-size: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .closeModal {

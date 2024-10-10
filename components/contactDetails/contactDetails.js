@@ -8,8 +8,7 @@ export async function renderContactDetails(id) {
     return;
   }
   let usersArray = await getUsersArray();
-  let userId = id;
-  let user = usersArray.find((user) => user[0] === userId);
+  let user = usersArray.find((user) => user[0] === id);
   if (contactDetailsRef) contactDetailsRef.innerHTML = renderDetailsTemplate(user);
 }
 
@@ -36,7 +35,8 @@ function renderDetailsTemplate(user) {
                 ${user[1].profile.first_name} ${user[1].profile.last_name}
                 </div>
                 <div class="userProfileButtons">
-                    <button class="editButton" onclick="showEditChosenUserDialog('${user[1].id}')">${returnIcon("edit")}Edit</button>
+                    <button class="editButton" 
+                    onclick="showEditChosenUserDialog('${user[1].id}')">${returnIcon("edit")}Edit</button>
                     <button class="deleteButton" onclick="renderAfterDelete('${user[1].id}')">${returnIcon("delete")}Delete</button>
                 </div>                
             </div>

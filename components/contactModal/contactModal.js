@@ -1,6 +1,16 @@
-import { addContactNameInputRef, addContactEmailInputRef, addContactPhoneInputRef } from "../../js/script.js";
+import {
+  getUsersArray,
+  addContactNameInputRef,
+  addContactEmailInputRef,
+  addContactPhoneInputRef,
+  editContactNameInputRef,
+  editContactEmailInputRef,
+  editContactPhoneInputRef,
+  editNewUserLogoRef,
+  saveEditedUserButtonRef,
+} from "../../js/script.js";
 
-// import { getUsersArray } from "../../js/script.js";
+import { editExistingUser } from "../../js/apiService.js";
 
 let userColors = [
   "#FF7A00",
@@ -52,6 +62,25 @@ export function getNewUser() {
   return user;
 }
 
+export function getEditUserObject(id, user) {
+  let fullName = editContactNameInputRef.value;
+  let email = editContactEmailInputRef.value;
+  let phoneNumber = editContactPhoneInputRef.value;
+  let nameParts = fullName.split(" ");
+  let name = nameParts[0];
+  let surname = nameParts[1];
+  let editUserProfile = {
+    first_name: name,
+    last_name: surname,
+    initials: user[1].profile.initials,
+    email: email,
+    phone: phoneNumber,
+  };
+  console.log(editUserProfile);
+
+  return editUserProfile;
+}
+
 export function showAddNewUserDialog() {
   document.getElementById("contactModal").classList.remove("d_none");
   setTimeout(() => {
@@ -66,7 +95,17 @@ export function hideAddNewUserDialog() {
   }, 550);
 }
 
-export function showEditChosenUserDialog(id) {
+export async function showEditChosenUserDialog(id) {
+  let usersArray = await getUsersArray();
+  let user = usersArray.find((element) => element[0] == id);
+  editContactNameInputRef.value = user[1].profile.first_name + " " + user[1].profile.last_name;
+  editContactEmailInputRef.value = user[1].profile.email;
+  editContactPhoneInputRef.value = user[1].profile.phone;
+  editNewUserLogoRef.style.backgroundColor = user[1].user_color;
+  editNewUserLogoRef.innerHTML = `<span>${user[1].profile.initials}</span>`;
+  saveEditedUserButtonRef.addEventListener("click", () => {
+    editExistingUser(id, user);
+  });
   document.getElementById("editContactModal").classList.remove("d_none");
   setTimeout(() => {
     document.getElementById("editContactContainer").style.left = "50%";

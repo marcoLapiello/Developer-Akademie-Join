@@ -23,6 +23,12 @@ export let addContactNameInputRef = document.getElementById("addContactNameInput
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
 export let addContactPhoneInputRef = document.getElementById("addContactPhoneInput");
 
+export let editContactNameInputRef = document.getElementById("editContactNameInput");
+export let editContactEmailInputRef = document.getElementById("editContactEmailInput");
+export let editContactPhoneInputRef = document.getElementById("editContactPhoneInput");
+export let editNewUserLogoRef = document.getElementById("editNewUserLogo");
+export let saveEditedUserButtonRef = document.getElementById("saveEditedUserButton");
+
 export async function getUsersArray() {
   let usersArray = await loadUsers();
   return usersArray;

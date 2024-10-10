@@ -2,45 +2,51 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 928px;
+  height: 832px;
   width: 453px;
-  padding-top: 22px;
   padding-bottom: 32px;
   overflow-y: scroll;
   scrollbar-width: thin;
   scroll-behavior: smooth;
   scrollbar-color: rgb(168, 168, 168) rgb(255, 255, 255);
+  position: relative;
 
-  .newContactButton {
+  .contactListHeader {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 16px;
-    min-height: 56px;
-    min-width: 352px;
-    border: 0px solid transparent;
-    border-radius: 10px;
-    background-color: #2a3647;
-    color: #ffffff;
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 120%;
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 22px;
 
-    & svg {
-      height: 32px;
-      width: 32px;
-      fill: #ffffff;
+    .newContactButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      min-height: 56px;
+      min-width: 352px;
+      border: 0px solid transparent;
+      border-radius: 10px;
+      background-color: #2a3647;
+      color: #ffffff;
+      font-size: 21px;
+      font-weight: bold;
+      line-height: 120%;
+
+      & svg {
+        height: 32px;
+        width: 32px;
+        fill: #ffffff;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: #29abe2;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      }
     }
-
-    &:hover {
-      cursor: pointer;
-      background-color: #29abe2;
-    }
-
-    // .newContactButtonIcon {
-    //   height: 32px;
-    //   width: 32px;
-    // }
   }
 
   .contactListContent {
