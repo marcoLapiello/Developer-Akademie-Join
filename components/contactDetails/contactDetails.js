@@ -12,7 +12,7 @@ export function switchMobile() {
   const contactDetailsComputedStyle = window.getComputedStyle(contactDetailsRef);
   const contactListComputedStyle = window.getComputedStyle(contactListRef);
   if (contactDetailsComputedStyle.display === "none") {
-    contactDetailsRef.style.display = "block";
+    contactDetailsRef.style.display = "flex";
     contactListRef.style.display = "none";
   } else if (contactListComputedStyle.display === "none") {
     contactDetailsRef.style.display = "none";
@@ -41,6 +41,7 @@ export function renderAfterDelete(userId) {
 
 function renderDetailsTemplate(user) {
   return /*html*/ `
+      <div class="contactDetailsBox" >
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
@@ -72,15 +73,18 @@ function renderDetailsTemplate(user) {
             <a href="tel:${user[1].profile.phone}">${user[1].profile.phone}</a>
         </div>
         </div>
+      </div>
     `;
 }
 
 function renderDetailsTemplateFallback() {
   return /*html*/ `
+      <div class="contactDetailsBox" >
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
             <button class="switchMobileButton" onclick="switchMobile()"><-</button>
         </div>
+      </div>
     `;
 }
