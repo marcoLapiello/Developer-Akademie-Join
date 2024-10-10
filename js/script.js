@@ -1,12 +1,13 @@
 import { renderContactList } from "../components/contactList/contactList.js";
 renderContactList();
 
-import { renderContactDetails, renderAfterDelete, selectedUser, switchMobile } from "../components/contactDetails/contactDetails.js";
+import { renderContactDetails, renderAfterDelete, selectedUser, switchMobile, userProfileButtonsMobile } from "../components/contactDetails/contactDetails.js";
 renderContactDetails();
 window.renderContactDetails = renderContactDetails;
 window.renderAfterDelete = renderAfterDelete;
 window.selectedUser = selectedUser;
 window.switchMobile = switchMobile;
+window.userProfileButtonsMobile = userProfileButtonsMobile;
 
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
