@@ -1,0 +1,23 @@
+header {
+  max-width: 1440px;
+  height: 96px;
+  justify-content: space-between;
+  display: flex;
+  padding-top: 20px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+  padding-left: 348px;
+}
+.user-Profile-Initials {
+  width: 56px;
+  height: 56px;
+  background-color: red($color: #000000);
+  border: 3px solid #2a3647;
+  border-radius: 50%;
+}
+
+.header-rightSide {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
