@@ -81,7 +81,7 @@ export async function showEditChosenUserDialog(id) {
   editContactEmailInputRef.value = user[1].profile.email;
   editContactPhoneInputRef.value = user[1].profile.phone;
   editNewUserLogoRef.style.backgroundColor = user[1].user_color;
-  editNewUserLogoRef.innerText = user[1].profile.initials;
+  editNewUserLogoRef.innerHTML = `<span>${user[1].profile.initials}</span>`;
   document.getElementById("editContactModal").classList.remove("d_none");
   setTimeout(() => {
     document.getElementById("editContactContainer").style.left = "50%";
