@@ -10,6 +10,15 @@
   </head>
   <body>
     <main>
+      <div id="confirmDeleteUserModal" class="confirmDeleteUserModal d_none">
+        <div id="confirmDeleteUserContainer" class="confirmDeleteUserContainer">
+          <p>Are you sure you want to delete this contact?</p>
+          <div class="confirmDeleteUserBtnBox">
+            <button onclick="hideConfirmDeleteUserDialog()">Cancel</button>
+            <button>Delete</button>
+          </div>
+        </div>
+      </div>
       <div id="addedUserFeedback" class="addedUserFeedback d_none">Contact successfully created</div>
       <div id="contactModal" class="contactModal d_none">
         <div id="addContactContainer" class="addContactContainer">
