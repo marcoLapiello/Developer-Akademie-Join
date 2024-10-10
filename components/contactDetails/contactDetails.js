@@ -52,7 +52,7 @@ function renderDetailsTemplate(user) {
                 <div class="userProfileButtons">
                     <button class="editButton" 
                     onclick="showEditChosenUserDialog('${user[1].id}')">${returnIcon("edit")}Edit</button>
-                    <button class="deleteButton" onclick="renderAfterDelete('${user[1].id}')">${returnIcon("delete")}Delete</button>
+                    <button class="deleteButton" onclick="showConfirmDeleteUserDialog('${user[1].id}')">${returnIcon("delete")}Delete</button>
                 </div>                
             </div>
         </div>
