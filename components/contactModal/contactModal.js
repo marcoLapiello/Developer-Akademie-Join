@@ -93,6 +93,9 @@ export function hideAddNewUserDialog() {
   setTimeout(() => {
     document.getElementById("contactModal").classList.add("d_none");
   }, 550);
+}
+
+export function newUserFeedback() {
   setTimeout(() => {
     document.getElementById("addedUserFeedback").classList.remove("d_none");
   },);
