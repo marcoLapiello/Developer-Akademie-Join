@@ -12,6 +12,7 @@ export async function addContact() {
   await patchNewUser();
   await loadUsers();
   hideAddNewUserDialog();
+  newUserFeedback();
 }
 
 export async function deleteChosenUser(id) {
