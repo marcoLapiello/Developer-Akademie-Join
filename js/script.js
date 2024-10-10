@@ -39,6 +39,7 @@ export let editContactEmailInputRef = document.getElementById("editContactEmailI
 export let editContactPhoneInputRef = document.getElementById("editContactPhoneInput");
 export let editNewUserLogoRef = document.getElementById("editNewUserLogo");
 export let saveEditedUserButtonRef = document.getElementById("saveEditedUserButton");
+export let deleteChosenUserBtnRef = document.getElementById("deleteChosenUserBtn");
 
 export let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
 export let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
