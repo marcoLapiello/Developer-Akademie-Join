@@ -30,10 +30,12 @@ export async function renderContactList() {
   const contactListRef = document.getElementById("contactList");
   let groupedUsersObj = await groupedUsers();
   let renderList = "";
-  renderList += /*html*/ `
+  renderList += /*html*/ `  
+                <div class="contactListHeader" >
                 <button class="newContactButton" onclick="showAddNewUserDialog()">Add new Contact 
                     ${returnIcon("person")}
                 </button>
+                </div>
               `;
   Object.keys(groupedUsersObj).forEach((letter) => {
     // Object.keys() method returns an array of a given object's own property names ( A. B , C , D )
