@@ -11,8 +11,10 @@ main {
 
   .content {
     width: 100%;
+    height: calc(100vh - 96px);
 
     .contactContent {
+      height: 100%;
       display: flex;
     }
   }
