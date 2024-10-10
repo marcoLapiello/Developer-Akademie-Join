@@ -28,7 +28,7 @@ function renderDetailsTemplate(user) {
         </div>
         <div class="userQuickInfo">
             <div class="userInitials" >
-            ${user[1].profile.initials}
+            ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
             </div>
             <div class="userActions">
                 <div class="userName">

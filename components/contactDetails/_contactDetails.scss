@@ -4,6 +4,10 @@
   max-width: 600px;
   width: 100%;
 
+  @media (max-width: $breakpoint-lg) {
+    max-width: 400px;
+  }
+
   .headings {
     display: flex;
     align-items: center;
@@ -12,6 +16,12 @@
     height: 100%;
     max-width: 596px;
     width: 100%;
+
+    @media (max-width: $breakpoint-lg) {
+      flex-direction: column;
+      align-items: start;
+      margin-bottom: 82px;
+    }
 
     .heading {
       font-size: 61px;
@@ -23,12 +33,32 @@
         border-radius: 10px;
         margin-inline: 30px;
       }
+
+      @media (max-width: $breakpoint-lg) {
+        &::after {
+          content: " ";
+          border-left: unset;
+          border-radius: unset;
+          margin-inline: unset;
+        }
+      }
     }
 
     .subHeading {
       font-size: 27px;
       font-weight: 400;
       color: #2a3647;
+
+      @media (max-width: $breakpoint-lg) {
+        &::after {
+          content: " ";
+          display: block;
+          width: 60%;
+          border-bottom: 3px solid #29abe2;
+          border-radius: 10px;
+          margin-top: 10px;
+        }
+      }
     }
   }
   .userQuickInfo {
@@ -39,6 +69,10 @@
     height: 100%;
     width: 100%;
     margin-top: 33px;
+
+    @media (max-width: $breakpoint-lg) {
+      gap: 20px;
+    }
 
     .userInitials {
       display: flex;
@@ -54,6 +88,12 @@
       font-size: 47px;
       font-weight: 400;
       color: #ffffff;
+
+      @media (max-width: $breakpoint-lg) {
+        max-height: 80px;
+        max-width: 80px;
+        font-size: 27px;
+      }
     }
 
     .userActions {
@@ -64,6 +104,10 @@
         font-size: 47px;
         font-weight: 400;
         line-height: 120%;
+
+        @media (max-width: $breakpoint-lg) {
+          font-size: 27px;
+        }
       }
       .userProfileButtons {
         display: flex;
@@ -76,6 +120,10 @@
           gap: 8px;
           background-color: unset;
           border: unset;
+
+          @media (max-width: $breakpoint-lg) {
+            display: none;
+          }
 
           &:hover {
             cursor: pointer;
@@ -106,6 +154,10 @@
       font-size: 20px;
       font-weight: 400;
       line-height: 120%;
+
+      @media (max-width: $breakpoint-lg) {
+        font-size: 20px;
+      }
     }
 
     .contactEmail {
