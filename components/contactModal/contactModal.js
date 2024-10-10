@@ -1,5 +1,7 @@
 import { addContactNameInputRef, addContactEmailInputRef, addContactPhoneInputRef } from "../../js/script.js";
 
+import { getUsersArray } from "../../js/script.js";
+
 let userColors = [
   "#FF7A00",
   "#FF5EB3",
@@ -17,6 +19,8 @@ let userColors = [
   "#FF4646",
   "#FFBB2B",
 ];
+
+let users;
 
 function getRandomUserColor() {
   let randomIndex = Math.floor(Math.random() * userColors.length);
@@ -56,7 +60,7 @@ export function hideAddNewUserDialog() {
   document.getElementById("contactModal").classList.add("d_none");
 }
 
-export function editChosenUser() {
+export function editChosenUser(id) {
   document.getElementById("editContactModal").classList.remove("d_none");
 }
 
