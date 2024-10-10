@@ -6,14 +6,18 @@ export function selectedUser(id) {
   renderContactDetails(id);
 }
 
-function switchMobile() {
+export function switchMobile() {
   const contactDetailsRef = document.getElementById("contactDetails");
+  const contactListRef = document.getElementById("contactList");
   const contactDetailsComputedStyle = window.getComputedStyle(contactDetailsRef);
-  if (contactDetailsComputedStyle.display === "none") contactDetailsRef.style.display = "block";
-
-  // const contactListComputedStyle = window.getComputedStyle(contactDetailsRef);
-  // const contactListRef = document.getElementById("contactList");
-  // if (contactListComputedStyle.display === "block") contactListRef.style.display = "none";
+  const contactListComputedStyle = window.getComputedStyle(contactListRef);
+  if (contactDetailsComputedStyle.display === "none") {
+    contactDetailsRef.style.display = "block";
+    contactListRef.style.display = "none";
+  } else if (contactListComputedStyle.display === "none") {
+    contactDetailsRef.style.display = "none";
+    contactListRef.style.display = "flex";
+  }
 }
 
 export async function renderContactDetails(id) {
@@ -40,7 +44,8 @@ function renderDetailsTemplate(user) {
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
-        </div>
+            <button class="switchMobileButton" onclick="switchMobile()"><-</button>            
+        </div>        
         <div class="userQuickInfo">
             <div class="userInitials" >
             ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
@@ -75,6 +80,7 @@ function renderDetailsTemplateFallback() {
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
+            <button class="switchMobileButton" onclick="switchMobile()"><-</button>
         </div>
     `;
 }
