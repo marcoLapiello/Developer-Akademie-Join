@@ -1,10 +1,11 @@
 import { renderContactList } from "../components/contactList/contactList.js";
 renderContactList();
 
-import { renderContactDetails, renderAfterDelete } from "../components/contactDetails/contactDetails.js";
+import { renderContactDetails, renderAfterDelete, selectedUser } from "../components/contactDetails/contactDetails.js";
 renderContactDetails();
 window.renderContactDetails = renderContactDetails;
 window.renderAfterDelete = renderAfterDelete;
+window.selectedUser = selectedUser;
 
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
