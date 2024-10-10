@@ -20,6 +20,24 @@ export function switchMobile() {
   }
 }
 
+function updateWidth() {
+  const width = window.innerWidth; // https://www.w3schools.com/jsref/prop_win_innerwidth.asp
+  if (width >= 1401) {
+    const contactDetailsRef = document.getElementById("contactDetails");
+    const contactListRef = document.getElementById("contactList");
+    if (contactListRef.style.display === "flex") {
+      contactDetailsRef.style.display = "flex";
+    }
+  } else if (width <= 1400) {
+    const contactDetailsRef = document.getElementById("contactDetails");
+    const contactListRef = document.getElementById("contactList");
+    if (contactListRef.style.display === "flex") {
+      contactDetailsRef.style.display = "none";
+    }
+  }
+}
+window.addEventListener("resize", updateWidth); // https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
+
 export async function renderContactDetails(id) {
   const contactDetailsRef = document.getElementById("contactDetails");
   if (!id && contactDetailsRef) {
