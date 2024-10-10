@@ -1,19 +1,29 @@
 import { renderContactList } from "../components/contactList/contactList.js";
 renderContactList();
 
-import { renderContactDetails, renderAfterDelete } from "../components/contactDetails/contactDetails.js";
+import { renderContactDetails, renderAfterDelete, selectedUser } from "../components/contactDetails/contactDetails.js";
 renderContactDetails();
 window.renderContactDetails = renderContactDetails;
 window.renderAfterDelete = renderAfterDelete;
+window.selectedUser = selectedUser;
 
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
 
-import { showAddNewUserDialog, hideAddNewUserDialog, showEditChosenUserDialog, hideEditChosenUserDialog } from "../components/contactModal/contactModal.js";
+import {
+  showAddNewUserDialog,
+  hideAddNewUserDialog,
+  showEditChosenUserDialog,
+  hideEditChosenUserDialog,
+  hideConfirmDeleteUserDialog,
+  showConfirmDeleteUserDialog,
+} from "../components/contactModal/contactModal.js";
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;
 window.showEditChosenUserDialog = showEditChosenUserDialog;
 window.hideEditChosenUserDialog = hideEditChosenUserDialog;
+window.hideConfirmDeleteUserDialog = hideConfirmDeleteUserDialog;
+window.showConfirmDeleteUserDialog = showConfirmDeleteUserDialog;
 
 import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
@@ -28,8 +38,10 @@ export let editContactEmailInputRef = document.getElementById("editContactEmailI
 export let editContactPhoneInputRef = document.getElementById("editContactPhoneInput");
 export let editNewUserLogoRef = document.getElementById("editNewUserLogo");
 export let saveEditedUserButtonRef = document.getElementById("saveEditedUserButton");
+export let deleteChosenUserBtnRef = document.getElementById("deleteChosenUserBtn");
 
 export let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
+export let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
 
 export async function getUsersArray() {
   let usersArray = await loadUsers();

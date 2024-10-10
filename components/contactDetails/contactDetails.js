@@ -1,6 +1,21 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
 
+export function selectedUser(id) {
+  switchMobile();
+  renderContactDetails(id);
+}
+
+function switchMobile() {
+  const contactDetailsRef = document.getElementById("contactDetails");
+  const contactDetailsComputedStyle = window.getComputedStyle(contactDetailsRef);
+  if (contactDetailsComputedStyle.display === "none") contactDetailsRef.style.display = "block";
+
+  // const contactListComputedStyle = window.getComputedStyle(contactDetailsRef);
+  // const contactListRef = document.getElementById("contactList");
+  // if (contactListComputedStyle.display === "block") contactListRef.style.display = "none";
+}
+
 export async function renderContactDetails(id) {
   const contactDetailsRef = document.getElementById("contactDetails");
   if (!id && contactDetailsRef) {
@@ -37,7 +52,7 @@ function renderDetailsTemplate(user) {
                 <div class="userProfileButtons">
                     <button class="editButton" 
                     onclick="showEditChosenUserDialog('${user[1].id}')">${returnIcon("edit")}Edit</button>
-                    <button class="deleteButton" onclick="renderAfterDelete('${user[1].id}')">${returnIcon("delete")}Delete</button>
+                    <button class="deleteButton" onclick="showConfirmDeleteUserDialog('${user[1].id}')">${returnIcon("delete")}Delete</button>
                 </div>                
             </div>
         </div>
