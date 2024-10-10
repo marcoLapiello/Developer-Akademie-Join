@@ -62,22 +62,21 @@ export function getNewUser() {
   return user;
 }
 
-export function getEditUserObject(id, user) {
+export function getEditUserObject(user) {
   let fullName = editContactNameInputRef.value;
   let email = editContactEmailInputRef.value;
   let phoneNumber = editContactPhoneInputRef.value;
   let nameParts = fullName.split(" ");
   let name = nameParts[0];
   let surname = nameParts[1];
+  let userInitials = name.charAt(0) + surname.charAt(0);
   let editUserProfile = {
     first_name: name,
     last_name: surname,
-    initials: user[1].profile.initials,
+    initials: userInitials,
     email: email,
     phone: phoneNumber,
   };
-  console.log(editUserProfile);
-
   return editUserProfile;
 }
 

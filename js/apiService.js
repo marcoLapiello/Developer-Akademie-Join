@@ -1,6 +1,10 @@
 const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
 
-import { getNewUser, hideAddNewUserDialog, getEditUserObject } from "../components/contactModal/contactModal.js";
+import { getNewUser, hideAddNewUserDialog, getEditUserObject, hideEditChosenUserDialog } from "../components/contactModal/contactModal.js";
+
+import { renderContactList } from "../components/contactList/contactList.js";
+
+import { renderContactDetails } from "../components/contactDetails/contactDetails.js";
 
 // export let usersArray = [];
 
@@ -41,7 +45,21 @@ async function patchNewUser() {
 }
 
 export async function editExistingUser(id, user) {
-  getEditUserObject(id, user);
+  let editedUserProfil = getEditUserObject(user);
+  console.log(editedUserProfil);
+  let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
+    method: "PATCH",
+    header: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(editedUserProfil),
+  });
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  renderContactList();
+  renderContactDetails();
+  hideEditChosenUserDialog();
 }
 
 export async function loadUsers() {
