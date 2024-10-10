@@ -54,6 +54,35 @@ export function getNewUser() {
 
 export function showAddNewUserDialog() {
   document.getElementById("contactModal").classList.remove("d_none");
+  setTimeout(() => {
+    executeOpenAnimation();
+  }, 100);
+}
+
+function executeOpenAnimation() {
+  getModalCoordinates();
+  let modalElement = document.getElementById("addContactContainer");
+  modalElement.style.left = "50%";
+}
+
+function getModalCoordinates() {
+  let modalElement = document.getElementById("addContactContainer");
+  if (modalElement) {
+    let rect = modalElement.getBoundingClientRect();
+    return {
+      top: rect.top,
+      left: rect.left,
+      width: rect.width,
+      height: rect.height,
+    };
+  }
+  return null;
+}
+
+function executeClosingAnimation() {
+  getModalCoordinates();
+  let modalElement = document.getElementById("addContactContainer");
+  modalElement.style.left = "150%";
 }
 
 export function hideAddNewUserDialog() {
@@ -66,4 +95,8 @@ export function editChosenUser(id) {
 
 export function hideEditChosenUserDialog() {
   document.getElementById("editContactModal").classList.add("d_none");
+  executeClosingAnimation();
+  setTimeout(() => {
+    document.getElementById("contactModal").classList.add("d_none");
+  }, 500);
 }
