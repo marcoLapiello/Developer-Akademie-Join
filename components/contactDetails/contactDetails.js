@@ -36,7 +36,7 @@ function renderDetailsTemplate(user) {
                 ${user[1].profile.first_name} ${user[1].profile.last_name}
                 </div>
                 <div class="userProfileButtons">
-                    <button class="editButton" onclick="editChosenUser('${user[1].id}')">${returnIcon("edit")}Edit</button>
+                    <button class="editButton" onclick="showEditChosenUserDialog('${user[1].id}')">${returnIcon("edit")}Edit</button>
                     <button class="deleteButton" onclick="renderAfterDelete('${user[1].id}')">${returnIcon("delete")}Delete</button>
                 </div>                
             </div>
