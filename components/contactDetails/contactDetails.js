@@ -38,6 +38,31 @@ function updateWidth() {
 }
 window.addEventListener("resize", updateWidth); // https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
 
+export function userProfileButtonsMobile() {
+  const userProfileButtonsRef = document.getElementById("userProfileButtons");
+  const userProfileButtonsStyle = window.getComputedStyle(userProfileButtonsRef);
+  const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
+  if (userProfileButtonsStyle.display === "none") {
+    userProfileButtonsRef.style.display = "flex";
+    userProfileButtonsMobileRef.style.display = "none";
+  }
+}
+
+document.addEventListener("click", (event) => {
+  const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
+  if (!userProfileButtonsMobileRef) return;
+  const userProfileButtonsMobileStyle = window.getComputedStyle(userProfileButtonsMobileRef);
+  const contactListRef = document.getElementById("contactList");
+  const contactListComputedStyle = window.getComputedStyle(contactListRef);
+  if (userProfileButtonsMobileStyle.display === "none" && contactListComputedStyle.display === "none") {
+    if (event.target.id != "userProfileButtonsMobile" && event.target.id != "userProfileButtonsMobileImg") {
+      const userProfileButtonsRef = document.getElementById("userProfileButtons");
+      userProfileButtonsRef.style.display = "none";
+      userProfileButtonsMobileRef.style.display = "block";
+    }
+  }
+});
+
 export async function renderContactDetails(id) {
   const contactDetailsRef = document.getElementById("contactDetails");
   if (!id && contactDetailsRef) {
@@ -73,7 +98,7 @@ function renderDetailsTemplate(user) {
                 <div class="userName">
                 ${user[1].profile.first_name} ${user[1].profile.last_name}
                 </div>
-                <div class="userProfileButtons">
+                <div id="userProfileButtons" class="userProfileButtons">
                     <button class="editButton" 
                     onclick="showEditChosenUserDialog('${user[1].id}')">${returnIcon("edit")}Edit</button>
                     <button class="deleteButton" onclick="showConfirmDeleteUserDialog('${user[1].id}')">${returnIcon("delete")}Delete</button>
@@ -91,6 +116,9 @@ function renderDetailsTemplate(user) {
             <a href="tel:${user[1].profile.phone}">${user[1].profile.phone}</a>
         </div>
         </div>
+        <button onclick="userProfileButtonsMobile()" id="userProfileButtonsMobile" class="userProfileButtonsMobile">
+          <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="../../assets/icons/more_vert.png" alt="">
+        </button>
       </div>
     `;
 }
