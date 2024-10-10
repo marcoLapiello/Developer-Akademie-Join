@@ -8,7 +8,6 @@ export async function renderContactDetails(id) {
     return;
   }
   let usersArray = await getUsersArray();
-  // let userId = id;
   let user = usersArray.find((user) => user[0] === id);
   if (contactDetailsRef) contactDetailsRef.innerHTML = renderDetailsTemplate(user);
 }
