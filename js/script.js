@@ -29,6 +29,8 @@ export let editContactPhoneInputRef = document.getElementById("editContactPhoneI
 export let editNewUserLogoRef = document.getElementById("editNewUserLogo");
 export let saveEditedUserButtonRef = document.getElementById("saveEditedUserButton");
 
+export let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
+
 export async function getUsersArray() {
   let usersArray = await loadUsers();
   return usersArray;

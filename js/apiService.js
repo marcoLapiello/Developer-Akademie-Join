@@ -1,12 +1,10 @@
 const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
 
-import { getNewUser, hideAddNewUserDialog, getEditUserObject, hideEditChosenUserDialog } from "../components/contactModal/contactModal.js";
+import { getNewUser, hideAddNewUserDialog, getEditUserObject, hideEditChosenUserDialog, newUserFeedback } from "../components/contactModal/contactModal.js";
 
 import { renderContactList } from "../components/contactList/contactList.js";
 
 import { renderContactDetails } from "../components/contactDetails/contactDetails.js";
-
-// export let usersArray = [];
 
 export async function addContact() {
   await patchNewUser();

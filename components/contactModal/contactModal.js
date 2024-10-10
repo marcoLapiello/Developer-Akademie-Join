@@ -8,6 +8,7 @@ import {
   editContactPhoneInputRef,
   editNewUserLogoRef,
   saveEditedUserButtonRef,
+  addedUserFeedbackRef,
 } from "../../js/script.js";
 
 import { editExistingUser } from "../../js/apiService.js";
@@ -96,15 +97,15 @@ export function hideAddNewUserDialog() {
 
 export function newUserFeedback() {
   setTimeout(() => {
-    document.getElementById("addedUserFeedback").classList.remove("d_none");
-  },);
+    addedUserFeedbackRef.classList.remove("d_none");
+  });
   setTimeout(() => {
-    document.getElementById("addedUserFeedback").style.left = "750px";
-  }, 650);
+    addedUserFeedbackRef.style.left = "750px";
+  }, 600);
   setTimeout(() => {
-    document.getElementById("addedUserFeedback").style.left = "150%";
-  }, 3000);
-  document.getElementById("addedUserFeedback").classList.add("d_none");
+    addedUserFeedbackRef.style.left = "150%";
+  }, 2100);
+  addedUserFeedbackRef.classList.add("d_none");
 }
 
 export async function showEditChosenUserDialog(id) {
