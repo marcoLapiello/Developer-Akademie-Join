@@ -9,6 +9,7 @@ import {
   editNewUserLogoRef,
   saveEditedUserButtonRef,
   addedUserFeedbackRef,
+  confirmDeleteUserModalRef,
 } from "../../js/script.js";
 
 import { editExistingUser } from "../../js/apiService.js";
@@ -130,4 +131,12 @@ export function hideEditChosenUserDialog() {
   setTimeout(() => {
     document.getElementById("editContactModal").classList.add("d_none");
   }, 550);
+}
+
+export function showConfirmDeleteUserDialog() {
+  confirmDeleteUserModalRef.classList.remove("d_none");
+}
+
+export function hideConfirmDeleteUserDialog() {
+  confirmDeleteUserModalRef.classList.add("d_none");
 }

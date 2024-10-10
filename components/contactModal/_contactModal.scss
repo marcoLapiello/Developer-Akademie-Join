@@ -221,3 +221,12 @@
   width: 50px;
   border-radius: 50%;
 }
+
+.confirmDeleteUserModal {
+  position: absolute;
+  z-index: 1000;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+}
