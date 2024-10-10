@@ -195,6 +195,28 @@
   }
 }
 
+.addedUserFeedback {
+  width: 326px;
+  height: 74px;
+  border-radius: 20px;
+  background-color: #2A3647;
+  box-shadow: 0px 0px 4px 0 #00000026;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 770px;
+  left: 150%;
+  transition: all 0.5s ease;
+}
+
+.feedbackOpen {
+  left: 750px;
+}
+
 .currentUserInitials {
   height: 50px;
   width: 50px;

@@ -93,6 +93,16 @@ export function hideAddNewUserDialog() {
   setTimeout(() => {
     document.getElementById("contactModal").classList.add("d_none");
   }, 550);
+  setTimeout(() => {
+    document.getElementById("addedUserFeedback").classList.remove("d_none");
+  },);
+  setTimeout(() => {
+    document.getElementById("addedUserFeedback").style.left = "750px";
+  }, 650);
+  setTimeout(() => {
+    document.getElementById("addedUserFeedback").style.left = "150%";
+  }, 3000);
+  document.getElementById("addedUserFeedback").classList.add("d_none");
 }
 
 export async function showEditChosenUserDialog(id) {
