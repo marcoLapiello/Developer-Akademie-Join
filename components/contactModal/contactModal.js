@@ -1,6 +1,14 @@
-import { addContactNameInputRef, addContactEmailInputRef, addContactPhoneInputRef } from "../../js/script.js";
+import {
+  addContactNameInputRef,
+  addContactEmailInputRef,
+  addContactPhoneInputRef,
+  editContactNameInputRef,
+  editContactEmailInputRef,
+  editContactPhoneInputRef,
+  editNewUserLogoRef,
+} from "../../js/script.js";
 
-// import { getUsersArray } from "../../js/script.js";
+import { getUsersArray } from "../../js/script.js";
 
 let userColors = [
   "#FF7A00",
@@ -66,7 +74,14 @@ export function hideAddNewUserDialog() {
   }, 550);
 }
 
-export function showEditChosenUserDialog(id) {
+export async function showEditChosenUserDialog(id) {
+  let usersArray = await getUsersArray();
+  let user = usersArray.find((element) => element[0] == id);
+  editContactNameInputRef.value = user[1].profile.first_name + " " + user[1].profile.last_name;
+  editContactEmailInputRef.value = user[1].profile.email;
+  editContactPhoneInputRef.value = user[1].profile.phone;
+  editNewUserLogoRef.style.backgroundColor = user[1].user_color;
+  editNewUserLogoRef.innerText = user[1].profile.initials;
   document.getElementById("editContactModal").classList.remove("d_none");
   setTimeout(() => {
     document.getElementById("editContactContainer").style.left = "50%";
