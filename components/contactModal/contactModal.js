@@ -20,7 +20,7 @@ let userColors = [
   "#FFBB2B",
 ];
 
-let users;
+let users = await getUsersArray();
 
 function getRandomUserColor() {
   let randomIndex = Math.floor(Math.random() * userColors.length);
@@ -66,7 +66,7 @@ export function hideAddNewUserDialog() {
   }, 550);
 }
 
-export function editChosenUser(id) {
+export function showEditChosenUserDialog(id) {
   document.getElementById("editContactModal").classList.remove("d_none");
   setTimeout(() => {
     document.getElementById("editContactContainer").style.left = "50%";
