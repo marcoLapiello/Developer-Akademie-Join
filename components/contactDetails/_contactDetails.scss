@@ -174,7 +174,7 @@
       .heading {
         display: flex;
         align-items: center;
-        height: 74px;
+        margin-block: 40px;
         max-width: 207px;
         width: 100%;
         font-size: 20px;
@@ -183,6 +183,7 @@
 
         @media (max-width: $breakpoint-lg) {
           font-size: 20px;
+          margin-block: 0px;
         }
       }
 
