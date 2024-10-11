@@ -11,6 +11,9 @@ window.switchMobile = switchMobile;
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
 
+import { toggle_d_None } from "../components/header/header.js";
+window.toggle_d_None = toggle_d_None;
+
 import {
   showAddNewUserDialog,
   hideAddNewUserDialog,

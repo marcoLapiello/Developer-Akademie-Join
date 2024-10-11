@@ -1,6 +1,6 @@
 export function renderSidebar() {
   const sidebarRef = document.getElementById("sidebar");
-  sidebarRef.innerHTML += renderSidebarTemplate();
+  if (sidebarRef) sidebarRef.innerHTML += renderSidebarTemplate();
 }
 
 const urlPath = window.location.pathname;
