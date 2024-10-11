@@ -1,14 +1,23 @@
 const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
 
-import { getNewUser, hideAddNewUserDialog, getEditUserObject, hideEditChosenUserDialog, newUserFeedback, editUserFeedback } from "../components/contactModal/contactModal.js";
+import {
+  getNewUser,
+  hideAddNewUserDialog,
+  getEditUserObject,
+  hideEditChosenUserDialog,
+  hideConfirmDeleteUserDialog,
+  newUserFeedback,
+  editUserFeedback,
+} from "../components/contactModal/contactModal.js";
 
 import { renderContactList } from "../components/contactList/contactList.js";
-
-import { renderContactDetails } from "../components/contactDetails/contactDetails.js";
+import { renderContactDetails, selectedUser } from "../components/contactDetails/contactDetails.js";
 
 export async function addContact() {
-  await patchNewUser();
+  let id = await patchNewUser();
   await loadUsers();
+  renderContactList();
+  selectedUser(id);
   hideAddNewUserDialog();
   newUserFeedback();
 }
@@ -16,6 +25,10 @@ export async function addContact() {
 export async function deleteChosenUser(id) {
   await deleteUserData(id);
   await loadUsers();
+  renderContactList();
+  renderContactDetails();
+  hideConfirmDeleteUserDialog();
+  hideEditChosenUserDialog();
 }
 
 async function deleteUserData(id) {
@@ -42,15 +55,15 @@ async function patchNewUser() {
     // user feedback --> patchen / adden hat nicht geklappt
     throw new Error("Network response was not ok");
   }
+  return id;
 }
 
 export async function editExistingUser(id, user) {
   let editedUserProfil = getEditUserObject(user);
-  console.log(editedUserProfil);
-  let isUser = await fetch(baseUrl + `/user/${id}`);
-  if (!isUser.ok) {
-    throw new Error("Contact is not existing");
-  }
+  // let isUser = await fetch(baseUrl + `/user/${id}`);
+  // if (!isUser.ok) {
+  //   throw new Error("Contact is not existing");
+  // }
   let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
     method: "PATCH",
     header: {
@@ -64,7 +77,6 @@ export async function editExistingUser(id, user) {
   renderContactList();
   renderContactDetails(id);
   hideEditChosenUserDialog();
-  editUserFeedback();
 }
 
 export async function loadUsers() {
