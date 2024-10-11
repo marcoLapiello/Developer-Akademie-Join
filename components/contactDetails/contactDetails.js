@@ -6,8 +6,10 @@ export function selectedUser(id) {
   selectedUserButton.forEach((button) => {
     button.classList.remove("selectedUser");
   });
-  const selectedUserRef = document.getElementById(id);
-  selectedUserRef.classList.add("selectedUser");
+  setInterval(() => {
+    const selectedUserRef = document.getElementById(id);
+    selectedUserRef.classList.add("selectedUser");
+  }, 100);
   switchMobile();
   renderContactDetails(id);
 }
