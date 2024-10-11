@@ -39,7 +39,7 @@
             <div class="modalInputsContainer">
               <input id="addContactNameInput" type="text" placeholder="Name" />
               <input id="addContactEmailInput" type="email" placeholder="Email" />
-              <input id="addContactPhoneInput" oninput="validatePhonenumberInput()" type="tel" placeholder="Phone" />
+              <input id="addContactPhoneInput" oninput="validateNewPhonenumber()" type="tel" placeholder="Phone" />
             </div>
             <div class="modalInputsBtnContainer">
               <button class="cancelBtn" onclick="hideAddNewUserDialog()">
@@ -57,7 +57,7 @@
       <div id="editContactModal" class="contactModal d_none modal_closed">
         <div id="editContactContainer" class="addContactContainer">
           <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
-          
+
           <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideEditChosenUserDialog()" alt="" />
           <div class="addContactContainerLeft">
             <div id="editNewUserLogo" class="newUserLogo"></div>
@@ -68,7 +68,7 @@
             <div class="modalInputsContainer">
               <input id="editContactNameInput" type="text" placeholder="Name" />
               <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" />
-              <input id="editContactPhoneInput" oninput="validatePhonenumberInput()" type="tel" name="" id="" placeholder="Phone" />
+              <input id="editContactPhoneInput" oninput="validateEditPhonenumber()" type="tel" name="" id="" placeholder="Phone" />
             </div>
 
             <div class="modalInputsBtnContainer">

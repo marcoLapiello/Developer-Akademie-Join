@@ -35,11 +35,20 @@ let userColors = [
   "#FFBB2B",
 ];
 
-export function validatePhonenumberInput() {
-  let addNumber = addContactPhoneInputRef.value;
-  let editNumber = editContactPhoneInputRef.value;
-  console.log(addNumber);
-  console.log(editNumber);
+export function validateNewPhonenumber() {
+  let number = addContactPhoneInputRef.value;
+  if (number[0] == "0") {
+    let addedNumber = number.replace("0", "+49 ");
+    addContactPhoneInputRef.value = addedNumber;
+  }
+}
+
+export function validateEditPhonenumber() {
+  let number = editContactPhoneInputRef.value;
+  if (number[0] == "0") {
+    let addedNumber = number.replace("0", "+49 ");
+    editContactPhoneInputRef.value = addedNumber;
+  }
 }
 
 function getRandomUserColor() {

@@ -22,7 +22,8 @@ import {
   hideEditChosenUserDialog,
   hideConfirmDeleteUserDialog,
   showConfirmDeleteUserDialog,
-  validatePhonenumberInput,
+  validateNewPhonenumber,
+  validateEditPhonenumber,
 } from "../components/contactModal/contactModal.js";
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;
@@ -30,7 +31,8 @@ window.showEditChosenUserDialog = showEditChosenUserDialog;
 window.hideEditChosenUserDialog = hideEditChosenUserDialog;
 window.hideConfirmDeleteUserDialog = hideConfirmDeleteUserDialog;
 window.showConfirmDeleteUserDialog = showConfirmDeleteUserDialog;
-window.validatePhonenumberInput = validatePhonenumberInput;
+window.validateNewPhonenumber = validateNewPhonenumber;
+window.validateEditPhonenumber = validateEditPhonenumber;
 
 import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
