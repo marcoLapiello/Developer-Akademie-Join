@@ -1,16 +1,49 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
 
+let selectedUserId = null;
+
 export function selectedUser(id) {
+  if (selectedUserId === id) {
+    noneSelectedUser();
+  } else {
+    isUserSelected(id);
+  }
+}
+
+function isUserSelected(id) {
+  highlightedSelectedUser(id);
+  switchMobile();
+  renderContactDetails(id);
+  scrollToUser(id);
+  userPanelVisibility();
+  selectedUserId = id;
+}
+
+function noneSelectedUser() {
+  userPanelVisibility();
+  highlightedSelectedUser();
+  setTimeout(() => {
+    renderContactDetails();
+    selectedUserId = null;
+  }, 500);
+}
+
+function highlightedSelectedUser(id) {
   const selectedUserButton = document.querySelectorAll(".userListItem");
   selectedUserButton.forEach((button) => {
     button.classList.remove("selectedUser");
   });
+  if (!id) return;
   const selectedUserRef = document.getElementById(id);
   selectedUserRef.classList.add("selectedUser");
-  switchMobile();
-  renderContactDetails(id);
-  scrollToUser(id);
+}
+
+function userPanelVisibility() {
+  setTimeout(() => {
+    const contactDetailsBoxRef = document.getElementById("userDetailPanel");
+    if (contactDetailsBoxRef) contactDetailsBoxRef.classList.toggle("visible");
+  }, 100);
 }
 
 function scrollToUser(id) {
@@ -46,6 +79,10 @@ function updateWidth() {
     if (contactListRef.style.display === "flex") {
       contactDetailsRef.style.display = "none";
     }
+  }
+  if (width == screen.width) {
+    contactDetailsRef.style.display = "flex";
+    contactListRef.style.display = "flex";
   }
 }
 window.addEventListener("resize", updateWidth); // https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
@@ -98,42 +135,44 @@ function renderDetailsTemplate(user) {
   return /*html*/ `
     <div id="addedUserFeedback" class="addedUserFeedback d_none">Contact successfully created</div>
     <div id="editUserFeedback" class="addedUserFeedback d_none">Contact successfully edited</div>
-      <div class="contactDetailsBox" >
+      <div class="contactDetailsBox">
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
             <div id="switchMobileButton" class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>            
-        </div>        
-        <div class="userQuickInfo">
-            <div class="userInitials" style="background-color: ${user[1].user_color};" >
-            ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
-            </div>
-            <div class="userActions">
-                <div class="userName">
-                ${user[1].profile.first_name} ${user[1].profile.last_name}
-                </div>
-                <div id="userProfileButtons" class="userProfileButtons">
-                    <button class="editButton" 
-                    onclick="showEditChosenUserDialog('${user[1].id}')">${returnIcon("edit")}Edit</button>
-                    <button class="deleteButton" onclick="showConfirmDeleteUserDialog('${user[1].id}')">${returnIcon("delete")}Delete</button>
-                </div>                
-            </div>
+        </div>  
+         <div id="userDetailPanel" class="userDetailPanel">    
+          <div class="userQuickInfo">
+              <div class="userInitials" style="background-color: ${user[1].user_color};" >
+              ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
+              </div>
+              <div class="userActions">
+                  <div class="userName">
+                  ${user[1].profile.first_name} ${user[1].profile.last_name}
+                  </div>
+                  <div id="userProfileButtons" class="userProfileButtons">
+                      <button class="editButton" 
+                      onclick="showEditChosenUserDialog('${user[1].id}')">${returnIcon("edit")}Edit</button>
+                      <button class="deleteButton" onclick="showConfirmDeleteUserDialog('${user[1].id}')">${returnIcon("delete")}Delete</button>
+                  </div>                
+              </div>
+          </div>
+          <div class="contactInfo">
+              <div class="heading">Contact Information</div>                    
+          <div class="contactEmail">
+              <div class="type">Email</div>
+              <a href="mailto:${user[1].profile.email}">${user[1].profile.email}</a>            
+          </div>
+          <div class="contactPhone">
+          <div class="type">Phone</div>
+              <a href="tel:${user[1].profile.phone}">${user[1].profile.phone}</a>
+          </div>
+          </div>
+          <button onclick="userProfileButtonsMobile()" id="userProfileButtonsMobile" class="userProfileButtonsMobile">
+            <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="../../assets/icons/more_vert.png" alt="">
+          </button>
         </div>
-        <div class="contactInfo">
-            <div class="heading">Contact Information</div>                    
-        <div class="contactEmail">
-            <div class="type">Email</div>
-            <a href="mailto:${user[1].profile.email}">${user[1].profile.email}</a>            
-        </div>
-        <div class="contactPhone">
-        <div class="type">Phone</div>
-            <a href="tel:${user[1].profile.phone}">${user[1].profile.phone}</a>
-        </div>
-        </div>
-        <button onclick="userProfileButtonsMobile()" id="userProfileButtonsMobile" class="userProfileButtonsMobile">
-          <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="../../assets/icons/more_vert.png" alt="">
-        </button>
-      </div>
+      </div> 
     `;
 }
 
