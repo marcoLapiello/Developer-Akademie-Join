@@ -146,9 +146,7 @@
     display: flex;
 
     button {
-      height: 56px;
       display: flex;
-      justify-content: space-between;
 
       &:hover {
         cursor: pointer;
@@ -156,7 +154,7 @@
     }
 
     .cancelBtn {
-      width: 126px;
+      gap: 4px;
       padding: 16px;
       border-radius: 10px;
       border: 1px solid #2a3647;
@@ -177,7 +175,7 @@
     }
 
     .createBtn {
-      width: 214px;
+      gap: 4px;
       padding: 16px;
       border: none;
       border-radius: 10px;
