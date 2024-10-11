@@ -28,15 +28,13 @@ export function switchMobile() {
 
 function updateWidth() {
   const width = window.innerWidth; // https://www.w3schools.com/jsref/prop_win_innerwidth.asp
+  const contactDetailsRef = document.getElementById("contactDetails");
+  const contactListRef = document.getElementById("contactList");
   if (width >= 1401) {
-    const contactDetailsRef = document.getElementById("contactDetails");
-    const contactListRef = document.getElementById("contactList");
     if (contactListRef.style.display === "flex") {
       contactDetailsRef.style.display = "flex";
     }
   } else if (width <= 1400) {
-    const contactDetailsRef = document.getElementById("contactDetails");
-    const contactListRef = document.getElementById("contactList");
     if (contactListRef.style.display === "flex") {
       contactDetailsRef.style.display = "none";
     }
@@ -96,7 +94,7 @@ function renderDetailsTemplate(user) {
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
-            <div class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>            
+            <div id="switchMobileButton" class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>            
         </div>        
         <div class="userQuickInfo">
             <div class="userInitials" style="background-color: ${user[1].user_color};" >
@@ -139,7 +137,7 @@ function renderDetailsTemplateFallback() {
         <div class="headings" >
             <span class="heading">Contacts</span>
             <span class="subHeading" >Better with a team</span>
-            <div class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>
+            <div id="switchMobileButton" class="switchMobileButton"  onclick="switchMobile()">${returnIcon("arrowLeft")}</div>
         </div>
       </div>
     `;
