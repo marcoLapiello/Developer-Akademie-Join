@@ -114,17 +114,13 @@
 
       &:hover {
         cursor: pointer;
-        background-color: #2a3647;
+        background: linear-gradient(rgba(240, 240, 240, 1) 0%, rgba(249, 249, 249, 1) 100%);
         border: 0px solid transparent;
         border-radius: 10px;
       }
 
       &:hover .userInitials {
         border: 2px solid rgb(255, 255, 255);
-      }
-
-      &:hover .userName {
-        color: #ffffff;
       }
     }
   }
