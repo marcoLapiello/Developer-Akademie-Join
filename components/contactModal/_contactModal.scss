@@ -102,6 +102,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    span {
+      font-size: 47px;
+    }
     @media (max-width: $breakpoint-lg) {
       top: 100%;
       left: 50%;
