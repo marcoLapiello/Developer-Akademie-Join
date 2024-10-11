@@ -46,6 +46,7 @@ export let saveEditedUserButtonRef = document.getElementById("saveEditedUserButt
 export let deleteChosenUserBtnRef = document.getElementById("deleteChosenUserBtn");
 
 export let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
+export let editUserFeedbackRef = document.getElementById("editUserFeedback");
 export let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
 
 export async function getUsersArray() {

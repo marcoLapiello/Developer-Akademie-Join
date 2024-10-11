@@ -9,6 +9,7 @@ import {
   editNewUserLogoRef,
   saveEditedUserButtonRef,
   addedUserFeedbackRef,
+  editUserFeedbackRef,
   confirmDeleteUserModalRef,
   deleteChosenUserBtnRef,
 } from "../../js/script.js";
@@ -128,6 +129,19 @@ export async function showEditChosenUserDialog(id) {
   setTimeout(() => {
     document.getElementById("editContactContainer").style.left = "50%";
   }, 50);
+}
+
+export function editUserFeedback() {
+  setTimeout(() => {
+    editUserFeedbackRef.classList.remove("d_none");
+  });
+  setTimeout(() => {
+    editUserFeedbackRef.style.left = "750px";
+  }, 600);
+  setTimeout(() => {
+    editUserFeedbackRef.style.left = "150%";
+  }, 2100);
+  editUserFeedbackRef.classList.add("d_none");
 }
 
 export function hideEditChosenUserDialog() {

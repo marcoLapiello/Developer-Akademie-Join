@@ -42,7 +42,6 @@
               <input id="addContactEmailInput" type="email" placeholder="Email" />
               <input id="addContactPhoneInput" type="tel" placeholder="Phone" />
             </div>
-
             <div class="modalInputsBtnContainer">
               <button class="cancelBtn" onclick="hideAddNewUserDialog()">
                 Cancel
@@ -56,14 +55,14 @@
           </div>
         </div>
       </div>
+      <div id="editUserFeedback" class="addedUserFeedback d_none">Contact successfully edited</div>
       <div id="editContactModal" class="contactModal d_none modal_closed">
         <div id="editContactContainer" class="addContactContainer">
           <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
           <div id="editNewUserLogo" class="newUserLogo"></div>
           <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideEditChosenUserDialog()" alt="" />
           <div class="addContactContainerLeft">
-            <h1>Add Contact</h1>
-            <span>Tasks are better with a team!</span>
+            <h1>Edit Contact</h1>
             <div class="vector"></div>
           </div>
           <div class="addContactContainerRight">
