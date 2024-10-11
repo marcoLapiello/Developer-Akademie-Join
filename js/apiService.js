@@ -39,6 +39,7 @@ async function patchNewUser() {
     body: JSON.stringify(newUser),
   });
   if (!response.ok) {
+    // user feedback --> patchen / adden hat nicht geklappt
     throw new Error("Network response was not ok");
   }
 }
@@ -46,6 +47,10 @@ async function patchNewUser() {
 export async function editExistingUser(id, user) {
   let editedUserProfil = getEditUserObject(user);
   console.log(editedUserProfil);
+  let isUser = await fetch(baseUrl + `/user/${id}`);
+  if (!isUser.ok) {
+    throw new Error("Contact is not existing");
+  }
   let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
     method: "PATCH",
     header: {
