@@ -12,6 +12,7 @@ import {
   editUserFeedbackRef,
   confirmDeleteUserModalRef,
   deleteChosenUserBtnRef,
+  sureToDeleteContactBtnRef,
 } from "../../js/script.js";
 
 import { editExistingUser } from "../../js/apiService.js";
@@ -153,8 +154,13 @@ export function hideEditChosenUserDialog() {
 
 export function showConfirmDeleteUserDialog(id) {
   confirmDeleteUserModalRef.classList.remove("d_none");
+  sureToDeleteContactBtnRef.addEventListener("click", () => {
+    deleteChosenUser(id);
+  });
 }
 
 export function hideConfirmDeleteUserDialog() {
   confirmDeleteUserModalRef.classList.add("d_none");
 }
+
+export function validatePhonenumberInput() {}
