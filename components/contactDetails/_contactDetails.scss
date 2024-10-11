@@ -11,6 +11,7 @@
     display: none;
     align-items: center;
     margin-inline: auto;
+    margin-top: 0px;
   }
 
   .contactDetailsBox {
@@ -88,168 +89,185 @@
         }
       }
     }
-    .userQuickInfo {
-      display: flex;
-      align-items: center;
-      gap: 50px;
-      max-height: 120px;
+
+    .userDetailPanel {
+      transform: translateX(300%);
+      transition: all 0.5s ease-in-out;
+      max-height: max-content;
       height: 100%;
-      width: 100%;
-      margin-top: 33px;
 
       @media (max-width: $breakpoint-lg) {
-        gap: 20px;
+        transform: translateX(0%);
+        max-height: calc(100vh - 255px);
       }
 
-      .userInitials {
+      .userQuickInfo {
         display: flex;
-        justify-content: center;
         align-items: center;
-        background-color: goldenrod;
+        gap: 50px;
         max-height: 120px;
         height: 100%;
-        max-width: 120px;
         width: 100%;
-        border: 0px solid transparent;
-        border-radius: 50%;
-        font-size: 47px;
-        font-weight: 400;
-        color: #ffffff;
+        margin-top: 33px;
 
         @media (max-width: $breakpoint-lg) {
-          max-height: 80px;
-          max-width: 80px;
-          font-size: 27px;
+          gap: 20px;
+        }
+
+        .userInitials {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: goldenrod;
+          max-height: 120px;
+          height: 100%;
+          max-width: 120px;
+          width: 100%;
+          border: 0px solid transparent;
+          border-radius: 50%;
+          font-size: 47px;
+          font-weight: 400;
+          color: #ffffff;
+
+          @media (max-width: $breakpoint-lg) {
+            max-height: 80px;
+            max-width: 80px;
+            font-size: 27px;
+          }
+        }
+
+        .userActions {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          .userName {
+            font-size: 47px;
+            font-weight: 400;
+            line-height: 120%;
+
+            @media (max-width: $breakpoint-lg) {
+              font-size: 27px;
+            }
+          }
+          .userProfileButtons {
+            display: flex;
+            gap: 16px;
+
+            @media (max-width: $breakpoint-lg) {
+              display: none;
+              position: absolute;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              bottom: 12px;
+              right: 5px;
+              height: 100px;
+              width: 116px;
+              border: 0px solid transparent;
+              border-radius: 20px 20px 0px 20px;
+              box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+            }
+
+            .editButton,
+            .deleteButton {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              background-color: unset;
+              border: unset;
+
+              @media (max-width: $breakpoint-lg) {
+                width: 100%;
+                padding-inline: 20%;
+              }
+
+              &:hover {
+                cursor: pointer;
+                color: #29abe2;
+                fill: #29abe2;
+              }
+
+              & svg {
+                height: 24px;
+                width: 24px;
+              }
+            }
+          }
         }
       }
-
-      .userActions {
+      .contactInfo {
         display: flex;
         flex-direction: column;
-        gap: 5px;
-        .userName {
-          font-size: 47px;
+        justify-content: center;
+        gap: 22px;
+
+        .heading {
+          display: flex;
+          align-items: center;
+          margin-block: 40px;
+          max-width: 207px;
+          width: 100%;
+          font-size: 20px;
           font-weight: 400;
           line-height: 120%;
 
           @media (max-width: $breakpoint-lg) {
-            font-size: 27px;
+            font-size: 20px;
+            margin-block: 0px;
           }
         }
-        .userProfileButtons {
+
+        .contactEmail {
           display: flex;
-          gap: 16px;
+          flex-direction: column;
+          gap: 15px;
 
-          @media (max-width: $breakpoint-lg) {
-            display: none;
-            position: absolute;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            bottom: 12px;
-            right: 5px;
-            height: 100px;
-            width: 116px;
-            border: 0px solid transparent;
-            border-radius: 20px 20px 0px 20px;
-            box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+          .type {
+            font-size: 16px;
+            font-weight: bold;
           }
+          & a {
+            width: fit-content;
+          }
+        }
 
-          .editButton,
-          .deleteButton {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background-color: unset;
-            border: unset;
+        .contactPhone {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
 
-            @media (max-width: $breakpoint-lg) {
-              width: 100%;
-              padding-inline: 20%;
-            }
-
-            &:hover {
-              cursor: pointer;
-              color: #29abe2;
-              fill: #29abe2;
-            }
-
-            & svg {
-              height: 24px;
-              width: 24px;
-            }
+          .type {
+            font-size: 16px;
+            font-weight: bold;
+          }
+          & a {
+            width: fit-content;
           }
         }
       }
-    }
-    .contactInfo {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 22px;
-
-      .heading {
-        display: flex;
-        align-items: center;
-        margin-block: 40px;
-        max-width: 207px;
-        width: 100%;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 120%;
+      .userProfileButtonsMobile {
+        display: none;
+        position: absolute;
+        bottom: 32px;
+        right: 16px;
+        height: 56px;
+        width: 56px;
+        background-color: #2a3647;
+        border: 0px solid transparent;
+        border-radius: 50%;
 
         @media (max-width: $breakpoint-lg) {
-          font-size: 20px;
-          margin-block: 0px;
+          display: block;
         }
-      }
 
-      .contactEmail {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-
-        .type {
-          font-size: 16px;
-          font-weight: bold;
+        &:hover {
+          cursor: pointer;
         }
-        & a {
-          width: fit-content;
-        }
-      }
-
-      .contactPhone {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-
-        .type {
-          font-size: 16px;
-          font-weight: bold;
-        }
-        & a {
-          width: fit-content;
-        }
-      }
-    }
-    .userProfileButtonsMobile {
-      display: none;
-      position: absolute;
-      bottom: 32px;
-      right: 16px;
-      height: 56px;
-      width: 56px;
-      background-color: #2a3647;
-      border: 0px solid transparent;
-      border-radius: 50%;
-
-      @media (max-width: $breakpoint-lg) {
-        display: block;
-      }
-
-      &:hover {
-        cursor: pointer;
       }
     }
   }
+}
+
+.visible {
+  transform: translateX(0%) !important;
 }
