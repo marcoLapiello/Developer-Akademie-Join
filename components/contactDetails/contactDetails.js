@@ -99,7 +99,7 @@ function renderDetailsTemplate(user) {
             <div class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>            
         </div>        
         <div class="userQuickInfo">
-            <div class="userInitials" >
+            <div class="userInitials" style="background-color: ${user[1].user_color};" >
             ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
             </div>
             <div class="userActions">
