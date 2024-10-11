@@ -17,7 +17,9 @@ export async function addContact() {
   let id = await patchNewUser();
   await loadUsers();
   renderContactList();
-  selectedUser(id);
+  setTimeout(() => {
+    selectedUser(id);
+  }, 100);
   hideAddNewUserDialog();
   newUserFeedback();
 }
