@@ -141,7 +141,7 @@
 
   .modalInputsBtnContainer {
     width: 422px;
-    height: 57px;
+    // height: 57px;
     margin-top: 50px;
     display: flex;
 
@@ -163,7 +163,7 @@
       font-weight: 400;
       color: #2a3647;
       margin-right: 24px;
-      transition: 100ms;
+      transition: all 0.1s ease-in-out;
       &:hover {
         border: 1px solid #29abe2;
         color: #29abe2;
@@ -183,7 +183,7 @@
       font-size: 20px;
       font-weight: 700;
       color: white;
-      transition: 100ms;
+      transition: all 0.1s ease-in-out;
       &:hover {
         background-color: #29abe2;
         box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
