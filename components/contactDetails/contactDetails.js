@@ -2,7 +2,6 @@ import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
 
 export function selectedUser(id) {
-  console.log("Hallo");
   const selectedUserButton = document.querySelectorAll(".userListItem");
   selectedUserButton.forEach((button) => {
     button.classList.remove("selectedUser");
