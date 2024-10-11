@@ -1,5 +1,4 @@
 .sidebar {
-  max-width: 1920px;
   display: flex;
   min-width: 232px;
   height: 100vh;
@@ -7,8 +6,17 @@
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  padding-top: 64px;
   padding-bottom: 64px;
+}
+
+.sidebarUpperPart {
+  padding-top: 64px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 96px;
 }
 
 .active {
