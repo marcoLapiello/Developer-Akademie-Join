@@ -10,6 +10,14 @@ export function selectedUser(id) {
   selectedUserRef.classList.add("selectedUser");
   switchMobile();
   renderContactDetails(id);
+  scrollToUser(id);
+}
+
+function scrollToUser(id) {
+  const selectedUserElement = document.getElementById(id);
+  if (selectedUserElement) {
+    selectedUserElement.scrollIntoView({ behavior: "smooth", block: "center" }); // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+  }
 }
 
 export function switchMobile() {
