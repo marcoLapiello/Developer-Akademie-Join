@@ -39,7 +39,7 @@
             <div class="modalInputsContainer">
               <input id="addContactNameInput" type="text" placeholder="Name" />
               <input id="addContactEmailInput" type="email" placeholder="Email" />
-              <input id="addContactPhoneInput" type="tel" placeholder="Phone" />
+              <input id="addContactPhoneInput" oninput="validatePhonenumberInput()" type="tel" placeholder="Phone" />
             </div>
             <div class="modalInputsBtnContainer">
               <button class="cancelBtn" onclick="hideAddNewUserDialog()">
@@ -67,7 +67,7 @@
             <div class="modalInputsContainer">
               <input id="editContactNameInput" type="text" placeholder="Name" />
               <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" />
-              <input id="editContactPhoneInput" type="tel" name="" id="" placeholder="Phone" />
+              <input id="editContactPhoneInput" oninput="validatePhonenumberInput()" type="tel" name="" id="" placeholder="Phone" />
             </div>
 
             <div class="modalInputsBtnContainer">

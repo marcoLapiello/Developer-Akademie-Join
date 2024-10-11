@@ -35,7 +35,12 @@ let userColors = [
   "#FFBB2B",
 ];
 
-// let users = await getUsersArray();
+export function validatePhonenumberInput() {
+  let addNumber = addContactPhoneInputRef.value;
+  let editNumber = editContactPhoneInputRef.value;
+  console.log(addNumber);
+  console.log(editNumber);
+}
 
 function getRandomUserColor() {
   let randomIndex = Math.floor(Math.random() * userColors.length);
@@ -162,5 +167,3 @@ export function showConfirmDeleteUserDialog(id) {
 export function hideConfirmDeleteUserDialog() {
   confirmDeleteUserModalRef.classList.add("d_none");
 }
-
-export function validatePhonenumberInput() {}
