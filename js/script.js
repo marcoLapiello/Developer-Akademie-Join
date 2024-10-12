@@ -12,8 +12,9 @@ window.userProfileButtonsMobile = userProfileButtonsMobile;
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
 
-import { toggle_d_None } from "../components/header/header.js";
+import { toggle_d_None, renderHeader } from "../components/header/header.js";
 window.toggle_d_None = toggle_d_None;
+renderHeader();
 
 import {
   showAddNewUserDialog,

@@ -1,80 +1,88 @@
 header {
-  max-width: 1440px;
   height: 96px;
   justify-content: space-between;
   display: flex;
-  padding: 20px 40px 20px 348px;
+  padding-left: 52px;
   position: relative;
-}
-
-.user-Profile-Initials {
-  width: 56px;
-  height: 56px;
-  border: 3px solid #2a3647;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.header-rightSide {
-  display: flex;
   align-items: center;
-  gap: 16px;
-}
+  padding-right: 40px;
 
-.dropDown {
-  width: 160px;
-  height: 158px;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  padding: 20px;
-  background-color: #2a3647;
-  position: absolute;
-  top: 96px;
+  .header-rightSide {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 
-  & a {
-    color: #cdcdcd;
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-    text-align: left;
+    .user-Profile-Initials {
+      width: 56px;
+      height: 56px;
+      border: 3px solid #2a3647;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & span {
+        font-size: 22px;
+        font-weight: bold;
+        color: lightblue;
+      }
+    }
   }
 
-  & .legalNotice {
-    width: 130px;
-    height: 46px;
-    border-radius: 8px;
-    padding-top: 8px;
-    padding-right: 16px;
-    padding-bottom: 8px;
-    padding-left: 16px;
-    gap: 8px;
-  }
+  .dropDown {
+    width: 160px;
+    height: 158px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 20px;
+    background-color: #2a3647;
+    position: absolute;
+    top: 96px;
+    right: 15px;
+    z-index: 10;
 
-  & .privacyPolicy {
-    width: 137px;
-    height: 46px;
-    border-radius: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-right: 16px;
-    padding-left: 16px;
-    gap: 8px;
-  }
+    & a {
+      color: #cdcdcd;
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.2px;
+      text-align: left;
+    }
 
-  & .logOut {
-    width: 130px;
-    height: 46px;
-    border-radius: 8px;
-    padding-top: 8px;
-    padding-right: 16px;
-    padding-left: 8xp;
-    padding-left: 16px;
-    gap: 8px;
-  }
-}
+    & .legalNotice {
+      width: 130px;
+      height: 46px;
+      border-radius: 8px;
+      padding-top: 8px;
+      padding-right: 16px;
+      padding-bottom: 8px;
+      padding-left: 16px;
+      gap: 8px;
+    }
 
-.dNone {
-  display: none;
+    & .privacyPolicy {
+      width: 137px;
+      height: 46px;
+      border-radius: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-right: 16px;
+      padding-left: 16px;
+      gap: 8px;
+    }
+
+    & .logOut {
+      width: 130px;
+      height: 46px;
+      border-radius: 8px;
+      padding-top: 8px;
+      padding-right: 16px;
+      padding-left: 8xp;
+      padding-left: 16px;
+      gap: 8px;
+    }
+  }
 }

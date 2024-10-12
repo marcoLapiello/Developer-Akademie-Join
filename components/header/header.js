@@ -1,18 +1,25 @@
 export function toggle_d_None() {
-  let userMenu = document.getElementById("dropDown");
-  userMenu.classList.toggle("d_None");
+  let userMenuRef = document.getElementById("dropDown");
+  userMenuRef.classList.toggle("d_none");
 }
+
+export function renderHeader() {
+  const headerRef = document.getElementById('header');
+  headerRef.innerHTML += renderHeaderTemplate();
+}
+
+
 
 function renderHeaderTemplate() {
   return /*html*/`
-        <header>
-      Kanban Project Management Tool
+      <span>Kanban Project Management Tool</span>
       <div class="header-rightSide">
         <a href="/help.html">
-          <img src="/assets/icons/questionMark_small.png" alt="Help" />
+          <img src="/assets/icons/questionmark_small.png" alt="Help" />
         </a>
         <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
-          <div class="dropDown">
+          <span>G</span>
+          <div class="dropDown d_none" id="dropDown">
           <div class="legalNotice">
             <a href="/legalNotice.html">Legal Notice</a>
           </div>
@@ -24,7 +31,5 @@ function renderHeaderTemplate() {
           </div>
         </div>
       </div>
-    </header>
     `
-
 }
