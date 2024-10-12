@@ -79,16 +79,16 @@ function updateWidth() {
   const width = window.innerWidth; // https://www.w3schools.com/jsref/prop_win_innerwidth.asp
   const contactDetailsRef = document.getElementById("contactDetails");
   const contactListRef = document.getElementById("contactList");
-  if (width >= 1401) {
+  if (width >= 1401 && contactDetailsRef && contactListRef) {
     if (contactListRef.style.display === "flex") {
       contactDetailsRef.style.display = "flex";
     }
-  } else if (width <= 1400) {
+  } else if (width <= 1400 && contactDetailsRef && contactListRef) {
     if (contactListRef.style.display === "flex") {
       contactDetailsRef.style.display = "none";
     }
   }
-  if (width == screen.width) {
+  if (width == screen.width && contactDetailsRef && contactListRef) {
     contactDetailsRef.style.display = "flex";
     contactListRef.style.display = "flex";
   }
