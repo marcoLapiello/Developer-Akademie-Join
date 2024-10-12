@@ -1,12 +1,18 @@
 .sidebar {
   display: flex;
-  min-width: 232px;
+  width: 232px;
   height: 100vh;
   background-color: #2a3647;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
   padding-bottom: 64px;
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: row;
+    width: 100%;
+    height: 80px;
+  }
 }
 
 .sidebarUpperPart {
@@ -17,6 +23,28 @@
   flex-direction: column;
   align-items: center;
   gap: 96px;
+
+  @media (max-width: $breakpoint-lg) {
+    max-width: 100%;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .joinLogo {
+    width: 100.03px;
+    height: 121.97px;
+
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
 }
 
 .active {
@@ -39,6 +67,12 @@
   gap: 15px;
   padding: 0;
   width: 100%;
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: row;
+    opacity: 100%;
+    max-width: 428px;
+  }
 }
 
 .sidebar-Block a {
@@ -54,6 +88,15 @@
   padding-inline: 20%;
   opacity: 100%;
   width: 100%;
+
+  @media (max-width: $breakpoint-lg) {
+    line-height: 120%;
+    letter-spacing: 0%;
+    align-items: left;
+    vertical-align: top;
+    width: 80px;
+    height: 76px;
+  }
 }
 
 #information {
@@ -63,6 +106,10 @@
   height: 35px;
   padding: 0;
   width: 100%;
+
+  @media (max-width: $breakpoint-lg) {
+    display: none;
+  }
 
   & a {
     display: flex;

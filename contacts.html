@@ -10,90 +10,94 @@
   </head>
   <body>
     <main>
-      <div id="confirmDeleteUserModal" class="confirmDeleteUserModal d_none">
-        <div id="confirmDeleteUserContainer" class="confirmDeleteUserContainer">
-          <img class="deleteModalLogo" src="./assets/icons/joinLogo.png" alt="" />
-          <h2>Delete Contact?</h2>
-          <div class="confirmDeleteUserTextBox">
-            <p>
-              Are you sure you want to delete this contact?<br />
-              This action cannot be undone, and the data <br>will be permanently removed.
-            </p>
-          </div>
-          <p>Do you still want to proceed?</p>
-          <div class="confirmDeleteUserBtnBox">
-            <button class="deleteCancelBtn" onclick="hideConfirmDeleteUserDialog()">Cancel
-              <img src="./assets/icons/x_btn.svg" alt="" />
-            </button>
-            <button class="deleteBtn" id="sureToDeleteContactBtn">Delete
-              <img src="./assets/icons/check.svg" alt="" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="contactModal" class="contactModal d_none">
-        <div id="addContactContainer" class="addContactContainer">
-          <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
-          <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideAddNewUserDialog()" alt="" />
-          <div class="addContactContainerLeft">
-            <img class="newUserLogo" src="./assets/icons/newUser.svg" alt="" />
-            <h1>Add Contact</h1>
-            <span>Tasks are better with a team!</span>
-            <div class="vector"></div>
-          </div>
-          <div class="addContactContainerRight">
-            <div class="modalInputsContainer">
-              <input id="addContactNameInput" type="text" placeholder="Name" />
-              <input id="addContactEmailInput" type="email" placeholder="Email" />
-              <input id="addContactPhoneInput" oninput="validateNewPhonenumber()" type="tel" placeholder="Phone" />
+      <nav id="sidebar" class="sidebar"></nav>
+      <section class="mainSection">
+        <div id="confirmDeleteUserModal" class="confirmDeleteUserModal d_none">
+          <div id="confirmDeleteUserContainer" class="confirmDeleteUserContainer">
+            <img class="deleteModalLogo" src="./assets/icons/joinLogo.png" alt="" />
+            <h2>Delete Contact?</h2>
+            <div class="confirmDeleteUserTextBox">
+              <p>
+                Are you sure you want to delete this contact?<br />
+                This action cannot be undone, and the data <br />will be permanently removed.
+              </p>
             </div>
-            <div class="modalInputsBtnContainer">
-              <button class="cancelBtn" onclick="hideAddNewUserDialog()">
+            <p>Do you still want to proceed?</p>
+            <div class="confirmDeleteUserBtnBox">
+              <button class="deleteCancelBtn" onclick="hideConfirmDeleteUserDialog()">
                 Cancel
                 <img src="./assets/icons/x_btn.svg" alt="" />
               </button>
-              <button class="createBtn" onclick="addContact()">
-                Create Contact
+              <button class="deleteBtn" id="sureToDeleteContactBtn">
+                Delete
                 <img src="./assets/icons/check.svg" alt="" />
               </button>
             </div>
           </div>
         </div>
-      </div>
-      <div id="editContactModal" class="contactModal d_none modal_closed">
-        <div id="editContactContainer" class="addContactContainer">
-          <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
-
-          <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideEditChosenUserDialog()" alt="" />
-          <div class="addContactContainerLeft">
-            <div id="editNewUserLogo" class="newUserLogo"></div>
-            <h1>Edit Contact</h1>
-            <div class="vector"></div>
-          </div>
-          <div class="addContactContainerRight">
-            <div class="modalInputsContainer">
-              <input id="editContactNameInput" type="text" placeholder="Name" />
-              <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" />
-              <input id="editContactPhoneInput" oninput="validateEditPhonenumber()" type="tel" name="" id="" placeholder="Phone" />
+        <div id="contactModal" class="contactModal d_none">
+          <div id="addContactContainer" class="addContactContainer">
+            <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
+            <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideAddNewUserDialog()" alt="" />
+            <div class="addContactContainerLeft">
+              <img class="newUserLogo" src="./assets/icons/newUser.svg" alt="" />
+              <h1>Add Contact</h1>
+              <span>Tasks are better with a team!</span>
+              <div class="vector"></div>
             </div>
-
-            <div class="modalInputsBtnContainer">
-              <button id="deleteChosenUserBtn" class="cancelBtn">Delete</button>
-              <button id="saveEditedUserButton" class="createBtn">
-                Save
-                <img src="./assets/icons/check.svg" alt="" />
-              </button>
+            <div class="addContactContainerRight">
+              <div class="modalInputsContainer">
+                <input id="addContactNameInput" type="text" placeholder="Name" />
+                <input id="addContactEmailInput" type="email" placeholder="Email" />
+                <input id="addContactPhoneInput" oninput="validateNewPhonenumber()" type="tel" placeholder="Phone" />
+              </div>
+              <div class="modalInputsBtnContainer">
+                <button class="cancelBtn" onclick="hideAddNewUserDialog()">
+                  Cancel
+                  <img src="./assets/icons/x_btn.svg" alt="" />
+                </button>
+                <button class="createBtn" onclick="addContact()">
+                  Create Contact
+                  <img src="./assets/icons/check.svg" alt="" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <nav id="sidebar" class="sidebar"></nav>
-      <section id="content" class="content">
-        <header id="header" class="header"></header>
-        <div id="contactContent" class="contactContent">
-          <div id="contactList" class="contactList"></div>
-          <div id="contactDetails" class="contactDetails"></div>
+        <div id="editContactModal" class="contactModal d_none modal_closed">
+          <div id="editContactContainer" class="addContactContainer">
+            <img class="modalLogo" src="./assets/icons/joinLogo.png" alt="" />
+
+            <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideEditChosenUserDialog()" alt="" />
+            <div class="addContactContainerLeft">
+              <div id="editNewUserLogo" class="newUserLogo"></div>
+              <h1>Edit Contact</h1>
+              <div class="vector"></div>
+            </div>
+            <div class="addContactContainerRight">
+              <div class="modalInputsContainer">
+                <input id="editContactNameInput" type="text" placeholder="Name" />
+                <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" />
+                <input id="editContactPhoneInput" oninput="validateEditPhonenumber()" type="tel" name="" id="" placeholder="Phone" />
+              </div>
+
+              <div class="modalInputsBtnContainer">
+                <button id="deleteChosenUserBtn" class="cancelBtn">Delete</button>
+                <button id="saveEditedUserButton" class="createBtn">
+                  Save
+                  <img src="./assets/icons/check.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <section id="content" class="content">
+          <header id="header" class="header"></header>
+          <div id="contactContent" class="contactContent">
+            <div id="contactList" class="contactList"></div>
+            <div id="contactDetails" class="contactDetails"></div>
+          </div>
+        </section>
       </section>
     </main>
   </body>
