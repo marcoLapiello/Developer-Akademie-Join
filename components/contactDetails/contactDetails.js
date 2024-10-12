@@ -2,13 +2,20 @@ import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
 
 let selectedUserId = null;
+let isProcessing = false;
 
 export function selectedUser(id) {
+  if (isProcessing) return;
   if (selectedUserId === id) {
     noneSelectedUser();
+    isProcessing = true;
   } else {
     isUserSelected(id);
+    isProcessing = true;
   }
+  setTimeout(() => {
+    isProcessing = false;
+  }, 600);
 }
 
 function isUserSelected(id) {
