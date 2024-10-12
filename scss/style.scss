@@ -13,12 +13,21 @@ main {
   .mainSection {
     display: flex;
     max-width: 1920px;
-    min-height: 100vh;
     width: 100%;
+    max-height: 100vh;
+    height: 100%;
+
+    @media (max-width: $breakpoint-lg) {
+      height: calc(100vh - 80px);
+    }
 
     .content {
       width: 100%;
       height: calc(100vh - 96px);
+
+      @media (max-width: $breakpoint-lg) {
+        height: calc(100vh - (96px + 80px));
+      }
 
       .contactContent {
         display: flex;
