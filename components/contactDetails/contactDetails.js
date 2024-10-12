@@ -68,6 +68,7 @@ export function switchMobile() {
   if (contactDetailsComputedStyle.display === "none") {
     contactDetailsRef.style.display = "flex";
     contactListRef.style.display = "none";
+    highlightedSelectedUser();
   } else if (contactListComputedStyle.display === "none") {
     contactDetailsRef.style.display = "none";
     contactListRef.style.display = "flex";
