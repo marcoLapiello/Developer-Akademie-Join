@@ -165,7 +165,7 @@
               flex-direction: column;
               align-items: center;
               justify-content: center;
-              bottom: 12px;
+              bottom: calc(12px + 80px);
               right: 5px;
               height: 100px;
               width: 116px;
@@ -254,7 +254,7 @@
       .userProfileButtonsMobile {
         display: none;
         position: absolute;
-        bottom: 32px;
+        bottom: calc(32px + 80px);
         right: 16px;
         height: 56px;
         width: 56px;
