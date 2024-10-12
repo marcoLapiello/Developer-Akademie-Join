@@ -57,10 +57,16 @@ export async function renderContactList() {
                     </span>             
                     <a class="usersMail">${user[1].profile.email}</a>
                 </div>
-            </li>`; // Add the user to the list. Name , Last Name , Email
+            </li>
+            `; // Add the user to the list. Name , Last Name , Email
     });
     renderList += /*html*/ `</ul></div> `; // Close the list for the letter
   });
+  renderList += /*html*/ `    
+    <span class="newContactButtonMobile" onclick="showAddNewUserDialog()">
+        ${returnIcon("person")}
+    </span>
+  `;
   if (contactListRef) contactListRef.innerHTML = renderList;
 }
 
