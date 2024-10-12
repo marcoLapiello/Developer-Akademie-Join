@@ -12,13 +12,13 @@
     display: none;
     align-items: center;
     padding-top: 0px;
-    padding-left: 0px;
+    padding-inline: 16px;
   }
 
   .contactDetailsBox {
-    width: fit-content;
-    min-width: 428px;
     height: 100%;
+    max-width: 100%;
+    width: 100%;
 
     .headings {
       display: flex;
@@ -94,9 +94,12 @@
     .userDetailPanel {
       max-height: max-content;
       height: 100%;
+      max-width: 100%;
+      width: 100%;
       transition: all 0.5s ease-in-out;
 
       @media (max-width: $breakpoint-lg) {
+        transition: all 0s ease-in-out;
         transform: translateX(0%);
         max-height: calc(100vh - 255px);
       }
@@ -128,8 +131,8 @@
           font-weight: 400;
           color: #ffffff;
           line-height: 120%;
-          letter-spacing: -5px;
-          padding-right: 5px;
+          letter-spacing: -3px;
+          padding-right: 3px;
           text-align: center;
 
           @media (max-width: $breakpoint-lg) {
