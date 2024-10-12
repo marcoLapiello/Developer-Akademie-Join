@@ -11,8 +11,8 @@
   @media (max-width: $breakpoint-lg) {
     display: none;
     align-items: center;
-    margin-inline: auto;
-    margin-top: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
   }
 
   .contactDetailsBox {
@@ -92,10 +92,9 @@
     }
 
     .userDetailPanel {
-      transform: translateX(300%);
-      transition: all 0.5s ease-in-out;
       max-height: max-content;
       height: 100%;
+      transition: all 0.5s ease-in-out;
 
       @media (max-width: $breakpoint-lg) {
         transform: translateX(0%);
