@@ -152,7 +152,7 @@
   .newContactButtonMobile {
     position: fixed;
     right: 16px;
-    bottom: 32px;
+    bottom: calc(32px + 80px);
     display: none;
     justify-content: center;
     align-items: center;
