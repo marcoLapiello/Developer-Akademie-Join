@@ -119,7 +119,6 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          background-color: goldenrod;
           max-height: 120px;
           height: 100%;
           max-width: 120px;
@@ -129,6 +128,10 @@
           font-size: 47px;
           font-weight: 400;
           color: #ffffff;
+          line-height: 120%;
+          letter-spacing: -5px;
+          padding-right: 5px;
+          text-align: center;
 
           @media (max-width: $breakpoint-lg) {
             max-height: 80px;
