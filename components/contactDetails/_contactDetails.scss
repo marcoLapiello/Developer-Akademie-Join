@@ -1,11 +1,12 @@
 .contactDetails {
   display: flex;
   flex-direction: column;
-  margin-top: 110px;
-  margin-left: 58px;
+  padding-top: 110px;
+  padding-left: 58px;
   max-width: 100%;
   width: 100%;
   position: relative;
+  background-color: #f6f7f8;
 
   @media (max-width: $breakpoint-lg) {
     display: none;
@@ -123,7 +124,7 @@
           height: 100%;
           max-width: 120px;
           width: 100%;
-          border: 0px solid transparent;
+          border: 3px solid #ffffff;
           border-radius: 50%;
           font-size: 47px;
           font-weight: 400;
