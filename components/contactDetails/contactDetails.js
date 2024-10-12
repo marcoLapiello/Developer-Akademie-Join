@@ -148,7 +148,7 @@ function renderDetailsTemplate(user) {
             <span class="subHeading" >Better with a team</span>
             <div id="switchMobileButton" class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>            
         </div>  
-         <div id="userDetailPanel" class="userDetailPanel">    
+         <div id="userDetailPanel" class="userDetailPanel" style="transform: translateX(${screen.width / 5}%)">    
           <div class="userQuickInfo">
               <div class="userInitials" style="background-color: ${user[1].user_color};" >
               ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
