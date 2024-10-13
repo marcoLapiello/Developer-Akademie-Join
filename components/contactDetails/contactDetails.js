@@ -175,11 +175,11 @@ function renderDetailsTemplate(user) {
           <div class="type">Phone</div>
               <a href="tel:${user[1].profile.phone}">${user[1].profile.phone}</a>
           </div>
-          </div>          
+          </div>  
+          <button onclick="userProfileButtonsMobile()" id="userProfileButtonsMobile" class="userProfileButtonsMobile">
+            <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="../../assets/icons/more_vert.png" alt="">
+          </button>        
         </div>
-        <button onclick="userProfileButtonsMobile()" id="userProfileButtonsMobile" class="userProfileButtonsMobile">
-          <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="../../assets/icons/more_vert.png" alt="">
-        </button>
       </div> 
     `;
 }
