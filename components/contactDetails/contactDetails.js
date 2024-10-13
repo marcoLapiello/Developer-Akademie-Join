@@ -149,7 +149,7 @@ function renderDetailsTemplate(user) {
             <span class="subHeading" >Better with a team</span>
             <div id="switchMobileButton" class="switchMobileButton" onclick="switchMobile()">${returnIcon("arrowLeft")}</div>            
         </div>  
-         <div id="userDetailPanel" class="userDetailPanel" style="transform: translateX(${screen.width}px)">
+         <div id="userDetailPanel" class="userDetailPanel">
           <div class="userQuickInfo">
               <div class="userInitials" style="background-color: ${user[1].user_color};" >
               ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
@@ -175,11 +175,11 @@ function renderDetailsTemplate(user) {
           <div class="type">Phone</div>
               <a href="tel:${user[1].profile.phone}">${user[1].profile.phone}</a>
           </div>
-          </div>
-          <button onclick="userProfileButtonsMobile()" id="userProfileButtonsMobile" class="userProfileButtonsMobile">
-            <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="../../assets/icons/more_vert.png" alt="">
-          </button>
+          </div>          
         </div>
+        <button onclick="userProfileButtonsMobile()" id="userProfileButtonsMobile" class="userProfileButtonsMobile">
+          <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="../../assets/icons/more_vert.png" alt="">
+        </button>
       </div> 
     `;
 }
