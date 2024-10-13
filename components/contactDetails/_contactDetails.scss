@@ -202,6 +202,8 @@
               display: flex;
               align-items: center;
               gap: 8px;
+              font-size: 16px;
+              line-height: 120%;
               background-color: unset;
               border: unset;
 
@@ -214,12 +216,17 @@
                 cursor: pointer;
                 color: #29abe2;
                 fill: #29abe2;
+                font-weight: bold;
               }
 
               & svg {
                 height: 24px;
                 width: 24px;
               }
+            }
+
+            .editButton {
+              width: 70px;
             }
           }
         }
