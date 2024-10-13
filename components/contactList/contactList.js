@@ -26,28 +26,20 @@ async function groupedUsers() {
   return groupedUsersObjekt;
 }
 
-export function aktivNewContactButton(type) {
-  if (type === "mobile") {
-    const newContactButtonMobileRef = document.getElementById("newContactButtonMobile");
-    newContactButtonMobileRef.style.backgroundColor = "#29abe2";
-  }
-  if (type === "desktop") {
-    const newContactButtonRef = document.querySelector(".newContactButton");
-    newContactButtonRef.style.backgroundColor = "#091931";
-  }
+export function aktivNewContactButton() {
+  const newContactButtonMobileRef = document.getElementById("newContactButtonMobile");
+  const newContactButtonRef = document.querySelector(".newContactButton");
+  if (newContactButtonMobileRef) newContactButtonMobileRef.style.backgroundColor = "#29abe2";
+  if (newContactButtonRef) newContactButtonRef.style.backgroundColor = "#091931";
   showAddNewUserDialog();
 }
 
-export function removeAktivContactButton(type) {
+export function removeAktivContactButton() {
   setTimeout(() => {
-    if (type === "mobile") {
-      const newContactButtonMobileRef = document.getElementById("newContactButtonMobile");
-      newContactButtonMobileRef.style.backgroundColor = "#2a3647";
-    }
-    if (type === "desktop") {
-      const newContactButtonRef = document.querySelector(".newContactButton");
-      newContactButtonRef.style.backgroundColor = "#2A3647";
-    }
+    const newContactButtonMobileRef = document.getElementById("newContactButtonMobile");
+    const newContactButtonRef = document.querySelector(".newContactButton");
+    if (newContactButtonMobileRef) newContactButtonMobileRef.style.backgroundColor = "#2a3647";
+    if (newContactButtonRef) newContactButtonRef.style.backgroundColor = "#2A3647";
   }, 500);
 }
 
@@ -57,7 +49,7 @@ export async function renderContactList() {
   let renderList = "";
   renderList += /*html*/ `  
                 <div class="contactListHeader" >
-                <button class="newContactButton" onclick="aktivNewContactButton('desktop')">Add new Contact 
+                <button class="newContactButton" onclick="aktivNewContactButton()">Add new Contact 
                     ${returnIcon("person")}
                 </button>
                 </div>
@@ -88,7 +80,7 @@ export async function renderContactList() {
     renderList += /*html*/ `</ul></div> `; // Close the list for the letter
   });
   renderList += /*html*/ `    
-    <span id="newContactButtonMobile" class="newContactButtonMobile" onclick="aktivNewContactButton('mobile')">
+    <span id="newContactButtonMobile" class="newContactButtonMobile" onclick="aktivNewContactButton()">
         ${returnIcon("person")}
     </span>
   `;
