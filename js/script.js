@@ -1,5 +1,7 @@
-import { renderContactList } from "../components/contactList/contactList.js";
+import { renderContactList, aktivNewContactButton, removeAktivContactButton } from "../components/contactList/contactList.js";
 renderContactList();
+window.aktivNewContactButton = aktivNewContactButton;
+window.removeAktivContactButton = removeAktivContactButton;
 
 import { renderContactDetails, renderAfterDelete, selectedUser, switchMobile, userProfileButtonsMobile } from "../components/contactDetails/contactDetails.js";
 renderContactDetails();
