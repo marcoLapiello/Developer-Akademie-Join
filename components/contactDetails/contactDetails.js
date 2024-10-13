@@ -101,7 +101,7 @@ export function userProfileButtonsMobile() {
   const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
   if (userProfileButtonsStyle.display === "none") {
     userProfileButtonsRef.style.display = "flex";
-    userProfileButtonsMobileRef.style.display = "none";
+    userProfileButtonsMobileRef.style.backgroundColor = "#29abe2";
   }
 }
 
@@ -111,11 +111,13 @@ document.addEventListener("click", (event) => {
   const userProfileButtonsMobileStyle = window.getComputedStyle(userProfileButtonsMobileRef);
   const contactListRef = document.getElementById("contactList");
   const contactListComputedStyle = window.getComputedStyle(contactListRef);
-  if (userProfileButtonsMobileStyle.display === "none" && contactListComputedStyle.display === "none") {
+  if (contactListComputedStyle.display === "none") {
     if (event.target.id != "userProfileButtonsMobile" && event.target.id != "userProfileButtonsMobileImg") {
       const userProfileButtonsRef = document.getElementById("userProfileButtons");
       userProfileButtonsRef.style.display = "none";
-      userProfileButtonsMobileRef.style.display = "block";
+      setTimeout(() => {
+        userProfileButtonsMobileRef.style.backgroundColor = "#2a3647";
+      }, 500);
     }
   }
 });
