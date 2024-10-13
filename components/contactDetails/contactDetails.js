@@ -167,7 +167,7 @@ function renderDetailsTemplate(user) {
           </div>
           </div>  
           <button onclick="userProfileButtonsMobile()" id="userProfileButtonsMobile" class="userProfileButtonsMobile">
-            <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="../../assets/icons/more_vert.png" alt="">
+            <img id="userProfileButtonsMobileImg" class="userProfileButtonsMobileImg" onclick="userProfileButtonsMobile()" src="./assets/icons/more_vert.png" alt="">
           </button>        
         </div>
       </div> 
