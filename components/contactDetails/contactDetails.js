@@ -55,9 +55,7 @@ function userPanelVisibility() {
 
 function scrollToUser(id) {
   const selectedUserElement = document.getElementById(id);
-  if (selectedUserElement) {
-    selectedUserElement.scrollIntoView({ behavior: "smooth", block: "center" }); // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-  }
+  if (selectedUserElement) selectedUserElement.scrollIntoView({ behavior: "smooth", block: "center" }); // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 }
 
 export function switchMobile() {
@@ -80,13 +78,9 @@ function updateWidth() {
   const contactDetailsRef = document.getElementById("contactDetails");
   const contactListRef = document.getElementById("contactList");
   if (width >= 1401 && contactDetailsRef && contactListRef) {
-    if (contactListRef.style.display === "flex") {
-      contactDetailsRef.style.display = "flex";
-    }
+    if (contactListRef.style.display === "flex") contactDetailsRef.style.display = "flex";
   } else if (width <= 1400 && contactDetailsRef && contactListRef) {
-    if (contactListRef.style.display === "flex") {
-      contactDetailsRef.style.display = "none";
-    }
+    if (contactListRef.style.display === "flex") contactDetailsRef.style.display = "none";
   }
   if (width == screen.width && contactDetailsRef && contactListRef) {
     contactDetailsRef.style.display = "flex";
@@ -108,7 +102,6 @@ export function userProfileButtonsMobile() {
 document.addEventListener("click", (event) => {
   const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
   if (!userProfileButtonsMobileRef) return;
-  const userProfileButtonsMobileStyle = window.getComputedStyle(userProfileButtonsMobileRef);
   const contactListRef = document.getElementById("contactList");
   const contactListComputedStyle = window.getComputedStyle(contactListRef);
   if (contactListComputedStyle.display === "none") {
