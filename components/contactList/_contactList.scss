@@ -38,7 +38,8 @@
       align-items: center;
       gap: 16px;
       min-height: 56px;
-      min-width: 352px;
+      max-width: 352px;
+      width: 100%;
       border: 0px solid transparent;
       border-radius: 10px;
       background-color: #2a3647;
@@ -65,7 +66,8 @@
     flex-direction: column;
     align-items: center;
     height: fit-content;
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
 
     .alphabetSection {
       display: flex;
@@ -73,12 +75,14 @@
       font-size: 20px;
       padding-left: 36px;
       height: 58px;
-      width: 352px;
+      max-width: 352px;
+      width: 100%;
       line-height: 120%;
     }
     .horizontalLine {
       height: 1px;
-      width: 352px;
+      max-width: 352px;
+      width: 100%;
       margin: 15px;
       background-color: #d1d1d1;
       border: unset;
@@ -91,6 +95,10 @@
       height: 78px;
       width: 352px;
       list-style-type: none;
+
+      @media (max-width: $breakpoint-xxs) {
+        width: 300px;
+      }
 
       .userInitials {
         display: flex;
@@ -121,6 +129,10 @@
           font-size: 16px;
           color: #007cee;
           line-height: 120%;
+
+          @media (max-width: $breakpoint-xxs) {
+            font-size: 14px;
+          }
         }
       }
 
