@@ -1,6 +1,8 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
-
+const contactDetailsRef = document.getElementById("contactDetails");
+const contactListRef = document.getElementById("contactList");
+const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
 let selectedUserId = null;
 let isProcessing = false;
 
@@ -59,8 +61,6 @@ function scrollToUser(id) {
 }
 
 export function switchMobile() {
-  const contactDetailsRef = document.getElementById("contactDetails");
-  const contactListRef = document.getElementById("contactList");
   const contactDetailsComputedStyle = window.getComputedStyle(contactDetailsRef);
   const contactListComputedStyle = window.getComputedStyle(contactListRef);
   if (contactDetailsComputedStyle.display === "none") {
@@ -75,8 +75,6 @@ export function switchMobile() {
 
 function updateWidth() {
   const width = window.innerWidth; // https://www.w3schools.com/jsref/prop_win_innerwidth.asp
-  const contactDetailsRef = document.getElementById("contactDetails");
-  const contactListRef = document.getElementById("contactList");
   if (width >= 1401 && contactDetailsRef && contactListRef) {
     if (contactListRef.style.display === "flex") contactDetailsRef.style.display = "flex";
   } else if (width <= 1400 && contactDetailsRef && contactListRef) {
@@ -87,12 +85,12 @@ function updateWidth() {
     contactListRef.style.display = "flex";
   }
 }
+
 window.addEventListener("resize", updateWidth); // https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
 
 export function userProfileButtonsMobile() {
   const userProfileButtonsRef = document.getElementById("userProfileButtons");
   const userProfileButtonsStyle = window.getComputedStyle(userProfileButtonsRef);
-  const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
   if (userProfileButtonsStyle.display === "none") {
     userProfileButtonsRef.style.display = "flex";
     userProfileButtonsMobileRef.style.backgroundColor = "#29abe2";
@@ -100,9 +98,7 @@ export function userProfileButtonsMobile() {
 }
 
 document.addEventListener("click", (event) => {
-  const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
   if (!userProfileButtonsMobileRef) return;
-  const contactListRef = document.getElementById("contactList");
   const contactListComputedStyle = window.getComputedStyle(contactListRef);
   if (contactListComputedStyle.display === "none") {
     if (event.target.id != "userProfileButtonsMobile" && event.target.id != "userProfileButtonsMobileImg") {
@@ -116,7 +112,6 @@ document.addEventListener("click", (event) => {
 });
 
 export async function renderContactDetails(id) {
-  const contactDetailsRef = document.getElementById("contactDetails");
   if (!id && contactDetailsRef) {
     contactDetailsRef.innerHTML = renderDetailsTemplateFallback();
     return;
