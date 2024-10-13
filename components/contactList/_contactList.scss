@@ -80,7 +80,7 @@
       line-height: 120%;
 
       @media (max-width: $breakpoint-xxs) {
-        padding-left: 40px;
+        padding-left: 30px;
       }
     }
     .horizontalLine {
@@ -102,7 +102,7 @@
 
       @media (max-width: $breakpoint-xxs) {
         width: 300px;
-        padding-left: 0px;
+        padding-left: 10px;
       }
 
       .userInitials {
