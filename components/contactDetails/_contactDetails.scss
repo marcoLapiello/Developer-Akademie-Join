@@ -16,11 +16,13 @@
   }
 
   .contactDetailsBox {
+    max-height: calc(100vh - 313px);
     height: 100%;
     max-width: 100%;
     width: 100%;
 
     @media (max-width: $breakpoint-lg) {
+      max-height: calc(100vh - 251px);
       max-width: 596px;
     }
 
@@ -104,7 +106,7 @@
     }
 
     .userDetailPanel {
-      max-height: 500px;
+      max-height: 100%;
       height: 100%;
       max-width: 100%;
       width: 100%;
@@ -188,7 +190,7 @@
               flex-direction: column;
               align-items: center;
               justify-content: center;
-              bottom: calc(12px + 80px);
+              bottom: calc(32px + 80px);
               right: 5px;
               height: 100px;
               width: 116px;
@@ -297,7 +299,7 @@
     .userProfileButtonsMobile {
       display: none;
       position: absolute;
-      bottom: 32px;
+      bottom: calc(32px + 80px);
       right: 16px;
       height: 56px;
       width: 56px;
