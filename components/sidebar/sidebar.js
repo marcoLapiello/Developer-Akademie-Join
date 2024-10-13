@@ -11,6 +11,13 @@ function renderSidebarTemplate() {
       <div class="sidebarUpperPart">
         <img class= "joinLogo"  src="/assets/icons/joinLogo.png" />
         <div class="sidebar-Block">
+
+        <!-- <div class="${urlPath === "/summary.html" ? "active" : ""} navElement">
+          <img src="/assets/icons/summaryIcon.png" alt="">  
+          <a href="">Summary</a>
+        </div> -->
+
+
           <a  class="${urlPath === "/summary.html" ? "active" : ""}" href="/summary.html"><img src="/assets/icons/summaryIcon.png" />Summary</a>
           <a  class="${urlPath === "/addTask.html" ? "active" : ""}" href="/addTask.html"><img src="/assets/icons/addTaskIcon.png" />Add Task</a>
           <a  class="${urlPath === "/board.html" ? "active" : ""}" href="/board.html"><img src="/assets/icons/boardIcon.png" />Board</a>
