@@ -286,6 +286,7 @@
           }
           & a {
             width: fit-content;
+            color: #000000;
             @media (max-width: $breakpoint-xxs) {
               font-size: 14px;
             }
