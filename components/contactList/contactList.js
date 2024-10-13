@@ -26,13 +26,38 @@ async function groupedUsers() {
   return groupedUsersObjekt;
 }
 
+export function aktivNewContactButton(type) {
+  if (type === "mobile") {
+    const newContactButtonMobileRef = document.getElementById("newContactButtonMobile");
+    newContactButtonMobileRef.style.backgroundColor = "#29abe2";
+  }
+  if (type === "desktop") {
+    const newContactButtonRef = document.querySelector(".newContactButton");
+    newContactButtonRef.style.backgroundColor = "#091931";
+  }
+  showAddNewUserDialog();
+}
+
+export function removeAktivContactButton(type) {
+  setTimeout(() => {
+    if (type === "mobile") {
+      const newContactButtonMobileRef = document.getElementById("newContactButtonMobile");
+      newContactButtonMobileRef.style.backgroundColor = "#2a3647";
+    }
+    if (type === "desktop") {
+      const newContactButtonRef = document.querySelector(".newContactButton");
+      newContactButtonRef.style.backgroundColor = "#2A3647";
+    }
+  }, 500);
+}
+
 export async function renderContactList() {
   const contactListRef = document.getElementById("contactList");
   let groupedUsersObj = await groupedUsers();
   let renderList = "";
   renderList += /*html*/ `  
                 <div class="contactListHeader" >
-                <button class="newContactButton" onclick="showAddNewUserDialog()">Add new Contact 
+                <button class="newContactButton" onclick="aktivNewContactButton('desktop')">Add new Contact 
                     ${returnIcon("person")}
                 </button>
                 </div>
@@ -63,7 +88,7 @@ export async function renderContactList() {
     renderList += /*html*/ `</ul></div> `; // Close the list for the letter
   });
   renderList += /*html*/ `    
-    <span class="newContactButtonMobile" onclick="showAddNewUserDialog()">
+    <span id="newContactButtonMobile" class="newContactButtonMobile" onclick="aktivNewContactButton('mobile')">
         ${returnIcon("person")}
     </span>
   `;
