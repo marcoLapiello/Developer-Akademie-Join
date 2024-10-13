@@ -104,16 +104,17 @@
     }
 
     .userDetailPanel {
-      max-height: max-content;
+      max-height: 500px;
       height: 100%;
       max-width: 100%;
       width: 100%;
       transition: all 0.5s ease-in-out;
+      transform: translateX(1500px);
+      opacity: 0;
 
       @media (max-width: $breakpoint-lg) {
         transition: all 0s ease-in-out;
         transform: translateX(0%);
-        max-height: calc(100vh - 255px);
       }
 
       .userQuickInfo {
@@ -283,30 +284,31 @@
           }
         }
       }
-      .userProfileButtonsMobile {
-        display: none;
-        position: absolute;
-        bottom: calc(32px + 80px);
-        right: 16px;
-        height: 56px;
-        width: 56px;
-        background-color: #2a3647;
-        border: 0px solid transparent;
-        border-radius: 50%;
-        z-index: 20;
+    }
+    .userProfileButtonsMobile {
+      display: none;
+      position: absolute;
+      bottom: 32px;
+      right: 16px;
+      height: 56px;
+      width: 56px;
+      background-color: #2a3647;
+      border: 0px solid transparent;
+      border-radius: 50%;
+      z-index: 20;
 
-        @media (max-width: $breakpoint-lg) {
-          display: block;
-        }
+      @media (max-width: $breakpoint-lg) {
+        display: block;
+      }
 
-        &:hover {
-          cursor: pointer;
-        }
+      &:hover {
+        cursor: pointer;
       }
     }
   }
 }
 
 .visible {
+  opacity: 1 !important;
   transform: translateX(0%) !important;
 }
