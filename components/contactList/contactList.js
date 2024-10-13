@@ -45,44 +45,61 @@ export async function renderContactList() {
   const contactListRef = document.getElementById("contactList");
   let groupedUsersObj = await groupedUsers();
   let renderList = "";
-  renderList += /*html*/ `  
-                <div class="contactListHeader" >
-                <button class="newContactButton" onclick="aktivNewContactButton()">Add new Contact 
-                    ${returnIcon("person")}
-                </button>
-                </div>
-              `;
+  renderList += renderContactListHeader();
   Object.keys(groupedUsersObj).forEach((letter) => {
     // Object.keys() method returns an array of a given object's own property names ( A. B , C , D )
-    renderList += /*html*/ `                
-                <div class="contactListContent">                  
-                <span class="alphabetSection">${letter}</span>
-                <hr class="horizontalLine">
-                <ul>`; // Create a list of users for each letter
+    renderList += renderContactListContent(letter); // Add the letter to the list
     groupedUsersObj[letter].forEach((user) => {
       // Loop through each user in the array for the letter
-      renderList += /*html*/ `        
-            <li onclick="selectedUser('${user[1].id}')" class="userListItem" id="${user[1].id}">
-                <span class="userInitials" style="background-color: ${user[1].user_color};" >
-                  ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
-                </span>
-                <div class="userProfile">
-                    <span class="userName">
-                        ${user[1].profile.first_name} ${user[1].profile.last_name}
-                    </span>             
-                    <a class="usersMail">${user[1].profile.email}</a>
-                </div>
-            </li>
-            `; // Add the user to the list. Name , Last Name , Email
+      renderList += renderContactListUsers(user); // Add the user to the list
     });
     renderList += /*html*/ `</ul></div> `; // Close the list for the letter
   });
-  renderList += /*html*/ `    
-    <span id="newContactButtonMobile" class="newContactButtonMobile" onclick="aktivNewContactButton()">
-        ${returnIcon("person")}
-    </span>
-  `;
+  renderList += renderContactListButtonMobile(); // Add the Mobile new contact button to the list
   if (contactListRef) contactListRef.innerHTML = renderList;
 }
 
 window.renderContactList = renderContactList;
+
+function renderContactListHeader() {
+  return /*html*/ `
+      <div class="contactListHeader" >
+        <button class="newContactButton" onclick="aktivNewContactButton()">Add new Contact 
+            ${returnIcon("person")}
+        </button>
+      </div>
+  `;
+}
+
+function renderContactListContent(letter) {
+  return /*html*/ `
+      <div class="contactListContent">                  
+      <span class="alphabetSection">${letter}</span>
+      <hr class="horizontalLine">
+      <ul>
+  `;
+}
+
+function renderContactListUsers(user) {
+  return /*html*/ `
+    <li onclick="selectedUser('${user[1].id}')" class="userListItem" id="${user[1].id}">
+        <span class="userInitials" style="background-color: ${user[1].user_color};" >
+          ${user[1].profile.first_name.toUpperCase().charAt(0)}  ${user[1].profile.last_name.toUpperCase().charAt(0)}
+        </span>
+        <div class="userProfile">
+            <span class="userName">
+                ${user[1].profile.first_name} ${user[1].profile.last_name}
+            </span>             
+            <a class="usersMail">${user[1].profile.email}</a>
+        </div>
+    </li>
+  `;
+}
+
+function renderContactListButtonMobile() {
+  return /*html*/ `
+    <span id="newContactButtonMobile" class="newContactButtonMobile" onclick="aktivNewContactButton()">
+        ${returnIcon("person")}
+    </span>
+  `;
+}
