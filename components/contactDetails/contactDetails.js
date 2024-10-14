@@ -2,7 +2,6 @@ import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
 const contactDetailsRef = document.getElementById("contactDetails");
 const contactListRef = document.getElementById("contactList");
-const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
 let selectedUserId = null;
 let isProcessing = false;
 
