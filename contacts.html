@@ -45,14 +45,14 @@
               <span>Tasks are better with a team!</span>
               <div class="vector"></div>
             </div>
-            <div class="addContactContainerRight">
+            <form class="addContactContainerRight">
               <div class="modalInputsContainer">
-                <input id="addContactNameInput" type="text" placeholder="Name" />
-                <input id="addContactEmailInput" type="email" placeholder="Email" />
-                <input id="addContactPhoneInput" oninput="validateNewPhonenumber()" type="tel" placeholder="Phone" />
+                <input id="addContactNameInput" type="text" placeholder="Name" required/>
+                <input id="addContactEmailInput" type="email" placeholder="Email" required/>
+                <input id="addContactPhoneInput" oninput="validateNewPhonenumber()" type="tel" pattern="[0-9+ ]*" placeholder="Phone" required/>
               </div>
               <div class="modalInputsBtnContainer">
-                <button class="cancelBtn" onclick="hideAddNewUserDialog()">
+                <button  class="cancelBtn" onclick="hideAddNewUserDialog()">
                   Cancel
                   <img src="./assets/icons/x_btn.svg" alt="" />
                 </button>
@@ -61,7 +61,7 @@
                   <img src="./assets/icons/check.svg" alt="" />
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <div id="editContactModal" class="contactModal d_none modal_closed">
@@ -74,13 +74,12 @@
               <h1>Edit Contact</h1>
               <div class="vector"></div>
             </div>
-            <div class="addContactContainerRight">
+            <form class="addContactContainerRight">
               <div class="modalInputsContainer">
-                <input id="editContactNameInput" type="text" placeholder="Name" />
-                <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" />
-                <input id="editContactPhoneInput" oninput="validateEditPhonenumber()" type="tel" name="" id="" placeholder="Phone" />
+                <input id="editContactNameInput" type="text" placeholder="Name" required/>
+                <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" required/>
+                <input id="editContactPhoneInput" oninput="validateEditPhonenumber()" type="tel" pattern="[0-9+ ]*" placeholder="Phone" required/>
               </div>
-
               <div class="modalInputsBtnContainer">
                 <button id="deleteChosenUserBtn" class="cancelBtn">Delete</button>
                 <button id="saveEditedUserButton" class="createBtn">
@@ -88,7 +87,7 @@
                   <img src="./assets/icons/check.svg" alt="" />
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <section id="content" class="content">

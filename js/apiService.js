@@ -7,6 +7,7 @@ import {
   hideEditChosenUserDialog,
   hideConfirmDeleteUserDialog,
   newUserFeedback,
+  clearAddInputFields,
   editUserFeedback,
 } from "../components/contactModal/contactModal.js";
 
@@ -22,6 +23,7 @@ export async function addContact() {
   }, 100);
   hideAddNewUserDialog();
   newUserFeedback();
+  clearAddInputFields();
 }
 
 export async function deleteChosenUser(id) {
