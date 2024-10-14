@@ -17,8 +17,6 @@ import { renderContactDetails, selectedUser } from "../components/contactDetails
 
 export async function addContact(event) {
   event.stopPropagation();
-  console.log(validateAllInputs());
-
   if (validateAllInputs()) {
     let id = await patchNewUser();
     await loadUsers();
@@ -70,23 +68,25 @@ async function patchNewUser() {
 
 export async function editExistingUser(id, user) {
   let editedUserProfil = getEditUserObject(user);
-  // let isUser = await fetch(baseUrl + `/user/${id}`);
-  // if (!isUser.ok) {
-  //   throw new Error("Contact is not existing");
-  // }
-  let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
-    method: "PATCH",
-    header: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(editedUserProfil),
-  });
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
+  if (validateAllInputs()) {
+    // let isUser = await fetch(baseUrl + `/user/${id}`);
+    // if (!isUser.ok) {
+    //   throw new Error("Contact is not existing");
+    // }
+    let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
+      method: "PATCH",
+      header: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedUserProfil),
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    selectedUser(id, true);
+    hideEditChosenUserDialog();
+    editUserFeedback();
   }
-  selectedUser(id, true);
-  hideEditChosenUserDialog();
-  editUserFeedback();
 }
 
 export async function loadUsers() {
