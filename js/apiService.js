@@ -86,6 +86,7 @@ export async function editExistingUser(id, user) {
   }
   selectedUser(id, true);
   hideEditChosenUserDialog();
+  editUserFeedback();
 }
 
 export async function loadUsers() {
