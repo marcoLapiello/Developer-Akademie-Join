@@ -136,7 +136,7 @@ export function newUserFeedback() {
     addedUserFeedbackRef.classList.remove("d_none");
   });
   setTimeout(() => {
-    addedUserFeedbackRef.style.left = "750px";
+    addedUserFeedbackRef.style.left = "58px";
   }, 600);
   setTimeout(() => {
     addedUserFeedbackRef.style.left = "150%";

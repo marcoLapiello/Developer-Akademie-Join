@@ -11,14 +11,14 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 75vh;
+  top: 50%;
   left: 150%;
   transition: all 0.5s ease;
   z-index: 5000;
 }
 
 .feedbackOpen {
-  left: 750px;
+  left: 58px;
 }
 
 .confirmDeleteUserModal {
