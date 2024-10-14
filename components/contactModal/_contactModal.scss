@@ -35,6 +35,7 @@
     left: 48px;
     height: 66.48px;
     width: 55.6px;
+
     @media (max-width: $breakpoint-lg) {
       display: none;
     }
@@ -58,6 +59,7 @@
       top: 24px;
       left: calc(100% - 56px);
       filter: invert(100%) brightness(200%);
+
       &:hover {
         background: none;
       }
@@ -102,24 +104,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     span {
       font-size: 47px;
       margin: 0;
     }
+
     @media (max-width: $breakpoint-lg) {
       top: 100%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    
+
   }
 
   h1 {
     font-size: 61px;
     font-weight: 700;
+
     @media (max-width: $breakpoint-lg) {
       font-size: 50px;
     }
+
     @media (max-width: $breakpoint-xs) {
       font-size: 47px;
     }
@@ -128,9 +134,11 @@
   span {
     font-size: 27px;
     margin-bottom: 10px;
+
     @media (max-width: $breakpoint-lg) {
       font-size: 20px;
     }
+
     @media (max-width: $breakpoint-xs) {
       font-size: 20px;
     }
@@ -194,7 +202,7 @@
     input:-webkit-autofill {
       background-color: transparent !important;
     }
-      
+
     input[type="text"] {
       height: 50px;
       border: 1px solid #d1d1d1;
@@ -204,10 +212,12 @@
       background-image: url("/assets/icons/inputName.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+
       &:focus {
         outline: none;
         border: 1px solid #29abe2;
       }
+
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
@@ -222,10 +232,12 @@
       background-image: url("/assets/icons/inputEmail.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+
       &:focus {
         outline: none;
         border: 1px solid #29abe2;
       }
+
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
@@ -240,10 +252,12 @@
       background-image: url("/assets/icons/inputTel.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+
       &:focus {
         outline: none;
         border: 1px solid #29abe2;
       }
+
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
@@ -253,6 +267,7 @@
   .modalInputsBtnContainer {
     width: 422px;
     display: flex;
+
     @media (max-width: $breakpoint-lg) {
       justify-content: center;
     }
@@ -261,6 +276,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       &:hover {
         cursor: pointer;
       }
@@ -277,13 +293,16 @@
       color: #2a3647;
       margin-right: 24px;
       transition: all 0.1s ease-in-out;
+
       @media (max-width: $breakpoint-lg) {
         display: none;
       }
+
       &:hover {
         border: 1px solid #29abe2;
         color: #29abe2;
         box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+
         img {
           filter: invert(46%) sepia(52%) saturate(2400%) hue-rotate(163deg) brightness(95%) contrast(101%);
         }
@@ -308,6 +327,7 @@
       &:hover {
         background-color: #29abe2;
         box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+
         @media (max-width: $breakpoint-lg) {
           box-shadow: none;
           background-color: #2a3647;
@@ -328,10 +348,12 @@
   color: #2a3647;
   margin-right: 24px;
   transition: all 0.1s ease-in-out;
+
   &:hover {
     border: 1px solid #29abe2;
     color: #29abe2;
     box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+
     img {
       filter: invert(46%) sepia(52%) saturate(2400%) hue-rotate(163deg) brightness(95%) contrast(101%);
     }
