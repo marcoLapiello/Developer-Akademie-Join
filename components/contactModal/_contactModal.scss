@@ -197,6 +197,10 @@
       width: 100%;
     }
 
+    input:-webkit-autofill {
+      background-color: transparent !important;
+    }
+
     input[type="text"] {
       height: 50px;
       border: 1px solid #d1d1d1;
