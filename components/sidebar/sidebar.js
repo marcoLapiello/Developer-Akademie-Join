@@ -11,23 +11,10 @@ function renderSidebarTemplate() {
       <div class="sidebarUpperPart">
         <img class= "joinLogo"  src="/assets/icons/joinLogo.png" />
       <div class="sidebar-Block">
-
-        <div class="${urlPath === "/summary.html" ? "active" : ""} navElement">
-          <img src="/assets/icons/summaryIcon.png" alt="">  
-          <a href="">Summary</a>
-        </div> 
-        <div class="${urlPath === "/addTask.html" ? "active" : ""} navElement">
-          <img src="/assets/icons/addTaskIcon.png" alt="">  
-          <a href="">Add Task</a>
-        </div>
-        <div class="${urlPath === "/board.html" ? "active" : ""} navElement">
-          <img src="/assets/icons/boardIcon.png" alt="">  
-          <a href="">Board</a>
-        </div>
-        <div class="${urlPath === "/contacts.html" ? "active" : ""} navElement">
-          <img src="/assets/icons/contactIcon.png" alt="">  
-          <a href="">Contacts</a>
-        </div>
+        <a class="${urlPath === "/Summary" ? "active" : ""}" href="/board.html"><img src="/assets/icons/summaryicon.png" />Summary</a>
+        <a class="${urlPath === "/Add Task" ? "active" : ""}" href="/board.html"><img src="/assets/icons/addTaskIcon.png" />Add Task</a>
+        <a class="${urlPath === "/board.html" ? "active" : ""}" href="/contacts.html"><img src="/assets/icons/boardicon.png" />Board</a>
+        <a class="${urlPath === "/contacts.html" ? "active" : ""}" href="/board.html"><img src="/assets/icons/contactIcon.png" />Contacts</a>
       </div>
 
       <div id="information">
