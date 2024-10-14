@@ -37,7 +37,7 @@ export function removeAktivContactButton() {
     const newContactButtonMobileRef = document.getElementById("newContactButtonMobile");
     const newContactButtonRef = document.querySelector(".newContactButton");
     if (newContactButtonMobileRef) newContactButtonMobileRef.style.backgroundColor = "#2a3647";
-    if (newContactButtonRef) newContactButtonRef.style.backgroundColor = "#2A3647";
+    if (newContactButtonRef) newContactButtonRef.style.backgroundColor = "#2a3647";
   }, 500);
 }
 
