@@ -166,16 +166,19 @@ export function clearAddInputFields() {
 }
 
 export function newUserFeedback() {
+  
+  addedUserFeedbackRef.classList.remove("d_none");
+ 
   setTimeout(() => {
-    addedUserFeedbackRef.classList.remove("d_none");
-  });
+    addedUserFeedbackRef.style.left = "746px";
+  }, 500);
   setTimeout(() => {
-    addedUserFeedbackRef.style.left = "58px";
-  }, 600);
+    addedUserFeedbackRef.style.left = "100%";
+  }, 3000);
   setTimeout(() => {
-    addedUserFeedbackRef.style.left = "150%";
-  }, 2100);
-  addedUserFeedbackRef.classList.add("d_none");
+    addedUserFeedbackRef.classList.add("d_none");
+  }, 4000);
+  
 }
 
 export async function showEditChosenUserDialog(id) {
@@ -199,16 +202,19 @@ export async function showEditChosenUserDialog(id) {
 }
 
 export function editUserFeedback() {
+  
+  editUserFeedbackRef.classList.remove("d_none");
+  
   setTimeout(() => {
-    editUserFeedbackRef.classList.remove("d_none");
-  });
+    editUserFeedbackRef.style.left = "746px";
+  }, 500);
   setTimeout(() => {
-    editUserFeedbackRef.style.left = "750px";
-  }, 600);
+    editUserFeedbackRef.style.left = "100%";
+  }, 3000);
   setTimeout(() => {
-    editUserFeedbackRef.style.left = "150%";
-  }, 2100);
-  editUserFeedbackRef.classList.add("d_none");
+    editUserFeedbackRef.classList.add("d_none");
+  }, 4000);
+  
 }
 
 export function hideEditChosenUserDialog() {
