@@ -114,6 +114,7 @@ export function hideAddNewUserDialog() {
   removeAktivContactButton();
   setTimeout(() => {
     document.getElementById("contactModal").classList.add("d_none");
+    clearAddInputFields();
   }, 550);
 }
 
