@@ -1,5 +1,7 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
+import { renderContactList } from "../contactList/contactList.js";
+
 const contactDetailsRef = document.getElementById("contactDetails");
 const contactListRef = document.getElementById("contactList");
 let selectedUserId = null;
@@ -20,7 +22,10 @@ export function selectedUser(id, reload = false) {
 }
 
 export function isUserSelected(id, reload) {
-  highlightedSelectedUser(id, reload);
+  if (reload) renderContactList();
+  setTimeout(() => {
+    highlightedSelectedUser(id);
+  }, 100);
   switchMobile();
   renderContactDetails(id);
   if (!reload) scrollToUser(id);
