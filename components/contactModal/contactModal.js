@@ -184,6 +184,14 @@ export function hideEditChosenUserDialog() {
   }, 550);
 }
 
+export function hideEditChosenUserDialogFromBG(event) {
+  if (event.target.id == "editContactModal") {
+    hideEditChosenUserDialog();
+  } else {
+    return;
+  }
+}
+
 export function showConfirmDeleteUserDialog(id) {
   confirmDeleteUserModalRef.classList.remove("d_none");
   sureToDeleteContactBtnRef.addEventListener("click", () => {
