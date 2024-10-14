@@ -38,6 +38,24 @@ let userColors = [
   "#FFBB2B",
 ];
 
+function validateNameInput() {
+  console.log("Name is validated");
+}
+
+function validateEmailInput() {
+  console.log("Email is validated");
+}
+
+function validatePhoneNumberInput() {
+  console.log("Phonenumber is validated");
+}
+
+export function validateAllInputs() {
+  validateNameInput();
+  validateEmailInput();
+  validatePhoneNumberInput();
+}
+
 export function validateNewPhonenumber() {
   let number = addContactPhoneInputRef.value;
   if (number[0] == "0") {
