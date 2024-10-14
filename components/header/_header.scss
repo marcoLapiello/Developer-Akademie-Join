@@ -12,7 +12,7 @@ header {
 
   & .headerText {
     @media (max-width: $breakpoint-lg) {
-      background-image: url("/assets/icons/JoinLogoHeaderResponsive.png");
+      background-image: url("../assets/icons/JoinLogoHeaderResponsive.png");
       width: 30px;
       height: 40px;
 
