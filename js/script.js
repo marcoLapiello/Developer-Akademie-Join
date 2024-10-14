@@ -28,6 +28,8 @@ import {
   validateNewPhonenumber,
   validateEditPhonenumber,
   hideAddNewUserDialogFromBG,
+  hideConfirmDeleteUserDialogFromBG,
+  hideEditChosenUserDialogFromBG,
 } from "../components/contactModal/contactModal.js";
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;
@@ -38,6 +40,8 @@ window.showConfirmDeleteUserDialog = showConfirmDeleteUserDialog;
 window.validateNewPhonenumber = validateNewPhonenumber;
 window.validateEditPhonenumber = validateEditPhonenumber;
 window.hideAddNewUserDialogFromBG = hideAddNewUserDialogFromBG;
+window.hideConfirmDeleteUserDialogFromBG = hideConfirmDeleteUserDialogFromBG;
+window.hideEditChosenUserDialogFromBG = hideEditChosenUserDialogFromBG;
 
 import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
@@ -60,6 +64,13 @@ export let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUse
 export let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteContactBtn");
 
 export let contactModalRef = document.getElementById("contactModal");
+
+export let addNameWarningRef = document.getElementById("addNameWarning");
+export let addEmailWarningRef = document.getElementById("addEmailWarning");
+export let addPhoneWarningRef = document.getElementById("addPhoneWarning");
+export let editNameWarningRef = document.getElementById("editNameWarning");
+export let editEmailWarningRef = document.getElementById("editEmailWarning");
+export let editPhoneWarningRef = document.getElementById("editPhoneWarning");
 
 export async function getUsersArray() {
   let usersArray = await loadUsers();

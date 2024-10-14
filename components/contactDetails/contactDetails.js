@@ -133,8 +133,8 @@ export function renderAfterDelete(userId) {
 
 function renderDetailsTemplate(user) {
   return /*html*/ `
-    <div id="addedUserFeedback" class="addedUserFeedback d_none">Contact successfully created</div>
-    <div id="editUserFeedback" class="addedUserFeedback d_none">Contact successfully edited</div>
+    
+    
       <div class="contactDetailsBox">
         <div class="headings" >
             <span class="heading">Contacts</span>
@@ -178,8 +178,7 @@ function renderDetailsTemplate(user) {
 
 function renderDetailsTemplateFallback() {
   return /*html*/ `
-      <div id="addedUserFeedback" class="addedUserFeedback d_none">Contact successfully created</div>
-      <div id="editUserFeedback" class="addedUserFeedback d_none">Contact successfully edited</div>
+      
       <div class="contactDetailsBox" >
         <div class="headings" >
             <span class="heading">Contacts</span>

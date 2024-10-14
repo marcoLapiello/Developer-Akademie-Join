@@ -13,6 +13,12 @@ import {
   confirmDeleteUserModalRef,
   deleteChosenUserBtnRef,
   sureToDeleteContactBtnRef,
+  addNameWarningRef,
+  addEmailWarningRef,
+  addPhoneWarningRef,
+  editNameWarningRef,
+  editEmailWarningRef,
+  editPhoneWarningRef,
   contactModalRef,
 } from "../../js/script.js";
 
@@ -37,6 +43,51 @@ let userColors = [
   "#FF4646",
   "#FFBB2B",
 ];
+
+function validateNameInput() {
+  if (addContactNameInputRef.value) {
+    let namePartsCount = addContactNameInputRef.value.split(" ").length;
+    if (namePartsCount != 2) {
+      addNameWarningRef.innerHTML = "Scheiße eingegeben";
+      return false;
+    }
+  }
+  if (editContactNameInputRef.value) {
+    let namePartsCount = editContactNameInputRef.value.split(" ").length;
+    if (namePartsCount != 2) {
+      editNameWarningRef.innerHTML = "Scheiße eingegeben";
+      return false;
+    }
+  }
+  return true;
+}
+
+function validateEmailInput() {
+  return true;
+  if (addContactEmailInputRef.value) {
+    console.log("ADD Email is validated");
+  }
+  if (editContactEmailInputRef.value) {
+    console.log("EDIT Email is validated");
+  }
+}
+
+function validatePhoneNumberInput() {
+  return true;
+  if (addContactPhoneInputRef.value) {
+    console.log("ADD Phonenumber is validated");
+  }
+  if (editContactPhoneInputRef.value) {
+    console.log("EDIT Phonenumber is validated");
+  }
+}
+
+export function validateAllInputs() {
+  if (validateNameInput() && validateEmailInput() && validatePhoneNumberInput()) {
+    return true;
+  }
+  return false;
+}
 
 export function validateNewPhonenumber() {
   let number = addContactPhoneInputRef.value;
@@ -114,6 +165,7 @@ export function hideAddNewUserDialog() {
   removeAktivContactButton();
   setTimeout(() => {
     document.getElementById("contactModal").classList.add("d_none");
+    clearAddInputFields();
   }, 550);
 }
 
@@ -132,16 +184,17 @@ export function clearAddInputFields() {
 }
 
 export function newUserFeedback() {
+  addedUserFeedbackRef.classList.remove("d_none");
+
   setTimeout(() => {
-    addedUserFeedbackRef.classList.remove("d_none");
-  });
+    addedUserFeedbackRef.style.left = "746px";
+  }, 500);
   setTimeout(() => {
-    addedUserFeedbackRef.style.left = "750px";
-  }, 600);
+    addedUserFeedbackRef.style.left = "100%";
+  }, 3000);
   setTimeout(() => {
-    addedUserFeedbackRef.style.left = "150%";
-  }, 2100);
-  addedUserFeedbackRef.classList.add("d_none");
+    addedUserFeedbackRef.classList.add("d_none");
+  }, 4000);
 }
 
 export async function showEditChosenUserDialog(id) {
@@ -165,16 +218,17 @@ export async function showEditChosenUserDialog(id) {
 }
 
 export function editUserFeedback() {
+  editUserFeedbackRef.classList.remove("d_none");
+
   setTimeout(() => {
-    editUserFeedbackRef.classList.remove("d_none");
-  });
+    editUserFeedbackRef.style.left = "746px";
+  }, 500);
   setTimeout(() => {
-    editUserFeedbackRef.style.left = "750px";
-  }, 600);
+    editUserFeedbackRef.style.left = "100%";
+  }, 3000);
   setTimeout(() => {
-    editUserFeedbackRef.style.left = "150%";
-  }, 2100);
-  editUserFeedbackRef.classList.add("d_none");
+    editUserFeedbackRef.classList.add("d_none");
+  }, 4000);
 }
 
 export function hideEditChosenUserDialog() {
@@ -182,6 +236,14 @@ export function hideEditChosenUserDialog() {
   setTimeout(() => {
     document.getElementById("editContactModal").classList.add("d_none");
   }, 550);
+}
+
+export function hideEditChosenUserDialogFromBG(event) {
+  if (event.target.id == "editContactModal") {
+    hideEditChosenUserDialog();
+  } else {
+    return;
+  }
 }
 
 export function showConfirmDeleteUserDialog(id) {
@@ -193,4 +255,12 @@ export function showConfirmDeleteUserDialog(id) {
 
 export function hideConfirmDeleteUserDialog() {
   confirmDeleteUserModalRef.classList.add("d_none");
+}
+
+export function hideConfirmDeleteUserDialogFromBG(event) {
+  if (event.target.id == "confirmDeleteUserModal") {
+    hideConfirmDeleteUserDialog();
+  } else {
+    return;
+  }
 }

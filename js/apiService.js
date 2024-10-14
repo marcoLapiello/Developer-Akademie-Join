@@ -8,6 +8,7 @@ import {
   hideConfirmDeleteUserDialog,
   newUserFeedback,
   clearAddInputFields,
+  validateAllInputs,
   editUserFeedback,
 } from "../components/contactModal/contactModal.js";
 
@@ -16,15 +17,19 @@ import { renderContactDetails, selectedUser } from "../components/contactDetails
 
 export async function addContact(event) {
   event.stopPropagation();
-  let id = await patchNewUser();
-  await loadUsers();
-  renderContactList();
-  setTimeout(() => {
-    selectedUser(id);
-  }, 100);
-  hideAddNewUserDialog();
-  newUserFeedback();
-  clearAddInputFields();
+  console.log(validateAllInputs());
+
+  if (validateAllInputs()) {
+    let id = await patchNewUser();
+    await loadUsers();
+    renderContactList();
+    setTimeout(() => {
+      selectedUser(id);
+    }, 100);
+    hideAddNewUserDialog();
+    newUserFeedback();
+    clearAddInputFields();
+  }
 }
 
 export async function deleteChosenUser(id) {
