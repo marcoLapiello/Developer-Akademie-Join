@@ -12,7 +12,9 @@ export function renderHeader() {
 
 function renderHeaderTemplate() {
   return /*html*/`
+      <div class = "headerText">
       <span>Kanban Project Management Tool</span>
+      </div>
       <div class="header-rightSide">
         <a href="/help.html">
           <img src="/assets/icons/questionmark_small.png" alt="Help" />
