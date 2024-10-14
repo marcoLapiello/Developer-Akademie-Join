@@ -210,6 +210,10 @@
       background-image: url("/assets/icons/inputName.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+      &:focus {
+        outline: none;
+        border: 1px solid #29abe2;
+      }
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
@@ -224,6 +228,10 @@
       background-image: url("/assets/icons/inputEmail.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+      &:focus {
+        outline: none;
+        border: 1px solid #29abe2;
+      }
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
@@ -238,6 +246,10 @@
       background-image: url("/assets/icons/inputTel.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+      &:focus {
+        outline: none;
+        border: 1px solid #29abe2;
+      }
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
