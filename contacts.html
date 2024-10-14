@@ -47,7 +47,7 @@
               <span>Tasks are better with a team!</span>
               <div class="vector"></div>
             </div>
-            <form class="addContactContainerRight">
+            <div class="addContactContainerRight">
               <div class="modalInputsContainer">
                 <input id="addContactNameInput" type="text" placeholder="Name" required />
                 <input id="addContactEmailInput" type="email" placeholder="Email" required />
@@ -63,7 +63,7 @@
                   <img src="./assets/icons/check.svg" alt="" />
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
         <!-- edit contact dialog -->
@@ -77,20 +77,20 @@
               <h1>Edit Contact</h1>
               <div class="vector"></div>
             </div>
-            <form class="addContactContainerRight">
+            <div class="addContactContainerRight">
               <div class="modalInputsContainer">
                 <input id="editContactNameInput" type="text" placeholder="Name" required />
                 <input id="editContactEmailInput" type="email" name="" id="" placeholder="Email" required />
                 <input id="editContactPhoneInput" oninput="validateEditPhonenumber()" type="tel" pattern="[0-9+ ]*" placeholder="Phone" required />
               </div>
               <div class="modalInputsBtnContainer">
-                <button id="deleteChosenUserBtn" class="cancelBtn">Delete</button>
+                <button id="deleteChosenUserBtn" class="editCancelBtn">Delete</button>
                 <button id="saveEditedUserButton" class="createBtn">
                   Save
                   <img src="./assets/icons/check.svg" alt="" />
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
         <section id="content" class="content">
