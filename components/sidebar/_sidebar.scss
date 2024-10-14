@@ -68,10 +68,6 @@
     opacity: 100%;
     max-width: 428px;
   }
-
-  // .navElement {
-  //   display: flex;
-  // }
 }
 
 .sidebar-Block a {
@@ -89,13 +85,17 @@
   width: 100%;
 
   @media (max-width: $breakpoint-lg) {
+    display: flex;
     line-height: 120%;
     letter-spacing: 0%;
     justify-content: space-evenly;
     padding-inline: 0px;
     vertical-align: top;
-    width: 80px;
     height: 76px;
+    align-items: center;
+    flex-direction: column;
+    gap: 0px;
+    border-radius: 16px;
   }
 }
 
