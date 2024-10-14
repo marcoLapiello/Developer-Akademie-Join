@@ -7,7 +7,8 @@ header {
   align-items: center;
   padding-right: 40px;
   background-color: #ffffff;
-  box-shadow: 0px 14px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1;
 
   & .headerText {
     @media (max-width: $breakpoint-lg) {
