@@ -17,6 +17,8 @@ import {
 
 import { editExistingUser } from "../../js/apiService.js";
 
+import { removeAktivContactButton } from "../contactList/contactList.js";
+
 let userColors = [
   "#FF7A00",
   "#FF5EB3",
@@ -108,6 +110,7 @@ export function showAddNewUserDialog() {
 
 export function hideAddNewUserDialog() {
   document.getElementById("addContactContainer").style.left = "150%";
+  removeAktivContactButton();
   setTimeout(() => {
     document.getElementById("contactModal").classList.add("d_none");
   }, 550);
