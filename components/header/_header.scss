@@ -8,10 +8,28 @@ header {
   padding-right: 40px;
   background-color: #ffffff;
 
+  & .headerText {
+    @media (max-width: $breakpoint-lg) {
+      background-image: url("/assets/icons/JoinLogoHeaderResponsive.png");
+      width: 30px;
+      height: 40px;
+
+      & span {
+        display: none;
+      }
+    }
+  }
+
   .header-rightSide {
     display: flex;
     align-items: center;
     gap: 16px;
+
+    & img {
+      @media (max-width: $breakpoint-lg) {
+        display: none;
+      }
+    }
 
     .user-Profile-Initials {
       width: 56px;

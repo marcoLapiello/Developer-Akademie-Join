@@ -66,6 +66,7 @@ async function patchNewUser() {
 }
 
 export async function editExistingUser(id, user) {
+  validateAllInputs();
   let editedUserProfil = getEditUserObject(user);
   // let isUser = await fetch(baseUrl + `/user/${id}`);
   // if (!isUser.ok) {
