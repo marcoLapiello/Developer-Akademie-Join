@@ -4,20 +4,18 @@ export function toggle_d_None() {
 }
 
 export function renderHeader() {
-  const headerRef = document.getElementById('header');
+  const headerRef = document.getElementById("header");
   headerRef.innerHTML += renderHeaderTemplate();
 }
 
-
-
 function renderHeaderTemplate() {
-  return /*html*/`
+  return /*html*/ `
       <div class = "headerText">
       <span>Kanban Project Management Tool</span>
       </div>
       <div class="header-rightSide">
         <a href="./help.html">
-          <img src="./assets/icons/questionmark_small.png" alt="Help" />
+          <img src="./assets/icons/questionMark_small.png" alt="Help" />
         </a>
         <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
           <span>G</span>
@@ -33,5 +31,5 @@ function renderHeaderTemplate() {
           </div>
         </div>
       </div>
-    `
+    `;
 }
