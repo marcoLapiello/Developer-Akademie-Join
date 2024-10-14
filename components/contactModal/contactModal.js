@@ -40,10 +40,12 @@ let userColors = [
 
 function validateNameInput() {
   if (addContactNameInputRef.value) {
+    let namePartsCount = addContactNameInputRef.value.split(" ").length;
     console.log("ADD name is validated");
   }
   if (editContactNameInputRef.value) {
-    console.log("EDIT name is validated");
+    let namePartsCount = editContactNameInputRef.value.split(" ").length;
+    console.log("EDIT name is validated" + namePartsCount);
   }
 }
 
@@ -166,9 +168,8 @@ export function clearAddInputFields() {
 }
 
 export function newUserFeedback() {
-  
   addedUserFeedbackRef.classList.remove("d_none");
- 
+
   setTimeout(() => {
     addedUserFeedbackRef.style.left = "746px";
   }, 500);
@@ -178,7 +179,6 @@ export function newUserFeedback() {
   setTimeout(() => {
     addedUserFeedbackRef.classList.add("d_none");
   }, 4000);
-  
 }
 
 export async function showEditChosenUserDialog(id) {
@@ -202,9 +202,8 @@ export async function showEditChosenUserDialog(id) {
 }
 
 export function editUserFeedback() {
-  
   editUserFeedbackRef.classList.remove("d_none");
-  
+
   setTimeout(() => {
     editUserFeedbackRef.style.left = "746px";
   }, 500);
@@ -214,7 +213,6 @@ export function editUserFeedback() {
   setTimeout(() => {
     editUserFeedbackRef.classList.add("d_none");
   }, 4000);
-  
 }
 
 export function hideEditChosenUserDialog() {
