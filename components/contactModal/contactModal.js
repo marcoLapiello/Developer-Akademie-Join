@@ -39,15 +39,30 @@ let userColors = [
 ];
 
 function validateNameInput() {
-  console.log("Name is validated");
+  if (addContactNameInputRef.value) {
+    console.log("ADD name is validated");
+  }
+  if (editContactNameInputRef.value) {
+    console.log("EDIT name is validated");
+  }
 }
 
 function validateEmailInput() {
-  console.log("Email is validated");
+  if (addContactEmailInputRef.value) {
+    console.log("ADD Email is validated");
+  }
+  if (editContactEmailInputRef.value) {
+    console.log("EDIT Email is validated");
+  }
 }
 
 function validatePhoneNumberInput() {
-  console.log("Phonenumber is validated");
+  if (addContactPhoneInputRef.value) {
+    console.log("ADD Phonenumber is validated");
+  }
+  if (editContactPhoneInputRef.value) {
+    console.log("EDIT Phonenumber is validated");
+  }
 }
 
 export function validateAllInputs() {
