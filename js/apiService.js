@@ -82,6 +82,7 @@ export async function editExistingUser(id, user) {
   renderContactList();
   renderContactDetails(id);
   hideEditChosenUserDialog();
+  editUserFeedback();
 }
 
 export async function loadUsers() {
