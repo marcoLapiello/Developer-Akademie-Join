@@ -93,8 +93,7 @@
   .newUserLogo {
     width: 126px;
     height: 126px;
-    border-radius: 60px;
-    // border: 3px solid white;
+    border-radius: 63px;
     position: absolute;
     top: 204px;
     left: 550px;
@@ -196,6 +195,10 @@
       width: 100%;
     }
 
+    input:-webkit-autofill {
+      background-color: transparent !important;
+    }
+
     input[type="text"] {
       height: 50px;
       border: 1px solid #d1d1d1;
@@ -205,6 +208,10 @@
       background-image: url("/assets/icons/inputName.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+      &:focus {
+        outline: none;
+        border: 1px solid #29abe2;
+      }
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
@@ -219,6 +226,10 @@
       background-image: url("/assets/icons/inputEmail.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+      &:focus {
+        outline: none;
+        border: 1px solid #29abe2;
+      }
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
@@ -233,6 +244,10 @@
       background-image: url("/assets/icons/inputTel.svg");
       background-position: 95%;
       background-repeat: no-repeat;
+      &:focus {
+        outline: none;
+        border: 1px solid #29abe2;
+      }
       @media (max-width: $breakpoint-lg) {
         font-size: 16px;
       }
