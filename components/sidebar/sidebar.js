@@ -16,6 +16,7 @@ function renderSidebarTemplate() {
         <a class="${urlPath === "/board.html" ? "active" : ""}" href="/board.html"><img src="/assets/icons/boardicon.png" />Board</a>
         <a class="${urlPath === "/contacts.html" ? "active" : ""}" href="/contacts.html"><img src="/assets/icons/contactIcon.png" />Contacts</a>
       </div>
+      </div>
 
       <div id="information">
         <a class="${urlPath === "/privacyPolicy.html" ? "active" : ""}" id="privacyPolicy" href="/privacyPolicy.html">Privacy Policy</a>
