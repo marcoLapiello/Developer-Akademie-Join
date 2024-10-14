@@ -116,6 +116,12 @@ export function hideAddNewUserDialog() {
   }, 550);
 }
 
+export function clearAddInputFields() {
+  addContactNameInputRef.value = "";
+  addContactEmailInputRef.value = "";
+  addContactPhoneInputRef.value = "";
+}
+
 export function newUserFeedback() {
   setTimeout(() => {
     addedUserFeedbackRef.classList.remove("d_none");
