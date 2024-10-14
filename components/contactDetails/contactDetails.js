@@ -91,6 +91,7 @@ window.addEventListener("resize", updateWidth); // https://developer.mozilla.org
 export function userProfileButtonsMobile() {
   const userProfileButtonsRef = document.getElementById("userProfileButtons");
   const userProfileButtonsStyle = window.getComputedStyle(userProfileButtonsRef);
+  const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
   if (userProfileButtonsStyle.display === "none") {
     userProfileButtonsRef.style.display = "flex";
     userProfileButtonsMobileRef.style.backgroundColor = "#29abe2";
@@ -98,6 +99,7 @@ export function userProfileButtonsMobile() {
 }
 
 document.addEventListener("click", (event) => {
+  const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
   if (!userProfileButtonsMobileRef) return;
   const contactListComputedStyle = window.getComputedStyle(contactListRef);
   if (contactListComputedStyle.display === "none") {
