@@ -111,11 +111,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    @media (max-width: $breakpoint-xs) {
-      width: 100px;
-      height: 100px;
-      border-radius: 50px;
-    }
+    
   }
 
   h1 {
@@ -125,7 +121,7 @@
       font-size: 50px;
     }
     @media (max-width: $breakpoint-xs) {
-      font-size: 35px;
+      font-size: 47px;
     }
   }
 
@@ -133,10 +129,10 @@
     font-size: 27px;
     margin-bottom: 10px;
     @media (max-width: $breakpoint-lg) {
-      font-size: 18px;
+      font-size: 20px;
     }
     @media (max-width: $breakpoint-xs) {
-      font-size: 16px;
+      font-size: 20px;
     }
   }
 
