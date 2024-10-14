@@ -13,6 +13,7 @@ import {
   confirmDeleteUserModalRef,
   deleteChosenUserBtnRef,
   sureToDeleteContactBtnRef,
+  contactModalRef,
 } from "../../js/script.js";
 
 import { editExistingUser } from "../../js/apiService.js";
@@ -114,6 +115,14 @@ export function hideAddNewUserDialog() {
   setTimeout(() => {
     document.getElementById("contactModal").classList.add("d_none");
   }, 550);
+}
+
+export function hideAddNewUserDialogFromBG(event) {
+  if (event.target.id == "contactModal") {
+    hideAddNewUserDialog();
+  } else {
+    return;
+  }
 }
 
 export function clearAddInputFields() {
