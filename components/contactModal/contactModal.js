@@ -48,7 +48,7 @@ function validateNameInput() {
   if (addContactNameInputRef.value) {
     let namePartsCount = addContactNameInputRef.value.split(" ").length;
     if (namePartsCount != 2) {
-      addNameWarningRef.innerHTML = "Scheiße eingegeben";
+      addNameWarningRef.innerHTML = "Enter two names, with space or hyphen.";
       addContactNameInputRef.style.borderColor = "rgb(255, 0, 0)";
       return false;
     }
@@ -56,7 +56,7 @@ function validateNameInput() {
   if (editContactNameInputRef.value) {
     let namePartsCount = editContactNameInputRef.value.split(" ").length;
     if (namePartsCount != 2) {
-      editNameWarningRef.innerHTML = "Scheiße eingegeben";
+      editNameWarningRef.innerHTML = "Enter two names, with space or hyphen.";
       editContactNameInputRef.style.borderColor = "rgb(255, 0, 0)";
       return false;
     }
@@ -69,7 +69,7 @@ function validateEmailInput() {
     let emailInput = addContactEmailInputRef.value;
     if (!emailInput.includes("@") || !emailInput.includes(".")) {
       addContactEmailInputRef.style.borderColor = "rgb(255, 0, 0)";
-      addEmailWarningRef.innerHTML = "insert a validate email";
+      addEmailWarningRef.innerHTML = "Enter a valid email address.";
       return false;
     }
   }
@@ -77,7 +77,7 @@ function validateEmailInput() {
     let emailInput = editContactEmailInputRef.value;
     if (!emailInput.includes("@") || !emailInput.includes(".")) {
       editContactEmailInputRef.style.borderColor = "rgb(255, 0, 0)";
-      editEmailWarningRef.innerHTML = "insert a validate email";
+      editEmailWarningRef.innerHTML = "Enter a valid email address.";
       return false;
     }
   }
@@ -89,7 +89,7 @@ function validatePhoneNumberInput() {
     let phoneNumber = addContactPhoneInputRef.value;
     if (phoneNumber.length < 8 || phoneNumber[0] != "+") {
       addContactPhoneInputRef.style.borderColor = "rgb(255, 0, 0)";
-      addPhoneWarningRef.innerHTML = "insert a validate phonenumber";
+      addPhoneWarningRef.innerHTML = "Enter a valid phone number with country code.";
       return false;
     }
   }
@@ -97,7 +97,7 @@ function validatePhoneNumberInput() {
     let phoneNumber = editContactPhoneInputRef.value;
     if (phoneNumber.length < 8 || phoneNumber[0] != "+") {
       editContactPhoneInputRef.style.borderColor = "rgb(255, 0, 0)";
-      editPhoneWarningRef.innerHTML = "insert a validate phonenumber";
+      editPhoneWarningRef.innerHTML = "Enter a valid phone number with country code.";
       return false;
     }
   }
