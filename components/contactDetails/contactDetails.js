@@ -52,7 +52,7 @@ function userPanelVisibility() {
   setTimeout(() => {
     const contactDetailsBoxRef = document.getElementById("userDetailPanel");
     if (contactDetailsBoxRef) contactDetailsBoxRef.classList.toggle("visible");
-  }, 100);
+  }, 250);
 }
 
 function scrollToUser(id) {
