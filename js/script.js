@@ -65,6 +65,13 @@ export let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteCont
 
 export let contactModalRef = document.getElementById("contactModal");
 
+export let addNameWarningRef = document.getElementById("addNameWarning");
+export let addEmailWarningRef = document.getElementById("addEmailWarning");
+export let addPhoneWarningRef = document.getElementById("addPhoneWarning");
+export let editNameWarningRef = document.getElementById("editNameWarning");
+export let editEmailWarningRef = document.getElementById("editEmailWarning");
+export let editPhoneWarningRef = document.getElementById("editPhoneWarning");
+
 export async function getUsersArray() {
   let usersArray = await loadUsers();
   return usersArray;

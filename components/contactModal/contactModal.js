@@ -13,6 +13,12 @@ import {
   confirmDeleteUserModalRef,
   deleteChosenUserBtnRef,
   sureToDeleteContactBtnRef,
+  addNameWarningRef,
+  addEmailWarningRef,
+  addPhoneWarningRef,
+  editNameWarningRef,
+  editEmailWarningRef,
+  editPhoneWarningRef,
   contactModalRef,
 } from "../../js/script.js";
 
@@ -41,15 +47,23 @@ let userColors = [
 function validateNameInput() {
   if (addContactNameInputRef.value) {
     let namePartsCount = addContactNameInputRef.value.split(" ").length;
-    console.log("ADD name is validated");
+    if (namePartsCount != 2) {
+      addNameWarningRef.innerHTML = "Scheiße eingegeben";
+      return false;
+    }
   }
   if (editContactNameInputRef.value) {
     let namePartsCount = editContactNameInputRef.value.split(" ").length;
-    console.log("EDIT name is validated" + namePartsCount);
+    if (namePartsCount != 2) {
+      editNameWarningRef.innerHTML = "Scheiße eingegeben";
+      return false;
+    }
   }
+  return true;
 }
 
 function validateEmailInput() {
+  return true;
   if (addContactEmailInputRef.value) {
     console.log("ADD Email is validated");
   }
@@ -59,6 +73,7 @@ function validateEmailInput() {
 }
 
 function validatePhoneNumberInput() {
+  return true;
   if (addContactPhoneInputRef.value) {
     console.log("ADD Phonenumber is validated");
   }
@@ -68,9 +83,10 @@ function validatePhoneNumberInput() {
 }
 
 export function validateAllInputs() {
-  validateNameInput();
-  validateEmailInput();
-  validatePhoneNumberInput();
+  if (validateNameInput() && validateEmailInput() && validatePhoneNumberInput()) {
+    return true;
+  }
+  return false;
 }
 
 export function validateNewPhonenumber() {

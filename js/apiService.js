@@ -17,16 +17,19 @@ import { renderContactDetails, selectedUser } from "../components/contactDetails
 
 export async function addContact(event) {
   event.stopPropagation();
-  validateAllInputs();
-  let id = await patchNewUser();
-  await loadUsers();
-  renderContactList();
-  setTimeout(() => {
-    selectedUser(id);
-  }, 100);
-  hideAddNewUserDialog();
-  newUserFeedback();
-  clearAddInputFields();
+  console.log(validateAllInputs());
+
+  if (validateAllInputs()) {
+    let id = await patchNewUser();
+    await loadUsers();
+    renderContactList();
+    setTimeout(() => {
+      selectedUser(id);
+    }, 100);
+    hideAddNewUserDialog();
+    newUserFeedback();
+    clearAddInputFields();
+  }
 }
 
 export async function deleteChosenUser(id) {
@@ -66,26 +69,27 @@ async function patchNewUser() {
 }
 
 export async function editExistingUser(id, user) {
-  validateAllInputs();
-  let editedUserProfil = getEditUserObject(user);
-  // let isUser = await fetch(baseUrl + `/user/${id}`);
-  // if (!isUser.ok) {
-  //   throw new Error("Contact is not existing");
-  // }
-  let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
-    method: "PATCH",
-    header: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(editedUserProfil),
-  });
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
+  if (validateAllInputs()) {
+    let editedUserProfil = getEditUserObject(user);
+    // let isUser = await fetch(baseUrl + `/user/${id}`);
+    // if (!isUser.ok) {
+    //   throw new Error("Contact is not existing");
+    // }
+    let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
+      method: "PATCH",
+      header: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedUserProfil),
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    renderContactList();
+    renderContactDetails(id);
+    hideEditChosenUserDialog();
+    editUserFeedback();
   }
-  renderContactList();
-  renderContactDetails(id);
-  hideEditChosenUserDialog();
-  editUserFeedback();
 }
 
 export async function loadUsers() {
