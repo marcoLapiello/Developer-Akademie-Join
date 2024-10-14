@@ -28,6 +28,7 @@ import {
   validateNewPhonenumber,
   validateEditPhonenumber,
   hideAddNewUserDialogFromBG,
+  hideConfirmDeleteUserDialogFromBG,
 } from "../components/contactModal/contactModal.js";
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;
@@ -38,6 +39,7 @@ window.showConfirmDeleteUserDialog = showConfirmDeleteUserDialog;
 window.validateNewPhonenumber = validateNewPhonenumber;
 window.validateEditPhonenumber = validateEditPhonenumber;
 window.hideAddNewUserDialogFromBG = hideAddNewUserDialogFromBG;
+window.hideConfirmDeleteUserDialogFromBG = hideConfirmDeleteUserDialogFromBG;
 
 import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;

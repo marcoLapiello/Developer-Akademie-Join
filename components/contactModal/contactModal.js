@@ -194,3 +194,11 @@ export function showConfirmDeleteUserDialog(id) {
 export function hideConfirmDeleteUserDialog() {
   confirmDeleteUserModalRef.classList.add("d_none");
 }
+
+export function hideConfirmDeleteUserDialogFromBG(event) {
+  if (event.target.id == "confirmDeleteUserModal") {
+    hideConfirmDeleteUserDialog();
+  } else {
+    return;
+  }
+}
