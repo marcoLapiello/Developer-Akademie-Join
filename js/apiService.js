@@ -79,8 +79,7 @@ export async function editExistingUser(id, user) {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  renderContactList();
-  renderContactDetails(id);
+  selectedUser(id, true);
   hideEditChosenUserDialog();
 }
 

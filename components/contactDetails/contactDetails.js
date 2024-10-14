@@ -5,13 +5,13 @@ const contactListRef = document.getElementById("contactList");
 let selectedUserId = null;
 let isProcessing = false;
 
-export function selectedUser(id) {
+export function selectedUser(id, reload = false) {
   if (isProcessing) return;
-  if (selectedUserId === id) {
+  if (selectedUserId === id && !reload) {
     noneSelectedUser();
     isProcessing = true;
   } else {
-    isUserSelected(id);
+    isUserSelected(id, reload);
     isProcessing = true;
   }
   setTimeout(() => {
@@ -19,11 +19,11 @@ export function selectedUser(id) {
   }, 600);
 }
 
-function isUserSelected(id) {
-  highlightedSelectedUser(id);
+export function isUserSelected(id, reload) {
+  highlightedSelectedUser(id, reload);
   switchMobile();
   renderContactDetails(id);
-  scrollToUser(id);
+  if (!reload) scrollToUser(id);
   userPanelVisibility();
   selectedUserId = id;
 }
@@ -37,7 +37,8 @@ function noneSelectedUser() {
   }, 500);
 }
 
-function highlightedSelectedUser(id) {
+function highlightedSelectedUser(id, reload) {
+  if (reload) return;
   const selectedUserButton = document.querySelectorAll(".userListItem");
   selectedUserButton.forEach((button) => {
     button.classList.remove("selectedUser");
