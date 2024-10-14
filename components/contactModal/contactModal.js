@@ -57,7 +57,7 @@ function validateNameInput() {
     let namePartsCount = editContactNameInputRef.value.split(" ").length;
     if (namePartsCount != 2) {
       editNameWarningRef.innerHTML = "Scheiße eingegeben";
-      addContactNameInputRef.style.borderColor = "rgb(255, 0, 0)";
+      editContactNameInputRef.style.borderColor = "rgb(255, 0, 0)";
       return false;
     }
   }
@@ -105,10 +105,33 @@ function validatePhoneNumberInput() {
 }
 
 export function validateAllInputs() {
+  clearAddErrorAlerts();
+  clearEditErrorAlerts();
+  validateNameInput();
+  validateEmailInput();
+  validatePhoneNumberInput();
   if (validateNameInput() && validateEmailInput() && validatePhoneNumberInput()) {
     return true;
   }
   return false;
+}
+
+function clearAddErrorAlerts() {
+  addContactNameInputRef.style.borderColor = "rgb(0, 0, 0)";
+  addContactEmailInputRef.style.borderColor = "rgb(0, 0, 0)";
+  addContactPhoneInputRef.style.borderColor = "rgb(0, 0, 0)";
+  addNameWarningRef.innerHTML = "";
+  addEmailWarningRef.innerHTML = "";
+  addPhoneWarningRef.innerHTML = "";
+}
+
+function clearEditErrorAlerts() {
+  editContactNameInputRef.style.borderColor = "rgb(0, 0, 0)";
+  editContactEmailInputRef.style.borderColor = "rgb(0, 0, 0)";
+  editContactPhoneInputRef.style.borderColor = "rgb(0, 0, 0)";
+  editNameWarningRef.innerHTML = "";
+  editEmailWarningRef.innerHTML = "";
+  editPhoneWarningRef.innerHTML = "";
 }
 
 export function validateNewPhonenumber() {
