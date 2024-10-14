@@ -27,6 +27,7 @@ import {
   showConfirmDeleteUserDialog,
   validateNewPhonenumber,
   validateEditPhonenumber,
+  hideAddNewUserDialogFromBG,
 } from "../components/contactModal/contactModal.js";
 window.showAddNewUserDialog = showAddNewUserDialog;
 window.hideAddNewUserDialog = hideAddNewUserDialog;
@@ -36,6 +37,7 @@ window.hideConfirmDeleteUserDialog = hideConfirmDeleteUserDialog;
 window.showConfirmDeleteUserDialog = showConfirmDeleteUserDialog;
 window.validateNewPhonenumber = validateNewPhonenumber;
 window.validateEditPhonenumber = validateEditPhonenumber;
+window.hideAddNewUserDialogFromBG = hideAddNewUserDialogFromBG;
 
 import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
@@ -56,6 +58,8 @@ export let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
 export let editUserFeedbackRef = document.getElementById("editUserFeedback");
 export let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
 export let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteContactBtn");
+
+export let contactModalRef = document.getElementById("contactModal");
 
 export async function getUsersArray() {
   let usersArray = await loadUsers();

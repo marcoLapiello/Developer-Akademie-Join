@@ -14,7 +14,8 @@ import {
 import { renderContactList } from "../components/contactList/contactList.js";
 import { renderContactDetails, selectedUser } from "../components/contactDetails/contactDetails.js";
 
-export async function addContact() {
+export async function addContact(event) {
+  event.stopPropagation();
   let id = await patchNewUser();
   await loadUsers();
   renderContactList();
