@@ -85,13 +85,23 @@ function validateEmailInput() {
 }
 
 function validatePhoneNumberInput() {
-  return true;
   if (addContactPhoneInputRef.value) {
-    console.log("ADD Phonenumber is validated");
+    let phoneNumber = addContactPhoneInputRef.value;
+    if (phoneNumber.length < 8 || phoneNumber[0] != "+") {
+      addContactPhoneInputRef.style.borderColor = "rgb(255, 0, 0)";
+      addPhoneWarningRef.innerHTML = "insert a validate phonenumber";
+      return false;
+    }
   }
   if (editContactPhoneInputRef.value) {
-    console.log("EDIT Phonenumber is validated");
+    let phoneNumber = editContactPhoneInputRef.value;
+    if (phoneNumber.length < 8 || phoneNumber[0] != "+") {
+      editContactPhoneInputRef.style.borderColor = "rgb(255, 0, 0)";
+      editPhoneWarningRef.innerHTML = "insert a validate phonenumber";
+      return false;
+    }
   }
+  return true;
 }
 
 export function validateAllInputs() {
