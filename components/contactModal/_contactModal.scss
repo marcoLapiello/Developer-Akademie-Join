@@ -190,12 +190,19 @@
 
   .modalInputsContainer {
     width: 422px;
-    gap: 16px;
+    // gap: 8px;
     display: flex;
     flex-direction: column;
 
     @media (max-width: $breakpoint-lg) {
       width: 100%;
+    }
+
+    p {
+      color: red;
+      font-size: 12px;
+      margin-top: 2px;
+      margin-bottom: 4px;
     }
 
     input:-webkit-autofill {
