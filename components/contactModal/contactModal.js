@@ -117,18 +117,18 @@ export function validateAllInputs() {
 }
 
 function clearAddErrorAlerts() {
-  addContactNameInputRef.style.borderColor = "rgb(0, 0, 0)";
-  addContactEmailInputRef.style.borderColor = "rgb(0, 0, 0)";
-  addContactPhoneInputRef.style.borderColor = "rgb(0, 0, 0)";
+  addContactNameInputRef.style.borderColor = "#d1d1d1";
+  addContactEmailInputRef.style.borderColor = "#d1d1d1";
+  addContactPhoneInputRef.style.borderColor = "#d1d1d1";
   addNameWarningRef.innerHTML = "";
   addEmailWarningRef.innerHTML = "";
   addPhoneWarningRef.innerHTML = "";
 }
 
 function clearEditErrorAlerts() {
-  editContactNameInputRef.style.borderColor = "rgb(0, 0, 0)";
-  editContactEmailInputRef.style.borderColor = "rgb(0, 0, 0)";
-  editContactPhoneInputRef.style.borderColor = "rgb(0, 0, 0)";
+  editContactNameInputRef.style.borderColor = "#d1d1d1";
+  editContactEmailInputRef.style.borderColor = "#d1d1d1";
+  editContactPhoneInputRef.style.borderColor = "#d1d1d1";
   editNameWarningRef.innerHTML = "";
   editEmailWarningRef.innerHTML = "";
   editPhoneWarningRef.innerHTML = "";
