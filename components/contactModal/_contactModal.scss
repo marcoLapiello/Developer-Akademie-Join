@@ -82,15 +82,16 @@
 
   @media (max-width: $breakpoint-lg) {
     width: 100%;
-    height: 352px;
+    min-height: 352px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 30px;
+    padding: 66px 24px;
   }
 
-  @media (max-width: $breakpoint-sm) {
-    padding-left: 6%;
-    padding-right: 6%;
-  }
+  // @media (max-width: $breakpoint-sm) {
+  //   padding-left: 6%;
+  //   padding-right: 6%;
+  // }
 
   .newUserLogo {
     width: 126px;
@@ -122,12 +123,12 @@
     font-weight: 700;
 
     @media (max-width: $breakpoint-lg) {
-      font-size: 50px;
-    }
-
-    @media (max-width: $breakpoint-xs) {
       font-size: 47px;
     }
+
+    // @media (max-width: $breakpoint-xs) {
+    //   font-size: 47px;
+    // }
   }
 
   span {
@@ -138,9 +139,9 @@
       font-size: 20px;
     }
 
-    @media (max-width: $breakpoint-xs) {
-      font-size: 20px;
-    }
+    // @media (max-width: $breakpoint-xs) {
+    //   font-size: 20px;
+    // }
   }
 
   .vector {
@@ -160,7 +161,7 @@
   padding: 66px 48px;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
-  gap: 50px;
+  gap: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -168,29 +169,27 @@
 
   @media (max-width: $breakpoint-lg) {
     width: 100%;
-    height: 408px;
     align-items: center;
-    gap: 32px;
-    padding: 0px 16px;
+    // gap: 32px;
+    padding: 66px 24px;
   }
 
-  @media (max-width: $breakpoint-sm) {
-    gap: 30px;
-  }
+  // @media (max-width: $breakpoint-sm) {
+  //   gap: 30px;
+  // }
 
-  @media (max-width: $breakpoint-sm) {
-    padding-left: 6%;
-    padding-right: 6%;
-    gap: 25px;
-  }
+  // @media (max-width: $breakpoint-sm) {
+  //   padding-left: 6%;
+  //   padding-right: 6%;
+  //   gap: 25px;
+  // }
 
-  @media (max-width: $breakpoint-xs) {
-    gap: 15px;
-  }
+  // @media (max-width: $breakpoint-xs) {
+  //   gap: 15px;
+  // }
 
   .modalInputsContainer {
     width: 422px;
-    // gap: 8px;
     display: flex;
     flex-direction: column;
 
@@ -205,68 +204,39 @@
       margin-bottom: 4px;
     }
 
+    input {
+      height: 50px;
+      border: 1px solid #d1d1d1;
+      border-radius: 10px;
+      padding: 13px 21px;
+      font-size: 20px;
+      background-position: 95%;
+      background-repeat: no-repeat;
+
+      &:focus {
+        outline: none;
+        border: 1px solid #29abe2;
+      }
+
+      @media (max-width: $breakpoint-lg) {
+        height: 41px;
+      }
+    }
+
     input:-webkit-autofill {
       background-color: transparent !important;
     }
 
     input[type="text"] {
-      height: 50px;
-      border: 1px solid #d1d1d1;
-      border-radius: 10px;
-      padding: 13px 21px;
-      font-size: 20px;
       background-image: url("/assets/icons/inputName.svg");
-      background-position: 95%;
-      background-repeat: no-repeat;
-
-      &:focus {
-        outline: none;
-        border: 1px solid #29abe2;
-      }
-
-      @media (max-width: $breakpoint-lg) {
-        font-size: 16px;
-      }
     }
 
     input[type="email"] {
-      height: 50px;
-      border: 1px solid #d1d1d1;
-      border-radius: 10px;
-      padding: 13px 21px;
-      font-size: 20px;
       background-image: url("/assets/icons/inputEmail.svg");
-      background-position: 95%;
-      background-repeat: no-repeat;
-
-      &:focus {
-        outline: none;
-        border: 1px solid #29abe2;
-      }
-
-      @media (max-width: $breakpoint-lg) {
-        font-size: 16px;
-      }
     }
 
     input[type="tel"] {
-      height: 50px;
-      border: 1px solid #d1d1d1;
-      border-radius: 10px;
-      padding: 13px 21px;
-      font-size: 20px;
       background-image: url("/assets/icons/inputTel.svg");
-      background-position: 95%;
-      background-repeat: no-repeat;
-
-      &:focus {
-        outline: none;
-        border: 1px solid #29abe2;
-      }
-
-      @media (max-width: $breakpoint-lg) {
-        font-size: 16px;
-      }
     }
   }
 
@@ -317,7 +287,7 @@
 
     .createBtn {
       gap: 4px;
-      padding: 15px 24px;
+      padding: 18px 10px;
       border: none;
       border-radius: 10px;
       background-color: #2a3647;
@@ -326,9 +296,9 @@
       color: white;
       transition: all 0.1s ease-in-out;
 
-      @media (max-width: $breakpoint-xs) {
-        font-size: 16px;
-      }
+      // @media (max-width: $breakpoint-xs) {
+      //   font-size: 16px;
+      // }
 
       &:hover {
         background-color: #29abe2;
