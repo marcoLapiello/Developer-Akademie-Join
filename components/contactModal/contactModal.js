@@ -46,14 +46,14 @@ let userColors = [
 
 function validateNameInput(inputRef, warningRef) {
   if (!inputRef.value) {
-    warningRef.innerHTML = "Enter two names, with space or hyphen.";
+    warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
     inputRef.style.borderColor = "rgb(255, 0, 0)";
     return false;
   }
   if (inputRef.value) {
     let namePartsCount = inputRef.value.split(" ").length;
     if (namePartsCount != 2) {
-      warningRef.innerHTML = "Enter two names, with space or hyphen.";
+      warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
       inputRef.style.borderColor = "rgb(255, 0, 0)";
       return false;
     }
@@ -243,7 +243,11 @@ export function newUserFeedback() {
   addedUserFeedbackRef.classList.remove("d_none");
 
   setTimeout(() => {
-    addedUserFeedbackRef.style.left = "746px";
+    if (window.innerWidth < 1400) {
+      addedUserFeedbackRef.style.left = "calc(50% - 163px)";
+    } else {
+      addedUserFeedbackRef.style.left = "746px";
+    }
   }, 500);
   setTimeout(() => {
     addedUserFeedbackRef.style.left = "100%";
@@ -276,9 +280,13 @@ export async function showEditChosenUserDialog(id) {
 
 export function editUserFeedback() {
   editUserFeedbackRef.classList.remove("d_none");
-
+  
   setTimeout(() => {
-    editUserFeedbackRef.style.left = "746px";
+    if (window.innerWidth < 1400) {
+      editUserFeedbackRef.style.left = "calc(50% - 163px)";
+    } else {
+      editUserFeedbackRef.style.left = "746px";
+    }
   }, 500);
   setTimeout(() => {
     editUserFeedbackRef.style.left = "100%";

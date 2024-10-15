@@ -189,7 +189,7 @@
 
       &:focus {
         outline: none;
-        border: 1px solid #29abe2;
+        border: 1px solid #29abe2 !important;
       }
 
       @media (max-width: $breakpoint-lg) {
@@ -197,8 +197,8 @@
       }
     }
 
-    input:-webkit-autofill {
-      background-color: transparent !important;
+    input::-webkit-autofill {
+      background: transparent !important;
     }
 
     input[type="text"] {
