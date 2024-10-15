@@ -6,15 +6,23 @@
     <link rel="shortcut icon" href="./assets/icons/fav.png" type="image/png" />
     <link rel="stylesheet" href="./scss/style.css" />
     <script type="module" src="./js/script.js" defer></script>
-    <title>Document</title>
+    <title>Board</title>
   </head>
   <body>
     <main>
       <nav id="sidebar" class="sidebar"></nav>
+      <div id="taskDetailView" class="taskDetailView"></div>
+      <div id="addTask" class="addTask"></div>
       <section class="mainSection">
         <section id="content" class="content">
           <header id="header" class="header"></header>
-          <div id="placeholder" class="placeholder"></div>
+          <div id="board" class="board"></div>
+          <div id="taskCards" class="taskCards">
+            <div id="todoCards" class="todoCards"></div>
+            <div id="inProgressCards" class="inProgressCards"></div>
+            <div id="awaitFeedbackCards" class="awaitFeedbackCards"></div>
+            <div id="doneCards" class="doneCards"></div>
+          </div>
         </section>
       </section>
     </main>
