@@ -200,6 +200,7 @@ export function getEditUserObject(user) {
 
 export function showAddNewUserDialog() {
   document.getElementById("contactModal").classList.remove("d_none");
+  clearAddErrorAlerts();
   setTimeout(() => {
     document.getElementById("addContactContainer").style.left = "50%";
   }, 50);
@@ -257,6 +258,7 @@ export async function showEditChosenUserDialog(id) {
     showConfirmDeleteUserDialog(id);
   });
   document.getElementById("editContactModal").classList.remove("d_none");
+  clearEditErrorAlerts();
   setTimeout(() => {
     document.getElementById("editContactContainer").style.left = "50%";
   }, 50);
