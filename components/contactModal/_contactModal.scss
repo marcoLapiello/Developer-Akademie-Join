@@ -197,9 +197,9 @@
       }
     }
 
-    input::-webkit-autofill {
-      background: transparent !important;
-    }
+    // input::-webkit-autofill {
+    //   background: transparent !important;
+    // }
 
     input[type="text"] {
       background-image: url("/assets/icons/inputName.svg");
