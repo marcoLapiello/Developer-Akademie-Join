@@ -45,6 +45,11 @@ let userColors = [
 ];
 
 function validateNameInput(inputRef, warningRef) {
+  if (!inputRef.value) {
+    warningRef.innerHTML = "Enter two names, with space or hyphen.";
+    inputRef.style.borderColor = "rgb(255, 0, 0)";
+    return false;
+  }
   if (inputRef.value) {
     let namePartsCount = inputRef.value.split(" ").length;
     if (namePartsCount != 2) {
@@ -57,6 +62,11 @@ function validateNameInput(inputRef, warningRef) {
 }
 
 function validateEmailInput(inputRef, warningRef) {
+  if (!inputRef.value) {
+    inputRef.style.borderColor = "rgb(255, 0, 0)";
+    warningRef.innerHTML = "Enter a valid email address.";
+    return false;
+  }
   if (inputRef.value) {
     let emailInput = inputRef.value;
     if (!emailInput.includes("@") || !emailInput.includes(".")) {
@@ -69,6 +79,11 @@ function validateEmailInput(inputRef, warningRef) {
 }
 
 function validatePhoneNumberInput(inputRef, warningRef) {
+  if (!inputRef.value) {
+    inputRef.style.borderColor = "rgb(255, 0, 0)";
+    warningRef.innerHTML = "Enter a valid phone number with country code.";
+    return false;
+  }
   if (inputRef.value) {
     let phoneNumber = inputRef.value;
     if (phoneNumber.length < 8 || phoneNumber[0] != "+") {
