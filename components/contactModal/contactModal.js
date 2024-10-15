@@ -104,16 +104,27 @@ function validatePhoneNumberInput() {
   return true;
 }
 
-export function validateAllInputs() {
-  clearAddErrorAlerts();
-  clearEditErrorAlerts();
-  validateNameInput();
-  validateEmailInput();
-  validatePhoneNumberInput();
-  if (validateNameInput() && validateEmailInput() && validatePhoneNumberInput()) {
-    return true;
+export function validateAllInputs(type) {
+  if (type == "add") {
+    clearAddErrorAlerts();
+    validateNameInput();
+    validateEmailInput();
+    validatePhoneNumberInput();
+    if (validateNameInput() && validateEmailInput() && validatePhoneNumberInput()) {
+      return true;
+    }
+    return false;
   }
-  return false;
+  if (type == "edit") {
+    clearEditErrorAlerts();
+    validateNameInput();
+    validateEmailInput();
+    validatePhoneNumberInput();
+    if (validateNameInput() && validateEmailInput() && validatePhoneNumberInput()) {
+      return true;
+    }
+    return false;
+  }
 }
 
 function clearAddErrorAlerts() {

@@ -17,7 +17,7 @@ import { renderContactDetails, selectedUser } from "../components/contactDetails
 
 export async function addContact(event) {
   event.stopPropagation();
-  if (validateAllInputs()) {
+  if (validateAllInputs("add")) {
     let id = await patchNewUser();
     await loadUsers();
     renderContactList();
@@ -67,7 +67,7 @@ async function patchNewUser() {
 
 export async function editExistingUser(id, user) {
   let editedUserProfil = getEditUserObject(user);
-  if (validateAllInputs()) {
+  if (validateAllInputs("edit")) {
     let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
       method: "PATCH",
       header: {
