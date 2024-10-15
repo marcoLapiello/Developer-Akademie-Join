@@ -62,14 +62,16 @@ function validateNameInput(inputRef, warningRef) {
 }
 
 function validateEmailInput(inputRef, warningRef) {
-  if (!inputRef.value) {
+  if (!inputRef.value || inputRef.value.length < 6) {
     inputRef.style.borderColor = "rgb(255, 0, 0)";
     warningRef.innerHTML = "Enter a valid email address.";
     return false;
   }
   if (inputRef.value) {
     let emailInput = inputRef.value;
-    if (!emailInput.includes("@") || !emailInput.includes(".")) {
+    let mailPartAfterAt = emailInput.split("@")[1];
+    let atCounter = emailInput.split("@").length;
+    if (!emailInput.includes("@") || !mailPartAfterAt.includes(".") || atCounter > 2 || /[äöüß]/.test(emailInput)) {
       inputRef.style.borderColor = "rgb(255, 0, 0)";
       warningRef.innerHTML = "Enter a valid email address.";
       return false;
@@ -280,7 +282,7 @@ export async function showEditChosenUserDialog(id) {
 
 export function editUserFeedback() {
   editUserFeedbackRef.classList.remove("d_none");
-  
+
   setTimeout(() => {
     if (window.innerWidth < 1400) {
       editUserFeedbackRef.style.left = "calc(50% - 163px)";
