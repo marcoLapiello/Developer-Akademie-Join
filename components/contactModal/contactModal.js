@@ -106,25 +106,33 @@ function validatePhoneNumberInput() {
 
 export function validateAllInputs(type) {
   if (type == "add") {
-    clearAddErrorAlerts();
-    validateNameInput();
-    validateEmailInput();
-    validatePhoneNumberInput();
-    if (validateNameInput() && validateEmailInput() && validatePhoneNumberInput()) {
-      return true;
-    }
-    return false;
+    return validateAllAddInputs();
   }
   if (type == "edit") {
-    clearEditErrorAlerts();
-    validateNameInput();
-    validateEmailInput();
-    validatePhoneNumberInput();
-    if (validateNameInput() && validateEmailInput() && validatePhoneNumberInput()) {
-      return true;
-    }
-    return false;
+    return validateAllEditInputs();
   }
+}
+
+function validateAllAddInputs() {
+  clearAddErrorAlerts();
+  let validName = validateNameInput();
+  let validEmail = validateEmailInput();
+  let validPhoneNumber = validatePhoneNumberInput();
+  if (validName && validEmail && validPhoneNumber) {
+    return true;
+  }
+  return false;
+}
+
+function validateAllEditInputs() {
+  clearEditErrorAlerts();
+  let validName = validateNameInput();
+  let validEmail = validateEmailInput();
+  let validPhoneNumber = validatePhoneNumberInput();
+  if (validName && validEmail && validPhoneNumber) {
+    return true;
+  }
+  return false;
 }
 
 function clearAddErrorAlerts() {

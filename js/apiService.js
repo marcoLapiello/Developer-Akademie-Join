@@ -66,8 +66,8 @@ async function patchNewUser() {
 }
 
 export async function editExistingUser(id, user) {
-  let editedUserProfil = getEditUserObject(user);
   if (validateAllInputs("edit")) {
+    let editedUserProfil = getEditUserObject(user);
     let response = await fetch(baseUrl + `/user/${id}/profile.json`, {
       method: "PATCH",
       header: {
