@@ -44,7 +44,7 @@ let userColors = [
   "#FFBB2B",
 ];
 
-function validateNameInput() {
+function validateNameInput(inputRef, warningRef) {
   if (addContactNameInputRef.value) {
     let namePartsCount = addContactNameInputRef.value.split(" ").length;
     if (namePartsCount != 2) {
@@ -64,7 +64,7 @@ function validateNameInput() {
   return true;
 }
 
-function validateEmailInput() {
+function validateEmailInput(inputRef, warningRef) {
   if (addContactEmailInputRef.value) {
     let emailInput = addContactEmailInputRef.value;
     if (!emailInput.includes("@") || !emailInput.includes(".")) {
@@ -84,7 +84,7 @@ function validateEmailInput() {
   return true;
 }
 
-function validatePhoneNumberInput() {
+function validatePhoneNumberInput(inputRef, warningRef) {
   if (addContactPhoneInputRef.value) {
     let phoneNumber = addContactPhoneInputRef.value;
     if (phoneNumber.length < 8 || phoneNumber[0] != "+") {
@@ -115,9 +115,9 @@ export function validateAllInputs(type) {
 
 function validateAllAddInputs() {
   clearAddErrorAlerts();
-  let validName = validateNameInput();
-  let validEmail = validateEmailInput();
-  let validPhoneNumber = validatePhoneNumberInput();
+  let validName = validateNameInput(addContactNameInputRef, addNameWarningRef);
+  let validEmail = validateEmailInput(addContactEmailInputRef, addEmailWarningRef);
+  let validPhoneNumber = validatePhoneNumberInput(addContactPhoneInputRef, addPhoneWarningRef);
   if (validName && validEmail && validPhoneNumber) {
     return true;
   }
@@ -126,9 +126,9 @@ function validateAllAddInputs() {
 
 function validateAllEditInputs() {
   clearEditErrorAlerts();
-  let validName = validateNameInput();
-  let validEmail = validateEmailInput();
-  let validPhoneNumber = validatePhoneNumberInput();
+  let validName = validateNameInput(editContactNameInputRef, editNameWarningRef);
+  let validEmail = validateEmailInput(editContactEmailInputRef, editEmailWarningRef);
+  let validPhoneNumber = validatePhoneNumberInput(editContactPhoneInputRef, editPhoneWarningRef);
   if (validName && validEmail && validPhoneNumber) {
     return true;
   }
