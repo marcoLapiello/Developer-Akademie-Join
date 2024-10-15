@@ -88,11 +88,6 @@
     padding: 66px 24px;
   }
 
-  // @media (max-width: $breakpoint-sm) {
-  //   padding-left: 6%;
-  //   padding-right: 6%;
-  // }
-
   .newUserLogo {
     width: 126px;
     height: 126px;
@@ -125,10 +120,6 @@
     @media (max-width: $breakpoint-lg) {
       font-size: 47px;
     }
-
-    // @media (max-width: $breakpoint-xs) {
-    //   font-size: 47px;
-    // }
   }
 
   span {
@@ -138,16 +129,13 @@
     @media (max-width: $breakpoint-lg) {
       font-size: 20px;
     }
-
-    // @media (max-width: $breakpoint-xs) {
-    //   font-size: 20px;
-    // }
   }
 
   .vector {
     width: 90px;
     height: 2px;
     background-color: #29abe2;
+    margin-top: 12px;
   }
 }
 
@@ -170,23 +158,8 @@
   @media (max-width: $breakpoint-lg) {
     width: 100%;
     align-items: center;
-    // gap: 32px;
     padding: 66px 24px;
   }
-
-  // @media (max-width: $breakpoint-sm) {
-  //   gap: 30px;
-  // }
-
-  // @media (max-width: $breakpoint-sm) {
-  //   padding-left: 6%;
-  //   padding-right: 6%;
-  //   gap: 25px;
-  // }
-
-  // @media (max-width: $breakpoint-xs) {
-  //   gap: 15px;
-  // }
 
   .modalInputsContainer {
     width: 422px;
@@ -195,6 +168,7 @@
 
     @media (max-width: $breakpoint-lg) {
       width: 100%;
+      margin-top: 24px;
     }
 
     p {
@@ -248,19 +222,9 @@
       justify-content: center;
     }
 
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
     .cancelBtn {
       gap: 4px;
-      padding: 15px 24px;
+      padding: 16px;
       border-radius: 10px;
       border: 1px solid #2a3647;
       background-color: white;
@@ -287,7 +251,7 @@
 
     .createBtn {
       gap: 4px;
-      padding: 18px 10px;
+      padding: 16px;
       border: none;
       border-radius: 10px;
       background-color: #2a3647;
@@ -296,24 +260,20 @@
       color: white;
       transition: all 0.1s ease-in-out;
 
-      // @media (max-width: $breakpoint-xs) {
-      //   font-size: 16px;
-      // }
-
       &:hover {
         background-color: #29abe2;
         box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+      }
 
-        @media (max-width: $breakpoint-lg) {
-          box-shadow: none;
-          background-color: #2a3647;
-        }
+      @media (max-width: $breakpoint-lg) {
+        box-shadow: none;
+        background-color: #2a3647;
       }
     }
   }
 }
 
-.editCancelBtn {
+.editDeleteBtn {
   gap: 4px;
   padding: 15px 24px;
   border-radius: 10px;
@@ -325,6 +285,10 @@
   margin-right: 24px;
   transition: all 0.1s ease-in-out;
 
+  @media (max-width: $breakpoint-lg) {
+    padding: 18px 10px;
+  }
+
   &:hover {
     border: 1px solid #29abe2;
     color: #29abe2;
@@ -333,6 +297,27 @@
     img {
       filter: invert(46%) sepia(52%) saturate(2400%) hue-rotate(163deg) brightness(95%) contrast(101%);
     }
+  }
+}
+
+.editSaveBtn {
+  gap: 4px;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2a3647;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  transition: all 0.1s ease-in-out;
+
+  @media (max-width: $breakpoint-lg) {
+    padding: 18px 10px;
+  }
+
+  &:hover {
+    background-color: #29abe2;
+    box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
   }
 }
 
