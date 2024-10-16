@@ -9,6 +9,7 @@ const tempCards = {
     creatorId: "AS4577547547",
     priority: "Urgent",
     category: "Technical Task",
+    categoryColor: "#0038ff",
     progress: 50,
     status: "In Progress",
     subtasks: [
