@@ -205,6 +205,7 @@
             .editButton,
             .deleteButton {
               display: flex;
+              justify-content: start;
               align-items: center;
               gap: 8px;
               font-size: 16px;
@@ -214,7 +215,8 @@
 
               @media (max-width: $breakpoint-lg) {
                 width: 100%;
-                padding-inline: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
               }
 
               &:hover {
