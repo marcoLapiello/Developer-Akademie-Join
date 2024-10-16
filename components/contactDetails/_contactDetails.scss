@@ -53,15 +53,16 @@
           content: " ";
           border-left: 3px solid #29abe2;
           border-radius: 10px;
-          margin-inline: 30px;
+          margin-top: 30px;
+          margin-bottom: 30px;
         }
 
         @media (max-width: $breakpoint-lg) {
           &::after {
             content: " ";
             border-left: unset;
-            border-radius: unset;
-            margin-inline: unset;
+            margin-top: 0;
+            margin-bottom: 0;
           }
         }
       }
@@ -258,7 +259,8 @@
 
           @media (max-width: $breakpoint-lg) {
             font-size: 20px;
-            margin-block: 0px;
+            margin-top: 0;
+            margin-bottom: 0;
           }
 
           @media (max-width: $breakpoint-xxs) {
