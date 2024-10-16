@@ -53,10 +53,18 @@
     @media (max-width: $breakpoint-lg) {
       height: 80vh;
       max-height: 760px;
-      width: 100%;
+      width: 98%;
       max-width: 396px;
       justify-content: flex-end;
       font-size: 19px;
+    }
+
+    @media (max-width: $breakpoint-xs) and (max-height:950px) {
+      height: 75%;
+      font-size: 16px;
+      padding: 16px 16px;
+      justify-content: space-evenly;
+      gap: 0;
     }
 
     .confirmDeleteUserTextBox {
@@ -74,6 +82,10 @@
         left: 50%;
         transform: translateX(-50%);
         scale: 0.9;
+      }
+
+      @media (max-width: $breakpoint-xs) and (max-height:950px) {
+        display: none;
       }
     }
   }
@@ -103,6 +115,11 @@
       margin-right: 24px;
       transition: all 0.1s ease-in-out;
 
+      @media (max-width: $breakpoint-xs) and (max-height:950px) {
+        font-size: 16px;
+        padding: 10px 14px;
+      }
+
       &:hover {
         border: 1px solid #29abe2;
         color: #29abe2;
@@ -124,6 +141,11 @@
       font-weight: 700;
       color: white;
       transition: all 0.1s ease-in-out;
+
+      @media (max-width: $breakpoint-xs) and (max-height:950px) {
+        font-size: 16px;
+        padding: 10px 14px;
+      }
 
       &:hover {
         background-color: white;
