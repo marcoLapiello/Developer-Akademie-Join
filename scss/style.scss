@@ -21,12 +21,12 @@ body {
       height: 100%;
 
       @media (max-width: $breakpoint-lg) {
-        height: calc(100vh - 80px);
+        min-height: calc(100vh - 80px);
       }
 
       .content {
         width: 100%;
-        height: calc(100vh - 96px);
+        min-height: calc(100vh - 96px);
 
         @media (max-width: $breakpoint-lg) {
           height: calc(100vh - (96px + 80px));
