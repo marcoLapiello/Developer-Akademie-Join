@@ -80,7 +80,7 @@
       width: 100%;
       line-height: 120%;
 
-      @media (max-width: $breakpoint-xxs) {
+      @media (max-width: $breakpoint-xs) {
         padding-left: 30px;
       }
     }
@@ -101,7 +101,7 @@
       width: 352px;
       list-style-type: none;
 
-      @media (max-width: $breakpoint-xxs) {
+      @media (max-width: $breakpoint-xs) {
         width: 300px;
         padding-left: 10px;
       }
@@ -136,7 +136,7 @@
           color: #007cee;
           line-height: 120%;
 
-          @media (max-width: $breakpoint-xxs) {
+          @media (max-width: $breakpoint-xs) {
             font-size: 12px;
           }
         }

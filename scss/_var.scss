@@ -13,11 +13,11 @@ $breakpoint-md: 900px !default;
 /** 600px oder schmaler */
 $breakpoint-sm: 600px !default;
 
-/** 450px oder schmaler */
+/** 450px oder schmaler */ //! used
 $breakpoint-xs: 450px !default;
 
-/** 425px oder schmaler */ //! used
-$breakpoint-xxs: 425px !default;
+/** 350px oder schmaler */
+$breakpoint-xxs: 350px !default;
 
 /** 1400px oder schmaler */ //! used
 // @media (max-width: $breakpoint-lg) {
@@ -28,9 +28,9 @@ $breakpoint-xxs: 425px !default;
 /** 600px oder schmaler */
 // @media (max-width: $breakpoint-sm) {
 // }
-/** 450px oder schmaler */
+/** 450px oder schmaler */ //! used
 // @media (max-width: $breakpoint-xs) {
 // }
-/** 425px oder schmaler */ //! used
+/** 350px oder schmaler */
 // @media (max-width: $breakpoint-xxs) {
 // }
