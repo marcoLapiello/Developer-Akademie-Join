@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 75vh;
+  top: 75dvh;
   left: 100%;
   transition: all 0.5s ease;
   z-index: 5000;
@@ -24,7 +24,7 @@
 .confirmDeleteUserModal {
   position: absolute;
   z-index: 10000;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(3px);
@@ -51,7 +51,7 @@
     gap: 50px;
 
     @media (max-width: $breakpoint-lg) {
-      height: 80vh;
+      height: 80dvh;
       max-height: 760px;
       width: 98%;
       max-width: 396px;
@@ -60,7 +60,7 @@
     }
 
     @media (max-width: $breakpoint-xs) and (max-height:950px) {
-      height: 75%;
+      height: 75dvh;
       font-size: 16px;
       padding: 16px 16px;
       justify-content: space-evenly;
