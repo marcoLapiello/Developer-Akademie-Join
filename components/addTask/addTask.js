@@ -11,7 +11,7 @@
 //       "dueDate": "2024-10-30",
 //       "creationDate: "8657363623",
 //       "creatorId: AS4577547547",
-//       "prio": "Urgent",
+//       "priority": "Urgent",
 //       "category": "Technical Task",
 //       "progress": 50,  // Fortschrittsbalken für Subtasks
 //       "status": "In Progress",  // Spalte, in der sich die Task befindet
