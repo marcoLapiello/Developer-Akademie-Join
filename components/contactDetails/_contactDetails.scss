@@ -45,7 +45,7 @@
         font-size: 61px;
         font-weight: bold;
 
-        @media (max-width: $breakpoint-xxs) {
+        @media (max-width: $breakpoint-xs) {
           font-size: 45px;
         }
 
@@ -83,7 +83,7 @@
           }
         }
 
-        @media (max-width: $breakpoint-xxs) {
+        @media (max-width: $breakpoint-xs) {
           font-size: 20px;
         }
       }
@@ -157,7 +157,7 @@
             font-size: 27px;
           }
 
-          @media (max-width: $breakpoint-xxs) {
+          @media (max-width: $breakpoint-xs) {
             max-height: 60px;
             max-width: 60px;
             font-size: 20px;
@@ -177,7 +177,7 @@
               font-size: 27px;
             }
 
-            @media (max-width: $breakpoint-xxs) {
+            @media (max-width: $breakpoint-xs) {
               font-size: 20px;
             }
           }
@@ -263,7 +263,7 @@
             margin-bottom: 0;
           }
 
-          @media (max-width: $breakpoint-xxs) {
+          @media (max-width: $breakpoint-xs) {
             font-size: 16px;
           }
         }
@@ -279,7 +279,7 @@
           }
           & a {
             width: fit-content;
-            @media (max-width: $breakpoint-xxs) {
+            @media (max-width: $breakpoint-xs) {
               font-size: 14px;
             }
           }
@@ -297,7 +297,7 @@
           & a {
             width: fit-content;
             color: #000000;
-            @media (max-width: $breakpoint-xxs) {
+            @media (max-width: $breakpoint-xs) {
               font-size: 14px;
             }
           }
