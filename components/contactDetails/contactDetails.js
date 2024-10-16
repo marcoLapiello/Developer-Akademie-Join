@@ -78,20 +78,20 @@ export function switchMobile() {
   }
 }
 
-function updateWidth() {
-  const width = window.innerWidth; // https://www.w3schools.com/jsref/prop_win_innerwidth.asp
-  if (width >= 1401 && contactDetailsRef && contactListRef) {
-    if (contactListRef.style.display === "flex") contactDetailsRef.style.display = "flex";
-  } else if (width <= 1400 && contactDetailsRef && contactListRef) {
-    if (contactListRef.style.display === "flex") contactDetailsRef.style.display = "none";
-  }
-  if (width == screen.width && contactDetailsRef && contactListRef) {
-    contactDetailsRef.style.display = "flex";
-    contactListRef.style.display = "flex";
-  }
-}
+// function updateWidth() {
+//   const width = window.innerWidth; // https://www.w3schools.com/jsref/prop_win_innerwidth.asp
+//   if (width >= 1401 && contactDetailsRef && contactListRef) {
+//     if (contactListRef.style.display === "flex") contactDetailsRef.style.display = "flex";
+//   } else if (width <= 1400 && contactDetailsRef && contactListRef) {
+//     if (contactListRef.style.display === "flex") contactDetailsRef.style.display = "none";
+//   }
+//   if (width == screen.width && contactDetailsRef && contactListRef) {
+//     contactDetailsRef.style.display = "flex";
+//     contactListRef.style.display = "flex";
+//   }
+// }
 
-window.addEventListener("resize", updateWidth); // https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
+// window.addEventListener("resize", updateWidth); // https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
 
 export function userProfileButtonsMobile() {
   const userProfileButtonsRef = document.getElementById("userProfileButtons");
