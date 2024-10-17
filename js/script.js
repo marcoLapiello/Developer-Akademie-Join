@@ -23,6 +23,11 @@ import { toggle_d_None, renderHeader } from "../components/header/header.js";
 window.toggle_d_None = toggle_d_None;
 renderHeader();
 
+import { renderBoardHeadTemplate } from "../components/board/board.js";
+renderBoardHeadTemplate();
+
+import { loadTasks } from "./tasksApiService.js";
+
 import {
   showAddNewUserDialog,
   hideAddNewUserDialog,
@@ -82,5 +87,11 @@ export async function getUsersArray() {
   return usersArray;
 }
 
+export async function getTasksArray() {
+  let tasksArray = await loadTasks();
+  return tasksArray;
+}
+
 // später diese Funktion in eine "onload init Funktion packen"
 getUsersArray();
+getTasksArray();

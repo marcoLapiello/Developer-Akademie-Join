@@ -34,3 +34,16 @@ $breakpoint-xxs: 350px !default;
 /** 350px oder schmaler */
 // @media (max-width: $breakpoint-xxs) {
 // }
+
+
+
+// height 950px oder niedriger
+$height-md: 950px !default;
+
+
+
+
+
+/** 950px oder schmaler */
+// @media (max-width: $height-md) {
+// }
