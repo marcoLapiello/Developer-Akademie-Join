@@ -1,26 +1,130 @@
 .board {
-  display: flex;
-  align-items: center;
+  width: 100%;
+  max-width: 1208px;
+  height: 208px;
+  padding: 79px 64px 55px 64px;
 
-  .boardLeft {
+  @media (max-width: $breakpoint-lg) {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    gap: 40px;
+    padding: 48px 16px 24px 16px;
+  }
+
+  .boardContainer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
-    p {
-      font-size: 61px;
-      font-weight: 700;
+    @media (max-width: $breakpoint-lg) {
+      flex-direction: column;
+      width: 396px;
     }
-  
-    button {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background-color: #2a3647;
+
+    .boardLeft {
       display: flex;
-      justify-content: center;
       align-items: center;
+
+      @media (max-width: $breakpoint-lg) {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      p {
+        font-size: 61px;
+        font-weight: 700;
+      }
+
+      button {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #2a3647;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        border: none;
+
+        @media (max-width: $breakpoint-lg) {
+          display: flex;
+        }
+      }
+    }
+
+    .boardRight {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      @media (max-width: $breakpoint-lg) {
+        width: 100%;
+      }
+
+      .taskSearchFieldContainer {
+        display: flex;
+        align-items: center;
+        width: 312px;
+        border-radius: 10px;
+        border: 1px solid #a8a8a8;
+        padding: 8px 16px;
+
+        @media (max-width: $breakpoint-lg) {
+          width: 100%;
+        }
+
+        input {
+          width: 100%;
+          border: none;
+          border-right: 1px solid #a8a8a8;
+          outline: none;
+          line-height: 24px;
+          font-size: 20px;
+          &::placeholder {
+            color: #a8a8a8;
+          }
+        }
+
+        button {
+          width: 32px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 16px;
+          border: none;
+          background-color: transparent;
+        }
+      }
+
+      .boardTaskAddBtnLarge {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 10px 8px 16px;
+        border-radius: 10px;
+        background-color: #2a3647;
+        color: white;
+        border: none;
+
+        @media (max-width: $breakpoint-lg) {
+          display: none;
+        }
+
+        p {
+          font-size: 21px;
+          font-weight: 700;
+        }
+
+        div {
+          height: 32px;
+          width: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
   }
 }
-
-

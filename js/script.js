@@ -18,6 +18,9 @@ import { toggle_d_None, renderHeader } from "../components/header/header.js";
 window.toggle_d_None = toggle_d_None;
 renderHeader();
 
+import { renderBoardHeadTemplate } from "../components/board/board.js";
+renderBoardHeadTemplate();
+
 import {
   showAddNewUserDialog,
   hideAddNewUserDialog,
