@@ -1,0 +1,152 @@
+{
+  "TASK1234567890": {
+    "id": "TASK1234567890",
+    "title": "Design Homepage Layout",
+    "description": "Create and implement the layout for the homepage.",
+    "assignedTo": ["CK1728938463133", "MH1729079944158", "MS1728938311249"],
+    "dueDate": "2024-11-05",
+    "creationDate": "8657363629",
+    "creatorId": "AS4577547548",
+    "priority": "High",
+    "category": "Design Task",
+    "categoryColor": "#ff4500",
+    "progress": 30,
+    "status": "Not Started",
+    "subtasks": [
+      {
+        "id": "SUBTASK1234567890",
+        "task": "Create wireframe",
+        "isDone": false,
+        "creationDate": "8657363670",
+        "creatorId": "AS4577547548"
+      },
+      {
+        "id": "SUBTASK1234567891",
+        "task": "Implement HTML/CSS",
+        "isDone": false,
+        "creationDate": "8657363671",
+        "creatorId": "AS4577547548"
+      }
+    ]
+  },
+  "TASK9876543210": {
+    "id": "TASK9876543210",
+    "title": "Set Up Backend API",
+    "description": "Create the API endpoints for user management.",
+    "assignedTo": ["CK1728938463133", "MH1729079944158"],
+    "dueDate": "2024-12-01",
+    "creationDate": "8657363630",
+    "creatorId": "AS4577547549",
+    "priority": "Medium",
+    "category": "Backend Task",
+    "categoryColor": "#00ff38",
+    "progress": 10,
+    "status": "Not Started",
+    "subtasks": [
+      {
+        "id": "SUBTASK9876543210",
+        "task": "Design API schema",
+        "isDone": false,
+        "creationDate": "8657363672",
+        "creatorId": "AS4577547549"
+      },
+      {
+        "id": "SUBTASK9876543211",
+        "task": "Implement authentication",
+        "isDone": false,
+        "creationDate": "8657363673",
+        "creatorId": "AS4577547549"
+      }
+    ]
+  },
+  "TASK5432167890": {
+    "id": "TASK5432167890",
+    "title": "Write Unit Tests",
+    "description": "Develop unit tests for the payment processing module.",
+    "assignedTo": ["MH1729079944158"],
+    "dueDate": "2024-10-25",
+    "creationDate": "8657363631",
+    "creatorId": "AS4577547550",
+    "priority": "Low",
+    "category": "Testing Task",
+    "categoryColor": "#ff0038",
+    "progress": 70,
+    "status": "In Progress",
+    "subtasks": [
+      {
+        "id": "SUBTASK5432167890",
+        "task": "Write test cases for credit card payments",
+        "isDone": true,
+        "creationDate": "8657363674",
+        "creatorId": "AS4577547550"
+      },
+      {
+        "id": "SUBTASK5432167891",
+        "task": "Test refund functionality",
+        "isDone": false,
+        "creationDate": "8657363675",
+        "creatorId": "AS4577547550"
+      }
+    ]
+  },
+  "TASK0987654321": {
+    "id": "TASK0987654321",
+    "title": "Optimize Database Queries",
+    "description": "Improve performance by optimizing slow database queries.",
+    "assignedTo": ["MS1728938311249"],
+    "dueDate": "2024-11-10",
+    "creationDate": "8657363632",
+    "creatorId": "AS4577547551",
+    "priority": "Urgent",
+    "category": "Database Task",
+    "categoryColor": "#0038ff",
+    "progress": 20,
+    "status": "In Progress",
+    "subtasks": [
+      {
+        "id": "SUBTASK0987654321",
+        "task": "Analyze slow queries",
+        "isDone": false,
+        "creationDate": "8657363676",
+        "creatorId": "AS4577547551"
+      },
+      {
+        "id": "SUBTASK0987654322",
+        "task": "Apply indexing",
+        "isDone": false,
+        "creationDate": "8657363677",
+        "creatorId": "AS4577547551"
+      }
+    ]
+  },
+  "TASK1928374650": {
+    "id": "TASK1928374650",
+    "title": "Develop Mobile App UI",
+    "description": "Create the UI components for the mobile application.",
+    "assignedTo": ["CK1728938463133", "MS1728938311249"],
+    "dueDate": "2024-12-15",
+    "creationDate": "8657363633",
+    "creatorId": "AS4577547552",
+    "priority": "High",
+    "category": "UI Task",
+    "categoryColor": "#ff00ff",
+    "progress": 40,
+    "status": "In Progress",
+    "subtasks": [
+      {
+        "id": "SUBTASK1928374650",
+        "task": "Design app layout",
+        "isDone": true,
+        "creationDate": "8657363678",
+        "creatorId": "AS4577547552"
+      },
+      {
+        "id": "SUBTASK1928374651",
+        "task": "Implement navigation",
+        "isDone": false,
+        "creationDate": "8657363679",
+        "creatorId": "AS4577547552"
+      }
+    ]
+  }
+}
