@@ -1,53 +1,95 @@
 .board {
-  display: flex;
-  align-items: center;
+  width: 100%;
+  max-width: 1208px;
+  height: 208px;
+  padding: 79px 64px 55px 64px;
 
-  .boardLeft {
+  .boardContainer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
-    p {
-      font-size: 61px;
-      font-weight: 700;
-    }
-
-    button {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background-color: #2a3647;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: none;
-    }
-  }
-
-  .boardRight {
-    .taskSearchFieldContainer {
-    }
-
-    .boardTaskAddBtnLarge {
+    .boardLeft {
       display: flex;
       align-items: center;
-      gap: 4px;
-      padding: 8px 10px 8px 16px;
-      border-radius: 10px;
-      background-color: #2a3647;
-      color: white;
-      border: none;
 
       p {
-        font-size: 21px;
+        font-size: 61px;
         font-weight: 700;
       }
 
-      div {
-        height: 32px;
-        width: 32px;
+      button {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #2a3647;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+      }
+    }
+
+    .boardRight {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      .taskSearchFieldContainer {
         display: flex;
         align-items: center;
-        justify-content: center;
+        width: 312px;
+        border-radius: 10px;
+        border: 1px solid #a8a8a8;
+        padding: 8px 16px;
+
+        input {
+          width: 100%;
+          border: none;
+          border-right: 1px solid #a8a8a8;
+          outline: none;
+          line-height: 24px;
+          font-size: 20px;
+          &::placeholder {
+            color: #a8a8a8;
+          }
+        }
+
+        button {
+          width: 32px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 16px;
+          border: none;
+          background-color: transparent;
+        }
+      }
+
+      .boardTaskAddBtnLarge {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 10px 8px 16px;
+        border-radius: 10px;
+        background-color: #2a3647;
+        color: white;
+        border: none;
+
+        p {
+          font-size: 21px;
+          font-weight: 700;
+        }
+
+        div {
+          height: 32px;
+          width: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
