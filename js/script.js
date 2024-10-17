@@ -11,9 +11,10 @@ window.selectedUser = selectedUser;
 window.switchMobile = switchMobile;
 window.userProfileButtonsMobile = userProfileButtonsMobile;
 
-import { renderTaskDetailView, toggleTaskDetailView, checkedSubtask } from "../components/taskDetailView/taskDetailView.js";
+import { renderTaskDetailView, toggleTaskDetailView, checkedSubtask, renderTaskDetailViewEdit } from "../components/taskDetailView/taskDetailView.js";
 window.toggleTaskDetailView = toggleTaskDetailView;
 window.checkedSubtask = checkedSubtask;
+window.renderTaskDetailViewEdit = renderTaskDetailViewEdit;
 renderTaskDetailView();
 
 import { renderSidebar } from "../components/sidebar/sidebar.js";
