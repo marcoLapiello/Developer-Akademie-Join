@@ -4,15 +4,33 @@
   height: 208px;
   padding: 79px 64px 55px 64px;
 
+  @media (max-width: $breakpoint-lg) {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    gap: 40px;
+    padding: 48px 16px 24px 16px;
+  }
+
   .boardContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 
+    @media (max-width: $breakpoint-lg) {
+      flex-direction: column;
+      width: 396px;
+    }
+
     .boardLeft {
       display: flex;
       align-items: center;
+
+      @media (max-width: $breakpoint-lg) {
+        width: 100%;
+        justify-content: space-between;
+      }
 
       p {
         font-size: 61px;
@@ -24,10 +42,14 @@
         height: 40px;
         border-radius: 10px;
         background-color: #2a3647;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         border: none;
+
+        @media (max-width: $breakpoint-lg) {
+          display: flex;
+        }
       }
     }
 
@@ -36,6 +58,10 @@
       align-items: center;
       gap: 32px;
 
+      @media (max-width: $breakpoint-lg) {
+        width: 100%;
+      }
+
       .taskSearchFieldContainer {
         display: flex;
         align-items: center;
@@ -43,6 +69,10 @@
         border-radius: 10px;
         border: 1px solid #a8a8a8;
         padding: 8px 16px;
+
+        @media (max-width: $breakpoint-lg) {
+          width: 100%;
+        }
 
         input {
           width: 100%;
@@ -77,6 +107,10 @@
         background-color: #2a3647;
         color: white;
         border: none;
+
+        @media (max-width: $breakpoint-lg) {
+          display: none;
+        }
 
         p {
           font-size: 21px;
