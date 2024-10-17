@@ -115,9 +115,68 @@ function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
         </div>
         <div class="buttons">
             <button class="deleteButton">${returnIcon("delete")}Delete</button>
-            <button class="editButton">${returnIcon("edit")}Edit</button>        
+            <button onclick="renderTaskDetailViewEdit()" class="editButton">${returnIcon("edit")}Edit</button>        
             </div>
         </div>
     </div>  
     `;
+}
+
+export function renderTaskDetailViewEdit() {
+  const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
+  taskDetailViewRef.innerHTML = renderTaskDetailViewEditTemplate(); // Render the task detail view edit template
+}
+
+function renderTaskDetailViewEditTemplate() {
+  return /*html*/ `
+    <div class="taskDetailViewCardEdit">
+      <div class="container">   
+        <div class="closeButtonContainer">
+          <div onclick="toggleTaskDetailView()" class="closeButton">${returnIcon("closeX")}</div>
+        </div>
+        <div class="title">
+          <label for="titleInput">Title</label>
+          <input id="titleInput" type="text">
+        </div>
+        <div class="description">
+          <label for="descriptionInput">Description</label>
+          <textarea id="descriptionInput" placeholder="Description"></textarea>
+        </div>
+        <div class="dueDate">
+          <label for="dueDateInput">Due date</label>
+          <input id="dueDateInput" type="date">
+        </div>
+        <div class="priority">
+          <span class="title" >Priority</span>
+          <div class="priorityButtons">
+            <button>Urgent ICON</button>
+            <button>Medium ICON</button>
+            <button>Low ICON</button>
+          </div>
+        </div>
+        <div class="assignedTo">
+          <label for="assignedToInput">Assigned To</label>
+          <input id="assignedToInput" type="text" placeholder="Select contacts to assign">
+          <ul id="usersList" class="usersList">
+            <!-- render users here -->
+          </ul>
+        </div>
+        <div class="assignUserInitials">
+          <span class="userInitials" style="background-color: #FFC700">AB</span>
+          <span class="userInitials" style="background-color: #FFC700">CD</span>
+          <span class="userInitials" style="background-color: #FFC700">EF</span>
+        </div>
+        <div class="subtasks">
+          <label for="subtasksInput">Title</label>
+          <input id="subtasksInput" type="text" placeholder="Add new Subtasks">
+          <ul id="subtasksList" class="subtasksList">
+            <!-- render subtasks here -->
+          </ul>
+        </div>
+        <div class="confirmButtonContainer">
+          <button class="confirmButton">OK Icon</button>
+        </div>     
+      </div>      
+    </div>
+  `;
 }
