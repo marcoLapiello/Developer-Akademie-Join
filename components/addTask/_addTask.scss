@@ -1,5 +1,6 @@
 .content {
-  background-color: rgb(246, 247, 248);
+    background-color: rgb(246, 247, 248);
+    min-height: 100vh;
 }
 
 .addTaskContainer {
@@ -72,9 +73,10 @@
       width: 488px;
       padding-left: 48px;
 
-      .prioContainer {
-        display: flex;
-        gap: 16px;
+            .prioContainer {
+                display: flex;
+                gap: 16px;
+                max-width: 100%;
 
         div {
           width: 136px;
@@ -97,11 +99,12 @@
     }
   }
 
-  .addTaskBottomContainer {
-    width: 976px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    .addTaskBottomContainer {
+        width: 976px;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
 
     .taskBtnContainer {
       display: flex;
