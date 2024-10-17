@@ -14,7 +14,89 @@
       <section class="mainSection">
         <section id="content" class="content">
           <header id="header" class="header"></header>
-          <div id="placeholder" class="placeholder"></div>
+          <div id="addTaskContainer" class="addTaskContainer">
+
+            
+            <h1>Add Task</h1>
+            
+            
+            <div id="addTaskMiddleContent" class="addTaskMiddleContent">
+              <div id="addTaskMiddleLeft" class="addTaskMiddleLeft">
+                <div>
+                  <p>Title*</p>
+                  <input id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title">
+                </div>
+                
+                <div>
+                  <p>Description</p>
+                  <textarea name="" id="" placeholder="Enter a description"></textarea>
+                </div>
+                
+                <div>
+                  <p>Assigned to</p>
+                <div>
+                  <div id="assignedToDropdown" class="dropdown">
+                    Select contacts to assign
+                    <img src="" alt="">
+                    <div id="contactsToAssign" class="d_none">
+                      <p>contact</p>
+                      <p>contact</p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                
+
+              </div>
+              <div class="addTaskSeparator"></div>
+              <div id="addTaskMiddleRight" class="addTaskMiddleRight">
+                <div>
+                  <p>Due date*</p>
+                  <input type="date" placeholder="dd/mm/yyyy">
+                </div>
+                <div>
+                  <p>Prio</p>
+                  <div id="prioContainer" class="prioContainer">
+                    <div id="prioUrgent">Urgent</div>
+                    <div id="prioMedium">Medium</div>
+                    <div id="prioLow">Low</div>
+                  </div>
+                </div>
+                <div>
+                  <p>Category*</p>
+                  <div>
+                    <div id="categoryDropdown" class="dropdown">
+                      Select task category
+                      <img src="" alt="">
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p>Subtasks</p>
+                  <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask">
+                  <img src="" alt="">
+                </div>
+
+
+              </div>
+
+
+            </div>
+            <div id="addTaskBottomContainer" class="addTaskBottomContainer">
+              <p>*This field is required</p>
+              <div id="taskBtnContainer" class="taskBtnContainer">
+                <button class="cancelBtn" onclick="">
+                  Cancel
+                  <img src="./assets/icons/x_btn.svg" alt="" />
+                </button>
+                <button class="createBtn" onclick="">
+                  Create Task
+                  <img src="./assets/icons/check.svg" alt="" />
+                </button>
+              </div>
+            </div>
+
+          </div>
         </section>
       </section>
     </main>
