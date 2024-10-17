@@ -1,5 +1,6 @@
 .content {
     background-color: rgb(246, 247, 248);
+    min-height: 100vh;
 }
 
 .addTaskContainer {
@@ -78,6 +79,7 @@
             .prioContainer {
                 display: flex;
                 gap: 16px;
+                max-width: 100%;
 
                 div {
                     width: 136px;
@@ -102,6 +104,7 @@
 
     .addTaskBottomContainer {
         width: 976px;
+        max-width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
