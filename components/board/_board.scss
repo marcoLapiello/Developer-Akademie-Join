@@ -1,0 +1,26 @@
+.board {
+  display: flex;
+  align-items: center;
+
+  .boardLeft {
+    display: flex;
+    align-items: center;
+
+    p {
+      font-size: 61px;
+      font-weight: 700;
+    }
+  
+    button {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #2a3647;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+
