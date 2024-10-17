@@ -44,5 +44,7 @@ function getBoardTemplate() {
 
 export function renderBoardHeadTemplate() {
   const boardRef = document.getElementById("board");
-  boardRef.innerHTML = getBoardTemplate();
+  if (boardRef) {
+    boardRef.innerHTML = getBoardTemplate();
+  }
 }
