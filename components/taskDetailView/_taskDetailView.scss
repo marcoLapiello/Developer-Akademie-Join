@@ -1,0 +1,180 @@
+.taskDetailView {
+  // display: flex;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  .taskDetailViewCard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 525px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 40px 40px 40px 40px;
+    border-radius: 30px;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+
+      .category {
+        background-color: #000000;
+        font-size: 23px;
+        font-weight: 400;
+        color: #ffffff;
+        padding: 4px 24px 4px 24px;
+        border-radius: 8px;
+      }
+      .closeButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #eeeeee;
+        }
+      }
+    }
+    .title {
+      font-size: 61px;
+      font-weight: bold;
+      line-height: 120%;
+    }
+    .description {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+    .dueDate {
+      display: flex;
+      gap: 25px;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+    .priority {
+      display: flex;
+      gap: 25px;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+    .assignedTo {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 120%;
+
+      .userNames {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .userName {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          list-style: none;
+          padding: 7px 16px 7px 16px;
+
+          .userInitials {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 42px;
+            width: 42px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 120%;
+            color: #ffffff;
+            border-radius: 50%;
+            background-color: black;
+          }
+        }
+      }
+    }
+    .subtasks {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 120%;
+
+      .subtask {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-left: 16px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+        padding: 6.5px 16px 6.5px 16px;
+        border-radius: 10px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #eeeeee;
+        }
+
+        & input[type="checkbox"] {
+          height: 24px;
+          width: 24px;
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 5px;
+
+      .deleteButton,
+      .editButton {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        line-height: 120%;
+        background-color: unset;
+        border: unset;
+        width: 70px;
+
+        &:hover {
+          cursor: pointer;
+          color: #29abe2;
+          fill: #29abe2;
+          font-weight: bold;
+        }
+
+        & svg {
+          height: 24px;
+          width: 24px;
+        }
+      }
+      .deleteButton {
+        width: 85px;
+      }
+
+      .editButton {
+        justify-content: end;
+        &:hover {
+          border-left: 1px solid #d1d1d1;
+        }
+      }
+    }
+  }
+}
