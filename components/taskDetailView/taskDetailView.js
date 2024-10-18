@@ -87,6 +87,7 @@ export async function checkedSubtask(event, taskID) {
   let isChecked = event.target.checked; // Get the status of the checkbox
   const foundSubtask = taskData.subtasks[checkboxId]; // Find the subtask in the task data with the subtask ID
   if (foundSubtask) foundSubtask.isDone = isChecked; // Update the subtask status with the new status
+  console.log(taskData);
   // pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
 }
 
@@ -115,19 +116,51 @@ function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
         </div>
         <div class="buttons">
             <button class="deleteButton">${returnIcon("delete")}Delete</button>
-            <button onclick="renderTaskDetailViewEdit()" class="editButton">${returnIcon("edit")}Edit</button>        
+            <button onclick="renderTaskDetailViewEdit('${currentTask.id}')" class="editButton">${returnIcon("edit")}Edit</button>        
             </div>
         </div>
     </div>  
     `;
 }
 
-export function renderTaskDetailViewEdit() {
-  const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
-  taskDetailViewRef.innerHTML = renderTaskDetailViewEditTemplate(); // Render the task detail view edit template
+//! Edit Task Detail View
+
+function getEditInputValues() {
+  const titleInput = document.getElementById("titleInput").value; // Get the new title input value
+  const descriptionInput = document.getElementById("descriptionInput").value; // Get the new description input value
+  const dueDateInput = document.getElementById("dueDateInput").value; // Get the new due date input value
+  return { titleInput, descriptionInput, dueDateInput };
 }
 
-function renderTaskDetailViewEditTemplate() {
+export function getEditPriority(priority) {
+  const priorityButtons = document.querySelectorAll(".priorityButtons"); // Get all priority buttons elements with the class name priorityButtons
+  priorityButtons.forEach((button) => {
+    button.classList.remove(`selected_${button.id}`);
+    if (button.id === priority) {
+      button.classList.add(`selected_${priority}`);
+    }
+  });
+}
+
+export async function getEditTaskData(taskID) {
+  let tasksArray = await getTasksArray(); // Fetch tasks array to get the task data for the task ID
+  const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
+  const { titleInput, descriptionInput, dueDateInput } = getEditInputValues(); // Get the new values from the input fields
+  if (titleInput) taskData.title = titleInput;
+  if (descriptionInput) taskData.description = descriptionInput;
+  if (dueDateInput) taskData.dueDate = dueDateInput;
+  console.log(taskData);
+  // pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
+}
+
+// The function renders the task detail view edit template
+export function renderTaskDetailViewEdit(taskID) {
+  const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
+  taskDetailViewRef.innerHTML = renderTaskDetailViewEditTemplate(taskID); // Render the task detail view edit template
+}
+
+// The function renders the task detail view edit template
+function renderTaskDetailViewEditTemplate(taskID) {
   return /*html*/ `
     <div class="taskDetailViewCardEdit">
       <div class="container">   
@@ -148,10 +181,10 @@ function renderTaskDetailViewEditTemplate() {
         </div>
         <div class="priority">
           <span class="title" >Priority</span>
-          <div class="priorityButtons">
-            <button>Urgent ICON</button>
-            <button>Medium ICON</button>
-            <button>Low ICON</button>
+          <div class="priorityButtonsContainer">
+            <button onclick="getEditPriority('urgent')" id="urgent" class="priorityButtons">Urgent ${returnIcon("urgent", "urgent")}</button>
+            <button onclick="getEditPriority('medium')" id="medium" class="priorityButtons">Medium ${returnIcon("medium", "medium")}</button>
+            <button onclick="getEditPriority('low')" id="low" class="priorityButtons">Low ${returnIcon("low", "low")}</button>
           </div>
         </div>
         <div class="assignedTo">
@@ -174,7 +207,7 @@ function renderTaskDetailViewEditTemplate() {
           </ul>
         </div>
         <div class="confirmButtonContainer">
-          <button class="confirmButton">OK Icon</button>
+          <button onclick="getEditTaskData('${taskID}')" class="confirmButton">OK Icon</button>
         </div>     
       </div>      
     </div>
