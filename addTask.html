@@ -15,27 +15,24 @@
         <section id="content" class="content">
           <header id="header" class="header"></header>
           <div id="addTaskContainer" class="addTaskContainer">
-
-            
             <h1>Add Task</h1>
-            
-            
+
             <div id="addTaskMiddleContent" class="addTaskMiddleContent">
               <div id="addTaskMiddleLeft" class="addTaskMiddleLeft">
                 <div>
-                  <p>Title*</p>
+                  <p>Title<span style="color: red;">*</span></p>
                   <input id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title">
                 </div>
-                
+
                 <div>
                   <p>Description</p>
-                  <textarea name="" id="" placeholder="Enter a description"></textarea>
+                  <textarea name="" id="taskDescription" placeholder="Enter a description"></textarea>
                 </div>
-                
+
                 <div>
                   <p>Assigned to</p>
                 <div>
-                  <div id="assignedToDropdown" class="dropdown">
+                  <div id="assignedToDropdown" class="assignedToDropdown">
                     Select contacts to assign
                     <img src="" alt="">
                     <div id="contactsToAssign" class="d_none">
@@ -45,60 +42,65 @@
                   </div>
                 </div>
                 </div>
-                
-
               </div>
               <div class="addTaskSeparator"></div>
               <div id="addTaskMiddleRight" class="addTaskMiddleRight">
                 <div>
-                  <p>Due date*</p>
-                  <input type="date" placeholder="dd/mm/yyyy">
+                  <p>Due date<span style="color: red;">*</span></p>
+                  <input id="taskDueDate" type="date" placeholder="dd/mm/yyyy">
                 </div>
                 <div>
                   <p>Prio</p>
                   <div id="prioContainer" class="prioContainer">
-                    <div id="prioUrgent">Urgent</div>
-                    <div id="prioMedium">Medium</div>
-                    <div id="prioLow">Low</div>
+                    <div onclick="selectPrio(event)" id="prioUrgent" class="priorities">Urgent
+                      <img src="./assets/icons/urgent_icon.png" alt="">
+                    </div>
+                    <div onclick="selectPrio(event)" id="prioMedium" class="priorities">Medium
+                      <img src="./assets/icons/medium_icon.png" alt="">
+                    </div>
+                    <div onclick="selectPrio(event)" id="prioLow" class="priorities">Low
+                      <img src="./assets/icons/low_icon.png" alt="">
+                    </div>
                   </div>
                 </div>
                 <div>
-                  <p>Category*</p>
+                  <p>Category<span style="color: red;">*</span></p>
                   <div>
-                    <div id="categoryDropdown" class="dropdown">
+                    <div id="categoryDropdown" class="categoryDropdown">
                       Select task category
-                      <img src="" alt="">
+                      <img src="./assets/icons/arrow_drop_down.png" alt="">
                     </div>
                   </div>
                 </div>
                 <div>
                   <p>Subtasks</p>
                   <div class="addSubtaskContainer">
-                    <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask">
-                    <svg onclick="" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg"><path d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z" fill="black"/></svg>
+                    <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
+                    <div onclick="createNewSubtask(event)" id="createSubtaskFromAddTaskHTML">
+                      <svg onclick="createNewSubtask(event)" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
+                        <path
+                          d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                  
                 </div>
-
-
               </div>
-
-
             </div>
             <div id="addTaskBottomContainer" class="addTaskBottomContainer">
-              <p>*This field is required</p>
+              <p><span style="color: red;">*</span>This field is required</p>
               <div id="taskBtnContainer" class="taskBtnContainer">
                 <button class="cancelBtn" onclick="">
                   Cancel
                   <img src="./assets/icons/x_btn.svg" alt="" />
                 </button>
-                <button class="createBtn" onclick="">
+                <button onclick="patchNewTask()" class="createBtn" onclick="">
                   Create Task
                   <img src="./assets/icons/check.svg" alt="" />
                 </button>
               </div>
             </div>
-
           </div>
         </section>
       </section>

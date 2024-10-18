@@ -36,7 +36,20 @@ renderHeader();
 import { renderBoardHeadTemplate } from "../components/board/board.js";
 renderBoardHeadTemplate();
 
-import { loadTasks } from "./tasksApiService.js";
+import { loadTasks, patchNewTask } from "./tasksApiService.js";
+window.patchNewTask = patchNewTask;
+
+import { getNewTaskTemplate, selectPrio, createNewSubtask } from "../components/addTask/addTask.js";
+window.getNewTaskTemplate = getNewTaskTemplate;
+window.selectPrio = selectPrio;
+window.createNewSubtask = createNewSubtask;
+
+import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
+window.addContact = addContact;
+window.deleteChosenUser = deleteChosenUser;
+
+import { getFilteredTasksArray, getUnfilteredTasksArray } from "../components/board/board.js";
+window.getFilteredTasksArray = getFilteredTasksArray;
 
 import {
   showAddNewUserDialog,

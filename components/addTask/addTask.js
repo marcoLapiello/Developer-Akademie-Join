@@ -1,32 +1,59 @@
-const tempCards = {
-  TASK3757435747: {
-    id: "TASK3757435747",
-    title: "Implement Search Functionality",
-    description: "Develop the search functionality to filter tasks on the board.",
-    assignedTo: ["CK1728938463133", "MH1729079944158", "MS1728938311249"],
-    dueDate: "2024-10-30",
-    creationDate: "8657363623",
-    creatorId: "AS4577547547",
-    priority: "Urgent",
-    category: "Technical Task",
-    categoryColor: "#0038ff",
-    progress: 50,
-    status: "In Progress",
-    subtasks: [
-      {
-        id: "SUBTASK3757435747",
-        task: "Create search input",
-        isDone: true,
-        creationDate: "8657363676",
-        creatorId: "AS4577547547",
+const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
+
+let currentPrio = "medium";
+let currentProgress = 0;
+let currentStatus = "In progress";
+
+export function getNewTaskTemplate() {
+  let task = {
+    id: "TASK" + Date.now(),
+    title: document.getElementById("taskTitleInput").value,
+    description: document.getElementById("taskDescription").value,
+    assignedTo: { notAssigned: "notAssigned" },
+    dueDate: document.getElementById("taskDueDate").value,
+    creationDate: Date.now(),
+    creatorId: "",
+    priority: currentPrio,
+    category: document.getElementById("categoryDropdown").innerText,
+    categoryColor: "",
+    progress: currentProgress,
+    status: currentStatus,
+    subtasks: {
+      noSubtask: {
+        id: "noSubtask",
       },
-      {
-        id: "SUBTASK3794346851",
-        task: "Connect search to database",
-        isDone: false,
-        creationDate: "8657363644",
-        creatorId: "AS4577547547",
-      },
-    ],
-  },
-};
+    },
+  };
+  console.log(task);
+  return task;
+}
+
+export function createNewSubtask(event) {
+  console.log(event.currentTarget);
+
+  if (event.currentTarget.id == "createSubtaskFromAddTaskHTML") {
+    console.log("Hallo Welt");
+  }
+}
+
+export function selectPrio(event) {
+  if (event.target == document.getElementById("prioUrgent")) {
+    removePrio();
+    document.getElementById("prioUrgent").classList.add("urgentPrio");
+    currentPrio = "Urgent"
+  } else if (event.target == document.getElementById("prioMedium")) {
+    removePrio();
+    document.getElementById("prioMedium").classList.add("mediumPrio");
+    currentPrio = "Medium"
+  } else if (event.target == document.getElementById("prioLow")) {
+    removePrio();
+    document.getElementById("prioLow").classList.add("lowPrio");
+    currentPrio = "Low"
+  }
+}
+
+function removePrio() {
+  document.getElementById("prioUrgent").classList.remove("urgentPrio");
+  document.getElementById("prioMedium").classList.remove("mediumPrio");
+  document.getElementById("prioLow").classList.remove("lowPrio");
+}
