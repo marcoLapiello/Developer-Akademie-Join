@@ -4,7 +4,6 @@ import { getUsersArray, getTasksArray } from "../../js/script.js";
 // The function below is a placeholder until we have the real data structure
 // and can fetch the data from the database to render the task detail view.
 export async function renderTaskDetailView(taskID) {
-  // let taskID = "TASK3757435747"; // Temporary task ID
   let tasksArray = await getTasksArray(); // Fetch tasks array
   let assignedUsers = await renderAssignedUser(taskID, tasksArray); // Fetch assigned users for the task and render them
   let subtasks = await renderSubtasks(taskID, tasksArray); // Fetch subtasks for the task and render them
