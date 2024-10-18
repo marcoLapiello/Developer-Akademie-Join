@@ -11,10 +11,19 @@ window.selectedUser = selectedUser;
 window.switchMobile = switchMobile;
 window.userProfileButtonsMobile = userProfileButtonsMobile;
 
-import { renderTaskDetailView, toggleTaskDetailView, checkedSubtask, renderTaskDetailViewEdit } from "../components/taskDetailView/taskDetailView.js";
+import {
+  renderTaskDetailView,
+  toggleTaskDetailView,
+  checkedSubtask,
+  renderTaskDetailViewEdit,
+  getEditTaskData,
+  getEditPriority,
+} from "../components/taskDetailView/taskDetailView.js";
 window.toggleTaskDetailView = toggleTaskDetailView;
 window.checkedSubtask = checkedSubtask;
 window.renderTaskDetailViewEdit = renderTaskDetailViewEdit;
+window.getEditTaskData = getEditTaskData;
+window.getEditPriority = getEditPriority;
 renderTaskDetailView();
 
 import { renderSidebar } from "../components/sidebar/sidebar.js";
@@ -58,7 +67,7 @@ import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
 window.deleteChosenUser = deleteChosenUser;
 
-import { getFilteredTasksArray, getUnfilteredTasksArray } from "../components/board/board.js"
+import { getFilteredTasksArray, getUnfilteredTasksArray } from "../components/board/board.js";
 window.getFilteredTasksArray = getFilteredTasksArray;
 
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
