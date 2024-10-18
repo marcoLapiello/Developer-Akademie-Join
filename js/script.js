@@ -27,13 +27,20 @@ renderHeader();
 import { renderBoardHeadTemplate } from "../components/board/board.js";
 renderBoardHeadTemplate();
 
-import { loadTasks , patchNewTask } from "./tasksApiService.js";
+import { loadTasks, patchNewTask } from "./tasksApiService.js";
 window.patchNewTask = patchNewTask;
 
-import { getNewTaskTemplate , selectPrio } from "../components/addTask/addTask.js";
+import { getNewTaskTemplate, selectPrio, createNewSubtask } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
+window.createNewSubtask = createNewSubtask;
 
+import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
+window.addContact = addContact;
+window.deleteChosenUser = deleteChosenUser;
+
+import { getFilteredTasksArray, getUnfilteredTasksArray } from "../components/board/board.js";
+window.getFilteredTasksArray = getFilteredTasksArray;
 
 import {
   showAddNewUserDialog,
@@ -59,13 +66,6 @@ window.validateEditPhonenumber = validateEditPhonenumber;
 window.hideAddNewUserDialogFromBG = hideAddNewUserDialogFromBG;
 window.hideConfirmDeleteUserDialogFromBG = hideConfirmDeleteUserDialogFromBG;
 window.hideEditChosenUserDialogFromBG = hideEditChosenUserDialogFromBG;
-
-import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
-window.addContact = addContact;
-window.deleteChosenUser = deleteChosenUser;
-
-import { getFilteredTasksArray, getUnfilteredTasksArray } from "../components/board/board.js"
-window.getFilteredTasksArray = getFilteredTasksArray;
 
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
