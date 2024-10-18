@@ -31,18 +31,23 @@ export function getNewTaskTemplate() {
 }
 
 export function selectPrio(event) {
+  if (event.target == document.getElementById("prioUrgent")) {
+    removePrio();
+    document.getElementById("prioUrgent").classList.add("urgentPrio");
+    currentPrio = "Urgent"
+  } else if (event.target == document.getElementById("prioMedium")) {
+    removePrio();
+    document.getElementById("prioMedium").classList.add("mediumPrio");
+    currentPrio = "Medium"
+  } else if (event.target == document.getElementById("prioLow")) {
+    removePrio();
+    document.getElementById("prioLow").classList.add("lowPrio");
+    currentPrio = "Low"
+  }
+}
+
+function removePrio() {
   document.getElementById("prioUrgent").classList.remove("urgentPrio");
   document.getElementById("prioMedium").classList.remove("mediumPrio");
   document.getElementById("prioLow").classList.remove("lowPrio");
-
-  if (event.target == document.getElementById("prioUrgent")) {
-    document.getElementById("prioUrgent").classList.add("urgentPrio");
-    console.log("urgent");
-  } else if (event.target == document.getElementById("prioMedium")) {
-    document.getElementById("prioMedium").classList.add("mediumPrio");
-    console.log("medium");
-  } else if (event.target == document.getElementById("prioLow")) {
-    document.getElementById("prioLow").classList.add("lowPrio");
-    console.log("low");
-  }
 }

@@ -23,7 +23,7 @@
             <div id="addTaskMiddleContent" class="addTaskMiddleContent">
               <div id="addTaskMiddleLeft" class="addTaskMiddleLeft">
                 <div>
-                  <p>Title*</p>
+                  <p>Title<span style="color: red;">*</span></p>
                   <input id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title">
                 </div>
                 
@@ -51,19 +51,25 @@
               <div class="addTaskSeparator"></div>
               <div id="addTaskMiddleRight" class="addTaskMiddleRight">
                 <div>
-                  <p>Due date*</p>
+                  <p>Due date<span style="color: red;">*</span></p>
                   <input id="taskDueDate" type="date" placeholder="dd/mm/yyyy">
                 </div>
                 <div>
                   <p>Prio</p>
                   <div id="prioContainer" class="prioContainer">
-                    <div onclick="selectPrio(event)" id="prioUrgent" class="priorities">Urgent</div>
-                    <div onclick="selectPrio(event)" id="prioMedium" class="priorities">Medium</div>
-                    <div onclick="selectPrio(event)" id="prioLow" class="priorities">Low</div>
+                    <div onclick="selectPrio(event)" id="prioUrgent" class="priorities">Urgent
+                      <img src="./assets/icons/urgent_icon.png" alt="">
+                    </div>
+                    <div onclick="selectPrio(event)" id="prioMedium" class="priorities">Medium
+                      <img src="./assets/icons/medium_icon.png" alt="">
+                    </div>
+                    <div onclick="selectPrio(event)" id="prioLow" class="priorities">Low
+                      <img src="./assets/icons/low_icon.png" alt="">
+                    </div>
                   </div>
                 </div>
                 <div>
-                  <p>Category*</p>
+                  <p>Category<span style="color: red;">*</span></p>
                   <div>
                     <div id="categoryDropdown" class="dropdown">
                       Select task category
@@ -86,7 +92,7 @@
 
             </div>
             <div id="addTaskBottomContainer" class="addTaskBottomContainer">
-              <p>*This field is required</p>
+              <p><span style="color: red;">*</span>This field is required</p>
               <div id="taskBtnContainer" class="taskBtnContainer">
                 <button class="cancelBtn" onclick="">
                   Cancel
