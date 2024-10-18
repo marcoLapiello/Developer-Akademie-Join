@@ -28,11 +28,11 @@ export function getNewTaskTemplate() {
   return task;
 }
 
-export function createNewSubtask(event) {
-  console.log(event.currentTarget);
+export function createNewSubtask(card, id) {
+  if (card == "add") {
+  }
 
-  if (event.currentTarget.id == "createSubtaskFromAddTaskHTML") {
-    console.log("Hallo Welt");
+  if (card == "edit") {
   }
 }
 
@@ -40,15 +40,15 @@ export function selectPrio(event) {
   if (event.target == document.getElementById("prioUrgent")) {
     removePrio();
     document.getElementById("prioUrgent").classList.add("urgentPrio");
-    currentPrio = "Urgent"
+    currentPrio = "Urgent";
   } else if (event.target == document.getElementById("prioMedium")) {
     removePrio();
     document.getElementById("prioMedium").classList.add("mediumPrio");
-    currentPrio = "Medium"
+    currentPrio = "Medium";
   } else if (event.target == document.getElementById("prioLow")) {
     removePrio();
     document.getElementById("prioLow").classList.add("lowPrio");
-    currentPrio = "Low"
+    currentPrio = "Low";
   }
 }
 
