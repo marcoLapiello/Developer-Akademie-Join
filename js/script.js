@@ -85,6 +85,8 @@ export let editPhoneWarningRef = document.getElementById("editPhoneWarning");
 
 export async function getUsersArray() {
   let usersArray = await loadUsers();
+  console.log(usersArray);
+  
   return usersArray;
 }
 

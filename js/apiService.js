@@ -85,11 +85,11 @@ export async function editExistingUser(id, user) {
 }
 
 export async function loadUsers() {
-  let response = await fetch(baseUrl + ".json");
+  let response = await fetch(baseUrl + "user" + ".json");
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
   let responseAsJson = await response.json();
-  let users = Object.entries(responseAsJson.user);
+  let users = Object.entries(responseAsJson);
   return users;
 }
