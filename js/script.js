@@ -58,6 +58,9 @@ import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
 window.deleteChosenUser = deleteChosenUser;
 
+import { getFilteredTasksArray, getUnfilteredTasksArray } from "../components/board/board.js"
+window.getFilteredTasksArray = getFilteredTasksArray;
+
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
 export let addContactPhoneInputRef = document.getElementById("addContactPhoneInput");
@@ -85,8 +88,6 @@ export let editPhoneWarningRef = document.getElementById("editPhoneWarning");
 
 export async function getUsersArray() {
   let usersArray = await loadUsers();
-  console.log(usersArray);
-  
   return usersArray;
 }
 
@@ -98,3 +99,4 @@ export async function getTasksArray() {
 // später diese Funktion in eine "onload init Funktion packen"
 getUsersArray();
 getTasksArray();
+getUnfilteredTasksArray();
