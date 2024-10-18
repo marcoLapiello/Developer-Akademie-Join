@@ -3,14 +3,15 @@ import { getUsersArray, getTasksArray } from "../../js/script.js";
 
 // The function below is a placeholder until we have the real data structure
 // and can fetch the data from the database to render the task detail view.
-export async function renderTaskDetailView() {
-  let taskID = "TASK3757435747"; // Temporary task ID
+export async function renderTaskDetailView(taskID) {
+  // let taskID = "TASK3757435747"; // Temporary task ID
   let tasksArray = await getTasksArray(); // Fetch tasks array
   let assignedUsers = await renderAssignedUser(taskID, tasksArray); // Fetch assigned users for the task and render them
   let subtasks = await renderSubtasks(taskID, tasksArray); // Fetch subtasks for the task and render them
   const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
   if (taskDetailViewRef && taskData) taskDetailViewRef.innerHTML = renderTaskDetailViewTemplate(taskData, assignedUsers, subtasks); // Render the task detail view template with the task data, assigned users and subtasks
+  toggleTaskDetailView();
 }
 
 // The function find the assigned users for a task and returns the user data
@@ -33,6 +34,14 @@ export function toggleTaskDetailView() {
   const taskDetailViewRef = document.getElementById("taskDetailView");
   taskDetailViewRef.classList.toggle("d_none");
 }
+
+document.addEventListener("click", (event) => {
+  const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
+  if (event.target.id == "taskDetailView") {
+    // If the click target is the task detail view element toggle the task detail view
+    taskDetailViewRef.classList.toggle("d_none");
+  }
+});
 
 // The function renders the assigned users for a task and returns the user data as HTML
 async function renderAssignedUser(taskID, tasksArray) {
