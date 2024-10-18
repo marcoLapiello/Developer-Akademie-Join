@@ -1,0 +1,145 @@
+.taskCards {
+  display: flex;
+  height: calc(100% - 208px);
+  overflow-y: auto;
+  max-width: 1208px;
+  padding-inline: 64px;
+  gap: 24px;
+
+  .todoCards,
+  .inProgressCards,
+  .awaitFeedbackCards,
+  .doneCards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 1;
+    width: 100%;
+
+    .cardsFallback {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e7e7e7;
+      border: 1px dotted #a8a8a8;
+      border-radius: 10px;
+      height: 48px;
+      width: 100%;
+
+      .fallbackText {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+        color: #a8a8a8;
+      }
+    }
+
+    .cardsContainer {
+      display: flex;
+      gap: 26px;
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 16px;
+        background-color: #ffffff;
+        border-radius: 24px;
+
+        &:hover {
+          cursor: grab;
+        }
+
+        .category {
+          width: fit-content;
+          background-color: #0038ff;
+          padding: 4px 16px 4px 16px;
+          border-radius: 8px;
+          color: #ffffff;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 120%;
+        }
+
+        .titleDescriptionContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .title {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 120%;
+          }
+
+          .description {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 120%;
+            color: #a8a8a8;
+          }
+        }
+
+        .statusSubtasks {
+          display: flex;
+          gap: 11px;
+
+          .progressBar {
+            width: 128px;
+          }
+
+          .progressText {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 120%;
+          }
+        }
+
+        .assignedPriority {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .assignedTo {
+            display: flex;
+            .initials {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 32px;
+              width: 32px;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 120%;
+              background-color: burlywood;
+              border: 1px solid #ffffff;
+              border-radius: 50%;
+
+              &:not(:first-child) {
+                margin-left: -8px;
+              }
+            }
+          }
+
+          .priority {
+            .urgentIcon {
+              height: 17px;
+              width: 17px;
+              fill: #ff3d00;
+            }
+            .mediumIcon {
+              height: 17px;
+              width: 17px;
+              fill: #ffa800;
+            }
+            .lowIcon {
+              height: 17px;
+              width: 17px;
+              fill: #7ae229;
+            }
+          }
+        }
+      }
+    }
+  }
+}
