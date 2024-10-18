@@ -263,6 +263,7 @@
         }
 
         & textarea {
+          height: 88px;
           font-size: 20px;
           font-weight: 400;
           line-height: 120%;
@@ -317,16 +318,64 @@
           line-height: 120%;
         }
 
-        .priorityButtons {
+        .priorityButtonsContainer {
           display: flex;
           gap: 16px;
 
           & button {
+            display: flex;
+            gap: 8px;
             background-color: #ffffff;
             border: 1px solid #f6f6f6;
             border-radius: 10px;
             padding-block: 16px;
             padding-inline: 10px;
+            width: 120px;
+
+            .urgent {
+              height: 15px;
+              width: 20px;
+              fill: #000000;
+            }
+
+            .medium {
+              height: 15px;
+              width: 20px;
+              fill: #000000;
+            }
+
+            .low {
+              height: 15px;
+              width: 20px;
+              fill: #000000;
+            }
+
+            &.selected_urgent {
+              background-color: #ff3d00;
+              color: #ffffff;
+
+              .urgent {
+                fill: #ffffff;
+              }
+            }
+
+            &.selected_medium {
+              background-color: #ffa800;
+              color: #ffffff;
+
+              .medium {
+                fill: #ffffff;
+              }
+            }
+
+            &.selected_low {
+              background-color: #7ae229;
+              color: #ffffff;
+
+              .low {
+                fill: #ffffff;
+              }
+            }
           }
         }
       }
