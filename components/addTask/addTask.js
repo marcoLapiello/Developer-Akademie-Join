@@ -1,5 +1,4 @@
-const baseUrl =
-  "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
+const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
 
 let currentPrio = "medium";
 let currentProgress = 0;
@@ -27,6 +26,14 @@ export function getNewTaskTemplate() {
   };
   console.log(task);
   return task;
+}
+
+export function createNewSubtask(event) {
+  console.log(event.currentTarget);
+
+  if (event.currentTarget.id == "createSubtaskFromAddTaskHTML") {
+    console.log("Hallo Welt");
+  }
 }
 
 export function selectPrio(event) {

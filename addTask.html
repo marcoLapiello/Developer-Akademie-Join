@@ -15,23 +15,20 @@
         <section id="content" class="content">
           <header id="header" class="header"></header>
           <div id="addTaskContainer" class="addTaskContainer">
-
-            
             <h1>Add Task</h1>
-            
-            
+
             <div id="addTaskMiddleContent" class="addTaskMiddleContent">
               <div id="addTaskMiddleLeft" class="addTaskMiddleLeft">
                 <div>
                   <p>Title<span style="color: red;">*</span></p>
                   <input id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title">
                 </div>
-                
+
                 <div>
                   <p>Description</p>
                   <textarea name="" id="taskDescription" placeholder="Enter a description"></textarea>
                 </div>
-                
+
                 <div>
                   <p>Assigned to</p>
                 <div>
@@ -45,8 +42,6 @@
                   </div>
                 </div>
                 </div>
-                
-
               </div>
               <div class="addTaskSeparator"></div>
               <div id="addTaskMiddleRight" class="addTaskMiddleRight">
@@ -80,16 +75,18 @@
                 <div>
                   <p>Subtasks</p>
                   <div class="addSubtaskContainer">
-                    <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask">
-                    <svg onclick="" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg"><path d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z" fill="black"/></svg>
+                    <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
+                    <div onclick="createNewSubtask(event)" id="createSubtaskFromAddTaskHTML">
+                      <svg onclick="createNewSubtask(event)" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
+                        <path
+                          d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                  
                 </div>
-
-
               </div>
-
-
             </div>
             <div id="addTaskBottomContainer" class="addTaskBottomContainer">
               <p><span style="color: red;">*</span>This field is required</p>
@@ -104,7 +101,6 @@
                 </button>
               </div>
             </div>
-
           </div>
         </section>
       </section>
