@@ -11,10 +11,14 @@ window.selectedUser = selectedUser;
 window.switchMobile = switchMobile;
 window.userProfileButtonsMobile = userProfileButtonsMobile;
 
+import { renderTasks } from "../components/taskCards/taskCards.js";
+renderTasks();
+
 import { renderTaskDetailView, toggleTaskDetailView, checkedSubtask } from "../components/taskDetailView/taskDetailView.js";
 window.toggleTaskDetailView = toggleTaskDetailView;
 window.checkedSubtask = checkedSubtask;
-renderTaskDetailView();
+window.renderTaskDetailView = renderTaskDetailView;
+// renderTaskDetailView();
 
 import { renderTaskDetailViewEdit, getEditTaskData, getEditPriority } from "../components/taskDetailViewEdit/taskDetailViewEdit.js";
 window.renderTaskDetailViewEdit = renderTaskDetailViewEdit;
