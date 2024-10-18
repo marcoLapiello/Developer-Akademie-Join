@@ -14,7 +14,7 @@ function getBoardTemplate() {
               <!-- board right part -->
               <div class="boardRight">
                 <div class="taskSearchFieldContainer">
-                  <input oninput="getFilteredTasksArray()" type="text" placeholder="Find Task" />
+                  <input id="searchTasksField" oninput="getFilteredTasksArray()" type="text" placeholder="Find Task" />
                   <button onclick="getFilteredTasksArray()" class="searchFieldImgButton">
                     ${returnIcon("searchLens")}
                   </button>
@@ -45,11 +45,16 @@ export async function getUnfilteredTasksArray() {
   unfilteredTasksArray = await getTasksArray();
 }
 
-let inputCount = 0;
-
 export function getFilteredTasksArray() {
+  console.log(unfilteredTasksArray);
+
   if (unfilteredTasksArray) {
-    console.log("input" + inputCount);
-    inputCount++;
+    let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();
+    return unfilteredTasksArray.filter(
+      (element) => element[1].title.toLowerCase().includes(filterLetters) || element[1].description.toLowerCase().includes(filterLetters)
+    );
+    // console.log(filtered); zum testen return gegen variable "let filtered" austauschen
+  } else {
+    return;
   }
 }
