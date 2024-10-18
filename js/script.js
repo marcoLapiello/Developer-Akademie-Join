@@ -27,11 +27,13 @@ renderHeader();
 import { renderBoardHeadTemplate } from "../components/board/board.js";
 renderBoardHeadTemplate();
 
-import { loadTasks } from "./tasksApiService.js";
-
-import { getNewTaskTemplate , patchNewTask } from "../components/addTask/addTask.js";
-window.getNewTaskTemplate = getNewTaskTemplate;
+import { loadTasks , patchNewTask } from "./tasksApiService.js";
 window.patchNewTask = patchNewTask;
+
+import { getNewTaskTemplate , selectPrio } from "../components/addTask/addTask.js";
+window.getNewTaskTemplate = getNewTaskTemplate;
+window.selectPrio = selectPrio;
+
 
 import {
   showAddNewUserDialog,
