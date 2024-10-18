@@ -1,6 +1,6 @@
-.content {
+.addTaskWrapper {
     background-color: rgb(246, 247, 248);
-    min-height: 100vh;
+    min-height: calc(100dvh - 96px);
 }
 
 .addTaskContainer {
