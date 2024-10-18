@@ -29,7 +29,7 @@
                 
                 <div>
                   <p>Description</p>
-                  <textarea name="" id="" placeholder="Enter a description"></textarea>
+                  <textarea name="" id="taskDescription" placeholder="Enter a description"></textarea>
                 </div>
                 
                 <div>
@@ -52,7 +52,7 @@
               <div id="addTaskMiddleRight" class="addTaskMiddleRight">
                 <div>
                   <p>Due date*</p>
-                  <input type="date" placeholder="dd/mm/yyyy">
+                  <input id="taskDueDate" type="date" placeholder="dd/mm/yyyy">
                 </div>
                 <div>
                   <p>Prio</p>
@@ -92,7 +92,7 @@
                   Cancel
                   <img src="./assets/icons/x_btn.svg" alt="" />
                 </button>
-                <button class="createBtn" onclick="">
+                <button onclick="patchNewTask()" class="createBtn" onclick="">
                   Create Task
                   <img src="./assets/icons/check.svg" alt="" />
                 </button>

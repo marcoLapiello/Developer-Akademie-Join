@@ -29,6 +29,10 @@ renderBoardHeadTemplate();
 
 import { loadTasks } from "./tasksApiService.js";
 
+import { getNewTaskTemplate , patchNewTask } from "../components/addTask/addTask.js";
+window.getNewTaskTemplate = getNewTaskTemplate;
+window.patchNewTask = patchNewTask;
+
 import {
   showAddNewUserDialog,
   hideAddNewUserDialog,
