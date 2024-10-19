@@ -77,7 +77,12 @@
       font-size: 20px;
       font-weight: 400;
       line-height: 120%;
+
+      & p::first-letter {
+        text-transform: uppercase;
+      }
     }
+
     .assignedTo {
       display: flex;
       flex-direction: column;
