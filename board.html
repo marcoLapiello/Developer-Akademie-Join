@@ -20,10 +20,49 @@
           <div id="board" class="board"></div>
           <!-- TASK CONTAINER -->
           <div id="taskCards" class="taskCards">
-            <div id="todoCards" class="todoCards slots"></div>
-            <div id="inProgressCards" class="inProgressCards slots"></div>
-            <div id="awaitFeedbackCards" class="awaitFeedbackCards slots"></div>
-            <div id="doneCards" class="doneCards slots"></div>
+            <div id="todoCardsContainer" class="todoCardsContainer">
+              <div id="todoMenu" class="todoMenu"></div>
+              <div
+                id="todoCards"
+                class="todoCards slots"
+                ondrop="moveToCategory('todo')"
+                ondragover="allowDrop(event)"
+                ondragstart="addHighlightCategory()"
+                ondragend="removeHighlightCategory()"></div>
+            </div>
+
+            <div id="inProgressCardsContainer" class="inProgressCardsContainer">
+              <div id="inProgressMenu" class="inProgressMenu"></div>
+              <div
+                id="inProgressCards"
+                class="inProgressCards slots"
+                ondrop="moveToCategory('inProgress')"
+                ondragover="allowDrop(event)"
+                ondragstart="addHighlightCategory()"
+                ondragend="removeHighlightCategory()"></div>
+            </div>
+
+            <div id="awaitFeedbackCardsContainer" class="awaitFeedbackCardsContainer">
+              <div id="awaitFeedbackMenu" class="awaitFeedbackMenu"></div>
+              <div
+                id="awaitFeedbackCards"
+                class="awaitFeedbackCards slots"
+                ondrop="moveToCategory('awaitFeedback')"
+                ondragover="allowDrop(event)"
+                ondragstart="addHighlightCategory()"
+                ondragend="removeHighlightCategory()"></div>
+            </div>
+
+            <div id="doneCardsContainer" class="doneCardsContainer">
+              <div id="doneMenu" class="doneMenu"></div>
+              <div
+                id="doneCards"
+                class="doneCards slots"
+                ondrop="moveToCategory('done')"
+                ondragover="allowDrop(event)"
+                ondragstart="addHighlightCategory()"
+                ondragend="removeHighlightCategory()"></div>
+            </div>
           </div>
         </section>
       </section>
