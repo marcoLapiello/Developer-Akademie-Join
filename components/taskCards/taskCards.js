@@ -110,7 +110,7 @@ function renderCardsTemplate(task, assignedUsers) {
             ${assignedUsers}
             </div>
             <div class="priority">
-                ${returnIcon("medium", "mediumIcon")}
+                ${returnIcon(`${task.priority.toLowerCase()}`, `${task.priority.toLowerCase()}Icon`)}
             </div>
         </div> 
     </div>    
