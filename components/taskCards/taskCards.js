@@ -3,7 +3,7 @@ import { getUsersArray, getTasksArray } from "../../js/script.js";
 let currentDraggedElement; // Placeholder for the current dragged element
 
 export function addNewTaskCategory(currentStatus) {
-  console.log("Waiting for the modal to be implemented " + currentStatus); // Placeholder for the modal to be implemented
+  console.log("Waiting for the modal to be implemented \n" + "Parameter: " + currentStatus); // Placeholder for the modal to be implemented
   renderTasks();
 }
 window.addNewTaskCategory = addNewTaskCategory;
@@ -81,9 +81,18 @@ function renderCardsMenuTemplate(currentStatus) {
 // Render the tasks in the category (cards) with the assigned users and the progress bar if there are subtasks
 function renderCardsTemplate(task, assignedUsers) {
   return /*html*/ `
-  <div class="cardsContainer">
+  <div class="cardsContainer" id="cardsContainer">
     <div onclick="renderTaskDetailView('${task.id}')" draggable="true" ondragstart="startDragging('${task.id}')" id="${task.id}" class="card"> 
-        <div class="category" style="background-color: ${task.categoryColor}">${task.category}</div>
+        <div class="taskHeader">
+          <div class="category" style="background-color: ${task.categoryColor}">${task.category}</div>
+          <button onclick="toggleMobileMenu(event,'${task.id}')" class="moveToButton">${returnIcon("dots")}</button>
+           <div id="mobileMenu${task.id}" class="mobileMenu d_none">
+            ${task.status !== "todo" ? `<button onclick="moveToCategoryMobile(event,'todo','${task.id}')" class="mobileMenuButton">To do</button>` : ""}
+            ${task.status !== "inProgress" ? `<button onclick="moveToCategoryMobile(event,'inProgress','${task.id}')" class="mobileMenuButton">In Progress</button>` : ""}
+            ${task.status !== "awaitFeedback" ? `<button onclick="moveToCategoryMobile(event,'awaitFeedback','${task.id}')" class="mobileMenuButton">Await Feedback</button>` : ""}
+            ${task.status !== "done" ? `<button onclick="moveToCategoryMobile(event,'done','${task.id}')" class="mobileMenuButton">Done</button>` : ""}
+           </div>          
+        </div>
         <div class="titleDescriptionContainer">
             <div class="title">${task.title}</div>
             <div class="description">${task.description}</div>
@@ -121,6 +130,13 @@ function renderCardsFallbackTemplate(currentStatus) {
 `;
 }
 
+function toggleMobileMenu(event, id) {
+  const mobileMenuRef = document.getElementById(`mobileMenu${id}`);
+  mobileMenuRef.classList.toggle("d_none");
+  event.stopPropagation(); // Stop the propagation of the event
+}
+window.toggleMobileMenu = toggleMobileMenu;
+
 //! Drag and Drop Functionality
 
 // Start dragging the element
@@ -137,8 +153,15 @@ function allowDrop(event) {
 }
 window.allowDrop = allowDrop;
 
+function moveToCategoryMobile(event, category, id) {
+  event.stopPropagation(); // Stop the propagation of the event
+  moveToCategory(category, id);
+}
+window.moveToCategoryMobile = moveToCategoryMobile;
+
 // Drop the element in the category and update the status of the task
-async function moveToCategory(category) {
+async function moveToCategory(category, id = 0) {
+  if (id !== 0) currentDraggedElement = id; // Set the current dragged element if the id is not 0
   const tasksArray = await getTasksArray(); // Get the tasks array from the database
   const task = tasksArray.find((task) => task[1].id === currentDraggedElement); // Find the task by the id
   task[1].status = category; // Update the status of the task to the new category
@@ -180,3 +203,22 @@ export async function patchTaskUpdate(updateData, id) {
   }
   renderTasks(); // Render the tasks after the patch is successful
 }
+
+// Scroll horizontally when the mouse wheel is used in the scrollable containers
+document.addEventListener(
+  "wheel",
+  (evt) => {
+    const scrollContainers = ["todoCards", "inProgressCards", "awaitFeedbackCards", "doneCards"];
+    scrollContainers.forEach((id) => {
+      const scrollContainer = document.getElementById(id);
+      if (scrollContainer && scrollContainer.contains(evt.target)) {
+        const canScroll = scrollContainer.scrollWidth > scrollContainer.clientWidth;
+        if (canScroll) {
+          evt.preventDefault();
+          scrollContainer.scrollLeft += evt.deltaY * 4; // Scroll the container by the deltaY of the event * 4
+        }
+      }
+    });
+  },
+  { passive: false } // Set passive to false to prevent the default behavior of the wheel event
+);
