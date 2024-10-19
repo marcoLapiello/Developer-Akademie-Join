@@ -110,7 +110,7 @@ function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
         <div class="title">${currentTask.title}</div>
         <div class="description">${currentTask.description}</div>
         <div class="dueDate"><span>Due date:</span>${currentTask.dueDate}</div>
-        <div class="priority"><span>Priority:</span>${currentTask.priority}</div>
+        <div class="priority"><span>Priority:</span><p>${currentTask.priority}</p></div>
         <div class="assignedTo">
         <span>Assigned To:</span>
         <ul class="userNames">
