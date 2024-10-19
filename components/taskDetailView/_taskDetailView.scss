@@ -43,6 +43,11 @@
         width: 32px;
         border-radius: 50%;
 
+        & svg {
+          height: 15px;
+          width: 15px;
+        }
+
         &:hover {
           cursor: pointer;
           background-color: #eeeeee;
