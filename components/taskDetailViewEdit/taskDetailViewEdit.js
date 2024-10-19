@@ -70,9 +70,7 @@ function renderTaskDetailViewEditTemplate(taskID) {
             </ul>
           </div>
           <div class="assignUserInitials">
-            <span class="userInitials" style="background-color: #FFC700">AB</span>
-            <span class="userInitials" style="background-color: #FFC700">CD</span>
-            <span class="userInitials" style="background-color: #FFC700">EF</span>
+              <!-- render user initials here -->
           </div>
           <div class="subtasks">
             <label for="subtasksInput">Title</label>
