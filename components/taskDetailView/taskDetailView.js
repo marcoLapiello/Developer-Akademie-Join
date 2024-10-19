@@ -68,8 +68,8 @@ async function renderSubtasks(taskID, tasksArray) {
   let subtasksListHTML = "";
   if (subtasks.length > 1) subtasksListHTML += /*html*/ ` <span>Subtasks</span> `;
   subtasks.forEach((subtask) => {
-    // Render the subtasks as HTML and push them to the subtasksListHTML
-    if (subtask) {
+    // Render the subtasks the id is not a placeholder and push the subtask to the subtasksListHTML
+    if (subtask && subtask !== "placeholder") {
       subtasksListHTML += /*html*/ `
         <li class="subtask" id="subtasksID${subtask.id}">
           <input 
