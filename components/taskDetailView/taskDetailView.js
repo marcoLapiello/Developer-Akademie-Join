@@ -66,6 +66,7 @@ async function renderSubtasks(taskID, tasksArray) {
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
   const subtasks = Object.values(taskData.subtasks); // Get the subtasks for the task
   let subtasksListHTML = "";
+  if (subtasks.length > 1) subtasksListHTML += /*html*/ ` <span>Subtasks</span> `;
   subtasks.forEach((subtask) => {
     // Render the subtasks as HTML and push them to the subtasksListHTML
     if (subtask) {
@@ -117,7 +118,6 @@ function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
             ${assignedUsers}
         </ul>
         <div class="subtasks">
-        <span>Subtasks</span>
           <ul>
               ${subtasks}
           </ul>
