@@ -8,6 +8,7 @@
 
   @media (max-width: $breakpoint-lg) {
     flex-direction: column;
+    padding-inline: 30px;
   }
 
   .todoCardsContainer,
