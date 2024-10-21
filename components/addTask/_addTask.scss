@@ -59,7 +59,16 @@
         background-color: white;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         position: relative;
+        
+        .searchUserToAssign {
+          padding: 0;
+          border: none;
+          height: 98%;
+          width: 80%;
+          outline: none;
+        }
 
         .assignedToDropdownArrow {
           rotate: 180deg;
@@ -86,7 +95,8 @@
         position: absolute;
         top: 102%;
         left: 0;
-
+        z-index: 2;
+      
         .userListItem {
           padding: 7px 16px;
           display: flex;
@@ -119,6 +129,23 @@
           }
         }
       }
+
+      .currentAssignation{
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        top: 101%;
+        left: 0;
+        border: solid black 1px;
+        display: flex;
+        gap: 12px;
+
+        
+
+
+      }
+      
+
     }
 
     .addTaskSeparator {

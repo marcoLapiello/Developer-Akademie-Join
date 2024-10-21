@@ -73,3 +73,7 @@ export function selectCategory(selectedCategory) {
   document.getElementById("categoryDropdownArrow").classList.toggle("rotatedArrow");
   document.getElementById("categorySelectionContainer").classList.toggle("d_none");
 }
+
+export async function getFilteredUsersArray() {
+  // wir bauen ein array aus
+}
