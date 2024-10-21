@@ -1,3 +1,5 @@
+import { returnIcon } from "../icons.js";
+
 export function renderSidebar() {
   const sidebarRef = document.getElementById("sidebar");
   if (sidebarRef) sidebarRef.innerHTML += renderSidebarTemplate();
@@ -11,10 +13,10 @@ function renderSidebarTemplate() {
       <div class="sidebarUpperPart">
         <img class= "joinLogo"  src="./assets/icons/joinLogo.png" />
         <div class="sidebar-Block">
-          <a class="${urlPath === "/summary.html" ? "active" : ""}" href="./summary.html"><img src="./assets/icons/summaryicon.png" />Summary</a>
-          <a class="${urlPath === "/addTask.html" ? "active" : ""}" href="./addTask.html"><img src="./assets/icons/addTaskIcon.png" />Add Task</a>
-          <a class="${urlPath === "/board.html" ? "active" : ""}" href="./board.html"><img src="./assets/icons/boardicon.png" />Board</a>
-          <a class="${urlPath === "/contacts.html" ? "active" : ""}" href="./contacts.html"><img src="./assets/icons/contactIcon.png" />Contacts</a>
+          <a class="${urlPath === "/summary.html" ? "active" : ""}" href="./summary.html">${returnIcon('summary')}Summary</a>
+          <a class="${urlPath === "/addTask.html" ? "active" : ""}" href="./addTask.html">${returnIcon('addTask')}Add Task</a>
+          <a class="${urlPath === "/board.html" ? "active" : ""}" href="./board.html">${returnIcon('board')}Board</a>
+          <a class="${urlPath === "/contacts.html" ? "active" : ""}" href="./contacts.html">${returnIcon('contacts')}Contacts</a>
         </div>
       </div>
 

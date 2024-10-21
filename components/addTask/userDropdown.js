@@ -6,7 +6,7 @@ function getUserDropdownList() {
   `;
 }
 
-function getUserListItem() {
+function getUserListItem(userArray) {
   return /*html*/ `
     <div class="userListItem">
       <div class="initialsBox">
@@ -22,8 +22,8 @@ export async function renderUserDropdownList() {
   let userArray = await getUsersArray();
 }
 
-export function openCloseCategoryDropdown() {
-  document.getElementById("categoryDropdawnArrow").classList.toggle("rotatedArrow");
-  document.getElementById("categorySelectionContainer").classList.toggle("d_none");
+export function openCloseDropdown(arrow, content) {
+  document.getElementById(arrow).classList.toggle("rotatedArrow");
+  document.getElementById(content).classList.toggle("d_none");
 }
 
