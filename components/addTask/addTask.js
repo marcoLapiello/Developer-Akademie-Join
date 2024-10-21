@@ -1,3 +1,6 @@
+import { openCloseDropdown } from "../addTask/userDropdown.js";
+window.openCloseDropdown = openCloseDropdown;
+
 let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
@@ -58,4 +61,6 @@ export function removePrio() {
 
 export function selectCategory(selectedCategory) {
   document.getElementById("taskCategory").innerText = selectedCategory;
+  document.getElementById("categoryDropdownArrow").classList.toggle("rotatedArrow");
+  document.getElementById("categorySelectionContainer").classList.toggle("d_none");
 }

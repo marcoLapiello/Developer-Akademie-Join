@@ -35,7 +35,7 @@
                     <div>
                       <div id="assignedToDropdown" class="assignedToDropdown">
                         Select contacts to assign
-                        <img src="" alt="" />
+                        <img onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign')" id="assignedToDropdownArrow" class="assignedToDropdownArrow" src="./assets/icons/arrow_drop_down.png" alt="" />
                       </div>
                       <div id="contactsToAssign" class="d_none">
                         <p>contact</p>
@@ -72,7 +72,7 @@
                     <div>
                       <div id="categoryDropdown" class="categoryDropdown">
                         <span id="taskCategory">Select task category</span>
-                        <img onclick="openCloseCategoryDropdown()" id="categoryDropdawnArrow" class="categoryDropdownArrow" src="./assets/icons/arrow_drop_down.png" alt="" />
+                        <img onclick="openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')" id="categoryDropdownArrow" class="categoryDropdownArrow" src="./assets/icons/arrow_drop_down.png" alt="" />
                         <div id="categorySelectionContainer" class="categorySelectionContainer d_none">
                           <p onclick="selectCategory('Technical task')">Technical task</p>
                           <p onclick="selectCategory('User story')">User story</p>
