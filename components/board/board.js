@@ -8,9 +8,11 @@ function getBoardTemplate() {
               <!-- board left part -->
               <div class="boardLeft">
                 <p>Board</p>
-                <button onclick="addNewTask()" class="boardTaskAddBtnSmall">
-                  ${returnIcon("plus", "addIcon")}
-                </button>
+                <a href="../addTask.html">
+                  <button onclick="addNewTask()" class="boardTaskAddBtnSmall">
+                    ${returnIcon("plus", "addIcon")}
+                  </button>
+                </a>
               </div>
               <!-- board right part -->
               <div class="boardRight">
