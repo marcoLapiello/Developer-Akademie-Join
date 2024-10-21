@@ -51,12 +51,12 @@ import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
 window.deleteChosenUser = deleteChosenUser;
 
-import { getFilteredTasksArray, getUnfilteredTasksArray } from "../components/board/board.js";
+import { getFilteredTasksArray } from "../components/board/board.js";
 window.getFilteredTasksArray = getFilteredTasksArray;
 
-import { renderUserDropdownList, openCloseCategoryDropdown } from "../components/addTask/userDropdown.js";
+import { renderUserDropdownList, openCloseDropdown } from "../components/addTask/userDropdown.js";
 window.renderUserDropdownList = renderUserDropdownList;
-window.openCloseCategoryDropdown = openCloseCategoryDropdown;
+window.openCloseDropdown = openCloseDropdown;
 
 import {
   showAddNewUserDialog,
@@ -121,4 +121,3 @@ export async function getTasksArray() {
 // später diese Funktion in eine "onload init Funktion packen"
 getUsersArray();
 getTasksArray();
-getUnfilteredTasksArray();
