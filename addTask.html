@@ -32,14 +32,11 @@
 
                   <div>
                     <p>Assigned to</p>
-                    <div>
+                    <div class="">
                       <div id="assignedToDropdown" class="assignedToDropdown">
                         Select contacts to assign
-                        <img onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign')" id="assignedToDropdownArrow" class="assignedToDropdownArrow" src="./assets/icons/arrow_drop_down.png" alt="" />
-                      </div>
-                      <div id="contactsToAssign" class="d_none">
-                        <p>contact</p>
-                        <p>contact</p>
+                        <img onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign') , renderUserDropdownList()" id="assignedToDropdownArrow" class="assignedToDropdownArrow" src="./assets/icons/arrow_drop_down.png" alt="" />
+                        <div id="contactsToAssign" class="contactsToAssign d_none"></div>
                       </div>
                     </div>
                   </div>
