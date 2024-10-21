@@ -41,21 +41,22 @@ export function renderBoardHeadTemplate() {
 // function to filter tasksArray
 
 export async function getFilteredTasksArray() {
-  let unfilteredTasks = document.getElementById("taskCards").querySelectorAll(".card");
-
-  console.log(unfilteredTasks);
-
-  if (unfilteredTasks) {
+  let unfilteredTasksArray = Array.from(document.getElementById("taskCards").querySelectorAll(".card"));
+  if (unfilteredTasksArray) {
     let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();
-    if (!filterLetters) {
+    if (filterLetters) {
+      let filteredTasksArray = unfilteredTasksArray.filter(
+        (element) =>
+          element.childNodes[3].children[0].innerHTML.toLowerCase().includes(filterLetters) ||
+          element.childNodes[3].children[1].innerHTML.toLowerCase().includes(filterLetters)
+      );
+      let noneShownTasks = unfilteredTasksArray.filter((element) => !filteredTasksArray.includes(element));
+      unfilteredTasksArray.forEach((element) => element.classList.remove("d_none"));
+      noneShownTasks.forEach((element) => element.classList.add("d_none"));
+    } else {
+      return;
     }
-    return unfilteredTasks.filter(
-      (element) => element[1].title.toLowerCase().includes(filterLetters) || element[1].description.toLowerCase().includes(filterLetters)
-    );
   } else {
     return;
   }
 }
-
-// jede kleine Karte hat die .card
-// die sind alle findbar in #taskCards
