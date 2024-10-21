@@ -3,7 +3,7 @@ import { getUsersArray } from "../../js/script.js";
 let selectedUsers = [];
 let globalUserArray = [];
 
-function getUserListItem(userArray, index) {
+function getUserListItem(userArray, index, isInputChecked) {
   return /*html*/ `
     <div id="${userArray[index][1].id}" class="userListItem">
       <div class="initialsNameWrapper">
@@ -13,71 +13,39 @@ function getUserListItem(userArray, index) {
         <p>${userArray[index][1].profile.first_name} ${userArray[index][1].profile.last_name}</p>
       </div>
       
-      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}')" type="checkBox">
+      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}')" type="checkBox" ${isInputChecked ? "checked" : ""}>
     </div>
   `;
 }
 
 export async function renderUserDropdownList() {
   let userArray = await getUsersArray();
-  console.log(userArray);
-  
+  globalUserArray = userArray;
   for (let index = 0; index < userArray.length; index++) {
-    document.getElementById("contactsToAssign").innerHTML += getUserListItem(userArray, index);
-    let currentUserId = userArray[index][1].id
-    console.log(currentUserId);
-    
+    let currentUserId = userArray[index][1].id;
+    let isInputChecked = false;
     for (let id = 0; id < selectedUsers.length; id++) {
       if (selectedUsers[id] == currentUserId) {
-        
-      } else {
-        
+        isInputChecked = true;
       }
-      
     }
+    document.getElementById("contactsToAssign").insertAdjacentHTML("beforeend", getUserListItem(userArray, index, isInputChecked));
   }
-
-
-  
-  
-  
+  renderCurrentAssignation();
 }
-
-
-
-
-
-
-
-
-
 
 export function openCloseDropdown(arrow, content) {
   document.getElementById(arrow).classList.toggle("rotatedArrow");
   document.getElementById(content).classList.toggle("d_none");
 }
 
-
-
-
-
-
-
-
-
-
-
-
 export function selectUser(userId) {
   if (selectedUsers.includes(userId)) {
-    selectedUsers.pop(userId);
+    let index = selectedUsers.indexOf(userId);
+    selectedUsers.splice(index, 1);
   } else {
     selectedUsers.push(userId);
   }
-  console.log(selectedUsers);
-  console.log(globalUserArray);
-  
-  
   renderCurrentAssignation();
 }
 
