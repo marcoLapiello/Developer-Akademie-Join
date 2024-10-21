@@ -60,7 +60,6 @@
         display: flex;
         justify-content: space-between;
         position: relative;
-        
 
         .assignedToDropdownArrow {
           rotate: 180deg;
@@ -78,7 +77,7 @@
         }
       }
 
-      .contactsToAssign{
+      .contactsToAssign {
         height: 180px;
         width: 100%;
         border-radius: 10px;
@@ -87,7 +86,7 @@
         position: absolute;
         top: 102%;
         left: 0;
-      
+
         .userListItem {
           padding: 7px 16px;
           display: flex;
@@ -100,13 +99,13 @@
             border-radius: 3px;
           }
 
-          .initialsNameWrapper{
+          .initialsNameWrapper {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 16px;
 
-            .initialsBox{
+            .initialsBox {
               height: 40px;
               width: 40px;
               border-radius: 20px;
@@ -120,8 +119,6 @@
           }
         }
       }
-      
-
     }
 
     .addTaskSeparator {
@@ -222,8 +219,6 @@
           rotate: 0deg;
         }
 
-
-
         .categorySelectionContainer {
           background-color: white;
           width: 100%;
@@ -247,7 +242,6 @@
               background-color: #d1d1d192;
             }
           }
-
         }
       }
 
