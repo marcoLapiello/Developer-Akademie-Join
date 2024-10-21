@@ -11,10 +11,10 @@ function calculateCurrentProgress(taskArray, taskID, subtaskId) {
   return progress;
 }
 
-export async function updateProgress(taskID, subtaskId, isChecked) {
+export async function updateProgress(taskID, subtaskId, isChecked, currentTaskStatus) {
   await patchUpdateSingleSubtaskDatabase(taskID, subtaskId, isChecked);
   let tasksArray = await getTasksArray();
   let currentProgress = calculateCurrentProgress(tasksArray, taskID, subtaskId);
   await patchUpdateSubtasksProgress(taskID, currentProgress);
-  renderTasks();
+  renderTasks(currentTaskStatus);
 }
