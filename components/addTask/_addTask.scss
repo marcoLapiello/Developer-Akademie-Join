@@ -59,8 +59,16 @@
         background-color: white;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         position: relative;
         
+        .searchUserToAssign {
+          padding: 0;
+          border: none;
+          height: 98%;
+          width: 80%;
+          outline: none;
+        }
 
         .assignedToDropdownArrow {
           rotate: 180deg;
