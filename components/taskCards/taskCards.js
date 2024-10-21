@@ -1,5 +1,6 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray, getTasksArray } from "../../js/script.js";
+import { getFilteredTasksArray } from "../../components/board/board.js";
 let currentDraggedElement; // Placeholder for the current dragged element
 
 export function addNewTaskCategory(currentStatus) {
@@ -8,19 +9,23 @@ export function addNewTaskCategory(currentStatus) {
 }
 window.addNewTaskCategory = addNewTaskCategory;
 
-export function renderTasks() {
+export async function renderTasks() {
+  let tasksArray = await getTasksArray();
   // Render all the tasks in the different categories
-  renderTodoCards("todo");
-  renderTodoCards("inProgress");
-  renderTodoCards("awaitFeedback");
-  renderTodoCards("done");
+  renderTodoCards("todo", tasksArray);
+  renderTodoCards("inProgress", tasksArray);
+  renderTodoCards("awaitFeedback", tasksArray);
+  renderTodoCards("done", tasksArray);
 }
 
 // Render the tasks in the different categories
-export async function renderTodoCards(currentStatus) {
+export async function renderTodoCards(currentStatus, tasksArrayPar) {
   const cardsRef = document.getElementById(`${currentStatus}Cards`);
   const cardsMenuRef = document.getElementById(`${currentStatus}Menu`);
-  const tasksArray = await getTasksArray(); // Get the tasks array from the database
+  // ################## added by Richard
+  // const tasksArray = await getTasksArray(); // Get the tasks array from the database
+  const tasksArray = tasksArrayPar;
+  // ###################
   if (cardsMenuRef) cardsMenuRef.innerHTML = renderCardsMenuTemplate(currentStatus); // Render the menu for each category
   if (cardsRef) cardsRef.innerHTML = ""; // Clear the cards for each category
   const todoTasks = tasksArray.filter((task) => task[1].status === `${currentStatus}`);
@@ -38,7 +43,9 @@ export async function renderTodoCards(currentStatus) {
 // get the assigned users for the task
 async function getAssignedUsers(task) {
   const filteredTask = Object.keys(task.assignedTo).filter((id) => id !== "placeholder"); // Filter the task to get the assigned users (filter out the placeholder)
+
   let usersArray = await getUsersArray();
+
   const matchedUsers = usersArray.filter((user) => filteredTask.includes(user[1].id)); // Match the users with the assigned users of the task (needed for the initials)
   let initialsHTML = "";
   matchedUsers.forEach((user) => {
@@ -88,8 +95,16 @@ function renderCardsTemplate(task, assignedUsers) {
           <button onclick="toggleMobileMenu(event,'${task.id}')" class="moveToButton">${returnIcon("dots")}</button>
            <div id="mobileMenu${task.id}" class="mobileMenu d_none">
             ${task.status !== "todo" ? `<button onclick="moveToCategoryMobile(event,'todo','${task.id}')" class="mobileMenuButton">To do</button>` : ""}
-            ${task.status !== "inProgress" ? `<button onclick="moveToCategoryMobile(event,'inProgress','${task.id}')" class="mobileMenuButton">In Progress</button>` : ""}
-            ${task.status !== "awaitFeedback" ? `<button onclick="moveToCategoryMobile(event,'awaitFeedback','${task.id}')" class="mobileMenuButton">Await Feedback</button>` : ""}
+            ${
+              task.status !== "inProgress"
+                ? `<button onclick="moveToCategoryMobile(event,'inProgress','${task.id}')" class="mobileMenuButton">In Progress</button>`
+                : ""
+            }
+            ${
+              task.status !== "awaitFeedback"
+                ? `<button onclick="moveToCategoryMobile(event,'awaitFeedback','${task.id}')" class="mobileMenuButton">Await Feedback</button>`
+                : ""
+            }
             ${task.status !== "done" ? `<button onclick="moveToCategoryMobile(event,'done','${task.id}')" class="mobileMenuButton">Done</button>` : ""}
            </div>          
         </div>
@@ -101,7 +116,9 @@ function renderCardsTemplate(task, assignedUsers) {
           Object.keys(task.subtasks).length > 1
             ? `<div class="statusSubtasks">
                     <progress class="progressBar" value="${task.progress}" max="100"></progress>
-                    <span class="progressText">${Object.values(task.subtasks).filter((subtask) => subtask.isDone).length}/${Object.keys(task.subtasks).length - 1} Subtasks</span>
+                    <span class="progressText">${Object.values(task.subtasks).filter((subtask) => subtask.isDone).length}/${
+                Object.keys(task.subtasks).length - 1
+              } Subtasks</span>
                 </div>`
             : ""
         }
