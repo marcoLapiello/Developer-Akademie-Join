@@ -43,7 +43,7 @@
 }
 
 .active {
-  background-color: #091931;
+  background-color: #091931!important; 
 }
 
 #information {
@@ -52,7 +52,12 @@
 
   & a {
     color: #a8a8a8;
+  
+    &:hover{
+      color: #29abe2;
+    }
   }
+  
 }
 
 .sidebar-Block {
@@ -84,7 +89,7 @@
   padding-inline: 56px;
   opacity: 100%;
   width: 100%;
-
+  
   @media (max-width: $breakpoint-lg) {
     display: flex;
     line-height: 120%;
@@ -98,6 +103,17 @@
     gap: 0px;
     border-radius: 16px;
   }
+
+  & svg {
+    height: 30px;
+    width: 30px;
+    fill: #CDCDCD;
+  }
+
+  &:hover{
+    background-color: #2a3d59;
+  }
+
 }
 
 #information {
