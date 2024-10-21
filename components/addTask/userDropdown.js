@@ -5,7 +5,7 @@ let globalUserArray = [];
 
 function getUserListItem(userArray, index) {
   return /*html*/ `
-    <div id="userListItem${index}" class="userListItem">
+    <div id="${userArray[index][1].id}" class="userListItem">
       <div class="initialsNameWrapper">
         <div id="initialsBox${index}" class="initialsBox" style="background-color: ${userArray[index][1].user_color}">
           <span id="initials${index}" class="initials">${userArray[index][1].profile.initials}</span>
@@ -13,17 +13,34 @@ function getUserListItem(userArray, index) {
         <p>${userArray[index][1].profile.first_name} ${userArray[index][1].profile.last_name}</p>
       </div>
       
-      <input onchange="selectUser('${userArray[index][1].id}')" type="checkBox">
+      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}')" type="checkBox">
     </div>
   `;
 }
 
 export async function renderUserDropdownList() {
   let userArray = await getUsersArray();
-  globalUserArray = userArray;
+  console.log(userArray);
+  
   for (let index = 0; index < userArray.length; index++) {
     document.getElementById("contactsToAssign").innerHTML += getUserListItem(userArray, index);
+    let currentUserId = userArray[index][1].id
+    console.log(currentUserId);
+    
+    for (let id = 0; id < selectedUsers.length; id++) {
+      if (selectedUsers[id] == currentUserId) {
+        
+      } else {
+        
+      }
+      
+    }
   }
+
+
+  
+  
+  
 }
 
 
