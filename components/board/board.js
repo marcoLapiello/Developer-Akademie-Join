@@ -40,22 +40,22 @@ export function renderBoardHeadTemplate() {
 
 // function to filter tasksArray
 
-export async function getUnfilteredTasksArray() {
-  let unfilteredTasksArray = await getTasksArray();
-  return unfilteredTasksArray;
-}
-
 export async function getFilteredTasksArray() {
-  let unfilteredTasksArray = await getUnfilteredTasksArray();
-  if (unfilteredTasksArray) {
+  let unfilteredTasks = document.getElementById("taskCards").querySelectorAll(".card");
+
+  console.log(unfilteredTasks);
+
+  if (unfilteredTasks) {
     let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();
     if (!filterLetters) {
-      return unfilteredTasksArray;
     }
-    return unfilteredTasksArray.filter(
+    return unfilteredTasks.filter(
       (element) => element[1].title.toLowerCase().includes(filterLetters) || element[1].description.toLowerCase().includes(filterLetters)
     );
   } else {
     return;
   }
 }
+
+// jede kleine Karte hat die .card
+// die sind alle findbar in #taskCards
