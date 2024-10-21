@@ -1,5 +1,6 @@
 import { returnIcon } from "../icons.js";
 import { getTasksArray } from "../../js/script.js";
+import { renderTasks } from "../../components/taskCards/taskCards.js";
 
 function getBoardTemplate() {
   return /*html*/ `
@@ -39,25 +40,22 @@ export function renderBoardHeadTemplate() {
 
 // function to filter tasksArray
 
-let unfilteredTasksArray;
-
 export async function getUnfilteredTasksArray() {
-  unfilteredTasksArray = await getTasksArray();
+  let unfilteredTasksArray = await getTasksArray();
+  return unfilteredTasksArray;
 }
 
-export function getFilteredTasksArray() {
-  setTimeout(() => {
-    if (unfilteredTasksArray) {
-      let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();
-      if (!filterLetters) {
-        return unfilteredTasksArray;
-      }
-      return unfilteredTasksArray.filter(
-        (element) => element[1].title.toLowerCase().includes(filterLetters) || element[1].description.toLowerCase().includes(filterLetters)
-      );
-      // console.log(filtered); zum testen return gegen variable "let filtered" austauschen
-    } else {
-      return;
+export async function getFilteredTasksArray() {
+  let unfilteredTasksArray = await getUnfilteredTasksArray();
+  if (unfilteredTasksArray) {
+    let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();
+    if (!filterLetters) {
+      return unfilteredTasksArray;
     }
-  }, 500);
+    return unfilteredTasksArray.filter(
+      (element) => element[1].title.toLowerCase().includes(filterLetters) || element[1].description.toLowerCase().includes(filterLetters)
+    );
+  } else {
+    return;
+  }
 }

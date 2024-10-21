@@ -8,19 +8,19 @@ export function addNewTaskCategory(currentStatus) {
 }
 window.addNewTaskCategory = addNewTaskCategory;
 
-export function renderTasks() {
+export async function renderTasks() {
+  let tasksArray = await getTasksArray();
   // Render all the tasks in the different categories
-  renderTodoCards("todo");
-  renderTodoCards("inProgress");
-  renderTodoCards("awaitFeedback");
-  renderTodoCards("done");
+  renderTodoCards("todo", tasksArray);
+  renderTodoCards("inProgress", tasksArray);
+  renderTodoCards("awaitFeedback", tasksArray);
+  renderTodoCards("done", tasksArray);
 }
 
 // Render the tasks in the different categories
-export async function renderTodoCards(currentStatus) {
+export async function renderTodoCards(currentStatus, tasksArray) {
   const cardsRef = document.getElementById(`${currentStatus}Cards`);
   const cardsMenuRef = document.getElementById(`${currentStatus}Menu`);
-  const tasksArray = await getTasksArray(); // Get the tasks array from the database
   if (cardsMenuRef) cardsMenuRef.innerHTML = renderCardsMenuTemplate(currentStatus); // Render the menu for each category
   if (cardsRef) cardsRef.innerHTML = ""; // Clear the cards for each category
   const todoTasks = tasksArray.filter((task) => task[1].status === `${currentStatus}`);
@@ -38,13 +38,13 @@ export async function renderTodoCards(currentStatus) {
 // get the assigned users for the task
 async function getAssignedUsers(task) {
   const filteredTask = Object.keys(task.assignedTo).filter((id) => id !== "placeholder"); // Filter the task to get the assigned users (filter out the placeholder)
-  let usersArray = await getUsersArray();
+  let usersArray = await getUsersArray(); // Get the users array from the database
   const matchedUsers = usersArray.filter((user) => filteredTask.includes(user[1].id)); // Match the users with the assigned users of the task (needed for the initials)
   let initialsHTML = "";
   matchedUsers.forEach((user) => {
     // Create the initials for the assigned users
     initialsHTML += /*html*/ `
-        <span class="initials" style="background-color: ${user[1].user_color}">${user[1].profile.initials}</span>        
+        <span class="initials" style="background-color: ${user[1].user_color}">${user[1].profile.initials}</span>     
     `;
   });
   return initialsHTML;
