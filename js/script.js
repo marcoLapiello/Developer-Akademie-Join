@@ -43,6 +43,9 @@ window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
 window.createNewSubtask = createNewSubtask;
 
+import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
+window.updateProgress = updateProgress;
+
 import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
 window.addContact = addContact;
 window.deleteChosenUser = deleteChosenUser;

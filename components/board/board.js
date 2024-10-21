@@ -46,7 +46,6 @@ export async function getUnfilteredTasksArray() {
 }
 
 export function getFilteredTasksArray() {
-  console.log(unfilteredTasksArray);
 
   if (unfilteredTasksArray) {
     let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();

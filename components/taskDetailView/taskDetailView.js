@@ -1,5 +1,6 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray, getTasksArray } from "../../js/script.js";
+import { updateProgress } from "../taskDetailViewEdit/editTask.js"; // added by Richard 21.10. 08:30
 
 // The function below is a placeholder until we have the real data structure
 // and can fetch the data from the database to render the task detail view.
@@ -96,6 +97,12 @@ export async function checkedSubtask(event, taskID) {
   let isChecked = event.target.checked; // Get the status of the checkbox
   const foundSubtask = taskData.subtasks[checkboxId]; // Find the subtask in the task data with the subtask ID
   if (foundSubtask) foundSubtask.isDone = isChecked; // Update the subtask status with the new status
+
+  // #####################################################################################
+  // added by Richard 21.10. 08:30
+  updateProgress(taskID, checkboxId, isChecked);
+  // #####################################################################################
+
   // pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
 }
 
