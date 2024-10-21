@@ -73,7 +73,7 @@ function renderCardsMenuTemplate(currentStatus) {
   return /*html*/ `
     <div class="categoryMenu">
       <span class="title">${newCurrentStatus}</span>
-      <button onclick="addNewTaskCategory('${currentStatus}')" class="addTask" >${returnIcon("plus")}</button> 
+      ${currentStatus !== "done" ? `<button onclick="addNewTaskCategory('${currentStatus}')" class="addTask" >${returnIcon("plus")}</button>` : ""}
     </div>
   `;
 }
