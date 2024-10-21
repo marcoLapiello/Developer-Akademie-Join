@@ -31,10 +31,16 @@ export function getNewTaskTemplate() {
 
 export function createNewSubtask(card, id) {
   if (card == "add") {
+    console.log("subtask add from html");
+    
   }
 
   if (card == "edit") {
   }
+}
+
+export function createSubtaskFromAddTaskHTML() {
+
 }
 
 export function selectPrio(event) {
