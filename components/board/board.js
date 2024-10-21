@@ -46,14 +46,18 @@ export async function getUnfilteredTasksArray() {
 }
 
 export function getFilteredTasksArray() {
-
-  if (unfilteredTasksArray) {
-    let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();
-    return unfilteredTasksArray.filter(
-      (element) => element[1].title.toLowerCase().includes(filterLetters) || element[1].description.toLowerCase().includes(filterLetters)
-    );
-    // console.log(filtered); zum testen return gegen variable "let filtered" austauschen
-  } else {
-    return;
-  }
+  setTimeout(() => {
+    if (unfilteredTasksArray) {
+      let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();
+      if (!filterLetters) {
+        return unfilteredTasksArray;
+      }
+      return unfilteredTasksArray.filter(
+        (element) => element[1].title.toLowerCase().includes(filterLetters) || element[1].description.toLowerCase().includes(filterLetters)
+      );
+      // console.log(filtered); zum testen return gegen variable "let filtered" austauschen
+    } else {
+      return;
+    }
+  }, 500);
 }
