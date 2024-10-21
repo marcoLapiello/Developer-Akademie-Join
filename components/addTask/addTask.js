@@ -1,5 +1,3 @@
-const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
-
 let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
@@ -14,7 +12,7 @@ export function getNewTaskTemplate() {
     creationDate: Date.now(),
     creatorId: "",
     priority: currentPrio,
-    category: document.getElementById("categoryDropdown").innerText,
+    category: document.getElementById("taskCategory").innerText,
     categoryColor: "",
     progress: currentProgress,
     status: currentStatus,
@@ -52,8 +50,12 @@ export function selectPrio(event) {
   }
 }
 
-function removePrio() {
+export function removePrio() {
   document.getElementById("prioUrgent").classList.remove("urgentPrio");
   document.getElementById("prioMedium").classList.remove("mediumPrio");
   document.getElementById("prioLow").classList.remove("lowPrio");
+}
+
+export function selectCategory(selectedCategory) {
+  document.getElementById("taskCategory").innerText = selectedCategory;
 }

@@ -38,10 +38,11 @@ renderBoardHeadTemplate();
 import { loadTasks, patchNewTask } from "./tasksApiService.js";
 window.patchNewTask = patchNewTask;
 
-import { getNewTaskTemplate, selectPrio, createNewSubtask } from "../components/addTask/addTask.js";
+import { getNewTaskTemplate, selectPrio, createNewSubtask, selectCategory } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
 window.createNewSubtask = createNewSubtask;
+window.selectCategory = selectCategory;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;
@@ -53,8 +54,9 @@ window.deleteChosenUser = deleteChosenUser;
 import { getFilteredTasksArray, getUnfilteredTasksArray } from "../components/board/board.js";
 window.getFilteredTasksArray = getFilteredTasksArray;
 
-import { renderUserDropdownList } from "../components/addTask/userDropdown.js";
+import { renderUserDropdownList, openCloseCategoryDropdown } from "../components/addTask/userDropdown.js";
 window.renderUserDropdownList = renderUserDropdownList;
+window.openCloseCategoryDropdown = openCloseCategoryDropdown;
 
 import {
   showAddNewUserDialog,
