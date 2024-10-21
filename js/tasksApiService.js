@@ -26,12 +26,8 @@ export async function patchNewTask() {
   return id;
 }
 
-export async function patchUpdateSingleSubtaskDatabase(taskID, checkBoxID, isChecked) {
-  console.log("taskID = " + taskID);
-  console.log("checkBoxID = " + checkBoxID);
-  console.log("isChecked = " + isChecked);
-
-  let response = await fetch(baseUrl + "/tasks/" + taskID + "/subtasks/" + checkBoxID + ".json", {
+export async function patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked) {
+  let response = await fetch(baseUrl + "/tasks/" + taskID + "/subtasks/" + subtaskID + ".json", {
     method: "PATCH",
     header: {
       "Content-Type": "application/json",
