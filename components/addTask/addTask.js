@@ -26,6 +26,9 @@ export function getNewTaskTemplate() {
     },
   };
   console.log(task);
+  // - assign selected users
+
+  // - clear selected users
   return task;
 }
 
