@@ -20,6 +20,9 @@ function renderHeaderTemplate() {
         <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
           <span>G</span>
           <div class="dropDown d_none" id="dropDown">
+          <div class="help">
+            <a href="./help.html">Help</a>
+          </div>
           <div class="legalNotice">
             <a href="./legalNotice.html">Legal Notice</a>
           </div>
@@ -29,6 +32,7 @@ function renderHeaderTemplate() {
           <div class="logOut">
             <a href="./login.html">Log out</a>
           </div>
+
         </div>
       </div>
     `;

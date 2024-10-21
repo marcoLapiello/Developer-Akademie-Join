@@ -31,9 +31,13 @@ header {
       @media (max-width: $breakpoint-lg) {
         display: none;
       }
+
+      &:hover{
+        transform: scale(1.1);
+      }
     }
 
-    .user-Profile-Initials {
+    .user-Profile-Initials {  
       width: 56px;
       height: 56px;
       border: 3px solid #2a3647;
@@ -48,12 +52,16 @@ header {
         font-weight: bold;
         color: lightblue;
       }
+
+      &:hover{
+        background-color: #e1e6ec;
+      }
     }
   }
 
   .dropDown {
     width: 160px;
-    height: 158px;
+    height: fit-content;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -63,6 +71,7 @@ header {
     top: 96px;
     right: 15px;
     z-index: 10;
+    
 
     & a {
       color: #cdcdcd;
@@ -101,9 +110,23 @@ header {
       border-radius: 8px;
       padding-top: 8px;
       padding-right: 16px;
-      padding-left: 8xp;
       padding-left: 16px;
       gap: 8px;
+    }
+
+    & .help{
+      width: 130px;
+      height: 46px;
+      border-radius: 8px;
+      padding-top: 8px;
+      padding-right: 16px;
+      padding-left: 16px;
+      gap: 8px;
+      display: none;
+      
+      @media (max-width: $breakpoint-lg) {
+        display: inline-block;
+      }
     }
   }
 }
