@@ -59,8 +59,10 @@
         background-color: white;
         display: flex;
         justify-content: space-between;
+        position: relative;
+        
 
-        .assignedToDropdownArrow{
+        .assignedToDropdownArrow {
           rotate: 180deg;
           border-radius: 12px;
           transition: all 0.1s ease-in;
@@ -71,10 +73,55 @@
           }
         }
 
-        .rotatedArrow{
+        .rotatedArrow {
           rotate: 0deg;
         }
       }
+
+      .contactsToAssign{
+        height: 180px;
+        width: 100%;
+        border-radius: 10px;
+        background-color: white;
+        overflow-y: scroll;
+        position: absolute;
+        top: 102%;
+        left: 0;
+      
+        .userListItem {
+          padding: 7px 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          input {
+            height: 16px;
+            width: 16px;
+            border-radius: 3px;
+          }
+
+          .initialsNameWrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+
+            .initialsBox{
+              height: 40px;
+              width: 40px;
+              border-radius: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 12px;
+              font-weight: 400;
+              color: white;
+            }
+          }
+        }
+      }
+      
+
     }
 
     .addTaskSeparator {
@@ -171,11 +218,11 @@
           }
         }
 
-        .rotatedArrow{
+        .rotatedArrow {
           rotate: 0deg;
         }
 
-        
+
 
         .categorySelectionContainer {
           background-color: white;
