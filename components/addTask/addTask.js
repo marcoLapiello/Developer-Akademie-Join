@@ -31,8 +31,7 @@ export function getNewTaskTemplate() {
 
 export function createNewSubtask(card, id) {
   if (card == "add") {
-    console.log("subtask add from html");
-    
+    createSubtaskFromAddTaskHTML();
   }
 
   if (card == "edit") {
@@ -40,8 +39,12 @@ export function createNewSubtask(card, id) {
 }
 
 export function createSubtaskFromAddTaskHTML() {
-
+  let subtaskText = document.getElementById("subtaskInput").value;
+  console.log(subtaskText);
 }
+
+// #subtaskInput
+// #subtaskContainer
 
 export function selectPrio(event) {
   if (event.target == document.getElementById("prioUrgent")) {
