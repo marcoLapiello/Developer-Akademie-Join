@@ -72,7 +72,13 @@
                     <div>
                       <div id="categoryDropdown" class="categoryDropdown">
                         <span id="taskCategory">Select task category</span>
-                        <img onclick="openCloseCategoryDropdown()" id="categoryDropdawnArrow" class="categoryDropdownArrow" src="./assets/icons/arrow_drop_down.png" alt="" />
+                        <img
+                          onclick="openCloseCategoryDropdown()"
+                          id="categoryDropdawnArrow"
+                          class="categoryDropdownArrow"
+                          src="./assets/icons/arrow_drop_down.png"
+                          alt=""
+                        />
                         <div id="categorySelectionContainer" class="categorySelectionContainer d_none">
                           <p onclick="selectCategory('Technical task')">Technical task</p>
                           <p onclick="selectCategory('User story')">User story</p>
@@ -92,6 +98,7 @@
                           />
                         </svg>
                       </div>
+                      <div class="subtaskContainer" id="subtaskContainer"></div>
                     </div>
                   </div>
                 </div>
