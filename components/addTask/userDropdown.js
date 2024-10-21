@@ -21,3 +21,9 @@ function getUserListItem() {
 export async function renderUserDropdownList() {
   let userArray = await getUsersArray();
 }
+
+export function openCloseCategoryDropdown() {
+  document.getElementById("categoryDropdawnArrow").classList.toggle("rotatedArrow");
+  document.getElementById("categorySelectionContainer").classList.toggle("d_none");
+}
+
