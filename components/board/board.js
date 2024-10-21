@@ -41,7 +41,7 @@ export function renderBoardHeadTemplate() {
 // function to filter tasksArray
 
 export async function getUnfilteredTasksArray() {
-  unfilteredTasksArray = await getTasksArray();
+  let unfilteredTasksArray = await getTasksArray();
   return unfilteredTasksArray;
 }
 
