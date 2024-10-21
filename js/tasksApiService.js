@@ -38,3 +38,16 @@ export async function patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChec
     throw new Error("Network response was not ok");
   }
 }
+
+export async function patchUpdateSubtasksProgress(taskID, currentProgress) {
+  let response = await fetch(baseUrl + "/tasks/" + taskID + ".json", {
+    method: "PATCH",
+    header: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ progress: currentProgress }),
+  });
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+}
