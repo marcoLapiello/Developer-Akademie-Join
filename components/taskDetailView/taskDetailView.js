@@ -74,7 +74,7 @@ async function renderSubtasks(taskID, tasksArray) {
       subtasksListHTML += /*html*/ `
         <li class="subtask" id="subtasksID${subtask.id}">
           <input 
-            onchange="checkedSubtask(event,'${taskID}')" 
+            onchange="checkedSubtask(event,'${taskID}','${taskData.status}')" 
             type="checkbox" 
             name="${subtask.id}" 
             id="${subtask.id}" 
@@ -90,7 +90,7 @@ async function renderSubtasks(taskID, tasksArray) {
 
 // The function checks a subtask and updates the task data with the new subtask status
 // and returns the updated task data
-export async function checkedSubtask(event, taskID) {
+export async function checkedSubtask(event, taskID, currentTaskStatus) {
   let tasksArray = await getTasksArray(); // Fetch tasks array to get the task data for the task ID
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
   let checkboxId = event.target.id; // Get the checkbox ID the checkbox is the subtask ID
@@ -99,7 +99,7 @@ export async function checkedSubtask(event, taskID) {
   if (foundSubtask) foundSubtask.isDone = isChecked; // Update the subtask status with the new status
   // #####################################################################################
   // added by Richard 21.10. 08:30
-  updateProgress(taskID, checkboxId, isChecked);
+  updateProgress(taskID, checkboxId, isChecked, currentTaskStatus);
   // #####################################################################################
 }
 
