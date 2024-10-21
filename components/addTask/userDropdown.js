@@ -1,6 +1,6 @@
 import { getUsersArray } from "../../js/script.js";
 
-let selectedUsers = [];
+export let selectedUsers = [];
 let globalUserArray = [];
 
 function getUserListItem(userArray, index, isInputChecked) {

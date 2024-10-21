@@ -29,6 +29,9 @@ export function getNewTaskTemplate() {
   return task;
 }
 
+// implement function!!! import selectedUsers(Array) from userDropdownlist.js
+// change selectedUsers(Array) to an objact and assign it to getNewTaskTemplate
+
 export function createNewSubtask(card, id) {
   if (card == "add") {
     createSubtaskFromAddTaskHTML();
