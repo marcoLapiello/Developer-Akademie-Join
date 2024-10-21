@@ -49,6 +49,12 @@
 
         @media (max-width: $breakpoint-lg) {
           display: flex;
+
+          svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+          }
         }
       }
     }
