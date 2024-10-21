@@ -1,5 +1,6 @@
 import { getTasksArray } from "../../js/script.js";
 import { patchUpdateSingleSubtaskDatabase, patchUpdateSubtasksProgress } from "../../js/tasksApiService.js";
+import { renderTasks } from "../taskCards/taskCards.js";
 
 function calculateCurrentProgress(taskArray, taskID, subtaskId) {
   let currentTask = taskArray.find((task) => task[0] == taskID);
@@ -15,4 +16,5 @@ export async function updateProgress(taskID, subtaskId, isChecked) {
   let tasksArray = await getTasksArray();
   let currentProgress = calculateCurrentProgress(tasksArray, taskID, subtaskId);
   await patchUpdateSubtasksProgress(taskID, currentProgress);
+  renderTasks();
 }
