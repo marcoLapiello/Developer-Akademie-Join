@@ -16,5 +16,5 @@ export async function updateProgress(taskID, subtaskId, isChecked, currentTaskSt
   let tasksArray = await getTasksArray();
   let currentProgress = calculateCurrentProgress(tasksArray, taskID, subtaskId);
   await patchUpdateSubtasksProgress(taskID, currentProgress);
-  renderTasks(currentTaskStatus);
+  renderTasks(`${currentTaskStatus}`, `${currentTaskStatus}`);
 }
