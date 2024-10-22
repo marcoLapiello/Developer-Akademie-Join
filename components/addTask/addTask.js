@@ -110,6 +110,8 @@ export function renderSubtaskElement(inputID, containerID) {
   let subtaskID = createSubtaskObject(subtaskText);
   let newSubtaskTemplate = getSubtaskTemplate(subtaskText, subtaskID);
   document.getElementById(containerID).insertAdjacentHTML("beforeend", newSubtaskTemplate);
+  console.log(newTaskObject);
+  
 }
 
 function getSubtaskTemplate(subtaskText, subtaskID) {
@@ -143,13 +145,13 @@ export function editSubtask(subtaskID) {
   document.getElementById(`editSubtaskInput-${subtaskID}`).value = document.getElementById(`currentSubtaskText-${subtaskID}`).innerText;
   document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.add("d_none");
   document.getElementById(`editSubtaskBox-${subtaskID}`).classList.remove("d_none");
-  console.log(newTaskObject);
 }
 
 export function deleteSubtask(subtaskID, card) {
   if (card == "add") {
-    // lösche das element im html mit der passenden ID
-    // lösche das object aus newTaskObject
+    document.getElementById(`subtaskElementWrapper-${subtaskID}`).remove();
+    delete newTaskObject.subtasks[subtaskID];
+    console.log(newTaskObject);
   } else {
     // lösche das element im html mit der passenden ID
     // lösche das subtask object aus der datenbank mit hilfe von tasksApiService.js / delteSingleSubtaskDatabase()
@@ -162,9 +164,6 @@ export function saveSubtaskEditing(subtaskID, card) {
     newTaskObject.subtasks[subtaskID].task = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
     document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.remove("d_none");
     document.getElementById(`editSubtaskBox-${subtaskID}`).classList.add("d_none");
-    console.log(newTaskObject);
-
-    // überschreibe das object aus newTaskObject
   } else {
     // lösche das element im html mit der passenden ID
     // überschreibe das subtask object aus der datenbank mit hilfe von tasksApiService.js / patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked)
