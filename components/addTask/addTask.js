@@ -125,6 +125,10 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
   `;
 }
 
+// zum editieren
+// zum löschen
+// zum speichern
+
 function createSubtaskObject(subtaskText) {
   let subtaskID = "SUBTASK" + Date.now();
   let newSubtask = {
