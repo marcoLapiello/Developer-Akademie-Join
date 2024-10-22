@@ -5,63 +5,82 @@ let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
 
+let emptyTaskTemplate = {
+  id: "TASK" + Date.now(),
+  title: document.getElementById("taskTitleInput").value,
+  description: document.getElementById("taskDescription").value,
+  assignedTo: { placeholder: "placeholder" },
+  dueDate: document.getElementById("taskDueDate").value,
+  creationDate: Date.now(),
+  creatorId: "",
+  priority: currentPrio,
+  category: document.getElementById("taskCategory").innerText,
+  categoryColor: "",
+  progress: currentProgress,
+  status: currentStatus,
+  subtasks: {
+    placeholder: "placeholder",
+  },
+};
+
+let newTaskObject = {
+  id: "TASK" + Date.now(),
+  title: document.getElementById("taskTitleInput").value,
+  description: document.getElementById("taskDescription").value,
+  assignedTo: { placeholder: "placeholder" },
+  dueDate: document.getElementById("taskDueDate").value,
+  creationDate: Date.now(),
+  creatorId: "",
+  priority: currentPrio,
+  category: document.getElementById("taskCategory").innerText,
+  categoryColor: "",
+  progress: currentProgress,
+  status: currentStatus,
+  subtasks: {
+    placeholder: "placeholder",
+  },
+};
+
 export function getNewTaskTemplate() {
-  let task = {
-    id: "TASK" + Date.now(),
-    title: document.getElementById("taskTitleInput").value,
-    description: document.getElementById("taskDescription").value,
-    assignedTo: { placeholder: "placeholder" },
-    dueDate: document.getElementById("taskDueDate").value,
-    creationDate: Date.now(),
-    creatorId: "",
-    priority: currentPrio,
-    category: document.getElementById("taskCategory").innerText,
-    categoryColor: "",
-    progress: currentProgress,
-    status: currentStatus,
-    subtasks: {
-      placeholder: "placeholder",
-    },
-  };
+  let newTask = newTaskObject;
+
+  newTaskObject = emptyTaskTemplate;
+
+  return newTask;
   // - assign selected users
 
   // - clear selected users
-  return task;
 }
 
 // implement function!!! import selectedUsers(Array) from userDropdownlist.js
 // change selectedUsers(Array) to an objact and assign it to getNewTaskTemplate
 
-export function createNewSubtask(card, id) {
+export function createNewSubtask(card, inputID, containerID) {
   if (card == "add") {
-    createSubtaskFromAddTaskHTML();
-    createSubtaskTemplate();
+    generateSubtaskElement(inputID, containerID);
   }
-
   if (card == "edit") {
   }
 }
 
-export function createSubtaskFromAddTaskHTML() {
-  let subtaskText = document.getElementById("subtaskInput").value;
+export function generateSubtaskElement(inputID, containerID) {
+  let subtaskText = document.getElementById(inputID).value;
   let subtaskListItem = document.createElement("li");
   subtaskListItem.innerText = subtaskText;
-  document.getElementById("subtaskContainer").appendChild(subtaskListItem);
-  return subtaskText;
+  document.getElementById(containerID).appendChild(subtaskListItem);
+  createSubtaskTemplate(subtaskText);
 }
 
-function createSubtaskTemplate() {
+function createSubtaskTemplate(subtaskText) {
   let subtaskID = "SUBTASK" + Date.now();
   let newSubtask = {
-    subtaskID: {
-      creationDate: Date.now(),
-      creatorId: "",
-      id: subtaskID,
-      isDone: false,
-      task: createSubtaskFromAddTaskHTML(),
-    },
+    creationDate: Date.now(),
+    creatorId: "",
+    id: subtaskID,
+    isDone: false,
+    task: subtaskText,
   };
-  console.log(newSubtask);
+  newTaskObject.subtasks[subtaskID] = newSubtask;
 }
 
 // #subtaskInput

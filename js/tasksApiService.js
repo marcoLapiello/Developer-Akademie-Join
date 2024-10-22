@@ -13,17 +13,20 @@ export async function loadTasks() {
 export async function patchNewTask() {
   let newTask = getNewTaskTemplate();
   let id = newTask.id;
-  let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
-    method: "PATCH",
-    header: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newTask),
-  });
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return id;
+
+  console.log(newTask);
+  
+  // let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
+  //   method: "PATCH",
+  //   header: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(newTask),
+  // });
+  // if (!response.ok) {
+  //   throw new Error("Network response was not ok");
+  // }
+  // return id;
 }
 
 export async function patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked) {
