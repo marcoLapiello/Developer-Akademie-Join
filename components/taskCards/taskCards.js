@@ -3,7 +3,7 @@ import { getUsersArray, getTasksArray } from "../../js/script.js";
 let currentDraggedElement; // Placeholder for the current dragged element
 
 export function addNewTaskCategory(currentStatus) {
-  console.log("Waiting for the modal to be implemented \n" + "Parameter: " + currentStatus); // Placeholder for the modal to be implemented
+  alert("Waiting for the modal to be implemented \n" + "Parameter: " + currentStatus); // Placeholder for the modal to be implemented
   renderTasks();
 }
 window.addNewTaskCategory = addNewTaskCategory;
