@@ -105,19 +105,20 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
       <div id="currentSubtaskBox-${subtaskID}" class="currentSubtaskBox">
         <div class="dotBox">
           ${returnIcon("dot")}
+          <p id="currentSubtaskText-${subtaskID}">${subtaskText}</p>
         </div>
-        <p id="currentSubtaskText-${subtaskID}">${subtaskText}</p>
+        
         <div class="subtaskActionBox">
-          <div id="currentSubtaskEdit-${subtaskID}">Edit${returnIcon("editPen")}</div>
-          <div>Divider</div>
-          <div id="currentSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
+          <div id="currentSubtaskEdit-${subtaskID}">${returnIcon("editPen")}</div>
+          <div class="subtaskSeparator"></div>
+          <div id="currentSubtaskDelete-${subtaskID}">${returnIcon("deleteTrashCan")}</div>
         </div>
       </div>
       <div id="editSubtaskBox-${subtaskID}" class="editSubtaskBox d_none">
         <input id="editSubtaskInput-${subtaskID}" type="text">
         <div class="subtaskActionBox">
           <div id="editSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
-          <div>Divider</div>
+          <div class="subtaskSeparator">Divider</div>
           <div id="editSubtaskSave-${subtaskID}">Save ${returnIcon("check")}</div>
         </div>
       </div>
