@@ -83,22 +83,34 @@ function clearAddTaskHTML() {
 
 export function createNewSubtask(card, inputID, containerID) {
   if (card == "add") {
-    generateSubtaskElement(inputID, containerID);
+    renderSubtaskElement(inputID, containerID);
     document.getElementById("subtaskInput").value = "";
   }
   if (card == "edit") {
   }
 }
 
-export function generateSubtaskElement(inputID, containerID) {
+export function renderSubtaskElement(inputID, containerID) {
   let subtaskText = document.getElementById(inputID).value;
-  let subtaskListItem = document.createElement("li");
-  subtaskListItem.innerText = subtaskText;
-  document.getElementById(containerID).appendChild(subtaskListItem);
-  createSubtaskTemplate(subtaskText);
+  let subtaskID = createSubtaskObject(subtaskText);
+  let newSubtaskTemplate = getSubtaskTemplate(subtaskText, subtaskID);
+  document.getElementById(containerID).insertAdjacentHTML("beforeend", newSubtaskTemplate);
 }
 
-function createSubtaskTemplate(subtaskText) {
+function getSubtaskTemplate(subtaskText, subtaskID) {
+  return /*html*/`
+    <li>
+      <p>${subtaskText}</p>
+      <div>
+        <div>Edit</div>
+        <div>Divider</div>
+        <div>Delete</div>
+      </div>
+    </li>
+  `
+}
+
+function createSubtaskObject(subtaskText) {
   let subtaskID = "SUBTASK" + Date.now();
   let newSubtask = {
     creationDate: Date.now(),
@@ -108,6 +120,7 @@ function createSubtaskTemplate(subtaskText) {
     task: subtaskText,
   };
   newTaskObject.subtasks[subtaskID] = newSubtask;
+  return subtaskID;
 }
 
 export function selectPrio(event) {
