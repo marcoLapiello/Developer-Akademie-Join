@@ -53,12 +53,9 @@ export function getNewTaskTemplate() {
   newTaskObject.categoryColor = "";
   newTaskObject.progress = currentProgress;
   newTaskObject.status = currentStatus;
-
   let newTask = newTaskObject;
-
-  newTaskObject = emptyTaskTemplate;
-  currentPrio = "medium";
-
+  setGlobalVariablesToDefault();
+  clearAddTaskHTML();
   return newTask;
   // - assign selected users
 
@@ -68,9 +65,26 @@ export function getNewTaskTemplate() {
 // implement function!!! import selectedUsers(Array) from userDropdownlist.js
 // change selectedUsers(Array) to an objact and assign it to getNewTaskTemplate
 
+function setGlobalVariablesToDefault() {
+  currentPrio = "medium";
+  currentProgress = 0;
+  currentStatus = "In progress";
+  newTaskObject = emptyTaskTemplate;
+}
+
+function clearAddTaskHTML() {
+  document.getElementById("taskTitleInput").value = "";
+  document.getElementById("taskDescription").value = "";
+  document.getElementById("currentAssignation").innerHTML = "";
+  document.getElementById("taskDueDate").value = "";
+  document.getElementById("taskCategory").innerText = "Select task category";
+  document.getElementById("subtaskContainer").innerHTML = "";
+}
+
 export function createNewSubtask(card, inputID, containerID) {
   if (card == "add") {
     generateSubtaskElement(inputID, containerID);
+    document.getElementById("subtaskInput").value = "";
   }
   if (card == "edit") {
   }
