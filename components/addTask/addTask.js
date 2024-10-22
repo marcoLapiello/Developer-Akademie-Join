@@ -1,6 +1,8 @@
 import { openCloseDropdown } from "../addTask/userDropdown.js";
 window.openCloseDropdown = openCloseDropdown;
 
+import { returnIcon } from "../icons.js";
+
 let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
@@ -98,17 +100,34 @@ export function renderSubtaskElement(inputID, containerID) {
 }
 
 function getSubtaskTemplate(subtaskText, subtaskID) {
-  return /*html*/`
-    <li>
-      <p>${subtaskText}</p>
-      <div>
-        <div>Edit</div>
-        <div>Divider</div>
-        <div>Delete</div>
+  return /*html*/ `
+    <div class="subtaskElementWrapper">
+      <div id="currentSubtaskBox-${subtaskID}" class="currentSubtaskBox">
+        <div class="dotBox">
+          ${returnIcon("dot")}
+        </div>
+        <p id="currentSubtaskText-${subtaskID}">${subtaskText}</p>
+        <div class="subtaskActionBox d_none">
+          <div id="currentSubtaskEdit-${subtaskID}">Edit${returnIcon("editPen")}</div>
+          <div>Divider</div>
+          <div id="currentSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
+        </div>
       </div>
-    </li>
-  `
+      <div id="editSubtaskBox-${subtaskID}" class="editSubtaskBox d_none">
+        <input id="editSubtaskInput-${subtaskID}" type="text">
+        <div class="subtaskActionBox">
+          <div id="editSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
+          <div>Divider</div>
+          <div id="editSubtaskSave-${subtaskID}">Save ${returnIcon("check")}</div>
+        </div>
+      </div>
+    </div>
+  `;
 }
+
+// zum editieren
+// zum löschen
+// zum speichern
 
 function createSubtaskObject(subtaskText) {
   let subtaskID = "SUBTASK" + Date.now();
