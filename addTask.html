@@ -30,7 +30,7 @@
                     <textarea name="" id="taskDescription" placeholder="Enter a description"></textarea>
                   </div>
 
-                  <div>
+                  <div class="assignedToContainer">
                     <p>Assigned to</p>
                     <div class="">
                       <div id="assignedToDropdown" class="assignedToDropdown">
@@ -42,10 +42,10 @@
                           src="./assets/icons/arrow_drop_down.png"
                           alt=""
                         />
-                        <div id="contactsToAssign" class="contactsToAssign d_none"></div>
-                        <div id="currentAssignation" class="currentAssignation"></div>
                       </div>
                     </div>
+                    <div id="contactsToAssign" class="contactsToAssign d_none"></div>
+                    <div id="currentAssignation" class="currentAssignation"></div>
                   </div>
                 </div>
                 <div class="addTaskSeparator"></div>
@@ -112,7 +112,7 @@
               <div id="addTaskBottomContainer" class="addTaskBottomContainer">
                 <p><span style="color: red">*</span>This field is required</p>
                 <div id="taskBtnContainer" class="taskBtnContainer">
-                  <button class="cancelBtn" onclick="clearAddTaskHTML()">
+                  <button class="clearBtn" onclick="clearAddTaskHTML()">
                     Clear
                     <img src="./assets/icons/x_btn.svg" alt="" />
                   </button>
