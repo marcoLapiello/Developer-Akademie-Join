@@ -47,6 +47,7 @@ import {
   editSubtask,
   deleteSubtask,
   saveSubtaskEditing,
+  clearAddTaskHTML,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -56,6 +57,7 @@ window.renderSubtaskElement = renderSubtaskElement;
 window.editSubtask = editSubtask;
 window.deleteSubtask = deleteSubtask;
 window.saveSubtaskEditing = saveSubtaskEditing;
+window.clearAddTaskHTML = clearAddTaskHTML;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;

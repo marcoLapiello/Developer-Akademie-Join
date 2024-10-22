@@ -328,11 +328,11 @@
           display: flex;
           overflow-y: auto;
 
-          .subtaskElementWrapper{
+          .subtaskElementWrapper {
             width: 100%;
             display: flex;
             justify-content: space-between;
-            
+
             .currentSubtaskBox {
               width: 100%;
               height: 30px;
@@ -403,7 +403,7 @@
                 .subtaskSeparator {
                   width: 2px;
                   height: 24px;
-                  background-color: #A8A8A8;
+                  background-color: #a8a8a8;
                 }
               }
             }

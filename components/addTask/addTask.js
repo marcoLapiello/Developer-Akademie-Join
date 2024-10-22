@@ -73,7 +73,7 @@ function setGlobalVariablesToDefault() {
   newTaskObject = emptyTaskTemplate;
 }
 
-function clearAddTaskHTML() {
+export function clearAddTaskHTML() {
   document.getElementById("taskTitleInput").value = "";
   document.getElementById("taskDescription").value = "";
   document.getElementById("currentAssignation").innerHTML = "";
@@ -92,11 +92,26 @@ export function createNewSubtask(card, inputID, containerID) {
   }
 }
 
+function createSubtaskObject(subtaskText) {
+  let subtaskID = "SUBTASK" + Date.now();
+  let newSubtask = {
+    creationDate: Date.now(),
+    creatorId: "",
+    id: subtaskID,
+    isDone: false,
+    task: subtaskText,
+  };
+  newTaskObject.subtasks[subtaskID] = newSubtask;
+  return subtaskID;
+}
+
 export function renderSubtaskElement(inputID, containerID) {
   let subtaskText = document.getElementById(inputID).value;
   let subtaskID = createSubtaskObject(subtaskText);
   let newSubtaskTemplate = getSubtaskTemplate(subtaskText, subtaskID);
   document.getElementById(containerID).insertAdjacentHTML("beforeend", newSubtaskTemplate);
+  console.log(newTaskObject);
+  
 }
 
 function getSubtaskTemplate(subtaskText, subtaskID) {
@@ -109,7 +124,7 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
         </div>
         
         <div class="subtaskActionBox">
-          <div onclick="editSubtask(${subtaskID})" id="currentSubtaskEdit-${subtaskID}">${returnIcon("editPen")}</div>
+          <div onclick="editSubtask('${subtaskID}')" id="currentSubtaskEdit-${subtaskID}">${returnIcon("editPen")}</div>
           <div class="subtaskSeparator"></div>
           <div onclick="deleteSubtask('${subtaskID}', 'add')" id="currentSubtaskDelete-${subtaskID}">${returnIcon("deleteTrashCan")}</div>
         </div>
@@ -119,7 +134,7 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
         <div class="subtaskActionBox">
           <div onclick="deleteSubtask('${subtaskID}', 'add')" id="editSubtaskDelete-${subtaskID}">${returnIcon("deleteTrashCan")}</div>
           <div class="subtaskSeparator"></div>
-          <div id="editSubtaskSave-${subtaskID}">${returnIcon("check_black")}</div>
+          <div onclick="saveSubtaskEditing('${subtaskID}', 'add')" id="editSubtaskSave-${subtaskID}">${returnIcon("check_black")}</div>
         </div>
       </div>
     </div>
@@ -134,8 +149,9 @@ export function editSubtask(subtaskID) {
 
 export function deleteSubtask(subtaskID, card) {
   if (card == "add") {
-    // lösche das element im html mit der passenden ID
-    // lösche das object aus newTaskObject
+    document.getElementById(`subtaskElementWrapper-${subtaskID}`).remove();
+    delete newTaskObject.subtasks[subtaskID];
+    console.log(newTaskObject);
   } else {
     // lösche das element im html mit der passenden ID
     // lösche das subtask object aus der datenbank mit hilfe von tasksApiService.js / delteSingleSubtaskDatabase()
@@ -144,25 +160,14 @@ export function deleteSubtask(subtaskID, card) {
 
 export function saveSubtaskEditing(subtaskID, card) {
   if (card == "add") {
-    // lösche das element im html mit der passenden ID
-    // überschreibe das object aus newTaskObject
+    document.getElementById(`currentSubtaskText-${subtaskID}`).innerText = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
+    newTaskObject.subtasks[subtaskID].task = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
+    document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.remove("d_none");
+    document.getElementById(`editSubtaskBox-${subtaskID}`).classList.add("d_none");
   } else {
     // lösche das element im html mit der passenden ID
     // überschreibe das subtask object aus der datenbank mit hilfe von tasksApiService.js / patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked)
   }
-}
-
-function createSubtaskObject(subtaskText) {
-  let subtaskID = "SUBTASK" + Date.now();
-  let newSubtask = {
-    creationDate: Date.now(),
-    creatorId: "",
-    id: subtaskID,
-    isDone: false,
-    task: subtaskText,
-  };
-  newTaskObject.subtasks[subtaskID] = newSubtask;
-  return subtaskID;
 }
 
 export function selectPrio(event) {

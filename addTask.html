@@ -95,10 +95,7 @@
                     <div class="addSubtaskContainer">
                       <div class="subtaskInputContainer">
                         <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
-                        <div
-                          onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')"
-                          id="renderSubtaskElement"
-                          class="newSubtaskPlusBtn">
+                        <div onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')" id="renderSubtaskElement" class="newSubtaskPlusBtn">
                           <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
                             <path
                               d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z"
@@ -115,7 +112,7 @@
               <div id="addTaskBottomContainer" class="addTaskBottomContainer">
                 <p><span style="color: red">*</span>This field is required</p>
                 <div id="taskBtnContainer" class="taskBtnContainer">
-                  <button class="cancelBtn" onclick="">
+                  <button class="cancelBtn" onclick="clearAddTaskHTML()">
                     Clear
                     <img src="./assets/icons/x_btn.svg" alt="" />
                   </button>
