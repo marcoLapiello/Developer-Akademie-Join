@@ -20,12 +20,9 @@ export function getNewTaskTemplate() {
     progress: currentProgress,
     status: currentStatus,
     subtasks: {
-      noSubtask: {
-        id: "noSubtask",
-      },
+      placeholder: "placeholder",
     },
   };
-  console.log(task);
   // - assign selected users
 
   // - clear selected users
@@ -38,6 +35,7 @@ export function getNewTaskTemplate() {
 export function createNewSubtask(card, id) {
   if (card == "add") {
     createSubtaskFromAddTaskHTML();
+    createSubtaskTemplate();
   }
 
   if (card == "edit") {
@@ -46,7 +44,24 @@ export function createNewSubtask(card, id) {
 
 export function createSubtaskFromAddTaskHTML() {
   let subtaskText = document.getElementById("subtaskInput").value;
-  console.log(subtaskText);
+  let subtaskListItem = document.createElement("li");
+  subtaskListItem.innerText = subtaskText;
+  document.getElementById("subtaskContainer").appendChild(subtaskListItem);
+  return subtaskText;
+}
+
+function createSubtaskTemplate() {
+  let subtaskID = "SUBTASK" + Date.now();
+  let newSubtask = {
+    subtaskID: {
+      creationDate: Date.now(),
+      creatorId: "",
+      id: subtaskID,
+      isDone: false,
+      task: createSubtaskFromAddTaskHTML(),
+    },
+  };
+  console.log(newSubtask);
 }
 
 // #subtaskInput

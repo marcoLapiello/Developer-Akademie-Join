@@ -61,7 +61,7 @@
         justify-content: space-between;
         align-items: center;
         position: relative;
-        
+
         .searchUserToAssign {
           padding: 0;
           border: none;
@@ -96,7 +96,7 @@
         top: 102%;
         left: 0;
         z-index: 2;
-      
+
         .userListItem {
           padding: 7px 16px;
           display: flex;
@@ -130,7 +130,7 @@
         }
       }
 
-      .currentAssignation{
+      .currentAssignation {
         height: 100px;
         width: 100%;
         position: absolute;
@@ -139,13 +139,7 @@
         border: solid black 1px;
         display: flex;
         gap: 12px;
-
-        
-
-
       }
-      
-
     }
 
     .addTaskSeparator {
