@@ -6,52 +6,58 @@ let currentProgress = 0;
 let currentStatus = "In progress";
 
 let emptyTaskTemplate = {
-  id: "TASK" + Date.now(),
-  title: document.getElementById("taskTitleInput").value,
-  description: document.getElementById("taskDescription").value,
+  id: "",
+  title: "",
+  description: "",
   assignedTo: { placeholder: "placeholder" },
-  dueDate: document.getElementById("taskDueDate").value,
-  creationDate: Date.now(),
+  dueDate: "",
+  creationDate: "",
   creatorId: "",
-  priority: currentPrio,
-  category: document.getElementById("taskCategory").innerText,
+  priority: "",
+  category: "",
   categoryColor: "",
-  progress: currentProgress,
-  status: currentStatus,
+  progress: "",
+  status: "",
   subtasks: {
     placeholder: "placeholder",
   },
 };
 
 let newTaskObject = {
-  id: "TASK" + Date.now(),
-  title: document.getElementById("taskTitleInput").value,
-  description: document.getElementById("taskDescription").value,
+  id: "",
+  title: "",
+  description: "",
   assignedTo: { placeholder: "placeholder" },
-  dueDate: document.getElementById("taskDueDate").value,
-  creationDate: Date.now(),
+  dueDate: "",
+  creationDate: "",
   creatorId: "",
-  priority: currentPrio,
-  category: document.getElementById("taskCategory").innerText,
+  priority: "",
+  category: "",
   categoryColor: "",
-  progress: currentProgress,
-  status: currentStatus,
+  progress: "",
+  status: "",
   subtasks: {
     placeholder: "placeholder",
   },
 };
 
 export function getNewTaskTemplate() {
+  newTaskObject.id = "TASK" + Date.now();
+  newTaskObject.title = document.getElementById("taskTitleInput").value;
+  newTaskObject.description = document.getElementById("taskDescription").value;
+  newTaskObject.dueDate = document.getElementById("taskDueDate").value;
+  newTaskObject.creationDate = Date.now();
+  newTaskObject.creatorId = "";
+  newTaskObject.priority = currentPrio;
+  newTaskObject.category = document.getElementById("taskCategory").innerText;
+  newTaskObject.categoryColor = "";
+  newTaskObject.progress = currentProgress;
+  newTaskObject.status = currentStatus;
 
-
-
-
-
-
-  
   let newTask = newTaskObject;
 
   newTaskObject = emptyTaskTemplate;
+  currentPrio = "medium";
 
   return newTask;
   // - assign selected users
