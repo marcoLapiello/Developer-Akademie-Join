@@ -14,8 +14,6 @@ export async function patchNewTask() {
   let newTask = getNewTaskTemplate();
   let id = newTask.id;
 
-  console.log(newTask);
-
   // let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
   //   method: "PATCH",
   //   header: {

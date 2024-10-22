@@ -3,6 +3,8 @@ window.openCloseDropdown = openCloseDropdown;
 
 import { returnIcon } from "../icons.js";
 
+import { selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
+
 let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
@@ -55,8 +57,10 @@ export function getNewTaskTemplate() {
   newTaskObject.categoryColor = "";
   newTaskObject.progress = currentProgress;
   newTaskObject.status = currentStatus;
+  getSelectedUsers();
   let newTask = newTaskObject;
   clearAddTaskHTML();
+  clearSelectedUsers();
   return newTask;
   // - assign selected users
 
@@ -81,6 +85,7 @@ export function clearAddTaskHTML() {
   document.getElementById("taskCategory").innerText = "Select task category";
   document.getElementById("subtaskContainer").innerHTML = "";
   setGlobalVariablesToDefault();
+  clearSelectedUsers();
 }
 
 export function createNewSubtask(card, inputID, containerID) {
@@ -90,6 +95,13 @@ export function createNewSubtask(card, inputID, containerID) {
   }
   if (card == "edit") {
   }
+}
+
+export function renderSubtaskElement(inputID, containerID) {
+  let subtaskText = document.getElementById(inputID).value;
+  let subtaskID = createSubtaskObject(subtaskText);
+  let newSubtaskTemplate = getSubtaskTemplate(subtaskText, subtaskID);
+  document.getElementById(containerID).insertAdjacentHTML("beforeend", newSubtaskTemplate);
 }
 
 function createSubtaskObject(subtaskText) {
@@ -103,14 +115,6 @@ function createSubtaskObject(subtaskText) {
   };
   newTaskObject.subtasks[subtaskID] = newSubtask;
   return subtaskID;
-}
-
-export function renderSubtaskElement(inputID, containerID) {
-  let subtaskText = document.getElementById(inputID).value;
-  let subtaskID = createSubtaskObject(subtaskText);
-  let newSubtaskTemplate = getSubtaskTemplate(subtaskText, subtaskID);
-  document.getElementById(containerID).insertAdjacentHTML("beforeend", newSubtaskTemplate);
-  console.log(newTaskObject);
 }
 
 function getSubtaskTemplate(subtaskText, subtaskID) {
@@ -197,6 +201,10 @@ export function selectCategory(selectedCategory) {
   document.getElementById("categorySelectionContainer").classList.toggle("d_none");
 }
 
-export async function getFilteredUsersArray() {
-  // wir bauen ein array aus
+export function getSelectedUsers() {
+  selectedUsers.forEach((userID) => {
+    newTaskObject.assignedTo[userID] = userID;
+  })
+  console.log(newTaskObject);
+  
 }
