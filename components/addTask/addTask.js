@@ -92,6 +92,19 @@ export function createNewSubtask(card, inputID, containerID) {
   }
 }
 
+function createSubtaskObject(subtaskText) {
+  let subtaskID = "SUBTASK" + Date.now();
+  let newSubtask = {
+    creationDate: Date.now(),
+    creatorId: "",
+    id: subtaskID,
+    isDone: false,
+    task: subtaskText,
+  };
+  newTaskObject.subtasks[subtaskID] = newSubtask;
+  return subtaskID;
+}
+
 export function renderSubtaskElement(inputID, containerID) {
   let subtaskText = document.getElementById(inputID).value;
   let subtaskID = createSubtaskObject(subtaskText);
@@ -130,6 +143,7 @@ export function editSubtask(subtaskID) {
   document.getElementById(`editSubtaskInput-${subtaskID}`).value = document.getElementById(`currentSubtaskText-${subtaskID}`).innerText;
   document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.add("d_none");
   document.getElementById(`editSubtaskBox-${subtaskID}`).classList.remove("d_none");
+  console.log(newTaskObject);
 }
 
 export function deleteSubtask(subtaskID, card) {
@@ -144,25 +158,17 @@ export function deleteSubtask(subtaskID, card) {
 
 export function saveSubtaskEditing(subtaskID, card) {
   if (card == "add") {
-    // lösche das element im html mit der passenden ID
+    document.getElementById(`currentSubtaskText-${subtaskID}`).innerText = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
+    newTaskObject.subtasks[subtaskID].task = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
+    document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.remove("d_none");
+    document.getElementById(`editSubtaskBox-${subtaskID}`).classList.add("d_none");
+    console.log(newTaskObject);
+
     // überschreibe das object aus newTaskObject
   } else {
     // lösche das element im html mit der passenden ID
     // überschreibe das subtask object aus der datenbank mit hilfe von tasksApiService.js / patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked)
   }
-}
-
-function createSubtaskObject(subtaskText) {
-  let subtaskID = "SUBTASK" + Date.now();
-  let newSubtask = {
-    creationDate: Date.now(),
-    creatorId: "",
-    id: subtaskID,
-    isDone: false,
-    task: subtaskText,
-  };
-  newTaskObject.subtasks[subtaskID] = newSubtask;
-  return subtaskID;
 }
 
 export function selectPrio(event) {
