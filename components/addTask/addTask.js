@@ -73,7 +73,7 @@ function setGlobalVariablesToDefault() {
   newTaskObject = emptyTaskTemplate;
 }
 
-function clearAddTaskHTML() {
+export function clearAddTaskHTML() {
   document.getElementById("taskTitleInput").value = "";
   document.getElementById("taskDescription").value = "";
   document.getElementById("currentAssignation").innerHTML = "";
@@ -108,8 +108,8 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
           <p id="currentSubtaskText-${subtaskID}">${subtaskText}</p>
         </div>
         
-        <div class="subtaskActionBox d_none">
-          <div onclick="editSubtask(${subtaskID})" id="currentSubtaskEdit-${subtaskID}">${returnIcon("editPen")}</div>
+        <div class="subtaskActionBox">
+          <div onclick="editSubtask('${subtaskID}')" id="currentSubtaskEdit-${subtaskID}">${returnIcon("editPen")}</div>
           <div class="subtaskSeparator"></div>
           <div onclick="deleteSubtask('${subtaskID}', 'add')" id="currentSubtaskDelete-${subtaskID}">${returnIcon("deleteTrashCan")}</div>
         </div>
@@ -119,7 +119,7 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
         <div class="subtaskActionBox">
           <div onclick="deleteSubtask('${subtaskID}', 'add')" id="editSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
           <div class="subtaskSeparator">Divider</div>
-          <div id="editSubtaskSave-${subtaskID}">Save ${returnIcon("check")}</div>
+          <div onclick="saveSubtaskEditing('${subtaskID}', 'add')" id="editSubtaskSave-${subtaskID}">Save ${returnIcon("check")}</div>
         </div>
       </div>
     </div>
