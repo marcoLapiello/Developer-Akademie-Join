@@ -129,11 +129,11 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
         </div>
       </div>
       <div id="editSubtaskBox-${subtaskID}" class="editSubtaskBox d_none">
-        <input id="editSubtaskInput-${subtaskID}" type="text">
+        <input id="editSubtaskInput-${subtaskID}" type="text" class="editSubtaskInput">
         <div class="subtaskActionBox">
-          <div onclick="deleteSubtask('${subtaskID}', 'add')" id="editSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
-          <div class="subtaskSeparator">Divider</div>
-          <div onclick="saveSubtaskEditing('${subtaskID}', 'add')" id="editSubtaskSave-${subtaskID}">Save ${returnIcon("check")}</div>
+          <div onclick="deleteSubtask('${subtaskID}', 'add')" id="editSubtaskDelete-${subtaskID}">${returnIcon("deleteTrashCan")}</div>
+          <div class="subtaskSeparator"></div>
+          <div onclick="saveSubtaskEditing('${subtaskID}', 'add')" id="editSubtaskSave-${subtaskID}">${returnIcon("check_black")}</div>
         </div>
       </div>
     </div>
