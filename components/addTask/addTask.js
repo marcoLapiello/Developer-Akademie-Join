@@ -42,6 +42,13 @@ let newTaskObject = {
 };
 
 export function getNewTaskTemplate() {
+
+
+
+
+
+
+  
   let newTask = newTaskObject;
 
   newTaskObject = emptyTaskTemplate;
@@ -82,9 +89,6 @@ function createSubtaskTemplate(subtaskText) {
   };
   newTaskObject.subtasks[subtaskID] = newSubtask;
 }
-
-// #subtaskInput
-// #subtaskContainer
 
 export function selectPrio(event) {
   if (event.target == document.getElementById("prioUrgent")) {
