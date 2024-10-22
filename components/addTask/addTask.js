@@ -101,24 +101,24 @@ export function renderSubtaskElement(inputID, containerID) {
 
 function getSubtaskTemplate(subtaskText, subtaskID) {
   return /*html*/ `
-    <div>
+    <div class="subtaskElementWrapper">
       <div id="currentSubtaskBox-${subtaskID}" class="currentSubtaskBox">
         <div class="dotBox">
           ${returnIcon("dot")}
         </div>
-        <p>${subtaskText}</p>
-        <div>
-          <div>Edit${returnIcon("editPen")}</div>
+        <p id="currentSubtaskText-${subtaskID}">${subtaskText}</p>
+        <div class="subtaskActionBox">
+          <div id="currentSubtaskEdit-${subtaskID}">Edit${returnIcon("editPen")}</div>
           <div>Divider</div>
-          <div>Delete${returnIcon("deleteTrashCan")}</div>
+          <div id="currentSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
         </div>
       </div>
       <div id="editSubtaskBox-${subtaskID}" class="editSubtaskBox d_none">
         <input id="editSubtaskInput-${subtaskID}" type="text">
-        <div>
-          <div>Delete${returnIcon("deleteTrashCan")}</div>
+        <div class="subtaskActionBox">
+          <div id="editSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
           <div>Divider</div>
-          <div>Save <img src="../assets/icons/check.svg" alt=""></div>
+          <div id="editSubtaskSave-${subtaskID}">Save <img src="../assets/icons/check.svg" alt=""></div>
         </div>
       </div>
     </div>
