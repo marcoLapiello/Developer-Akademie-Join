@@ -8,13 +8,20 @@ export function addNewTaskCategory(currentStatus) {
 }
 window.addNewTaskCategory = addNewTaskCategory;
 
-export async function renderTasks() {
+export async function renderTasks(currentCategory = "all", oldCategory = "all") {
   let tasksArray = await getTasksArray();
   // Render all the tasks in the different categories
-  renderTodoCards("todo", tasksArray);
-  renderTodoCards("inProgress", tasksArray);
-  renderTodoCards("awaitFeedback", tasksArray);
-  renderTodoCards("done", tasksArray);
+  if (currentCategory === "all" || oldCategory === "all") {
+    renderTodoCards("todo", tasksArray);
+    renderTodoCards("inProgress", tasksArray);
+    renderTodoCards("awaitFeedback", tasksArray);
+    renderTodoCards("done", tasksArray);
+  } else if (currentCategory === oldCategory) {
+    renderTodoCards(currentCategory, tasksArray);
+  } else {
+    renderTodoCards(currentCategory, tasksArray);
+    renderTodoCards(oldCategory, tasksArray);
+  }
 }
 
 // Render the tasks in the different categories
@@ -164,8 +171,9 @@ async function moveToCategory(category, id = 0) {
   if (id !== 0) currentDraggedElement = id; // Set the current dragged element if the id is not 0
   const tasksArray = await getTasksArray(); // Get the tasks array from the database
   const task = tasksArray.find((task) => task[1].id === currentDraggedElement); // Find the task by the id
+  let oldCategory = task[1].status; // Save the old category
   task[1].status = category; // Update the status of the task to the new category
-  patchTaskUpdate(task[1], currentDraggedElement); // Patch the task to the database with the new status by using the function patchTaskUpdate
+  patchTaskUpdate(task[1], currentDraggedElement, oldCategory); // Patch the task to the database with the new status by using the function patchTaskUpdate
 }
 window.moveToCategory = moveToCategory;
 
@@ -200,7 +208,7 @@ window.removeHighlightCategory = removeHighlightCategory;
 const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app"; // Base URL for the database
 
 // Patch the task to the database with the new status by using the fetch API
-export async function patchTaskUpdate(updateData, id) {
+export async function patchTaskUpdate(updateData, id, oldCategory) {
   let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
     method: "PATCH",
     header: {
@@ -211,7 +219,8 @@ export async function patchTaskUpdate(updateData, id) {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  renderTasks(); // Render the tasks after the patch is successful
+  renderTasks(`${updateData.status}`, `${oldCategory}`); // Render the tasks after the patch is successful
+  // renderTasks(); // Render the tasks after the patch is successful
 }
 
 // Scroll horizontally when the mouse wheel is used in the scrollable containers

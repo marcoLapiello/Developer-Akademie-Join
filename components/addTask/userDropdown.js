@@ -3,6 +3,12 @@ import { getUsersArray } from "../../js/script.js";
 export let selectedUsers = [];
 let globalUserArray = [];
 
+export function clearSelectedUsers() {
+  selectedUsers = [];
+  renderUserDropdownList();
+  renderCurrentAssignation();
+}
+
 function getUserListItem(userArray, index, isInputChecked) {
   return /*html*/ `
     <div id="${userArray[index][1].id}" class="userListItem">
@@ -19,14 +25,17 @@ function getUserListItem(userArray, index, isInputChecked) {
 }
 
 export async function renderUserDropdownList() {
+  document.getElementById("contactsToAssign").innerHTML = "";
   let userArray = await getUsersArray();
   globalUserArray = userArray;
   for (let index = 0; index < userArray.length; index++) {
     let currentUserId = userArray[index][1].id;
     let isInputChecked = false;
-    for (let id = 0; id < selectedUsers.length; id++) {
-      if (selectedUsers[id] == currentUserId) {
-        isInputChecked = true;
+    if (selectedUsers.length > 0) {
+      for (let id = 0; id < selectedUsers.length; id++) {
+        if (selectedUsers[id] == currentUserId) {
+          isInputChecked = true;
+        }
       }
     }
     document.getElementById("contactsToAssign").insertAdjacentHTML("beforeend", getUserListItem(userArray, index, isInputChecked));
@@ -57,7 +66,6 @@ export function renderCurrentAssignation() {
       const element = globalUserArray[id];
       if (element[0] == selectedUsers[index]) {
         currentUserIndex = id;
-        console.log(currentUserIndex);
       }
     }
     document.getElementById("currentAssignation").innerHTML += getCurrentAssignationTemplate(selectedUsers[index], currentUserIndex);
