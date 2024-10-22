@@ -118,7 +118,7 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
         <div class="subtaskActionBox">
           <div id="editSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
           <div>Divider</div>
-          <div id="editSubtaskSave-${subtaskID}">Save <img src="../assets/icons/check.svg" alt=""></div>
+          <div id="editSubtaskSave-${subtaskID}">Save ${returnIcon("check")}</div>
         </div>
       </div>
     </div>

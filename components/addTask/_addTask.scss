@@ -137,7 +137,6 @@
         position: absolute;
         top: 101%;
         left: 0;
-        // border: solid black 1px;
         display: flex;
         align-items: flex-start;
         flex-wrap: wrap;
@@ -285,20 +284,34 @@
       .addSubtaskContainer {
         position: relative;
 
-        svg {
-          position: absolute;
-          width: 18px;
-          height: 18px;
-          padding: 1px;
-          top: 50%;
-          right: 5%;
-          transform: translate(-5%, -50%);
-          border-radius: 8px;
+        // svg {
+        //   position: absolute;
+        //   width: 18px;
+        //   height: 18px;
+        //   padding: 1px;
+        //   top: 50%;
+        //   right: 5%;
+        //   transform: translate(-5%, -50%);
+        //   border-radius: 8px;
 
-          &:hover {
-            cursor: pointer;
-            background-color: #d1d1d192;
-          }
+        //   &:hover {
+        //     cursor: pointer;
+        //     background-color: #d1d1d192;
+        //   }
+        // }
+
+        .subtaskContainer{
+          height: 120px;
+          width: 100%;
+          padding: 7px 0px;
+          position: absolute;
+          top: 101%;
+          left: 0;
+          display: flex;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 12px;
+          overflow-y: auto;
         }
       }
     }
