@@ -174,9 +174,19 @@ function addHighlightCategory() {
   const slotsRef = document.querySelectorAll(".draggableIndicator");
   slotsRef.forEach((slot) => {
     slot.classList.add("targetSlot");
+    slot.addEventListener("dragenter", addHighlightCategoryBG);
+    slot.addEventListener("dragleave", removeHighlightCategoryBG);
   });
 }
 window.addHighlightCategory = addHighlightCategory;
+
+function addHighlightCategoryBG(event) {
+  event.target.style.backgroundColor = "rgb(136, 136, 136, 0.1)";
+}
+
+function removeHighlightCategoryBG(event) {
+  event.target.style.backgroundColor = "";
+}
 
 // remove the highlight from the category when dragging ends
 function removeHighlightCategory() {
