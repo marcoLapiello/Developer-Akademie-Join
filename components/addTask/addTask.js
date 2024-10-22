@@ -84,7 +84,7 @@ export function clearAddTaskHTML() {
 }
 
 export function createNewSubtask(card, inputID, containerID) {
-  if (card == "add") {
+  if (card == "add" && document.getElementById("subtaskInput").value) {
     renderSubtaskElement(inputID, containerID);
     document.getElementById("subtaskInput").value = "";
   }
@@ -111,7 +111,6 @@ export function renderSubtaskElement(inputID, containerID) {
   let newSubtaskTemplate = getSubtaskTemplate(subtaskText, subtaskID);
   document.getElementById(containerID).insertAdjacentHTML("beforeend", newSubtaskTemplate);
   console.log(newTaskObject);
-  
 }
 
 function getSubtaskTemplate(subtaskText, subtaskID) {
