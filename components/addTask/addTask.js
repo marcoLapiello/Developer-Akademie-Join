@@ -10,7 +10,7 @@ export function getNewTaskTemplate() {
     id: "TASK" + Date.now(),
     title: document.getElementById("taskTitleInput").value,
     description: document.getElementById("taskDescription").value,
-    assignedTo: { notAssigned: "notAssigned" },
+    assignedTo: { placeholder: "placeholder" },
     dueDate: document.getElementById("taskDueDate").value,
     creationDate: Date.now(),
     creatorId: "",
