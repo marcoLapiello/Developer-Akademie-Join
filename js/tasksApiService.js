@@ -15,7 +15,7 @@ export async function patchNewTask() {
   let id = newTask.id;
 
   console.log(newTask);
-  
+
   // let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
   //   method: "PATCH",
   //   header: {
@@ -28,6 +28,8 @@ export async function patchNewTask() {
   // }
   // return id;
 }
+
+export async function delteSingleSubtaskDatabase() {}
 
 export async function patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked) {
   let response = await fetch(baseUrl + "/tasks/" + taskID + "/subtasks/" + subtaskID + ".json", {

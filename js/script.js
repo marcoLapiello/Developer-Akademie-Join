@@ -38,12 +38,24 @@ renderBoardHeadTemplate();
 import { loadTasks, patchNewTask } from "./tasksApiService.js";
 window.patchNewTask = patchNewTask;
 
-import { getNewTaskTemplate, selectPrio, createNewSubtask, selectCategory, renderSubtaskElement } from "../components/addTask/addTask.js";
+import {
+  getNewTaskTemplate,
+  selectPrio,
+  createNewSubtask,
+  selectCategory,
+  renderSubtaskElement,
+  editSubtask,
+  deleteSubtask,
+  saveSubtaskEditing,
+} from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
 window.createNewSubtask = createNewSubtask;
 window.selectCategory = selectCategory;
 window.renderSubtaskElement = renderSubtaskElement;
+window.editSubtask = editSubtask;
+window.deleteSubtask = deleteSubtask;
+window.saveSubtaskEditing = saveSubtaskEditing;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;
