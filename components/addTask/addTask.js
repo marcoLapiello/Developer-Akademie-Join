@@ -1,6 +1,8 @@
 import { openCloseDropdown } from "../addTask/userDropdown.js";
 window.openCloseDropdown = openCloseDropdown;
 
+import { returnIcon } from "../icons.js";
+
 let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
@@ -98,16 +100,29 @@ export function renderSubtaskElement(inputID, containerID) {
 }
 
 function getSubtaskTemplate(subtaskText, subtaskID) {
-  return /*html*/`
-    <li>
-      <p>${subtaskText}</p>
-      <div>
-        <div>Edit</div>
-        <div>Divider</div>
-        <div>Delete</div>
+  return /*html*/ `
+    <div>
+      <div id="currentSubtaskBox-${subtaskID}" class="currentSubtaskBox">
+        <div class="dotBox">
+          ${returnIcon("dot")}
+        </div>
+        <p>${subtaskText}</p>
+        <div>
+          <div>Edit${returnIcon("editPen")}</div>
+          <div>Divider</div>
+          <div>Delete${returnIcon("deleteTrashCan")}</div>
+        </div>
       </div>
-    </li>
-  `
+      <div id="editSubtaskBox-${subtaskID}" class="editSubtaskBox d_none">
+        <input id="editSubtaskInput-${subtaskID}" type="text">
+        <div>
+          <div>Delete${returnIcon("deleteTrashCan")}</div>
+          <div>Divider</div>
+          <div>Save <img src="../assets/icons/check.svg" alt=""></div>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function createSubtaskObject(subtaskText) {
