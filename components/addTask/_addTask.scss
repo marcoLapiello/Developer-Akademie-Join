@@ -341,11 +341,57 @@
               justify-content: space-between;
               align-items: center;
 
+              &:hover {
+                cursor: pointer;
+                background-color: #d1d1d192;
+                .subtaskActionBox{
+                  display: flex;
+                }
+              }
+
               .dotBox {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 16px;
+
+                
+              }
+
+              .subtaskActionBox {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                display: none;
+
+                .subtaskSeparator {
+                  width: 2px;
+                  height: 24px;
+                  background-color: #A8A8A8;
+                }
+              }
+
+              
+            }
+
+            .editSubtaskBox{
+              width: 100%;
+              height: 30px;
+              padding: 4px 16px;
+              background-color: white;
+              border-bottom: 1px solid #29abe2;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .editSubtaskInput {
+                width: 80%;
+                height: 98%;
+                outline: none;
+                border: none;
+                padding: 0;
+                border-radius: 0;
               }
 
               .subtaskActionBox {
@@ -360,8 +406,6 @@
                   background-color: #A8A8A8;
                 }
               }
-
-              
             }
           }
         }
