@@ -73,7 +73,7 @@ function setGlobalVariablesToDefault() {
   newTaskObject = emptyTaskTemplate;
 }
 
-function clearAddTaskHTML() {
+export function clearAddTaskHTML() {
   document.getElementById("taskTitleInput").value = "";
   document.getElementById("taskDescription").value = "";
   document.getElementById("currentAssignation").innerHTML = "";
@@ -84,71 +84,11 @@ function clearAddTaskHTML() {
 }
 
 export function createNewSubtask(card, inputID, containerID) {
-  if (card == "add") {
+  if (card == "add" && document.getElementById("subtaskInput").value) {
     renderSubtaskElement(inputID, containerID);
     document.getElementById("subtaskInput").value = "";
   }
   if (card == "edit") {
-  }
-}
-
-export function renderSubtaskElement(inputID, containerID) {
-  let subtaskText = document.getElementById(inputID).value;
-  let subtaskID = createSubtaskObject(subtaskText);
-  let newSubtaskTemplate = getSubtaskTemplate(subtaskText, subtaskID);
-  document.getElementById(containerID).insertAdjacentHTML("beforeend", newSubtaskTemplate);
-}
-
-function getSubtaskTemplate(subtaskText, subtaskID) {
-  return /*html*/ `
-    <div id="subtaskElementWrapper-${subtaskID}" class="subtaskElementWrapper">
-      <div id="currentSubtaskBox-${subtaskID}" class="currentSubtaskBox">
-        <div class="dotBox">
-          ${returnIcon("dot")}
-          <p id="currentSubtaskText-${subtaskID}">${subtaskText}</p>
-        </div>
-        
-        <div class="subtaskActionBox d_none">
-          <div onclick="editSubtask(${subtaskID})" id="currentSubtaskEdit-${subtaskID}">${returnIcon("editPen")}</div>
-          <div class="subtaskSeparator"></div>
-          <div onclick="deleteSubtask('${subtaskID}', 'add')" id="currentSubtaskDelete-${subtaskID}">${returnIcon("deleteTrashCan")}</div>
-        </div>
-      </div>
-      <div id="editSubtaskBox-${subtaskID}" class="editSubtaskBox d_none">
-        <input id="editSubtaskInput-${subtaskID}" type="text">
-        <div class="subtaskActionBox">
-          <div onclick="deleteSubtask('${subtaskID}', 'add')" id="editSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
-          <div class="subtaskSeparator">Divider</div>
-          <div id="editSubtaskSave-${subtaskID}">Save ${returnIcon("check")}</div>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-export function editSubtask(subtaskID) {
-  document.getElementById(`editSubtaskInput-${subtaskID}`).value = document.getElementById(`currentSubtaskText-${subtaskID}`).innerText;
-  document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.add("d_none");
-  document.getElementById(`editSubtaskBox-${subtaskID}`).classList.remove("d_none");
-}
-
-export function deleteSubtask(subtaskID, card) {
-  if (card == "add") {
-    // lösche das element im html mit der passenden ID
-    // lösche das object aus newTaskObject
-  } else {
-    // lösche das element im html mit der passenden ID
-    // lösche das subtask object aus der datenbank mit hilfe von tasksApiService.js / delteSingleSubtaskDatabase()
-  }
-}
-
-export function saveSubtaskEditing(subtaskID, card) {
-  if (card == "add") {
-    // lösche das element im html mit der passenden ID
-    // überschreibe das object aus newTaskObject
-  } else {
-    // lösche das element im html mit der passenden ID
-    // überschreibe das subtask object aus der datenbank mit hilfe von tasksApiService.js / patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked)
   }
 }
 
@@ -163,6 +103,70 @@ function createSubtaskObject(subtaskText) {
   };
   newTaskObject.subtasks[subtaskID] = newSubtask;
   return subtaskID;
+}
+
+export function renderSubtaskElement(inputID, containerID) {
+  let subtaskText = document.getElementById(inputID).value;
+  let subtaskID = createSubtaskObject(subtaskText);
+  let newSubtaskTemplate = getSubtaskTemplate(subtaskText, subtaskID);
+  document.getElementById(containerID).insertAdjacentHTML("beforeend", newSubtaskTemplate);
+  console.log(newTaskObject);
+}
+
+function getSubtaskTemplate(subtaskText, subtaskID) {
+  return /*html*/ `
+    <div id="subtaskElementWrapper-${subtaskID}" class="subtaskElementWrapper">
+      <div id="currentSubtaskBox-${subtaskID}" class="currentSubtaskBox">
+        <div class="dotBox">
+          ${returnIcon("dot")}
+          <p id="currentSubtaskText-${subtaskID}">${subtaskText}</p>
+        </div>
+        
+        <div class="subtaskActionBox">
+          <div onclick="editSubtask('${subtaskID}')" id="currentSubtaskEdit-${subtaskID}">${returnIcon("editPen")}</div>
+          <div class="subtaskSeparator"></div>
+          <div onclick="deleteSubtask('${subtaskID}', 'add')" id="currentSubtaskDelete-${subtaskID}">${returnIcon("deleteTrashCan")}</div>
+        </div>
+      </div>
+      <div id="editSubtaskBox-${subtaskID}" class="editSubtaskBox d_none">
+        <input id="editSubtaskInput-${subtaskID}" type="text" class="editSubtaskInput">
+        <div class="subtaskActionBox">
+          <div onclick="deleteSubtask('${subtaskID}', 'add')" id="editSubtaskDelete-${subtaskID}">${returnIcon("deleteTrashCan")}</div>
+          <div class="subtaskSeparator"></div>
+          <div onclick="saveSubtaskEditing('${subtaskID}', 'add')" id="editSubtaskSave-${subtaskID}">${returnIcon("check_black")}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+export function editSubtask(subtaskID) {
+  document.getElementById(`editSubtaskInput-${subtaskID}`).value = document.getElementById(`currentSubtaskText-${subtaskID}`).innerText;
+  document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.add("d_none");
+  document.getElementById(`editSubtaskBox-${subtaskID}`).classList.remove("d_none");
+}
+
+export function deleteSubtask(subtaskID, card) {
+  if (card == "add") {
+    document.getElementById(`subtaskElementWrapper-${subtaskID}`).remove();
+    delete newTaskObject.subtasks[subtaskID];
+    console.log(newTaskObject);
+  } else {
+    // lösche das element im html mit der passenden ID
+    // lösche das subtask object aus der datenbank mit hilfe von tasksApiService.js / delteSingleSubtaskDatabase()
+  }
+}
+
+export function saveSubtaskEditing(subtaskID, card) {
+  if (card == "add") {
+    document.getElementById(`currentSubtaskText-${subtaskID}`).innerText = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
+    newTaskObject.subtasks[subtaskID].task = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
+    document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.remove("d_none");
+    document.getElementById(`editSubtaskBox-${subtaskID}`).classList.add("d_none");
+  } else {
+    // lösche das element im html mit der passenden ID
+    // überschreibe das subtask object aus der datenbank mit hilfe von tasksApiService.js / patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked)
+  }
 }
 
 export function selectPrio(event) {
