@@ -107,7 +107,7 @@ function getSubtaskTemplate(subtaskText, subtaskID) {
           ${returnIcon("dot")}
         </div>
         <p id="currentSubtaskText-${subtaskID}">${subtaskText}</p>
-        <div class="subtaskActionBox">
+        <div class="subtaskActionBox d_none">
           <div id="currentSubtaskEdit-${subtaskID}">Edit${returnIcon("editPen")}</div>
           <div>Divider</div>
           <div id="currentSubtaskDelete-${subtaskID}">Delete${returnIcon("deleteTrashCan")}</div>
