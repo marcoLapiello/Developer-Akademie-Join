@@ -81,18 +81,17 @@
                   <div>
                     <p>Category<span style="color: red">*</span></p>
                     <div>
-                      <div id="categoryDropdown" class="categoryDropdown">
+                      <div onclick="openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')" id="categoryDropdown" class="categoryDropdown">
                         <span id="taskCategory">Select task category</span>
                         <img
-                          onclick="openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')"
                           id="categoryDropdownArrow"
                           class="categoryDropdownArrow"
                           src="./assets/icons/arrow_drop_down.png"
                           alt=""
                         />
                         <div id="categorySelectionContainer" class="categorySelectionContainer d_none">
-                          <p onclick="selectCategory('Technical task')">Technical task</p>
-                          <p onclick="selectCategory('User story')">User story</p>
+                          <p onclick="selectCategory('Technical task'); openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')">Technical task</p>
+                          <p onclick="selectCategory('User story'); openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')">User story</p>
                         </div>
                       </div>
                     </div>

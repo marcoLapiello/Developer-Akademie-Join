@@ -14,7 +14,6 @@ export function removeUsersSearchFieldValue() {
     document.getElementById("searchUserToAssign").value = "";
     renderUserDropdownList();
   }
-  
 }
 
 function getUserListItem(userArray, index, isInputChecked) {
@@ -77,11 +76,23 @@ export function openCloseDropdown(arrow, content) {
 export function openUsersDropdownList(arrow, content) {
   document.getElementById(arrow).classList.add("rotatedArrow");
   document.getElementById(content).classList.remove("d_none");
+  if (content == "contactsToAssign") {
+    document.getElementById("assignedToDropdown").style.borderColor = "#29abe2";
+  }
+  if (content == "categorySelectionContainer") {
+    document.getElementById("categoryDropdown").style.borderColor = "#29abe2";
+  }
 }
 
 export function closeUsersDropdownList(arrow, content) {
   document.getElementById(arrow).classList.remove("rotatedArrow");
   document.getElementById(content).classList.add("d_none");
+  if (content == "contactsToAssign") {
+    document.getElementById("assignedToDropdown").style.borderColor = "#d1d1d1";
+  }
+  if (content == "categorySelectionContainer") {
+    document.getElementById("categoryDropdown").style.borderColor = "#d1d1d1";
+  }
   removeUsersSearchFieldValue();
 }
 
