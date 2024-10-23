@@ -54,6 +54,8 @@ import {
   validateNewTaskInputs,
   renderTaskTemplate,
   openTaskModal,
+  hideTaskModal,
+  hideTaskModalFromBG,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -67,6 +69,8 @@ window.clearAddTaskHTML = clearAddTaskHTML;
 window.validateNewTaskInputs = validateNewTaskInputs;
 window.renderTaskTemplate = renderTaskTemplate;
 window.openTaskModal = openTaskModal;
+window.hideTaskModal = hideTaskModal;
+window.hideTaskModalFromBG = hideTaskModalFromBG;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;
