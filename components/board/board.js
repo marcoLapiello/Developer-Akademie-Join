@@ -22,7 +22,7 @@ function getBoardTemplate() {
                     ${returnIcon("searchLens")}
                   </button>
                 </div>
-                <button onclick="addNewTask()" class="boardTaskAddBtnLarge">
+                <button onclick="openTaskModal('modal')" class="boardTaskAddBtnLarge">
                   <p>Add task</p>
                   <div>
                   ${returnIcon("plus", "addIcon")}

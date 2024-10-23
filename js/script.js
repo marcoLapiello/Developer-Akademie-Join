@@ -53,6 +53,7 @@ import {
   clearAddTaskHTML,
   validateNewTaskInputs,
   renderTaskTemplate,
+  openTaskModal,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -65,6 +66,7 @@ window.saveSubtaskEditing = saveSubtaskEditing;
 window.clearAddTaskHTML = clearAddTaskHTML;
 window.validateNewTaskInputs = validateNewTaskInputs;
 window.renderTaskTemplate = renderTaskTemplate;
+window.openTaskModal = openTaskModal;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;
