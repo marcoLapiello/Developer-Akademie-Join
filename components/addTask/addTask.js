@@ -271,11 +271,11 @@ export function validateTaskTitleInput() {
   console.log(title);
   if (title.length < 3) {
     document.getElementById("taskTitleWarning").classList.remove("d_none");
-    document.getElementById("taskTitleInput").style.borderColor = "red";
+    document.getElementById("taskTitleInput").classList.add("borderColorRed");
     return false;
   }
   document.getElementById("taskTitleWarning").classList.add("d_none");
-  document.getElementById("taskTitleInput").style.borderColor = "#d1d1d1";
+  document.getElementById("taskTitleInput").classList.remove("borderColorRed");
   return true;
 }
 
@@ -285,11 +285,11 @@ export function validateTaskDateInput() {
   let formattedDate = dateToday.toISOString().split("T")[0];
   if (!date || date < formattedDate) {
     document.getElementById("taskDateWarning").classList.remove("d_none");
-    document.getElementById("taskDueDate").style.borderColor = "red";
+    document.getElementById("taskDueDate").classList.add("borderColorRed");
     return false;
   }
   document.getElementById("taskDateWarning").classList.add("d_none");
-  document.getElementById("taskDueDate").style.borderColor = "#d1d1d1";
+  document.getElementById("taskDueDate").classList.remove("borderColorRed");
   return true;
 }
 
@@ -297,11 +297,11 @@ export function validateTaskCategoryInput() {
   let category = document.getElementById("taskCategory").innerHTML;
   if (category == "Select task category") {
     document.getElementById("taskCategoryWarning").classList.remove("d_none");
-    document.getElementById("categoryDropdown").style.borderColor = "red";
+    document.getElementById("categoryDropdown").classList.add("borderColorRed");
     return false;
   }
   document.getElementById("taskCategoryWarning").classList.add("d_none");
-  document.getElementById("categoryDropdown").style.borderColor = "#d1d1d1";
+  document.getElementById("categoryDropdown").classList.remove("borderColorRed");
   return true;
 }
 
@@ -309,5 +309,6 @@ export function validateTaskTitleByOninput() {
   let inputLettersCount = document.getElementById("taskTitleInput").value.length;
   if (inputLettersCount > 2) {
     validateTaskTitleInput();
+    document.getElementById("taskTitleInput").classList.remove("borderColorRed");
   }
 }
