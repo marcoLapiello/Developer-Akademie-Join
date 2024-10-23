@@ -4,7 +4,7 @@ import { currentPrio, setGlobalVariablesToDefault, getSubtaskTemplate, newTaskOb
 import { overwriteSelectedUsers, selectedUsers, renderUserDropdownList } from "../addTask/userDropdown.js";
 import { toggleTaskDetailView } from "../taskDetailView/taskDetailView.js";
 
-//! Get the new values from the input fields
+// Get the new values from the input fields
 function getEditInputValues() {
   const titleInput = document.getElementById("taskTitleInput").value; // Get the new title input value
   const descriptionInput = document.getElementById("taskDescription").value; // Get the new description input value
@@ -13,7 +13,7 @@ function getEditInputValues() {
   return { titleInput, descriptionInput, dueDateInput, priorityInput };
 }
 
-//! Get the new values from the input fields over the Funktion getEditInputValues and push the new values to the database
+// Get the new values from the input fields over the Funktion getEditInputValues and push the new values to the database
 export async function getEditTaskData(taskID) {
   let tasksArray = await getTasksArray(); // Fetch tasks array to get the task data for the task ID
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
@@ -24,13 +24,15 @@ export async function getEditTaskData(taskID) {
   if (priorityInput) taskData.priority = priorityInput;
   if (selectedUsers) taskData.assignedTo = selectedUsers;
   if (newTaskObject.subtasks) taskData.subtasks = newTaskObject.subtasks;
-  // pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
+
+  //! pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
+
   setGlobalVariablesToDefault(); // Set the global variables to default
   overwriteSelectedUsers(""); // Overwrite the selected users
   toggleTaskDetailView(); // Toggle the task detail view
 }
 
-//! The function renders the task detail view edit template
+// The function renders the task detail view edit template
 export async function renderTaskDetailViewEdit(taskID) {
   let tasksArray = await getTasksArray(); // Fetch tasks array
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
