@@ -15,7 +15,6 @@ let currentStatus = "In progress";
 export function openTaskModal(modal) {
   document.getElementById("taskModalBackground").classList.remove("d_none");
   renderTaskTemplate(modal);
-  // clearAddErrorAlerts();
   setTimeout(() => {
     document.getElementById("addTaskModalContainer").style.left = "50%";
   }, 50);
@@ -26,7 +25,6 @@ export function hideTaskModal() {
   clearAddTaskHTML();
   setTimeout(() => {
     document.getElementById("taskModalBackground").classList.add("d_none");
-    clearAddInputFields();
   }, 550);
 }
 
