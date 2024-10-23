@@ -61,6 +61,7 @@ import {
   hideTaskModalFromBG,
   setHighlightSubtaskDivBorder,
   removeHighlightSubtaskDivBorder,
+  renderDeleteTaskTemplate,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -82,6 +83,7 @@ window.hideTaskModal = hideTaskModal;
 window.hideTaskModalFromBG = hideTaskModalFromBG;
 window.setHighlightSubtaskDivBorder = setHighlightSubtaskDivBorder;
 window.removeHighlightSubtaskDivBorder = removeHighlightSubtaskDivBorder;
+window.renderDeleteTaskTemplate = renderDeleteTaskTemplate;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;

@@ -2,7 +2,7 @@ import { openCloseDropdown, closeUsersDropdownList, selectedUsers, clearSelected
 
 import { returnIcon } from "../icons.js";
 
-import { getTaskTemplate } from "../addTask/taskTemplate.js";
+import { getTaskTemplate, getDeleteTaskTemplate } from "../addTask/taskTemplate.js";
 
 export let currentPrio = "medium";
 let currentProgress = 0;
@@ -43,6 +43,12 @@ export function renderTaskTemplate(card, currentID) {
   }
   let cardRenderRef = document.getElementById(cardRef);
   cardRenderRef.innerHTML = getTaskTemplate(card);
+}
+
+export function renderDeleteTaskTemplate(status, taskID) {
+  document.getElementById("deleteTaskRenderContainer").innerHTML = "";
+  let deleteTaskTemplate = getDeleteTaskTemplate(status, taskID);
+  document.getElementById("deleteTaskRenderContainer").innerHTML = deleteTaskTemplate;
 }
 
 let emptyTaskTemplate = {
