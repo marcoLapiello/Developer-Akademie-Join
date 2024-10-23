@@ -2,7 +2,7 @@ const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebaseda
 
 import { getNewTaskTemplate, validateNewTaskInputs } from "../components/addTask/addTask.js";
 
-import { renderTasks } from "../components/taskCards/taskCards.js"
+import { renderTasks } from "../components/taskCards/taskCards.js";
 
 export async function loadTasks() {
   let response = await fetch(baseUrl + "tasks" + ".json");
@@ -34,6 +34,24 @@ export async function patchNewTask() {
   } else {
     return;
   }
+}
+
+export async function deleteExistungTask(status, taskID) {
+  let curtaskID = taskID;
+  let curstatus = status;
+  console.log(curtaskID);
+  console.log(curstatus);
+  let response = await fetch(baseUrl + "/tasks/" + taskID + ".json", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  toggleTaskDetailView();
+  await renderTasks(status, status);
 }
 
 export async function delteSingleSubtaskDatabase() {}

@@ -38,8 +38,9 @@ renderHeader();
 import { renderBoardHeadTemplate } from "../components/board/board.js";
 renderBoardHeadTemplate();
 
-import { loadTasks, patchNewTask } from "./tasksApiService.js";
+import { loadTasks, patchNewTask, deleteExistungTask } from "./tasksApiService.js";
 window.patchNewTask = patchNewTask;
+window.deleteExistungTask = deleteExistungTask;
 
 import {
   getNewTaskTemplate,

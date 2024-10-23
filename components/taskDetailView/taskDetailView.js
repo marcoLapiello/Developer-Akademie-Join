@@ -126,7 +126,7 @@ function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
           </ul>
         </div>
         <div class="buttons">
-            <button class="deleteButton">${returnIcon("delete")}Delete</button>
+            <button onclick="deleteExistungTask('${currentTask.status}', '${currentTask.id}')" class="deleteButton">${returnIcon("delete")}Delete</button>
             <button onclick="renderTaskTemplate('edit' ,'${currentTask.id}')" class="editButton">${returnIcon("edit")}Edit</button>        
             </div>
         </div>
