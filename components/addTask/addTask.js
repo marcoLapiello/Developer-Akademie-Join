@@ -6,7 +6,7 @@ import { getTaskTemplate } from "../addTask/taskTemplate.js";
 
 let currentPrio = "medium";
 let currentProgress = 0;
-let currentStatus = "In progress";
+let currentStatus = "todo";
 
 export function openTaskModal(modal) {
   document.getElementById("taskModalBackground").classList.remove("d_none");
@@ -106,7 +106,7 @@ export function getNewTaskTemplate() {
 function setGlobalVariablesToDefault() {
   currentPrio = "medium";
   currentProgress = 0;
-  currentStatus = "In progress";
+  currentStatus = "todo";
   newTaskObject = emptyTaskTemplate;
 }
 

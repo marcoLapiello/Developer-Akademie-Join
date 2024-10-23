@@ -2,6 +2,8 @@ const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebaseda
 
 import { getNewTaskTemplate, validateNewTaskInputs } from "../components/addTask/addTask.js";
 
+import { renderTasks } from "../components/taskCards/taskCards.js"
+
 export async function loadTasks() {
   let response = await fetch(baseUrl + "tasks" + ".json");
   if (!response.ok) {
@@ -16,20 +18,19 @@ export async function patchNewTask() {
   let newTask = getNewTaskTemplate();
   if (newTask) {
     let id = newTask.id;
-
     console.log(newTask);
-
-    // let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
-    //   method: "PATCH",
-    //   header: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(newTask),
-    // });
-    // if (!response.ok) {
-    //   throw new Error("Network response was not ok");
-    // }
-    // return id;
+    let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
+      method: "PATCH",
+      header: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTask),
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    await renderTasks();
+    return id;
   } else {
     return;
   }
