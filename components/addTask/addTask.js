@@ -1,9 +1,6 @@
-import { openCloseDropdown } from "../addTask/userDropdown.js";
-window.openCloseDropdown = openCloseDropdown;
+import { openCloseDropdown, selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
 
 import { returnIcon } from "../icons.js";
-
-import { selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
 
 let currentPrio = "medium";
 let currentProgress = 0;
@@ -80,6 +77,7 @@ export function clearAddTaskHTML() {
   document.getElementById("subtaskContainer").innerHTML = "";
   setGlobalVariablesToDefault();
   clearSelectedUsers();
+  openCloseDropdown("assignedToDropdownArrow", "contactsToAssign");
 }
 
 export function createNewSubtask(card, inputID, containerID) {
@@ -198,5 +196,5 @@ export function selectCategory(selectedCategory) {
 export function getSelectedUsers() {
   selectedUsers.forEach((userID) => {
     newTaskObject.assignedTo[userID] = userID;
-  })
+  });
 }

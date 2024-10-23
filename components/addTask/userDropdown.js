@@ -61,6 +61,19 @@ export function closeUsersDropdownList(arrow, content) {
   document.getElementById(content).classList.add("d_none");
 }
 
+export function closeDropdownFromWindow(event, content) {
+  let isDropdownVisible = !document.getElementById(content).classList.contains("d_none");
+  let isSubtaskContainer = event.target.id == "subtaskContainer";
+  let isAddTaskContainer = event.target.id == "addTaskContainer";
+  let isAddTaskMiddleLeft = event.target.id == "addTaskMiddleLeft";
+  let isAddTaskMiddleRight = event.target.id == "addTaskMiddleRight";
+  if (isDropdownVisible) {
+    if (isSubtaskContainer || isAddTaskContainer || isAddTaskMiddleLeft || isAddTaskMiddleRight) {
+      openCloseDropdown("assignedToDropdownArrow", "contactsToAssign");
+    }
+  }
+}
+
 export function selectUser(userId) {
   if (selectedUsers.includes(userId)) {
     let index = selectedUsers.indexOf(userId);

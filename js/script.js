@@ -69,12 +69,13 @@ window.deleteChosenUser = deleteChosenUser;
 import { getFilteredTasksArray } from "../components/board/board.js";
 window.getFilteredTasksArray = getFilteredTasksArray;
 
-import { renderUserDropdownList, openCloseDropdown, selectUser, openUsersDropdownList, closeUsersDropdownList } from "../components/addTask/userDropdown.js";
+import { renderUserDropdownList, openCloseDropdown, selectUser, openUsersDropdownList, closeUsersDropdownList, closeDropdownFromWindow } from "../components/addTask/userDropdown.js";
 window.renderUserDropdownList = renderUserDropdownList;
 window.openCloseDropdown = openCloseDropdown;
 window.selectUser = selectUser;
 window.openUsersDropdownList = openUsersDropdownList;
 window.closeUsersDropdownList = closeUsersDropdownList;
+window.closeDropdownFromWindow = closeDropdownFromWindow;
 
 import {
   showAddNewUserDialog,
