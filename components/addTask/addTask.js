@@ -63,7 +63,7 @@ let emptyTaskTemplate = {
   },
 };
 
-let newTaskObject = {
+export let newTaskObject = {
   id: "",
   title: "",
   description: "",
@@ -157,7 +157,7 @@ function createSubtaskObject(subtaskText) {
   return subtaskID;
 }
 
-function getSubtaskTemplate(subtaskText, subtaskID) {
+export function getSubtaskTemplate(subtaskText, subtaskID) {
   return /*html*/ `
     <div id="subtaskElementWrapper-${subtaskID}" class="subtaskElementWrapper">
       <div id="currentSubtaskBox-${subtaskID}" class="currentSubtaskBox">
@@ -207,6 +207,7 @@ export function saveSubtaskEditing(subtaskID, card) {
     newTaskObject.subtasks[subtaskID].task = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
     document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.remove("d_none");
     document.getElementById(`editSubtaskBox-${subtaskID}`).classList.add("d_none");
+    console.log(newTaskObject);
   } else {
     // lösche das element im html mit der passenden ID
     // überschreibe das subtask object aus der datenbank mit hilfe von tasksApiService.js / patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked)
