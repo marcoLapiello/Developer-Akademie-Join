@@ -48,8 +48,6 @@ export function renderTaskTemplate(card, currentID) {
 export function renderDeleteTaskTemplate(status, taskID) {
   document.getElementById("deleteTaskRenderContainer").innerHTML = "";
   let deleteTaskTemplate = getDeleteTaskTemplate(status, taskID);
-  console.log(deleteTaskTemplate);
-  
   document.getElementById("deleteTaskRenderContainer").innerHTML = deleteTaskTemplate;
 }
 

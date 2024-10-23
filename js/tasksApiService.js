@@ -20,7 +20,6 @@ export async function patchNewTask() {
   let newTask = getNewTaskTemplate();
   if (newTask) {
     let id = newTask.id;
-    console.log(newTask);
     let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
       method: "PATCH",
       header: {
@@ -39,10 +38,6 @@ export async function patchNewTask() {
 }
 
 export async function deleteExistungTask(status, taskID) {
-  let curtaskID = taskID;
-  let curstatus = status;
-  console.log(curtaskID);
-  console.log(curstatus);
   let response = await fetch(baseUrl + "/tasks/" + taskID + ".json", {
     method: "DELETE",
     headers: {
