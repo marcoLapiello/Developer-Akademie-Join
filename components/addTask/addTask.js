@@ -56,6 +56,7 @@ export function getNewTaskTemplate() {
   newTaskObject.status = currentStatus;
   getSelectedUsers();
   let newTask = newTaskObject;
+  validateNewTaskInputs();
   clearAddTaskHTML();
   clearSelectedUsers();
   return newTask;
@@ -197,4 +198,28 @@ export function getSelectedUsers() {
   selectedUsers.forEach((userID) => {
     newTaskObject.assignedTo[userID] = userID;
   });
+}
+
+export function validateNewTaskInputs() {
+  validateTaskTitleInput();
+  validateTaskDateInput();
+  validateTaskCategoryInput();
+}
+
+function validateTaskTitleInput() {
+  let title = document.getElementById("taskTitleInput").value;
+  console.log(title);
+  
+}
+
+function validateTaskDateInput() {
+  let date = document.getElementById("taskDueDate").value;
+  console.log(date);
+  
+}
+
+function validateTaskCategoryInput() {
+  let category = document.getElementById("taskCategory").innerText;
+  console.log(category);
+  
 }
