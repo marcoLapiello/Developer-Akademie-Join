@@ -2,9 +2,25 @@ import { openCloseDropdown, closeUsersDropdownList, selectedUsers, clearSelected
 
 import { returnIcon } from "../icons.js";
 
+import { getTaskTemplate } from "../addTask/taskTemplate.js";
+
 let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
+
+export function renderTaskTemplate(card, currentID) {
+  // card = "add", "edit", "modal"
+  let cardRef;
+  if (card == "add") {
+    cardRef = "addTaskWrapper";
+  } else if (card == "edit") {
+    cardRef = "taskDetailViewCard";
+  } else {
+    cardRef = "";
+  }
+  let cardRenderRef = document.getElementById(cardRef);
+  cardRenderRef.innerHTML = getTaskTemplate(card);
+}
 
 let emptyTaskTemplate = {
   id: "",
@@ -201,25 +217,38 @@ export function getSelectedUsers() {
 }
 
 export function validateNewTaskInputs() {
-  validateTaskTitleInput();
-  validateTaskDateInput();
-  validateTaskCategoryInput();
+  let isTitleValid = validateTaskTitleInput();
+  let isDateValid = validateTaskDateInput();
+  let isCategoryValid = validateTaskCategoryInput();
+
+  if (!isTitleValid || !isDateValid || !isCategoryValid) {
+    console.log("some input is invalid");
+    return;
+  }
 }
 
 function validateTaskTitleInput() {
   let title = document.getElementById("taskTitleInput").value;
   console.log(title);
-  
+  if (title.length < 1) {
+    console.log(title);
+    return false;
+  }
+  return true;
 }
 
 function validateTaskDateInput() {
   let date = document.getElementById("taskDueDate").value;
   console.log(date);
-  
+  return true;
 }
 
 function validateTaskCategoryInput() {
   let category = document.getElementById("taskCategory").innerText;
-  console.log(category);
-  
+  if (category != "Technical task" || category != "User story") {
+    console.log(category);
+    return false;
+  }
+
+  return true;
 }

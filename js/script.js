@@ -1,3 +1,6 @@
+import { getTaskTemplate } from "../components/addTask/taskTemplate.js";
+window.getTaskTemplate = getTaskTemplate;
+
 import { renderContactList, aktivNewContactButton, removeAktivContactButton } from "../components/contactList/contactList.js";
 renderContactList();
 window.aktivNewContactButton = aktivNewContactButton;
@@ -49,6 +52,7 @@ import {
   saveSubtaskEditing,
   clearAddTaskHTML,
   validateNewTaskInputs,
+  renderTaskTemplate,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -60,6 +64,7 @@ window.deleteSubtask = deleteSubtask;
 window.saveSubtaskEditing = saveSubtaskEditing;
 window.clearAddTaskHTML = clearAddTaskHTML;
 window.validateNewTaskInputs = validateNewTaskInputs;
+window.renderTaskTemplate = renderTaskTemplate;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;
