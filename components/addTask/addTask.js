@@ -4,13 +4,9 @@ import { returnIcon } from "../icons.js";
 
 import { getTaskTemplate } from "../addTask/taskTemplate.js";
 
-let currentPrio = "medium";
+export let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
-
-
-
-
 
 export function openTaskModal(modal) {
   document.getElementById("taskModalBackground").classList.remove("d_none");
@@ -110,7 +106,7 @@ export function getNewTaskTemplate() {
   return newTask;
 }
 
-function setGlobalVariablesToDefault() {
+export function setGlobalVariablesToDefault() {
   currentPrio = "medium";
   currentProgress = 0;
   currentStatus = "In progress";
