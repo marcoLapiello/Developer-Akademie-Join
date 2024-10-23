@@ -54,6 +54,10 @@ import {
   validateNewTaskInputs,
   renderTaskTemplate,
   openTaskModal,
+  validateTaskTitleInput,
+  validateTaskDateInput,
+  validateTaskCategoryInput,
+  validateTaskTitleByOninput,
   hideTaskModal,
   hideTaskModalFromBG,
 } from "../components/addTask/addTask.js";
@@ -69,6 +73,10 @@ window.clearAddTaskHTML = clearAddTaskHTML;
 window.validateNewTaskInputs = validateNewTaskInputs;
 window.renderTaskTemplate = renderTaskTemplate;
 window.openTaskModal = openTaskModal;
+window.validateTaskTitleInput = validateTaskTitleInput;
+window.validateTaskDateInput = validateTaskDateInput;
+window.validateTaskCategoryInput = validateTaskCategoryInput;
+window.validateTaskTitleByOninput = validateTaskTitleByOninput;
 window.hideTaskModal = hideTaskModal;
 window.hideTaskModalFromBG = hideTaskModalFromBG;
 
