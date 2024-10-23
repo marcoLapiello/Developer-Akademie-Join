@@ -21,12 +21,10 @@ import { renderTaskDetailView, toggleTaskDetailView, checkedSubtask } from "../c
 window.toggleTaskDetailView = toggleTaskDetailView;
 window.checkedSubtask = checkedSubtask;
 window.renderTaskDetailView = renderTaskDetailView;
-// renderTaskDetailView();
 
-import { renderTaskDetailViewEdit, getEditTaskData, getEditPriority } from "../components/taskDetailViewEdit/taskDetailViewEdit.js";
+import { renderTaskDetailViewEdit, getEditTaskData } from "../components/taskDetailViewEdit/taskDetailViewEdit.js";
 window.renderTaskDetailViewEdit = renderTaskDetailViewEdit;
 window.getEditTaskData = getEditTaskData;
-window.getEditPriority = getEditPriority;
 
 import { renderSidebar } from "../components/sidebar/sidebar.js";
 renderSidebar();
