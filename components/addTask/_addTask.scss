@@ -1,16 +1,18 @@
 .addTaskWrapper {
   background-color: rgb(246, 247, 248);
-  max-height: calc(100dvh - 220px - 96px);
+  height: calc(100dvh - 96px);
+  display: flex;
+  justify-content: center;
 
   @media (max-width: $breakpoint-lg) {
-    max-height: calc(100dvh - 80px - 96px);
+    height: calc(100dvh - 80px - 96px);
   }
 }
 
 .addTaskContainer {
   // max-width: calc(1920px - 232px);
   width: 100%;
-  max-height: calc(100dvh - 220px - 96px);
+  height: 100%;
   padding: 110px 96px;
   display: flex;
   flex-direction: column;
