@@ -6,12 +6,11 @@ import { getTaskTemplate } from "../addTask/taskTemplate.js";
 
 export let currentPrio = "medium";
 let currentProgress = 0;
-let currentStatus = "In progress";
+let currentStatus = "todo";
 
 export function openTaskModal(modal) {
   document.getElementById("taskModalBackground").classList.remove("d_none");
   renderTaskTemplate(modal);
-  // clearAddErrorAlerts();
   setTimeout(() => {
     document.getElementById("addTaskModalContainer").style.left = "50%";
   }, 50);
@@ -22,7 +21,6 @@ export function hideTaskModal() {
   clearAddTaskHTML();
   setTimeout(() => {
     document.getElementById("taskModalBackground").classList.add("d_none");
-    clearAddInputFields();
   }, 550);
 }
 
@@ -35,7 +33,6 @@ export function hideTaskModalFromBG(event) {
 }
 
 export function renderTaskTemplate(card, currentID) {
-  // card = "add", "edit", "modal"
   let cardRef;
   if (card == "add") {
     cardRef = "addTaskWrapper";
@@ -109,7 +106,7 @@ export function getNewTaskTemplate() {
 export function setGlobalVariablesToDefault() {
   currentPrio = "medium";
   currentProgress = 0;
-  currentStatus = "In progress";
+  currentStatus = "todo";
   newTaskObject = emptyTaskTemplate;
 }
 
@@ -216,6 +213,16 @@ export function saveSubtaskEditing(subtaskID, card) {
   }
 }
 
+export function setHighlightSubtaskDivBorder(event) {
+  document.getElementById("subtaskInputContainer").classList.add("borderColorBlue");
+}
+
+export function removeHighlightSubtaskDivBorder(event) {
+  if (event.target.id != "subtaskInput") {
+    document.getElementById("subtaskInputContainer").classList.remove("borderColorBlue");
+  }
+}
+
 export function selectPrio(event) {
   if (event.target == document.getElementById("prioUrgent")) {
     removePrio();
@@ -255,16 +262,13 @@ export function validateNewTaskInputs() {
   let isDateValid = validateTaskDateInput();
   let isCategoryValid = validateTaskCategoryInput();
   if (!isTitleValid || !isDateValid || !isCategoryValid) {
-    console.log("some input is invalid");
     return false;
   }
-  console.log("all input is valid");
   return true;
 }
 
 export function validateTaskTitleInput() {
   let title = document.getElementById("taskTitleInput").value;
-  console.log(title);
   if (title.length < 3) {
     document.getElementById("taskTitleWarning").classList.remove("d_none");
     document.getElementById("taskTitleInput").classList.add("borderColorRed");

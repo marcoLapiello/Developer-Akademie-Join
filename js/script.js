@@ -36,8 +36,9 @@ renderHeader();
 import { renderBoardHeadTemplate } from "../components/board/board.js";
 renderBoardHeadTemplate();
 
-import { loadTasks, patchNewTask } from "./tasksApiService.js";
+import { loadTasks, patchNewTask, deleteExistungTask } from "./tasksApiService.js";
 window.patchNewTask = patchNewTask;
+window.deleteExistungTask = deleteExistungTask;
 
 import {
   getNewTaskTemplate,
@@ -58,6 +59,8 @@ import {
   validateTaskTitleByOninput,
   hideTaskModal,
   hideTaskModalFromBG,
+  setHighlightSubtaskDivBorder,
+  removeHighlightSubtaskDivBorder,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -77,6 +80,8 @@ window.validateTaskCategoryInput = validateTaskCategoryInput;
 window.validateTaskTitleByOninput = validateTaskTitleByOninput;
 window.hideTaskModal = hideTaskModal;
 window.hideTaskModalFromBG = hideTaskModalFromBG;
+window.setHighlightSubtaskDivBorder = setHighlightSubtaskDivBorder;
+window.removeHighlightSubtaskDivBorder = removeHighlightSubtaskDivBorder;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;
