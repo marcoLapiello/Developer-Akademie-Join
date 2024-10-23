@@ -8,6 +8,7 @@ export function getTaskTemplate() {
                   <div>
                     <p>Title<span style="color: red">*</span></p>
                     <input id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title" />
+                    <p><span id="taskTitleWarning" class="addTaskValidationWarning">Invalid Title input</span>&nbsp;</p>
                   </div>
 
                   <div>
@@ -45,6 +46,7 @@ export function getTaskTemplate() {
                   <div>
                     <p>Due date<span style="color: red">*</span></p>
                     <input id="taskDueDate" type="date" placeholder="dd/mm/yyyy" />
+                    <p><span id="taskDateWarning" class="addTaskValidationWarning">Invalid Date Input</span>&nbsp;</p>
                   </div>
                   <div>
                     <p>Prio</p>
@@ -80,6 +82,7 @@ export function getTaskTemplate() {
                         </div>
                       </div>
                     </div>
+                    <p><span id="taskCategoryWarning" class="addTaskValidationWarning">Invalid Category Input</span>&nbsp;</p>
                   </div>
                   <div>
                     <p>Subtasks</p>

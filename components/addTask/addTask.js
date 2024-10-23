@@ -220,35 +220,45 @@ export function validateNewTaskInputs() {
   let isTitleValid = validateTaskTitleInput();
   let isDateValid = validateTaskDateInput();
   let isCategoryValid = validateTaskCategoryInput();
-
   if (!isTitleValid || !isDateValid || !isCategoryValid) {
     console.log("some input is invalid");
     return;
   }
+  console.log("all input is valid");
 }
 
 function validateTaskTitleInput() {
+  // #taskTitleWarning
   let title = document.getElementById("taskTitleInput").value;
   console.log(title);
   if (title.length < 1) {
-    console.log(title);
+    // console.log("title is invalid");
     return false;
   }
+  // console.log(title + " is a valid title");
   return true;
 }
 
 function validateTaskDateInput() {
   let date = document.getElementById("taskDueDate").value;
-  console.log(date);
+  let dateToday = new Date(Date.now());
+  let formattedDate = dateToday.toISOString().split("T")[0];
+  if (!date || date < formattedDate) {
+    console.log("date is invalid");
+
+    return false;
+  }
+  console.log("date is valid");
+  
   return true;
 }
 
 function validateTaskCategoryInput() {
   let category = document.getElementById("taskCategory").innerText;
   if (category != "Technical task" || category != "User story") {
-    console.log(category);
+    // console.log(category + " is invalid");
     return false;
   }
-
+  // console.log(category + " is a valid category");
   return true;
 }
