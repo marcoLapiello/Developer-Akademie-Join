@@ -8,10 +8,6 @@ let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
 
-
-
-
-
 export function openTaskModal(modal) {
   document.getElementById("taskModalBackground").classList.remove("d_none");
   renderTaskTemplate(modal);
@@ -37,7 +33,6 @@ export function hideTaskModalFromBG(event) {
 }
 
 export function renderTaskTemplate(card, currentID) {
-  // card = "add", "edit", "modal"
   let cardRef;
   if (card == "add") {
     cardRef = "addTaskWrapper";
@@ -267,16 +262,13 @@ export function validateNewTaskInputs() {
   let isDateValid = validateTaskDateInput();
   let isCategoryValid = validateTaskCategoryInput();
   if (!isTitleValid || !isDateValid || !isCategoryValid) {
-    console.log("some input is invalid");
     return false;
   }
-  console.log("all input is valid");
   return true;
 }
 
 export function validateTaskTitleInput() {
   let title = document.getElementById("taskTitleInput").value;
-  console.log(title);
   if (title.length < 3) {
     document.getElementById("taskTitleWarning").classList.remove("d_none");
     document.getElementById("taskTitleInput").classList.add("borderColorRed");
