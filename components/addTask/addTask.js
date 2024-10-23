@@ -8,9 +8,7 @@ let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
 
-
-
-export function openTaskModal(modal){
+export function openTaskModal(modal) {
   document.getElementById("taskModalBackground").classList.remove("d_none");
   renderTaskTemplate(modal);
 }
@@ -79,7 +77,9 @@ export function getNewTaskTemplate() {
   newTaskObject.status = currentStatus;
   getSelectedUsers();
   let newTask = newTaskObject;
-  validateNewTaskInputs();
+  if (!validateNewTaskInputs()) {
+    return;
+  }
   clearAddTaskHTML();
   clearSelectedUsers();
   return newTask;
@@ -94,10 +94,16 @@ function setGlobalVariablesToDefault() {
 
 export function clearAddTaskHTML() {
   document.getElementById("taskTitleInput").value = "";
+  document.getElementById("taskTitleWarning").classList.add("d_none");
+  document.getElementById("taskTitleInput").style.borderColor = "#d1d1d1";
   document.getElementById("taskDescription").value = "";
   document.getElementById("currentAssignation").innerHTML = "";
   document.getElementById("taskDueDate").value = "";
+  document.getElementById("taskDateWarning").classList.add("d_none");
+  document.getElementById("taskDueDate").style.borderColor = "#d1d1d1";
   document.getElementById("taskCategory").innerText = "Select task category";
+  document.getElementById("taskCategoryWarning").classList.add("d_none");
+  document.getElementById("categoryDropdown").style.borderColor = "#d1d1d1";
   document.getElementById("subtaskContainer").innerHTML = "";
   setGlobalVariablesToDefault();
   clearSelectedUsers();
@@ -229,43 +235,54 @@ export function validateNewTaskInputs() {
   let isCategoryValid = validateTaskCategoryInput();
   if (!isTitleValid || !isDateValid || !isCategoryValid) {
     console.log("some input is invalid");
-    return;
-  }
-  console.log("all input is valid");
-}
-
-function validateTaskTitleInput() {
-  // #taskTitleWarning
-  let title = document.getElementById("taskTitleInput").value;
-  console.log(title);
-  if (title.length < 1) {
-    // console.log("title is invalid");
     return false;
   }
-  // console.log(title + " is a valid title");
+  console.log("all input is valid");
   return true;
 }
 
-function validateTaskDateInput() {
+export function validateTaskTitleInput() {
+  let title = document.getElementById("taskTitleInput").value;
+  console.log(title);
+  if (title.length < 3) {
+    document.getElementById("taskTitleWarning").classList.remove("d_none");
+    document.getElementById("taskTitleInput").style.borderColor = "red";
+    return false;
+  }
+  document.getElementById("taskTitleWarning").classList.add("d_none");
+  document.getElementById("taskTitleInput").style.borderColor = "#d1d1d1";
+  return true;
+}
+
+export function validateTaskDateInput() {
   let date = document.getElementById("taskDueDate").value;
   let dateToday = new Date(Date.now());
   let formattedDate = dateToday.toISOString().split("T")[0];
   if (!date || date < formattedDate) {
-    console.log("date is invalid");
-
+    document.getElementById("taskDateWarning").classList.remove("d_none");
+    document.getElementById("taskDueDate").style.borderColor = "red";
     return false;
   }
-  console.log("date is valid");
-  
+  document.getElementById("taskDateWarning").classList.add("d_none");
+  document.getElementById("taskDueDate").style.borderColor = "#d1d1d1";
   return true;
 }
 
-function validateTaskCategoryInput() {
-  let category = document.getElementById("taskCategory").innerText;
-  if (category != "Technical task" || category != "User story") {
-    // console.log(category + " is invalid");
+export function validateTaskCategoryInput() {
+  let category = document.getElementById("taskCategory").innerHTML;
+  if (category == "Select task category") {
+    document.getElementById("taskCategoryWarning").classList.remove("d_none");
+    document.getElementById("categoryDropdown").style.borderColor = "red";
     return false;
   }
-  // console.log(category + " is a valid category");
+  document.getElementById("taskCategoryWarning").classList.add("d_none");
+  document.getElementById("categoryDropdown").style.borderColor = "#d1d1d1";
   return true;
+}
+
+export function validateTaskTitleByOninput() {
+  let inputLettersCount = document.getElementById("taskTitleInput").value.length;
+  if (inputLettersCount > 2) {
+    validateTaskTitleInput();
+  }
 }

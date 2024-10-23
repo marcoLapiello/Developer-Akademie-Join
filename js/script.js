@@ -54,6 +54,10 @@ import {
   validateNewTaskInputs,
   renderTaskTemplate,
   openTaskModal,
+  validateTaskTitleInput,
+  validateTaskDateInput,
+  validateTaskCategoryInput,
+  validateTaskTitleByOninput,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -67,6 +71,10 @@ window.clearAddTaskHTML = clearAddTaskHTML;
 window.validateNewTaskInputs = validateNewTaskInputs;
 window.renderTaskTemplate = renderTaskTemplate;
 window.openTaskModal = openTaskModal;
+window.validateTaskTitleInput = validateTaskTitleInput;
+window.validateTaskDateInput = validateTaskDateInput;
+window.validateTaskCategoryInput = validateTaskCategoryInput;
+window.validateTaskTitleByOninput = validateTaskTitleByOninput;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;

@@ -7,8 +7,8 @@ export function getTaskTemplate() {
                 <div id="addTaskMiddleLeft" class="addTaskMiddleLeft">
                   <div class="marginMinusFourteenPx">
                     <p>Title<span style="color: red">*</span></p>
-                    <input id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title" />
-                    <p class="addTaskValidationWarning"><span id="taskTitleWarning">Invalid Title input</span>&nbsp;</p>
+                    <input oninput="validateTaskTitleByOninput()" id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title" />
+                    <p class="addTaskValidationWarning"><span id="taskTitleWarning" class="d_none">Insert a title longer than 3 letters</span>&nbsp;</p>
                   </div>
 
                   <div>
@@ -45,8 +45,8 @@ export function getTaskTemplate() {
                 <div id="addTaskMiddleRight" class="addTaskMiddleRight">
                   <div class="marginMinusFourteenPx">
                     <p>Due date<span style="color: red">*</span></p>
-                    <input id="taskDueDate" type="date" placeholder="dd/mm/yyyy" />
-                    <p class="addTaskValidationWarning"><span id="taskDateWarning" >Invalid Date Input</span>&nbsp;</p>
+                    <input onchange="validateTaskDateInput()" id="taskDueDate" type="date" placeholder="dd/mm/yyyy" />
+                    <p class="addTaskValidationWarning"><span id="taskDateWarning" class="d_none">Due date must be today or later</span>&nbsp;</p>
                   </div>
                   <div>
                     <p>Prio</p>
@@ -77,12 +77,12 @@ export function getTaskTemplate() {
                           alt=""
                         />
                         <div id="categorySelectionContainer" class="categorySelectionContainer d_none">
-                          <p onclick="selectCategory('Technical task'); openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')">Technical task</p>
-                          <p onclick="selectCategory('User story'); openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')">User story</p>
+                          <p onclick="selectCategory('Technical task'); openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer'); validateTaskCategoryInput()">Technical task</p>
+                          <p onclick="selectCategory('User story'); openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer'); validateTaskCategoryInput()">User story</p>
                         </div>
                       </div>
                     </div>
-                    <p class="addTaskValidationWarning"><span id="taskCategoryWarning" >Invalid Category Input</span>&nbsp;</p>
+                    <p class="addTaskValidationWarning"><span id="taskCategoryWarning" class="d_none">Choose one of the given categories</span>&nbsp;</p>
                   </div>
                   <div>
                     <p>Subtasks</p>
