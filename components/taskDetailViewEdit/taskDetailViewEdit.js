@@ -1,88 +1,125 @@
 import { returnIcon } from "../icons.js";
 import { getTasksArray } from "../../js/script.js";
+import { currentPrio, setGlobalVariablesToDefault } from "../addTask/addTask.js";
+import { overwriteSelectedUsers } from "../addTask/userDropdown.js";
+import { toggleTaskDetailView } from "../taskDetailView/taskDetailView.js";
 
+//! Get the new values from the input fields
 function getEditInputValues() {
-  const titleInput = document.getElementById("titleInput").value; // Get the new title input value
-  const descriptionInput = document.getElementById("descriptionInput").value; // Get the new description input value
-  const dueDateInput = document.getElementById("dueDateInput").value; // Get the new due date input value
-  return { titleInput, descriptionInput, dueDateInput };
+  const titleInput = document.getElementById("taskTitleInput").value; // Get the new title input value
+  const descriptionInput = document.getElementById("taskDescription").value; // Get the new description input value
+  const dueDateInput = document.getElementById("taskDueDate").value; // Get the new due date input value
+  const priorityInput = currentPrio; // Get the new prio input value
+  return { titleInput, descriptionInput, dueDateInput, priorityInput };
 }
 
-export function getEditPriority(priority) {
-  const priorityButtons = document.querySelectorAll(".priorityButtons"); // Get all priority buttons elements with the class name priorityButtons
-  priorityButtons.forEach((button) => {
-    button.classList.remove(`selected_${button.id}`); // Remove the selected class from all priority buttons
-    if (button.id === priority) {
-      button.classList.add(`selected_${priority}`); // Add the selected class to the clicked priority button
-    }
-  });
-}
-
+//! Get the new values from the input fields over the Funktion getEditInputValues and push the new values to the database
 export async function getEditTaskData(taskID) {
   let tasksArray = await getTasksArray(); // Fetch tasks array to get the task data for the task ID
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
-  const { titleInput, descriptionInput, dueDateInput } = getEditInputValues(); // Get the new values from the input fields
+  const { titleInput, descriptionInput, dueDateInput, priorityInput } = getEditInputValues(); // Get the new values from the input fields
   if (titleInput) taskData.title = titleInput;
   if (descriptionInput) taskData.description = descriptionInput;
   if (dueDateInput) taskData.dueDate = dueDateInput;
+  if (priorityInput) taskData.priority = priorityInput;
   // pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
+  setGlobalVariablesToDefault(); // Set the global variables to default
+  overwriteSelectedUsers(""); // Overwrite the selected users
+  toggleTaskDetailView(); // Toggle the task detail view
 }
 
-// The function renders the task detail view edit template
-export function renderTaskDetailViewEdit(taskID) {
+//! The function renders the task detail view edit template
+export async function renderTaskDetailViewEdit(taskID) {
+  let tasksArray = await getTasksArray(); // Fetch tasks array
+  const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
   const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
-  taskDetailViewRef.innerHTML = renderTaskDetailViewEditTemplate(taskID); // Render the task detail view edit template
+  taskDetailViewRef.innerHTML = renderTaskDetailViewEditTemplate(taskData); // Render the task detail view edit template
+  setEditInputValues(taskData); // Set the input values to the task data
+}
+
+function setEditInputValues(taskData) {
+  document.getElementById("taskTitleInput").value = taskData.title;
+  document.getElementById("taskDescription").value = taskData.description;
+  document.getElementById("taskDueDate").value = taskData.dueDate;
+  const assignedUsers = Object.values(taskData.assignedTo).filter((value) => value !== "placeholder");
+  overwriteSelectedUsers(assignedUsers);
 }
 
 // The function renders the task detail view edit template
-function renderTaskDetailViewEditTemplate(taskID) {
+function renderTaskDetailViewEditTemplate(taskData) {
   return /*html*/ `
-      <div class="taskDetailViewCardEdit">
-        <div class="container">   
-          <div class="closeButtonContainer">
-            <div onclick="toggleTaskDetailView()" class="closeButton">${returnIcon("closeX")}</div>
+    <div class="taskDetailViewCardEdit">
+      <div id="addTaskMiddleContent" class="addTaskMiddleContent">
+        <div id="addTaskMiddleLeft" class="addTaskMiddleLeft">
+          <div class="marginMinusFourteenPx">
+            <p>Title<span style="color: red">*</span></p>
+            <input oninput="validateTaskTitleByOninput()" id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title" />
+            <p class="addTaskValidationWarning"><span id="taskTitleWarning" class="d_none">Insert a title longer than 3 letters</span>&nbsp;</p>
           </div>
-          <div class="title">
-            <label for="titleInput">Title</label>
-            <input id="titleInput" type="text">
+          <div>
+            <p>Description</p>
+            <textarea name="" id="taskDescription" placeholder="Enter a description"></textarea>
           </div>
-          <div class="description">
-            <label for="descriptionInput">Description</label>
-            <textarea id="descriptionInput" placeholder="Description"></textarea>
+          <div class="assignedToContainer">
+            <p>Assigned to</p>
+            <div class="">
+              <div id="assignedToDropdown" class="assignedToDropdown">
+                <input
+                  onfocus="renderUserDropdownList(); openUsersDropdownList('assignedToDropdownArrow' , 'contactsToAssign')"
+                  oninput="filterUsersByName()"
+                  id="searchUserToAssign"
+                  class="searchUserToAssign"
+                  type="text"
+                  placeholder="Select contacts to assign" />
+                <img
+                  onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign') , renderUserDropdownList()"
+                  id="assignedToDropdownArrow"
+                  class="assignedToDropdownArrow"
+                  src="./assets/icons/arrow_drop_down.png"
+                  alt="" />
+              </div>
+            </div>
+            <div id="contactsToAssign" class="contactsToAssign d_none"></div>
+            <div id="currentAssignation" class="currentAssignation"></div>
           </div>
-          <div class="dueDate">
-            <label for="dueDateInput">Due date</label>
-            <input id="dueDateInput" type="date">
+        </div>
+        <div class="addTaskSeparator"></div>
+        <div id="addTaskMiddleRight" class="addTaskMiddleRight">
+          <div class="marginMinusFourteenPx">
+            <p>Due date<span style="color: red">*</span></p>
+            <input onchange="validateTaskDateInput()" id="taskDueDate" type="date" placeholder="dd/mm/yyyy" />
+            <p class="addTaskValidationWarning"><span id="taskDateWarning" class="d_none">Due date must be today or later</span>&nbsp;</p>
           </div>
-          <div class="priority">
-            <span class="title" >Priority</span>
-            <div class="priorityButtonsContainer">
-              <button onclick="getEditPriority('urgent')" id="urgent" class="priorityButtons">Urgent ${returnIcon("urgent", "urgent")}</button>
-              <button onclick="getEditPriority('medium')" id="medium" class="priorityButtons">Medium ${returnIcon("medium", "medium")}</button>
-              <button onclick="getEditPriority('low')" id="low" class="priorityButtons">Low ${returnIcon("low", "low")}</button>
+          <div>
+            <p>Prio</p>
+            <div id="prioContainer" class="prioContainer">
+              <div onclick="selectPrio(event)" id="prioUrgent" class="priorities">Urgent<img src="./assets/icons/urgent_icon.png" alt="" /></div>
+              <div onclick="selectPrio(event)" id="prioMedium" class="priorities mediumPrio">Medium<img src="./assets/icons/medium_icon.png" alt="" /></div>
+              <div onclick="selectPrio(event)" id="prioLow" class="priorities">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
             </div>
           </div>
-          <div class="assignedTo">
-            <label for="assignedToInput">Assigned To</label>
-            <input id="assignedToInput" type="text" placeholder="Select contacts to assign">
-            <ul id="usersList" class="usersList">
-              <!-- render users here -->
-            </ul>
+          <div>
+            <p>Subtasks</p>
+            <div class="addSubtaskContainer">
+              <div class="subtaskInputContainer">
+                <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
+                <div onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')" id="renderSubtaskElement" class="newSubtaskPlusBtn">
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
+                    <path d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z" fill="black" />
+                  </svg>
+                </div>
+              </div>
+              <ul class="subtaskContainer" id="subtaskContainer"></ul>
+            </div>
           </div>
-          <div class="assignUserInitials">
-              <!-- render user initials here -->
-          </div>
-          <div class="subtasks">
-            <label for="subtasksInput">Title</label>
-            <input id="subtasksInput" type="text" placeholder="Add new Subtasks">
-            <ul id="subtasksList" class="subtasksList">
-              <!-- render subtasks here -->
-            </ul>
-          </div>
-          <div class="confirmButtonContainer">
-            <button onclick="getEditTaskData('${taskID}')" class="confirmButton">OK Icon</button>
-          </div>     
-        </div>      
+        </div>
       </div>
+      <div id="addTaskBottomContainer" class="addTaskBottomContainer">
+        <p><span style="color: red">*</span>This field is required</p>
+        <div id="taskBtnContainer" class="taskBtnContainer">
+          <button onclick="getEditTaskData('${taskData.id}')" class="createBtn" onclick="">Ok${returnIcon("check", "check")}</button>
+        </div>
+      </div>
+    </div>
     `;
 }
