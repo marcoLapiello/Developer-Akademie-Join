@@ -34,7 +34,14 @@
                     <p>Assigned to</p>
                     <div class="">
                       <div id="assignedToDropdown" class="assignedToDropdown">
-                        <input oninput="" id="searchUserToAssign" class="searchUserToAssign" type="text" placeholder="Select contacts to assign" />
+                        <input
+                          onfocus="renderUserDropdownList(); openUsersDropdownList('assignedToDropdownArrow' , 'contactsToAssign')"
+                          oninput=""
+                          id="searchUserToAssign"
+                          class="searchUserToAssign"
+                          type="text"
+                          placeholder="Select contacts to assign"
+                        />
                         <img
                           onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign') , renderUserDropdownList()"
                           id="assignedToDropdownArrow"
