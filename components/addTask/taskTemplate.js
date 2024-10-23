@@ -119,3 +119,31 @@ export function getTaskTemplate() {
             </div>
   `;
 }
+
+export function getDeleteTaskTemplate(status ,taskID) {
+  return /*html*/ `
+    <div onclick="hideConfirmDeleteUserDialogFromBG(event)" id="confirmDeleteUserModal" class="confirmDeleteUserModal">
+        <div id="confirmDeleteUserContainer" class="confirmDeleteUserContainer">
+          <img class="deleteModalLogo" src="./assets/icons/joinLogo.png" alt="" />
+          <h2>Delete Task?</h2>
+          <div class="confirmDeleteUserTextBox">
+            <p>
+              Are you sure you want to delete this task?<br />
+              This action cannot be undone, and the data <br />will be permanently removed.
+            </p>
+          </div>
+          <p>Do you still want to proceed?</p>
+          <div class="confirmDeleteUserBtnBox">
+            <button class="deleteCancelBtn" onclick="hideConfirmDeleteUserDialog()">
+              Cancel
+              <img src="./assets/icons/x_btn.svg" alt="" />
+            </button>
+            <button onclick="deleteExistungTask('${status}', '${taskID}')" class="deleteBtn" id="sureToDeleteTaskBtn">
+              Delete
+              <img src="./assets/icons/check.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+  `;
+}

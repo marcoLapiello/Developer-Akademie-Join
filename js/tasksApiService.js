@@ -4,6 +4,8 @@ import { getNewTaskTemplate, validateNewTaskInputs } from "../components/addTask
 
 import { renderTasks } from "../components/taskCards/taskCards.js";
 
+import { hideConfirmDeleteUserDialog } from "../components/contactModal/contactModal.js";
+
 export async function loadTasks() {
   let response = await fetch(baseUrl + "tasks" + ".json");
   if (!response.ok) {
@@ -51,6 +53,7 @@ export async function deleteExistungTask(status, taskID) {
     throw new Error("Network response was not ok");
   }
   toggleTaskDetailView();
+  hideConfirmDeleteUserDialog();
   await renderTasks(status, status);
 }
 

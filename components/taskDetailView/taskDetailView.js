@@ -105,6 +105,8 @@ export async function checkedSubtask(event, taskID, currentTaskStatus) {
 
 // The function renders the task detail view template with the subtasks and assigned users data
 function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
+  let taskID = currentTask.id;
+  let status = currentTask.status;
   return /*html*/ `
     <div id="taskDetailViewCard" class="taskDetailViewCard">
         <div class="header"> 
@@ -126,7 +128,7 @@ function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
           </ul>
         </div>
         <div class="buttons">                
-            <button onclick="deleteExistungTask('${currentTask.status}', '${currentTask.id}')" class="deleteButton">${returnIcon("delete")}Delete</button>  
+            <button onclick="renderDeleteTaskTemplate('${status}', '${taskID}')" class="deleteButton">${returnIcon("delete")}Delete</button>  
             <button onclick="renderTaskDetailViewEdit('${currentTask.id}')" class="editButton">${returnIcon("edit")}Edit</button>  
             </div>
         </div>
