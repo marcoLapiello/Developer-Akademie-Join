@@ -9,6 +9,10 @@ export function clearSelectedUsers() {
   renderCurrentAssignation();
 }
 
+export function overwriteSelectedUsers(usersArray) {
+  selectedUsers = usersArray;
+}
+
 export function removeUsersSearchFieldValue() {
   if (document.getElementById("searchUserToAssign").value.length > 0) {
     document.getElementById("searchUserToAssign").value = "";
