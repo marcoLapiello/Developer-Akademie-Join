@@ -8,6 +8,13 @@ let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
 
+
+
+export function openTaskModal(modal){
+  document.getElementById("taskModalBackground").classList.remove("d_none");
+  renderTaskTemplate(modal);
+}
+
 export function renderTaskTemplate(card, currentID) {
   // card = "add", "edit", "modal"
   let cardRef;
@@ -16,7 +23,7 @@ export function renderTaskTemplate(card, currentID) {
   } else if (card == "edit") {
     cardRef = "taskDetailViewCard";
   } else {
-    cardRef = "";
+    cardRef = "addTaskContainer";
   }
   let cardRenderRef = document.getElementById(cardRef);
   cardRenderRef.innerHTML = getTaskTemplate(card);
