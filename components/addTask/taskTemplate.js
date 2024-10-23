@@ -5,10 +5,10 @@ export function getTaskTemplate() {
 
               <div id="addTaskMiddleContent" class="addTaskMiddleContent">
                 <div id="addTaskMiddleLeft" class="addTaskMiddleLeft">
-                  <div>
+                  <div class="marginMinusFourteenPx">
                     <p>Title<span style="color: red">*</span></p>
                     <input id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title" />
-                    <p><span id="taskTitleWarning" class="addTaskValidationWarning">Invalid Title input</span>&nbsp;</p>
+                    <p class="addTaskValidationWarning"><span id="taskTitleWarning">Invalid Title input</span>&nbsp;</p>
                   </div>
 
                   <div>
@@ -43,10 +43,10 @@ export function getTaskTemplate() {
                 </div>
                 <div class="addTaskSeparator"></div>
                 <div id="addTaskMiddleRight" class="addTaskMiddleRight">
-                  <div>
+                  <div class="marginMinusFourteenPx">
                     <p>Due date<span style="color: red">*</span></p>
                     <input id="taskDueDate" type="date" placeholder="dd/mm/yyyy" />
-                    <p><span id="taskDateWarning" class="addTaskValidationWarning">Invalid Date Input</span>&nbsp;</p>
+                    <p class="addTaskValidationWarning"><span id="taskDateWarning" >Invalid Date Input</span>&nbsp;</p>
                   </div>
                   <div>
                     <p>Prio</p>
@@ -65,7 +65,7 @@ export function getTaskTemplate() {
                       </div>
                     </div>
                   </div>
-                  <div>
+                  <div class="marginMinusFourteenPx">
                     <p>Category<span style="color: red">*</span></p>
                     <div>
                       <div onclick="openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')" id="categoryDropdown" class="categoryDropdown">
@@ -82,7 +82,7 @@ export function getTaskTemplate() {
                         </div>
                       </div>
                     </div>
-                    <p><span id="taskCategoryWarning" class="addTaskValidationWarning">Invalid Category Input</span>&nbsp;</p>
+                    <p class="addTaskValidationWarning"><span id="taskCategoryWarning" >Invalid Category Input</span>&nbsp;</p>
                   </div>
                   <div>
                     <p>Subtasks</p>

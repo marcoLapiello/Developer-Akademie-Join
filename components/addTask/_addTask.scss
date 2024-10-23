@@ -38,6 +38,18 @@
     }
   }
 
+  .marginMinusFourteenPx {
+    margin-bottom: -14px;
+  }
+
+  .addTaskValidationWarning {
+    line-height: 14px;
+    span {
+      color: red;
+      font-size: 12px;
+    }
+  }
+
   .addTaskMiddleContent {
     margin-top: 48px;
     margin-bottom: 146px;
@@ -611,9 +623,9 @@
   }
 }
 
-// Modal 
+// Modal
 
-.taskModalBackground{
+.taskModalBackground {
   position: absolute;
   z-index: 1000;
   top: 0;
@@ -623,7 +635,7 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.addTaskContainer{
+.addTaskContainer {
   position: absolute;
   top: 50%;
   left: 50%;
