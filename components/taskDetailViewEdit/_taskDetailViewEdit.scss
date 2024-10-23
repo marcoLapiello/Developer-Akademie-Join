@@ -228,13 +228,18 @@
     }
   }
 
-  .contactsToAssign {
+  .currentAssignation {
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    gap: 8px;
 
-    .userListItem {
+    .initialsBox {
       display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      color: white;
     }
   }
 }

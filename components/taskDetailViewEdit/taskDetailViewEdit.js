@@ -83,7 +83,6 @@ function renderTaskDetailViewEditTemplate(taskData) {
             <div onclick="selectPrio(event)" id="prioLow" class="priorities">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
           </div>
         </div>
-
         <div class="assignedToContainer">
           <p class="assignedTo">Assigned to</p>          
           <div class="assignedToDropdown" id="assignedToDropdown">
@@ -94,33 +93,32 @@ function renderTaskDetailViewEditTemplate(taskData) {
           </div>
         </div>
 
+        <div id="contactsToAssign" class="contactsToAssign d_none"></div>
 
-      <div id="contactsToAssign" class="contactsToAssign d_none"></div>
-      <div id="currentAssignation" class="currentAssignation"></div>      
+        <div id="currentAssignation" class="currentAssignation"></div>   
 
-      <div>
-        <p>Subtasks</p>
-        <div class="addSubtaskContainer">
-          <div class="subtaskInputContainer">
-            <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
-            <div onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')" id="renderSubtaskElement" class="newSubtaskPlusBtn">
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
-                <path d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z" fill="black" />
-              </svg>
+        <div class="subtasksContainer">
+          <p class="subtasks">Subtasks</p>
+          <div class="addSubtaskContainer">
+            <div class="subtaskInputContainer">
+              <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
+              <div onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')" id="renderSubtaskElement" class="newSubtaskPlusBtn">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
+                  <path d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z" fill="black" />
+                </svg>
+              </div>
             </div>
+            <ul class="subtaskContainer" id="subtaskContainer"></ul>
           </div>
-          <ul class="subtaskContainer" id="subtaskContainer"></ul>
+        </div>   
+        
+        
+        <div id="addTaskBottomContainer" class="addTaskBottomContainer">
+          <p><span style="color: red">*</span>This field is required</p>
+          <div id="taskBtnContainer" class="taskBtnContainer">
+            <button onclick="getEditTaskData('${taskData.id}')" class="createBtn" onclick="">Ok${returnIcon("check", "check")}</button>
+          </div>
         </div>
-      </div>       
-      
-
-      <div id="addTaskBottomContainer" class="addTaskBottomContainer">
-        <p><span style="color: red">*</span>This field is required</p>
-        <div id="taskBtnContainer" class="taskBtnContainer">
-          <button onclick="getEditTaskData('${taskData.id}')" class="createBtn" onclick="">Ok${returnIcon("check", "check")}</button>
-        </div>
-      </div>
-
     </div>
     `;
 }
