@@ -9,6 +9,14 @@ export function clearSelectedUsers() {
   renderCurrentAssignation();
 }
 
+export function removeUsersSearchFieldValue() {
+  if (document.getElementById("searchUserToAssign").value.length > 0) {
+    document.getElementById("searchUserToAssign").value = "";
+    renderUserDropdownList();
+  }
+  
+}
+
 function getUserListItem(userArray, index, isInputChecked) {
   return /*html*/ `
     <div id="${userArray[index][1].id}" class="userListItem">
@@ -19,9 +27,24 @@ function getUserListItem(userArray, index, isInputChecked) {
         <p>${userArray[index][1].profile.first_name} ${userArray[index][1].profile.last_name}</p>
       </div>
       
-      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}')" type="checkBox" ${isInputChecked ? "checked" : ""}>
+      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}'); removeUsersSearchFieldValue()" type="checkBox" ${
+    isInputChecked ? "checked" : ""
+  }>
     </div>
   `;
+}
+
+export function filterUsersByName() {
+  let filterLetters = document.getElementById("searchUserToAssign").value.toLowerCase();
+  let usersListArray = Array.from(document.getElementById("contactsToAssign").querySelectorAll(".userListItem"));
+  usersListArray.forEach((user) => {
+    let userName = user.childNodes[1].lastElementChild.innerText.toLowerCase();
+    if (!userName.includes(filterLetters)) {
+      user.classList.add("d_none");
+    } else {
+      user.classList.remove("d_none");
+    }
+  });
 }
 
 export async function renderUserDropdownList() {
@@ -59,6 +82,7 @@ export function openUsersDropdownList(arrow, content) {
 export function closeUsersDropdownList(arrow, content) {
   document.getElementById(arrow).classList.remove("rotatedArrow");
   document.getElementById(content).classList.add("d_none");
+  removeUsersSearchFieldValue();
 }
 
 export function closeDropdownFromWindow(event, content) {

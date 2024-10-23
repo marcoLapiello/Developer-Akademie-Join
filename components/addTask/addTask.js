@@ -1,4 +1,4 @@
-import { openCloseDropdown, selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
+import { openCloseDropdown, closeUsersDropdownList, selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
 
 import { returnIcon } from "../icons.js";
 
@@ -77,7 +77,7 @@ export function clearAddTaskHTML() {
   document.getElementById("subtaskContainer").innerHTML = "";
   setGlobalVariablesToDefault();
   clearSelectedUsers();
-  openCloseDropdown("assignedToDropdownArrow", "contactsToAssign");
+  closeUsersDropdownList("assignedToDropdownArrow", "contactsToAssign");
 }
 
 export function createNewSubtask(card, inputID, containerID) {

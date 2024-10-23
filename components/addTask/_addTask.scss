@@ -3,18 +3,18 @@
   // max-height: calc(100dvh - 220px - 96px);
 
   @media (max-width: $breakpoint-lg) {
-    
   }
 }
 
 .addTaskContainer {
   // max-width: calc(1920px - 232px);
   width: 100%;
-  max-height: calc(100dvh - 220px - 96px);;
+  max-height: calc(100dvh - 220px - 96px);
   padding: 110px 96px;
   display: flex;
   flex-direction: column;
   align-items: start;
+  user-select: none;
 
   @media (max-width: $breakpoint-lg) {
     align-items: center;
@@ -81,7 +81,7 @@
         }
       }
 
-      .assignedToContainer{
+      .assignedToContainer {
         position: relative;
       }
 
@@ -97,7 +97,6 @@
         justify-content: space-between;
         align-items: center;
         position: relative;
-        
 
         .searchUserToAssign {
           padding: 0;
@@ -233,7 +232,6 @@
 
         @media (max-width: $breakpoint-lg) {
           justify-content: space-between;
-          
         }
 
         .priorities {
@@ -386,8 +384,6 @@
           }
         }
 
-        
-
         .subtaskContainer {
           height: 120px;
           // max-width: 440px;
@@ -400,7 +396,6 @@
           display: flex;
           flex-direction: column;
           overflow-y: auto;
-          
 
           .subtaskElementWrapper {
             width: 100%;
@@ -417,7 +412,6 @@
               justify-content: space-between;
               align-items: center;
 
-
               &:hover {
                 cursor: pointer;
                 background-color: #d1d1d192;
@@ -432,7 +426,7 @@
                 align-items: center;
                 gap: 20px;
 
-                svg{
+                svg {
                   padding: 0;
                 }
               }
@@ -444,11 +438,11 @@
                 gap: 10px;
                 display: none;
 
-                div{
+                div {
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  svg:hover{
+                  svg:hover {
                     cursor: pointer;
                   }
                 }
@@ -486,11 +480,11 @@
                 align-items: center;
                 gap: 10px;
 
-                div{
+                div {
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  svg:hover{
+                  svg:hover {
                     cursor: pointer;
                   }
                 }
@@ -517,7 +511,6 @@
 
     @media (max-width: $breakpoint-lg) {
       min-width: 100%;
-      
     }
 
     .taskBtnContainer {
@@ -535,7 +528,7 @@
         margin-right: 24px;
         transition: all 0.1s ease-in-out;
 
-        @media (max-width: 750px){
+        @media (max-width: 750px) {
           display: none;
         }
 
