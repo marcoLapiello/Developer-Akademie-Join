@@ -60,6 +60,8 @@ import {
   validateTaskTitleByOninput,
   hideTaskModal,
   hideTaskModalFromBG,
+  setHighlightSubtaskDivBorder,
+  removeHighlightSubtaskDivBorder,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -79,6 +81,8 @@ window.validateTaskCategoryInput = validateTaskCategoryInput;
 window.validateTaskTitleByOninput = validateTaskTitleByOninput;
 window.hideTaskModal = hideTaskModal;
 window.hideTaskModalFromBG = hideTaskModalFromBG;
+window.setHighlightSubtaskDivBorder = setHighlightSubtaskDivBorder;
+window.removeHighlightSubtaskDivBorder = removeHighlightSubtaskDivBorder;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;

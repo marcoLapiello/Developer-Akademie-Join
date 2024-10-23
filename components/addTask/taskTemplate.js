@@ -1,6 +1,6 @@
 export function getTaskTemplate() {
   return /*html*/ `
-    <div onclick="closeDropdownFromWindow(event, 'contactsToAssign')" id="addTaskContainer" class="addTaskContainer">
+    <div onclick="closeDropdownFromWindow(event, 'contactsToAssign'); removeHighlightSubtaskDivBorder(event)" id="addTaskContainer" class="addTaskContainer">
               <h1>Add Task</h1>
 
               <div id="addTaskMiddleContent" class="addTaskMiddleContent">
@@ -87,7 +87,7 @@ export function getTaskTemplate() {
                   <div>
                     <p>Subtasks</p>
                     <div class="addSubtaskContainer">
-                      <div class="subtaskInputContainer">
+                      <div onclick="setHighlightSubtaskDivBorder(event)" id="subtaskInputContainer" class="subtaskInputContainer">
                         <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
                         <div onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')" id="renderSubtaskElement" class="newSubtaskPlusBtn">
                           <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">

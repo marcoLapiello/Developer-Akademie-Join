@@ -218,6 +218,16 @@ export function saveSubtaskEditing(subtaskID, card) {
   }
 }
 
+export function setHighlightSubtaskDivBorder(event) {
+  document.getElementById("subtaskInputContainer").classList.add("borderColorBlue");
+}
+
+export function removeHighlightSubtaskDivBorder(event) {
+  if (event.target.id != "subtaskInput") {
+    document.getElementById("subtaskInputContainer").classList.remove("borderColorBlue");
+  }
+}
+
 export function selectPrio(event) {
   if (event.target == document.getElementById("prioUrgent")) {
     removePrio();
