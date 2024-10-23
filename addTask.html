@@ -15,7 +15,7 @@
         <section id="content" class="content">
           <header id="header" class="header"></header>
           <div id="addTaskWrapper" class="addTaskWrapper">
-            <div id="addTaskContainer" class="addTaskContainer">
+            <div onclick="closeDropdownFromWindow(event, 'contactsToAssign')" id="addTaskContainer" class="addTaskContainer">
               <h1>Add Task</h1>
 
               <div id="addTaskMiddleContent" class="addTaskMiddleContent">
@@ -34,7 +34,14 @@
                     <p>Assigned to</p>
                     <div class="">
                       <div id="assignedToDropdown" class="assignedToDropdown">
-                        <input oninput="" id="searchUserToAssign" class="searchUserToAssign" type="text" placeholder="Select contacts to assign" />
+                        <input
+                          onfocus="renderUserDropdownList(); openUsersDropdownList('assignedToDropdownArrow' , 'contactsToAssign')"
+                          oninput="filterUsersByName()"
+                          id="searchUserToAssign"
+                          class="searchUserToAssign"
+                          type="text"
+                          placeholder="Select contacts to assign"
+                        />
                         <img
                           onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign') , renderUserDropdownList()"
                           id="assignedToDropdownArrow"
@@ -74,18 +81,17 @@
                   <div>
                     <p>Category<span style="color: red">*</span></p>
                     <div>
-                      <div id="categoryDropdown" class="categoryDropdown">
+                      <div onclick="openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')" id="categoryDropdown" class="categoryDropdown">
                         <span id="taskCategory">Select task category</span>
                         <img
-                          onclick="openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')"
                           id="categoryDropdownArrow"
                           class="categoryDropdownArrow"
                           src="./assets/icons/arrow_drop_down.png"
                           alt=""
                         />
                         <div id="categorySelectionContainer" class="categorySelectionContainer d_none">
-                          <p onclick="selectCategory('Technical task')">Technical task</p>
-                          <p onclick="selectCategory('User story')">User story</p>
+                          <p onclick="selectCategory('Technical task'); openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')">Technical task</p>
+                          <p onclick="selectCategory('User story'); openCloseDropdown('categoryDropdownArrow' , 'categorySelectionContainer')">User story</p>
                         </div>
                       </div>
                     </div>

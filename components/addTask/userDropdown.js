@@ -9,6 +9,13 @@ export function clearSelectedUsers() {
   renderCurrentAssignation();
 }
 
+export function removeUsersSearchFieldValue() {
+  if (document.getElementById("searchUserToAssign").value.length > 0) {
+    document.getElementById("searchUserToAssign").value = "";
+    renderUserDropdownList();
+  }
+}
+
 function getUserListItem(userArray, index, isInputChecked) {
   return /*html*/ `
     <div id="${userArray[index][1].id}" class="userListItem">
@@ -19,9 +26,24 @@ function getUserListItem(userArray, index, isInputChecked) {
         <p>${userArray[index][1].profile.first_name} ${userArray[index][1].profile.last_name}</p>
       </div>
       
-      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}')" type="checkBox" ${isInputChecked ? "checked" : ""}>
+      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}'); removeUsersSearchFieldValue()" type="checkBox" ${
+    isInputChecked ? "checked" : ""
+  }>
     </div>
   `;
+}
+
+export function filterUsersByName() {
+  let filterLetters = document.getElementById("searchUserToAssign").value.toLowerCase();
+  let usersListArray = Array.from(document.getElementById("contactsToAssign").querySelectorAll(".userListItem"));
+  usersListArray.forEach((user) => {
+    let userName = user.childNodes[1].lastElementChild.innerText.toLowerCase();
+    if (!userName.includes(filterLetters)) {
+      user.classList.add("d_none");
+    } else {
+      user.classList.remove("d_none");
+    }
+  });
 }
 
 export async function renderUserDropdownList() {
@@ -44,8 +66,47 @@ export async function renderUserDropdownList() {
 }
 
 export function openCloseDropdown(arrow, content) {
-  document.getElementById(arrow).classList.toggle("rotatedArrow");
-  document.getElementById(content).classList.toggle("d_none");
+  if (document.getElementById(content).classList.contains("d_none")) {
+    openUsersDropdownList(arrow, content);
+  } else {
+    closeUsersDropdownList(arrow, content);
+  }
+}
+
+export function openUsersDropdownList(arrow, content) {
+  document.getElementById(arrow).classList.add("rotatedArrow");
+  document.getElementById(content).classList.remove("d_none");
+  if (content == "contactsToAssign") {
+    document.getElementById("assignedToDropdown").style.borderColor = "#29abe2";
+  }
+  if (content == "categorySelectionContainer") {
+    document.getElementById("categoryDropdown").style.borderColor = "#29abe2";
+  }
+}
+
+export function closeUsersDropdownList(arrow, content) {
+  document.getElementById(arrow).classList.remove("rotatedArrow");
+  document.getElementById(content).classList.add("d_none");
+  if (content == "contactsToAssign") {
+    document.getElementById("assignedToDropdown").style.borderColor = "#d1d1d1";
+  }
+  if (content == "categorySelectionContainer") {
+    document.getElementById("categoryDropdown").style.borderColor = "#d1d1d1";
+  }
+  removeUsersSearchFieldValue();
+}
+
+export function closeDropdownFromWindow(event, content) {
+  let isDropdownVisible = !document.getElementById(content).classList.contains("d_none");
+  let isSubtaskContainer = event.target.id == "subtaskContainer";
+  let isAddTaskContainer = event.target.id == "addTaskContainer";
+  let isAddTaskMiddleLeft = event.target.id == "addTaskMiddleLeft";
+  let isAddTaskMiddleRight = event.target.id == "addTaskMiddleRight";
+  if (isDropdownVisible) {
+    if (isSubtaskContainer || isAddTaskContainer || isAddTaskMiddleLeft || isAddTaskMiddleRight) {
+      openCloseDropdown("assignedToDropdownArrow", "contactsToAssign");
+    }
+  }
 }
 
 export function selectUser(userId) {

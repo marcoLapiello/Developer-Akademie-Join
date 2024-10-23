@@ -1,9 +1,6 @@
-import { openCloseDropdown } from "../addTask/userDropdown.js";
-window.openCloseDropdown = openCloseDropdown;
+import { openCloseDropdown, closeUsersDropdownList, selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
 
 import { returnIcon } from "../icons.js";
-
-import { selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
 
 let currentPrio = "medium";
 let currentProgress = 0;
@@ -62,13 +59,7 @@ export function getNewTaskTemplate() {
   clearAddTaskHTML();
   clearSelectedUsers();
   return newTask;
-  // - assign selected users
-
-  // - clear selected users
 }
-
-// implement function!!! import selectedUsers(Array) from userDropdownlist.js
-// change selectedUsers(Array) to an objact and assign it to getNewTaskTemplate
 
 function setGlobalVariablesToDefault() {
   currentPrio = "medium";
@@ -86,6 +77,7 @@ export function clearAddTaskHTML() {
   document.getElementById("subtaskContainer").innerHTML = "";
   setGlobalVariablesToDefault();
   clearSelectedUsers();
+  closeUsersDropdownList("assignedToDropdownArrow", "contactsToAssign");
 }
 
 export function createNewSubtask(card, inputID, containerID) {
@@ -204,7 +196,5 @@ export function selectCategory(selectedCategory) {
 export function getSelectedUsers() {
   selectedUsers.forEach((userID) => {
     newTaskObject.assignedTo[userID] = userID;
-  })
-  console.log(newTaskObject);
-  
+  });
 }
