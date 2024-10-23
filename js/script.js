@@ -58,6 +58,8 @@ import {
   validateTaskDateInput,
   validateTaskCategoryInput,
   validateTaskTitleByOninput,
+  hideTaskModal,
+  hideTaskModalFromBG,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -75,6 +77,8 @@ window.validateTaskTitleInput = validateTaskTitleInput;
 window.validateTaskDateInput = validateTaskDateInput;
 window.validateTaskCategoryInput = validateTaskCategoryInput;
 window.validateTaskTitleByOninput = validateTaskTitleByOninput;
+window.hideTaskModal = hideTaskModal;
+window.hideTaskModalFromBG = hideTaskModalFromBG;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;

@@ -8,9 +8,34 @@ let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "In progress";
 
+
+
+
+
 export function openTaskModal(modal) {
   document.getElementById("taskModalBackground").classList.remove("d_none");
   renderTaskTemplate(modal);
+  // clearAddErrorAlerts();
+  setTimeout(() => {
+    document.getElementById("addTaskModalContainer").style.left = "50%";
+  }, 50);
+}
+
+export function hideTaskModal() {
+  document.getElementById("addTaskModalContainer").style.left = "150%";
+  clearAddTaskHTML();
+  setTimeout(() => {
+    document.getElementById("taskModalBackground").classList.add("d_none");
+    clearAddInputFields();
+  }, 550);
+}
+
+export function hideTaskModalFromBG(event) {
+  if (event.target.id == "taskModalBackground") {
+    hideTaskModal();
+  } else {
+    return;
+  }
 }
 
 export function renderTaskTemplate(card, currentID) {
@@ -21,7 +46,7 @@ export function renderTaskTemplate(card, currentID) {
   } else if (card == "edit") {
     cardRef = "taskDetailViewCard";
   } else {
-    cardRef = "addTaskContainer";
+    cardRef = "addTaskModalContainer";
   }
   let cardRenderRef = document.getElementById(cardRef);
   cardRenderRef.innerHTML = getTaskTemplate(card);

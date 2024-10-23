@@ -635,15 +635,21 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.addTaskContainer {
+.addTaskModalContainer {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 150%;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease-in-out;
   width: 1380px;
-  height: 800px;
+  height: 840px;
   background-color: white;
   border-radius: 30px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  .addTaskContainer{
+    justify-content: center;
+    align-items: center;
+  }
 }
