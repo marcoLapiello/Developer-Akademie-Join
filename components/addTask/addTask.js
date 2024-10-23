@@ -62,13 +62,7 @@ export function getNewTaskTemplate() {
   clearAddTaskHTML();
   clearSelectedUsers();
   return newTask;
-  // - assign selected users
-
-  // - clear selected users
 }
-
-// implement function!!! import selectedUsers(Array) from userDropdownlist.js
-// change selectedUsers(Array) to an objact and assign it to getNewTaskTemplate
 
 function setGlobalVariablesToDefault() {
   currentPrio = "medium";
@@ -205,6 +199,4 @@ export function getSelectedUsers() {
   selectedUsers.forEach((userID) => {
     newTaskObject.assignedTo[userID] = userID;
   })
-  console.log(newTaskObject);
-  
 }

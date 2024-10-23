@@ -44,8 +44,21 @@ export async function renderUserDropdownList() {
 }
 
 export function openCloseDropdown(arrow, content) {
-  document.getElementById(arrow).classList.toggle("rotatedArrow");
-  document.getElementById(content).classList.toggle("d_none");
+  if (document.getElementById(content).classList.contains("d_none")) {
+    openUsersDropdownList(arrow, content);
+  } else {
+    closeUsersDropdownList(arrow, content);
+  }
+}
+
+export function openUsersDropdownList(arrow, content) {
+  document.getElementById(arrow).classList.add("rotatedArrow");
+  document.getElementById(content).classList.remove("d_none");
+}
+
+export function closeUsersDropdownList(arrow, content) {
+  document.getElementById(arrow).classList.remove("rotatedArrow");
+  document.getElementById(content).classList.add("d_none");
 }
 
 export function selectUser(userId) {
