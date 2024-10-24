@@ -17,7 +17,7 @@ function getBoardTemplate() {
               <!-- board right part -->
               <div class="boardRight">
                 <div class="taskSearchFieldContainer">
-                  <input id="searchTasksField" oninput="getFilteredTasksArray()" type="text" placeholder="Find Task" />
+                  <input id="searchTasksField" oninput="getFilteredTasksArray()" onchange="getFilteredTasksArray()" type="text" placeholder="Find Task" />
                   <button onclick="getFilteredTasksArray()" class="searchFieldImgButton">
                     ${returnIcon("searchLens")}
                   </button>
@@ -56,6 +56,8 @@ export async function getFilteredTasksArray() {
       unfilteredTasksArray.forEach((element) => element.classList.remove("d_none"));
       noneShownTasks.forEach((element) => element.classList.add("d_none"));
     } else {
+      unfilteredTasksArray.forEach((element) => element.classList.remove("d_none"));
+      noneShownTasks.forEach((element) => element.classList.remove("d_none"));
       return;
     }
   } else {

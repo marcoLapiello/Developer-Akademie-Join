@@ -79,3 +79,18 @@ export async function patchUpdateSubtasksProgress(taskID, currentProgress) {
     throw new Error("Network response was not ok");
   }
 }
+
+// Patch the task to the database with the new status by using the fetch API
+export async function patchTaskUpdate(updateData, id, oldCategory) {
+  let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
+    method: "PATCH",
+    header: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updateData),
+  });
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  renderTasks(`${updateData.status}`, `${oldCategory}`); // Render the tasks after the patch is successful
+}
