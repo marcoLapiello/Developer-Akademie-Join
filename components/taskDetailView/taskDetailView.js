@@ -108,6 +108,7 @@ function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
   let taskID = currentTask.id;
   let status = currentTask.status;
   return /*html*/ `
+<div class="taskDetailViewCardContainer">
     <div id="taskDetailViewCard" class="taskDetailViewCard">
         <div class="header"> 
             <div class="category" style="background-color: ${currentTask.categoryColor}">${currentTask.category}</div>
@@ -133,5 +134,8 @@ function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
             </div>
         </div>
     </div>  
+</div>
+
+
     `;
 }

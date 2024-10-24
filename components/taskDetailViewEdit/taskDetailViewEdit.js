@@ -17,13 +17,17 @@ function getEditInputValues() {
 // Get the new values from the input fields over the Funktion getEditInputValues and push the new values to the database
 export async function getEditTaskData(taskID) {
   let tasksArray = await getTasksArray(); // Fetch tasks array to get the task data for the task ID
+  const newSelectedUsers = {}; // Create a new object for the selected users
+  selectedUsers.forEach((user) => {
+    newSelectedUsers[user] = user;
+  });
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
   const { titleInput, descriptionInput, dueDateInput, priorityInput } = getEditInputValues(); // Get the new values from the input fields
   if (titleInput) taskData.title = titleInput;
   if (descriptionInput) taskData.description = descriptionInput;
   if (dueDateInput) taskData.dueDate = dueDateInput;
   if (priorityInput) taskData.priority = priorityInput;
-  if (selectedUsers) taskData.assignedTo = selectedUsers;
+  if (selectedUsers) taskData.assignedTo = newSelectedUsers;
   if (newTaskObject.subtasks) taskData.subtasks = newTaskObject.subtasks;
   patchTaskUpdate(taskData, taskID, taskData.status); // Patch the task update
   setGlobalVariablesToDefault(); // Set the global variables to default
@@ -58,6 +62,7 @@ function setEditInputValues(taskData) {
 // The function renders the task detail view edit template
 function renderTaskDetailViewEditTemplate(taskData) {
   return /*html*/ `
+  <div class="taskDetailViewCardContainer">
     <div class="taskDetailViewCardEdit" onclick="removeHighlightSubtaskDivBorder(event)"> 
         <div class="header">
             <div onclick="toggleTaskDetailView()" class="closeButton">${returnIcon("closeX")}</div>
@@ -127,5 +132,6 @@ function renderTaskDetailViewEditTemplate(taskData) {
           </div>
         </div>
     </div>
+  </div>
     `;
 }

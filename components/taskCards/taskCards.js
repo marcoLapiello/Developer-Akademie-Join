@@ -104,16 +104,8 @@ function renderCardsTemplate(task, assignedUsers) {
           <button onclick="toggleMobileMenu(event,'${task.id}')" class="moveToButton">${returnIcon("dots")}</button>
            <div id="mobileMenu${task.id}" class="mobileMenu d_none">
             ${task.status !== "todo" ? `<button onclick="moveToCategoryMobile(event,'todo','${task.id}')" class="mobileMenuButton">To do</button>` : ""}
-            ${
-              task.status !== "inProgress"
-                ? `<button onclick="moveToCategoryMobile(event,'inProgress','${task.id}')" class="mobileMenuButton">In Progress</button>`
-                : ""
-            }
-            ${
-              task.status !== "awaitFeedback"
-                ? `<button onclick="moveToCategoryMobile(event,'awaitFeedback','${task.id}')" class="mobileMenuButton">Await Feedback</button>`
-                : ""
-            }
+            ${task.status !== "inProgress" ? `<button onclick="moveToCategoryMobile(event,'inProgress','${task.id}')" class="mobileMenuButton">In Progress</button>` : ""}
+            ${task.status !== "awaitFeedback" ? `<button onclick="moveToCategoryMobile(event,'awaitFeedback','${task.id}')" class="mobileMenuButton">Await Feedback</button>` : ""}
             ${task.status !== "done" ? `<button onclick="moveToCategoryMobile(event,'done','${task.id}')" class="mobileMenuButton">Done</button>` : ""}
            </div>          
         </div>
@@ -125,9 +117,7 @@ function renderCardsTemplate(task, assignedUsers) {
           Object.keys(task.subtasks).length > 1
             ? `<div class="statusSubtasks">
                     <progress class="progressBar" value="${task.progress}" max="100"></progress>
-                    <span class="progressText">${Object.values(task.subtasks).filter((subtask) => subtask.isDone).length}/${
-                Object.keys(task.subtasks).length - 1
-              } Subtasks</span>
+                    <span class="progressText">${Object.values(task.subtasks).filter((subtask) => subtask.isDone).length}/${Object.keys(task.subtasks).length - 1} Subtasks</span>
                 </div>`
             : ""
         }
