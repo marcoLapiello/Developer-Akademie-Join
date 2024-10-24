@@ -9,7 +9,7 @@
   background-color: #ffffff;
   padding: 40px 40px 40px 40px;
   border-radius: 30px;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   .header {
     display: flex;
@@ -338,7 +338,7 @@
   }
 
   .subtaskContainer {
-    height: 120px;
+    max-height: 120px;
     // max-width: 440px;
     width: 100%;
     padding: 7px 0px;
