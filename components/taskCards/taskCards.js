@@ -1,5 +1,6 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray, getTasksArray } from "../../js/script.js";
+import { patchTaskUpdate } from "../../js/tasksApiService.js";
 let currentDraggedElement; // Placeholder for the current dragged element
 
 import { openTaskModal } from "../addTask/addTask.js"
@@ -208,24 +209,6 @@ function removeHighlightCategory() {
   });
 }
 window.removeHighlightCategory = removeHighlightCategory;
-
-const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app"; // Base URL for the database
-
-// Patch the task to the database with the new status by using the fetch API
-export async function patchTaskUpdate(updateData, id, oldCategory) {
-  let response = await fetch(baseUrl + "/tasks/" + id + ".json", {
-    method: "PATCH",
-    header: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(updateData),
-  });
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  renderTasks(`${updateData.status}`, `${oldCategory}`); // Render the tasks after the patch is successful
-  // renderTasks(); // Render the tasks after the patch is successful
-}
 
 // Scroll horizontally when the mouse wheel is used in the scrollable containers
 document.addEventListener(

@@ -3,6 +3,7 @@ import { getTasksArray } from "../../js/script.js";
 import { currentPrio, setGlobalVariablesToDefault, getSubtaskTemplate, newTaskObject } from "../addTask/addTask.js";
 import { overwriteSelectedUsers, selectedUsers, renderUserDropdownList } from "../addTask/userDropdown.js";
 import { toggleTaskDetailView } from "../taskDetailView/taskDetailView.js";
+import { patchTaskUpdate } from "../../js/tasksApiService.js";
 
 // Get the new values from the input fields
 function getEditInputValues() {
@@ -24,9 +25,7 @@ export async function getEditTaskData(taskID) {
   if (priorityInput) taskData.priority = priorityInput;
   if (selectedUsers) taskData.assignedTo = selectedUsers;
   if (newTaskObject.subtasks) taskData.subtasks = newTaskObject.subtasks;
-
-  //! pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
-
+  patchTaskUpdate(taskData, taskID, taskData.status); // Patch the task update
   setGlobalVariablesToDefault(); // Set the global variables to default
   overwriteSelectedUsers(""); // Overwrite the selected users
   toggleTaskDetailView(); // Toggle the task detail view
@@ -80,9 +79,15 @@ function renderTaskDetailViewEditTemplate(taskData) {
         <div class="priorityContainer">
           <p class="priority">Priority</p>
           <div id="prioContainer" class="prioContainer">
-            <div onclick="selectPrio(event)" id="prioUrgent" class="priorities">Urgent<img src="./assets/icons/urgent_icon.png" alt="" /></div>
-            <div onclick="selectPrio(event)" id="prioMedium" class="priorities mediumPrio">Medium<img src="./assets/icons/medium_icon.png" alt="" /></div>
-            <div onclick="selectPrio(event)" id="prioLow" class="priorities">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioUrgent" class="priorities ${
+            taskData.priority.toLowerCase() == "urgent" ? "urgentPrio" : ""
+          }">Urgent<img src="./assets/icons/urgent_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioMedium" class="priorities ${
+            taskData.priority.toLowerCase() == "medium" ? "mediumPrio" : ""
+          }">Medium<img src="./assets/icons/medium_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioLow" class="priorities ${
+            taskData.priority.toLowerCase() == "low" ? "lowPrio" : ""
+          }">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
           </div>
         </div>
         <div class="assignedToContainer">
