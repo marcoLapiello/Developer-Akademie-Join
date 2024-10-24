@@ -115,7 +115,13 @@ export function getNewTaskTemplate() {
   newTaskObject.creatorId = "";
   newTaskObject.priority = currentPrio;
   newTaskObject.category = document.getElementById("taskCategory").innerText;
-  newTaskObject.categoryColor = "";
+  console.log(newTaskObject.category);
+  if (newTaskObject.category == "Technical task") {
+    newTaskObject.categoryColor = "#1fd7c1";
+  }
+  if (newTaskObject.category == "User story") {
+    newTaskObject.categoryColor = "#0038ff";
+  }
   newTaskObject.progress = currentProgress;
   newTaskObject.status = currentStatus;
   getSelectedUsers();
