@@ -59,7 +59,7 @@ function setEditInputValues(taskData) {
 // The function renders the task detail view edit template
 function renderTaskDetailViewEditTemplate(taskData) {
   return /*html*/ `
-    <div class="taskDetailViewCardEdit"> 
+    <div class="taskDetailViewCardEdit" onclick="removeHighlightSubtaskDivBorder(event)"> 
         <div class="header">
             <div onclick="toggleTaskDetailView()" class="closeButton">${returnIcon("closeX")}</div>
         </div>      
@@ -89,7 +89,7 @@ function renderTaskDetailViewEditTemplate(taskData) {
           <p class="assignedTo">Assigned to</p>          
           <div class="assignedToDropdown" id="assignedToDropdown">
               <input id="searchUserToAssign" class="searchUserToAssign" 
-              onfocus="renderUserDropdownList(); openUsersDropdownList('assignedToDropdownArrow' , 'contactsToAssign')" oninput="filterUsersByName()" type="text" placeholder="Select contacts to assign" />
+              onfocus="openUserDropdownFromUserInput()" oninput="filterUsersByName()" type="text" placeholder="Select contacts to assign" />
               <img id="assignedToDropdownArrow" class="assignedToDropdownArrow" 
               onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign') , renderUserDropdownList()" src="./assets/icons/arrow_drop_down.png" alt="" />
           </div>
@@ -102,7 +102,7 @@ function renderTaskDetailViewEditTemplate(taskData) {
         <div class="subtasksContainer">
           <p class="subtasks">Subtasks</p>
           <div class="addSubtaskContainer">
-            <div class="subtaskInputContainer">
+            <div onclick="setHighlightSubtaskDivBorder()" id="subtaskInputContainer" class="subtaskInputContainer">
               <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
               <div onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')" id="renderSubtaskElement" class="newSubtaskPlusBtn">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
