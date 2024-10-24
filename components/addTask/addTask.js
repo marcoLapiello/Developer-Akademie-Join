@@ -46,9 +46,9 @@ export function renderTaskTemplate(card, currentID) {
 }
 
 export function renderDeleteTaskTemplate(status, taskID) {
-  document.getElementById("deleteTaskRenderContainer").innerHTML = "";
+  document.getElementById("confirmDeleteUserModal").classList.remove("d_none");
   let deleteTaskTemplate = getDeleteTaskTemplate(status, taskID);
-  document.getElementById("deleteTaskRenderContainer").innerHTML = deleteTaskTemplate;
+  document.getElementById("confirmDeleteUserModal").innerHTML = deleteTaskTemplate;
 }
 
 let emptyTaskTemplate = {
