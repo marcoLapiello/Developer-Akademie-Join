@@ -32,6 +32,7 @@ export function hideTaskModalFromBG(event) {
   }
 }
 
+
 export function renderTaskTemplate(card, currentID) {
   let cardRef;
   if (card == "add") {

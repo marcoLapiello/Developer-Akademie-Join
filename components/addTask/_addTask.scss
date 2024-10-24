@@ -34,6 +34,21 @@
     padding: 16px 8px;
   }
 
+  .closeModal {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    position: absolute;
+    top: 48px;
+    right: 100px;
+    z-index: 500;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
   h1 {
     font-size: 61px;
     font-weight: 700;
@@ -722,7 +737,7 @@
   left: 150%;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease-in-out;
-  width: 1380px;
+  width: 1180px;
   height: 840px;
   background-color: white;
   border-radius: 30px;
