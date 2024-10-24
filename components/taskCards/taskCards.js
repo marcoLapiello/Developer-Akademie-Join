@@ -3,9 +3,17 @@ import { getUsersArray, getTasksArray } from "../../js/script.js";
 import { patchTaskUpdate } from "../../js/tasksApiService.js";
 let currentDraggedElement; // Placeholder for the current dragged element
 
-export function addNewTaskCategory(currentStatus) {
-  alert("Waiting for the modal to be implemented \n" + "Parameter: " + currentStatus); // Placeholder for the modal to be implemented
-  renderTasks();
+import { openTaskModal } from "../addTask/addTask.js";
+
+export function addNewTaskCategory(status) {
+  if (window.innerWidth > 1400) {
+    openTaskModal(status);
+  } else {
+    window.location.href = `addTask.html#param=${status}`;
+  }
+  // overwriteCurrentStatus(status)
+
+  // Placeholder for the modal to be implemented
 }
 window.addNewTaskCategory = addNewTaskCategory;
 
@@ -96,8 +104,16 @@ function renderCardsTemplate(task, assignedUsers) {
           <button onclick="toggleMobileMenu(event,'${task.id}')" class="moveToButton">${returnIcon("dots")}</button>
            <div id="mobileMenu${task.id}" class="mobileMenu d_none">
             ${task.status !== "todo" ? `<button onclick="moveToCategoryMobile(event,'todo','${task.id}')" class="mobileMenuButton">To do</button>` : ""}
-            ${task.status !== "inProgress" ? `<button onclick="moveToCategoryMobile(event,'inProgress','${task.id}')" class="mobileMenuButton">In Progress</button>` : ""}
-            ${task.status !== "awaitFeedback" ? `<button onclick="moveToCategoryMobile(event,'awaitFeedback','${task.id}')" class="mobileMenuButton">Await Feedback</button>` : ""}
+            ${
+              task.status !== "inProgress"
+                ? `<button onclick="moveToCategoryMobile(event,'inProgress','${task.id}')" class="mobileMenuButton">In Progress</button>`
+                : ""
+            }
+            ${
+              task.status !== "awaitFeedback"
+                ? `<button onclick="moveToCategoryMobile(event,'awaitFeedback','${task.id}')" class="mobileMenuButton">Await Feedback</button>`
+                : ""
+            }
             ${task.status !== "done" ? `<button onclick="moveToCategoryMobile(event,'done','${task.id}')" class="mobileMenuButton">Done</button>` : ""}
            </div>          
         </div>
@@ -109,7 +125,9 @@ function renderCardsTemplate(task, assignedUsers) {
           Object.keys(task.subtasks).length > 1
             ? `<div class="statusSubtasks">
                     <progress class="progressBar" value="${task.progress}" max="100"></progress>
-                    <span class="progressText">${Object.values(task.subtasks).filter((subtask) => subtask.isDone).length}/${Object.keys(task.subtasks).length - 1} Subtasks</span>
+                    <span class="progressText">${Object.values(task.subtasks).filter((subtask) => subtask.isDone).length}/${
+                Object.keys(task.subtasks).length - 1
+              } Subtasks</span>
                 </div>`
             : ""
         }
