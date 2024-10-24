@@ -3,8 +3,12 @@ import { getUsersArray, getTasksArray } from "../../js/script.js";
 import { patchTaskUpdate } from "../../js/tasksApiService.js";
 let currentDraggedElement; // Placeholder for the current dragged element
 
-export function addNewTaskCategory(currentStatus) {
-  alert("Waiting for the modal to be implemented \n" + "Parameter: " + currentStatus); // Placeholder for the modal to be implemented
+import { openTaskModal } from "../addTask/addTask.js"
+
+export function addNewTaskCategory(status) {
+  // alert("Waiting for the modal to be implemented \n" + "Parameter: " + currentStatus); 
+  openTaskModal(status);
+  // Placeholder for the modal to be implemented
   renderTasks();
 }
 window.addNewTaskCategory = addNewTaskCategory;
