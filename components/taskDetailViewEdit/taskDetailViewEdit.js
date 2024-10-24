@@ -3,6 +3,7 @@ import { getTasksArray } from "../../js/script.js";
 import { currentPrio, setGlobalVariablesToDefault, getSubtaskTemplate, newTaskObject } from "../addTask/addTask.js";
 import { overwriteSelectedUsers, selectedUsers, renderUserDropdownList } from "../addTask/userDropdown.js";
 import { toggleTaskDetailView } from "../taskDetailView/taskDetailView.js";
+import { patchTaskUpdate } from "../../js/tasksApiService.js";
 
 // Get the new values from the input fields
 function getEditInputValues() {
@@ -24,9 +25,7 @@ export async function getEditTaskData(taskID) {
   if (priorityInput) taskData.priority = priorityInput;
   if (selectedUsers) taskData.assignedTo = selectedUsers;
   if (newTaskObject.subtasks) taskData.subtasks = newTaskObject.subtasks;
-
-  //! pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
-
+  patchTaskUpdate(taskData, taskID, taskData.status); // Patch the task update
   setGlobalVariablesToDefault(); // Set the global variables to default
   overwriteSelectedUsers(""); // Overwrite the selected users
   toggleTaskDetailView(); // Toggle the task detail view
@@ -58,8 +57,6 @@ function setEditInputValues(taskData) {
 
 // The function renders the task detail view edit template
 function renderTaskDetailViewEditTemplate(taskData) {
-  console.log(taskData.priority);
-
   return /*html*/ `
     <div class="taskDetailViewCardEdit" onclick="removeHighlightSubtaskDivBorder(event)"> 
         <div class="header">
