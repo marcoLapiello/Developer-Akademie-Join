@@ -1,7 +1,7 @@
 export function getTaskTemplate() {
   return /*html*/ `
     <div onclick="closeDropdownFromWindow(event, 'contactsToAssign'); removeHighlightSubtaskDivBorder(event)" id="addTaskContainer" class="addTaskContainer">
-    <img class="closeModal" src="./assets/icons/x_btn.svg" onclick="hideTaskModal()" alt="" />
+      <img class="${window.location.pathname === "/addTask.html" ? "d_none" : "closeModal"}" src="./assets/icons/x_btn.svg" onclick="hideTaskModal()" alt="" />
               <h1>Add Task</h1>
 
               <div id="addTaskMiddleContent" class="addTaskMiddleContent">
