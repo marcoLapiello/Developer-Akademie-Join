@@ -527,7 +527,8 @@
 
             .currentSubtaskBox {
               width: 100%;
-              padding: 4px 16px;
+              padding: 0px 16px;
+              min-height: 30px;
               border-radius: 10px;
               display: flex;
               justify-content: space-between;
@@ -640,7 +641,6 @@
 
     @media (max-width: $breakpoint-sm) {
       max-width: 100%;
-      
     }
 
     .taskBtnContainer {
