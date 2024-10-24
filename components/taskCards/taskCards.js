@@ -11,9 +11,6 @@ export function addNewTaskCategory(status) {
   } else {
     window.location.href = `addTask.html#param=${status}`;
   }
-  // overwriteCurrentStatus(status)
-
-  // Placeholder for the modal to be implemented
 }
 window.addNewTaskCategory = addNewTaskCategory;
 
@@ -38,7 +35,7 @@ export async function renderTodoCards(currentStatus, tasksArray) {
   const cardsRef = document.getElementById(`${currentStatus}Cards`);
   const cardsMenuRef = document.getElementById(`${currentStatus}Menu`);
   if (cardsMenuRef) cardsMenuRef.innerHTML = renderCardsMenuTemplate(currentStatus); // Render the menu for each category
-  if (cardsRef) cardsRef.innerHTML = ""; // Clear the cards for each category
+  if (cardsRef) cardsRef.innerHTML = "";
   const todoTasks = tasksArray.filter((task) => task[1].status === `${currentStatus}`);
   if (todoTasks.length > 0) {
     for (const task of todoTasks) {
@@ -51,10 +48,10 @@ export async function renderTodoCards(currentStatus, tasksArray) {
   if (cardsRef) cardsRef.innerHTML += /*html*/ `<div class="draggableIndicator"></div>`; // Add the draggable indicator at the end of the category
 }
 
-// get the assigned users for the task
+// Get the assigned users for the task
 async function getAssignedUsers(task) {
   const filteredTask = Object.keys(task.assignedTo).filter((id) => id !== "placeholder"); // Filter the task to get the assigned users (filter out the placeholder)
-  let usersArray = await getUsersArray(); // Get the users array from the database
+  let usersArray = await getUsersArray();
   const matchedUsers = usersArray.filter((user) => filteredTask.includes(user[1].id)); // Match the users with the assigned users of the task (needed for the initials)
   let initialsHTML = "";
   matchedUsers.forEach((user) => {

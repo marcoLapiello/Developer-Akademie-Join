@@ -17,7 +17,7 @@ async function groupedUsers() {
   let sortedUsersArray = await sortUsers();
   let groupedUsersObjekt = {};
   sortedUsersArray.forEach((user) => {
-    const firstLetter = user[1].profile.first_name.toUpperCase().charAt(0); // Get the first letter of the last name and convert it to uppercase
+    const firstLetter = user[1].profile.first_name.toUpperCase().charAt(0); // Get the first letter of the first name in uppercase.
     if (!groupedUsersObjekt[firstLetter]) groupedUsersObjekt[firstLetter] = []; // Create an empty array for the first letter if it doesn't exist
     groupedUsersObjekt[firstLetter].push(user); // Add the user to the array for the first letter
   });
