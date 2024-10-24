@@ -103,7 +103,7 @@
       font-size: 20px;
       outline: none;
       &:focus {
-        border: 1px solid #29abe2;
+        border: 1px solid #29abe2 !important;
       }
 
       @media (max-width: $breakpoint-sm) {

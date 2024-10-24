@@ -23,8 +23,6 @@ export function openTaskModal(status) {
   if (status == "todo") currentStatus = "todo";
   if (status == "inProgress") currentStatus = "inProgress";
   if (status == "awaitFeedback") currentStatus = "awaitFeedback";
-  console.log(currentStatus);
-
   document.getElementById("taskModalBackground").classList.remove("d_none");
   renderTaskTemplate();
   setTimeout(() => {
@@ -47,7 +45,6 @@ export function hideTaskModalFromBG(event) {
     return;
   }
 }
-
 
 export function renderTaskTemplate(card, currentID) {
   let cardRef;
@@ -225,10 +222,6 @@ export function deleteSubtask(subtaskID, card) {
   if (card == "add") {
     document.getElementById(`subtaskElementWrapper-${subtaskID}`).remove();
     delete newTaskObject.subtasks[subtaskID];
-    console.log(newTaskObject);
-  } else {
-    // lösche das element im html mit der passenden ID
-    // lösche das subtask object aus der datenbank mit hilfe von tasksApiService.js / delteSingleSubtaskDatabase()
   }
 }
 
