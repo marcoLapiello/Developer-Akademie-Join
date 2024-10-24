@@ -225,7 +225,9 @@ export function setHighlightSubtaskDivBorder(event) {
 
 export function removeHighlightSubtaskDivBorder(event) {
   if (event.target.id != "subtaskInput") {
-    document.getElementById("subtaskInputContainer").classList.remove("borderColorBlue");
+    if (document.getElementById("subtaskInputContainer")) {
+      document.getElementById("subtaskInputContainer").classList.remove("borderColorBlue");
+    }
   }
 }
 
