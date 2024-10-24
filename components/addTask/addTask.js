@@ -13,10 +13,7 @@ export function getHashParameter() {
   let parameter = hashParameter.split("=")[1];
   if (hashParameter) {
     currentStatus = parameter;
-    console.log(currentStatus);
   } else {
-    console.log(currentStatus);
-
     return;
   }
 }
@@ -115,7 +112,6 @@ export function getNewTaskTemplate() {
   newTaskObject.creatorId = "";
   newTaskObject.priority = currentPrio;
   newTaskObject.category = document.getElementById("taskCategory").innerText;
-  console.log(newTaskObject.category);
   if (newTaskObject.category == "Technical task") {
     newTaskObject.categoryColor = "#1fd7c1";
   }
@@ -144,15 +140,18 @@ export function setGlobalVariablesToDefault() {
 export function clearAddTaskHTML() {
   document.getElementById("taskTitleInput").value = "";
   document.getElementById("taskTitleWarning").classList.add("d_none");
-  document.getElementById("taskTitleInput").style.borderColor = "#d1d1d1";
+  document.getElementById("taskTitleInput").classList.remove("borderColorRed");
+  document.getElementById("taskTitleInput").classList.add("borderColorGrey"); //
   document.getElementById("taskDescription").value = "";
   document.getElementById("currentAssignation").innerHTML = "";
   document.getElementById("taskDueDate").value = "";
   document.getElementById("taskDateWarning").classList.add("d_none");
-  document.getElementById("taskDueDate").style.borderColor = "#d1d1d1";
+  document.getElementById("taskDueDate").classList.remove("borderColorRed");
+  document.getElementById("taskDueDate").classList.add("borderColorGrey"); //
   document.getElementById("taskCategory").innerText = "Select task category";
   document.getElementById("taskCategoryWarning").classList.add("d_none");
-  document.getElementById("categoryDropdown").style.borderColor = "#d1d1d1";
+  document.getElementById("categoryDropdown").classList.remove("borderColorRed");
+  document.getElementById("categoryDropdown").classList.add("borderColorGrey"); //
   document.getElementById("subtaskContainer").innerHTML = "";
   setGlobalVariablesToDefault();
   clearSelectedUsers();
@@ -304,6 +303,7 @@ export function validateTaskTitleInput() {
   let title = document.getElementById("taskTitleInput").value;
   if (title.length < 3) {
     document.getElementById("taskTitleWarning").classList.remove("d_none");
+    document.getElementById("taskTitleInput").classList.remove("borderColorGrey");
     document.getElementById("taskTitleInput").classList.add("borderColorRed");
     return false;
   }
@@ -318,6 +318,7 @@ export function validateTaskDateInput() {
   let formattedDate = dateToday.toISOString().split("T")[0];
   if (!date || date < formattedDate) {
     document.getElementById("taskDateWarning").classList.remove("d_none");
+    document.getElementById("taskDueDate").classList.remove("borderColorGrey");
     document.getElementById("taskDueDate").classList.add("borderColorRed");
     return false;
   }
@@ -330,6 +331,7 @@ export function validateTaskCategoryInput() {
   let category = document.getElementById("taskCategory").innerHTML;
   if (category == "Select task category") {
     document.getElementById("taskCategoryWarning").classList.remove("d_none");
+    document.getElementById("categoryDropdown").classList.remove("borderColorGrey");
     document.getElementById("categoryDropdown").classList.add("borderColorRed");
     return false;
   }
