@@ -12,248 +12,259 @@
   background-color: rgba(0, 0, 0, 0.1);
   padding: 8px;
 
-  .taskDetailViewCard {
+  .taskDetailViewCardContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 24px;
     max-height: 95%;
     max-width: 525px;
     width: 100%;
     background-color: #ffffff;
-    padding: 40px 40px 40px 40px;
+    padding: 20px 20px 20px 20px;
+    padding-right: 20px;
     border-radius: 30px;
-    overflow: auto;
 
-    .header {
+    .taskDetailViewCard {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
+      gap: 24px;
+      width: 100%;
+      background-color: #ffffff;
+      padding: 20px 20px 20px 20px;
+      border-radius: 30px;
+      overflow: auto;
 
-      .category {
-        background-color: #000000;
-        font-size: 23px;
+      .header {
+        display: flex;
+        justify-content: space-between;
+
+        .category {
+          background-color: #000000;
+          font-size: 23px;
+          font-weight: 400;
+          color: #ffffff;
+          padding: 4px 24px 4px 24px;
+          border-radius: 8px;
+
+          @media (max-width: $breakpoint-xs) {
+            font-size: 16px;
+          }
+        }
+        .closeButton {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 32px;
+          width: 32px;
+          border-radius: 50%;
+
+          & svg {
+            height: 15px;
+            width: 15px;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background-color: #eeeeee;
+          }
+        }
+      }
+      .title {
+        font-size: 61px;
+        font-weight: bold;
+        line-height: 120%;
+
+        @media (max-width: $breakpoint-xs) {
+          font-size: 30px;
+        }
+      }
+      .description {
+        font-size: 20px;
         font-weight: 400;
-        color: #ffffff;
-        padding: 4px 24px 4px 24px;
-        border-radius: 8px;
+        line-height: 120%;
 
         @media (max-width: $breakpoint-xs) {
           font-size: 16px;
         }
       }
-      .closeButton {
+      .dueDate {
         display: flex;
-        justify-content: center;
+        gap: 25px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 120%;
+
+        @media (max-width: $breakpoint-xs) {
+          font-size: 16px;
+        }
+
+        & span {
+          width: 100px;
+        }
+      }
+      .priority {
+        display: flex;
         align-items: center;
-        height: 32px;
-        width: 32px;
-        border-radius: 50%;
+        gap: 25px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 120%;
 
-        & svg {
-          height: 15px;
-          width: 15px;
+        @media (max-width: $breakpoint-xs) {
+          font-size: 16px;
         }
 
-        &:hover {
-          cursor: pointer;
-          background-color: #eeeeee;
+        & span {
+          width: 100px;
+        }
+
+        & p::first-letter {
+          text-transform: uppercase;
+        }
+
+        .urgentIcon {
+          height: 17px;
+          width: 17px;
+          fill: #ff3d00;
+        }
+        .mediumIcon {
+          height: 17px;
+          width: 17px;
+          fill: #ffa800;
+        }
+        .lowIcon {
+          height: 17px;
+          width: 17px;
+          fill: #7ae229;
         }
       }
-    }
-    .title {
-      font-size: 61px;
-      font-weight: bold;
-      line-height: 120%;
 
-      @media (max-width: $breakpoint-xs) {
-        font-size: 30px;
-      }
-    }
-    .description {
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 120%;
-
-      @media (max-width: $breakpoint-xs) {
-        font-size: 16px;
-      }
-    }
-    .dueDate {
-      display: flex;
-      gap: 25px;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 120%;
-
-      @media (max-width: $breakpoint-xs) {
-        font-size: 16px;
-      }
-
-      & span {
-        width: 100px;
-      }
-    }
-    .priority {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 120%;
-
-      @media (max-width: $breakpoint-xs) {
-        font-size: 16px;
-      }
-
-      & span {
-        width: 100px;
-      }
-
-      & p::first-letter {
-        text-transform: uppercase;
-      }
-
-      .urgentIcon {
-        height: 17px;
-        width: 17px;
-        fill: #ff3d00;
-      }
-      .mediumIcon {
-        height: 17px;
-        width: 17px;
-        fill: #ffa800;
-      }
-      .lowIcon {
-        height: 17px;
-        width: 17px;
-        fill: #7ae229;
-      }
-    }
-
-    .assignedTo {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 120%;
-
-      @media (max-width: $breakpoint-xs) {
-        font-size: 16px;
-      }
-
-      .userNames {
+      .assignedTo {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 8px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 120%;
 
-        .userName {
+        @media (max-width: $breakpoint-xs) {
+          font-size: 16px;
+        }
+
+        .userNames {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          .userName {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 20px;
+            list-style: none;
+            padding: 7px 16px 7px 16px;
+
+            @media (max-width: $breakpoint-xs) {
+              font-size: 16px;
+            }
+
+            .userInitials {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              min-height: 42px;
+              min-width: 42px;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 120%;
+              color: #ffffff;
+              border-radius: 50%;
+              background-color: black;
+            }
+          }
+        }
+      }
+      .subtasks {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 120%;
+
+        @media (max-width: $breakpoint-xs) {
+          font-size: 16px;
+        }
+
+        .subtask {
           display: flex;
           align-items: center;
           gap: 16px;
-          font-size: 20px;
-          list-style: none;
-          padding: 7px 16px 7px 16px;
+          padding-left: 16px;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 120%;
+          padding: 6.5px 16px 6.5px 16px;
+          border-radius: 10px;
 
           @media (max-width: $breakpoint-xs) {
             font-size: 16px;
           }
 
-          .userInitials {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 42px;
-            min-width: 42px;
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 120%;
-            color: #ffffff;
-            border-radius: 50%;
-            background-color: black;
+          &:hover {
+            cursor: pointer;
+            background-color: #eeeeee;
+          }
+
+          & input[type="checkbox"] {
+            height: 24px;
+            width: 24px;
+
+            @media (max-width: $breakpoint-xs) {
+              height: 16px;
+              width: 16px;
+              margin-right: 16px;
+            }
           }
         }
       }
-    }
-    .subtasks {
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 120%;
-
-      @media (max-width: $breakpoint-xs) {
-        font-size: 16px;
-      }
-
-      .subtask {
+      .buttons {
         display: flex;
-        align-items: center;
-        gap: 16px;
-        padding-left: 16px;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 120%;
-        padding: 6.5px 16px 6.5px 16px;
-        border-radius: 10px;
-
-        @media (max-width: $breakpoint-xs) {
-          font-size: 16px;
-        }
-
-        &:hover {
-          cursor: pointer;
-          background-color: #eeeeee;
-        }
-
-        & input[type="checkbox"] {
-          height: 24px;
-          width: 24px;
-
-          @media (max-width: $breakpoint-xs) {
-            height: 16px;
-            width: 16px;
-            margin-right: 16px;
-          }
-        }
-      }
-    }
-    .buttons {
-      display: flex;
-      justify-content: end;
-      align-items: center;
-      gap: 5px;
-
-      .deleteButton,
-      .editButton {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 8px;
-        font-size: 16px;
-        line-height: 120%;
-        background-color: unset;
-        border: unset;
-        width: 70px;
-
-        &:hover {
-          cursor: pointer;
-          color: #29abe2;
-          fill: #29abe2;
-          font-weight: bold;
-        }
-
-        & svg {
-          height: 24px;
-          width: 24px;
-        }
-      }
-      .deleteButton {
-        width: 85px;
-      }
-
-      .editButton {
         justify-content: end;
-        &:hover {
-          border-left: 1px solid #d1d1d1;
+        align-items: center;
+        gap: 5px;
+
+        .deleteButton,
+        .editButton {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          gap: 8px;
+          font-size: 16px;
+          line-height: 120%;
+          background-color: unset;
+          border: unset;
+          width: 70px;
+
+          &:hover {
+            cursor: pointer;
+            color: #29abe2;
+            fill: #29abe2;
+            font-weight: bold;
+          }
+
+          & svg {
+            height: 24px;
+            width: 24px;
+          }
+        }
+        .deleteButton {
+          width: 85px;
+        }
+
+        .editButton {
+          justify-content: end;
+          &:hover {
+            border-left: 1px solid #d1d1d1;
+          }
         }
       }
     }
