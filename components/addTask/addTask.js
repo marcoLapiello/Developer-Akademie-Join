@@ -8,9 +8,15 @@ export let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "todo";
 
-export function openTaskModal(modal) {
+export function openTaskModal(status) {
+    if (!status) currentStatus == "todo"
+    if (status == "todo") currentStatus = "todo";
+    if (status == "inProgress") currentStatus = "inProgress";
+    if (status == "awaitFeedback") currentStatus = "awaitFeedback";
+  console.log(currentStatus);
+  
   document.getElementById("taskModalBackground").classList.remove("d_none");
-  renderTaskTemplate(modal);
+  renderTaskTemplate();
   setTimeout(() => {
     document.getElementById("addTaskModalContainer").style.left = "50%";
   }, 50);
