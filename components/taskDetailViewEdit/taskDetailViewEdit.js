@@ -4,7 +4,7 @@ import { currentPrio, setGlobalVariablesToDefault, getSubtaskTemplate, newTaskOb
 import { overwriteSelectedUsers, selectedUsers, renderUserDropdownList } from "../addTask/userDropdown.js";
 import { toggleTaskDetailView } from "../taskDetailView/taskDetailView.js";
 
-//! Get the new values from the input fields
+// Get the new values from the input fields
 function getEditInputValues() {
   const titleInput = document.getElementById("taskTitleInput").value; // Get the new title input value
   const descriptionInput = document.getElementById("taskDescription").value; // Get the new description input value
@@ -13,7 +13,7 @@ function getEditInputValues() {
   return { titleInput, descriptionInput, dueDateInput, priorityInput };
 }
 
-//! Get the new values from the input fields over the Funktion getEditInputValues and push the new values to the database
+// Get the new values from the input fields over the Funktion getEditInputValues and push the new values to the database
 export async function getEditTaskData(taskID) {
   let tasksArray = await getTasksArray(); // Fetch tasks array to get the task data for the task ID
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
@@ -24,13 +24,15 @@ export async function getEditTaskData(taskID) {
   if (priorityInput) taskData.priority = priorityInput;
   if (selectedUsers) taskData.assignedTo = selectedUsers;
   if (newTaskObject.subtasks) taskData.subtasks = newTaskObject.subtasks;
-  // pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
+
+  //! pushToDatabase(taskData); // The is a example function to push the updated task data to the database. The Funktion is not implemented yet.
+
   setGlobalVariablesToDefault(); // Set the global variables to default
   overwriteSelectedUsers(""); // Overwrite the selected users
   toggleTaskDetailView(); // Toggle the task detail view
 }
 
-//! The function renders the task detail view edit template
+// The function renders the task detail view edit template
 export async function renderTaskDetailViewEdit(taskID) {
   let tasksArray = await getTasksArray(); // Fetch tasks array
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
@@ -57,7 +59,7 @@ function setEditInputValues(taskData) {
 // The function renders the task detail view edit template
 function renderTaskDetailViewEditTemplate(taskData) {
   return /*html*/ `
-    <div class="taskDetailViewCardEdit"> 
+    <div class="taskDetailViewCardEdit" onclick="removeHighlightSubtaskDivBorder(event)"> 
         <div class="header">
             <div onclick="toggleTaskDetailView()" class="closeButton">${returnIcon("closeX")}</div>
         </div>      
@@ -83,44 +85,42 @@ function renderTaskDetailViewEditTemplate(taskData) {
             <div onclick="selectPrio(event)" id="prioLow" class="priorities">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
           </div>
         </div>
-
         <div class="assignedToContainer">
           <p class="assignedTo">Assigned to</p>          
           <div class="assignedToDropdown" id="assignedToDropdown">
               <input id="searchUserToAssign" class="searchUserToAssign" 
-              onfocus="renderUserDropdownList(); openUsersDropdownList('assignedToDropdownArrow' , 'contactsToAssign')" oninput="filterUsersByName()" type="text" placeholder="Select contacts to assign" />
+              onfocus="openUserDropdownFromUserInput()" oninput="filterUsersByName()" type="text" placeholder="Select contacts to assign" />
               <img id="assignedToDropdownArrow" class="assignedToDropdownArrow" 
               onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign') , renderUserDropdownList()" src="./assets/icons/arrow_drop_down.png" alt="" />
           </div>
         </div>
 
+        <div id="contactsToAssign" class="contactsToAssign d_none"></div>
 
-      <div id="contactsToAssign" class="contactsToAssign d_none"></div>
-      <div id="currentAssignation" class="currentAssignation"></div>      
+        <div id="currentAssignation" class="currentAssignation"></div>   
 
-      <div>
-        <p>Subtasks</p>
-        <div class="addSubtaskContainer">
-          <div class="subtaskInputContainer">
-            <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
-            <div onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')" id="renderSubtaskElement" class="newSubtaskPlusBtn">
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
-                <path d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z" fill="black" />
-              </svg>
+        <div class="subtasksContainer">
+          <p class="subtasks">Subtasks</p>
+          <div class="addSubtaskContainer">
+            <div onclick="setHighlightSubtaskDivBorder()" id="subtaskInputContainer" class="subtaskInputContainer">
+              <input id="subtaskInput" class="subtaskInput" type="text" placeholder="Add a new subtask" />
+              <div onclick="createNewSubtask('add', 'subtaskInput', 'subtaskContainer')" id="renderSubtaskElement" class="newSubtaskPlusBtn">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/ svg">
+                  <path d="M8.66602 11.3327H0.666016V8.66602H8.66602V0.666016H11.3327V8.66602H19.3327V11.3327H11.3327V19.3327H8.66602V11.3327Z" fill="black" />
+                </svg>
+              </div>
             </div>
+            <ul class="subtaskContainer" id="subtaskContainer"></ul>
           </div>
-          <ul class="subtaskContainer" id="subtaskContainer"></ul>
+        </div>   
+        
+        
+        <div id="addTaskBottomContainer" class="addTaskBottomContainer">
+          <p><span style="color: red">*</span>This field is required</p>
+          <div id="taskBtnContainer" class="taskBtnContainer">
+            <button onclick="getEditTaskData('${taskData.id}')" class="createBtn" onclick="">Ok${returnIcon("check", "check")}</button>
+          </div>
         </div>
-      </div>       
-      
-
-      <div id="addTaskBottomContainer" class="addTaskBottomContainer">
-        <p><span style="color: red">*</span>This field is required</p>
-        <div id="taskBtnContainer" class="taskBtnContainer">
-          <button onclick="getEditTaskData('${taskData.id}')" class="createBtn" onclick="">Ok${returnIcon("check", "check")}</button>
-        </div>
-      </div>
-
     </div>
     `;
 }

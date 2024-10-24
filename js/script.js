@@ -104,6 +104,7 @@ import {
   closeDropdownFromWindow,
   filterUsersByName,
   removeUsersSearchFieldValue,
+  openUserDropdownFromUserInput,
 } from "../components/addTask/userDropdown.js";
 window.renderUserDropdownList = renderUserDropdownList;
 window.openCloseDropdown = openCloseDropdown;
@@ -113,6 +114,7 @@ window.closeUsersDropdownList = closeUsersDropdownList;
 window.closeDropdownFromWindow = closeDropdownFromWindow;
 window.filterUsersByName = filterUsersByName;
 window.removeUsersSearchFieldValue = removeUsersSearchFieldValue;
+window.openUserDropdownFromUserInput = openUserDropdownFromUserInput;
 
 import {
   showAddNewUserDialog,

@@ -46,9 +46,9 @@ export function renderTaskTemplate(card, currentID) {
 }
 
 export function renderDeleteTaskTemplate(status, taskID) {
-  document.getElementById("deleteTaskRenderContainer").innerHTML = "";
+  document.getElementById("confirmDeleteUserModal").classList.remove("d_none");
   let deleteTaskTemplate = getDeleteTaskTemplate(status, taskID);
-  document.getElementById("deleteTaskRenderContainer").innerHTML = deleteTaskTemplate;
+  document.getElementById("confirmDeleteUserModal").innerHTML = deleteTaskTemplate;
 }
 
 let emptyTaskTemplate = {
@@ -213,7 +213,6 @@ export function saveSubtaskEditing(subtaskID, card) {
     newTaskObject.subtasks[subtaskID].task = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
     document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.remove("d_none");
     document.getElementById(`editSubtaskBox-${subtaskID}`).classList.add("d_none");
-    console.log(newTaskObject);
   } else {
     // lösche das element im html mit der passenden ID
     // überschreibe das subtask object aus der datenbank mit hilfe von tasksApiService.js / patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked)
@@ -226,7 +225,9 @@ export function setHighlightSubtaskDivBorder(event) {
 
 export function removeHighlightSubtaskDivBorder(event) {
   if (event.target.id != "subtaskInput") {
-    document.getElementById("subtaskInputContainer").classList.remove("borderColorBlue");
+    if (document.getElementById("subtaskInputContainer")) {
+      document.getElementById("subtaskInputContainer").classList.remove("borderColorBlue");
+    }
   }
 }
 
