@@ -58,6 +58,8 @@ function setEditInputValues(taskData) {
 
 // The function renders the task detail view edit template
 function renderTaskDetailViewEditTemplate(taskData) {
+  console.log(taskData.priority);
+
   return /*html*/ `
     <div class="taskDetailViewCardEdit" onclick="removeHighlightSubtaskDivBorder(event)"> 
         <div class="header">
@@ -80,9 +82,15 @@ function renderTaskDetailViewEditTemplate(taskData) {
         <div class="priorityContainer">
           <p class="priority">Priority</p>
           <div id="prioContainer" class="prioContainer">
-            <div onclick="selectPrio(event)" id="prioUrgent" class="priorities">Urgent<img src="./assets/icons/urgent_icon.png" alt="" /></div>
-            <div onclick="selectPrio(event)" id="prioMedium" class="priorities mediumPrio">Medium<img src="./assets/icons/medium_icon.png" alt="" /></div>
-            <div onclick="selectPrio(event)" id="prioLow" class="priorities">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioUrgent" class="priorities ${
+            taskData.priority.toLowerCase() == "urgent" ? "urgentPrio" : ""
+          }">Urgent<img src="./assets/icons/urgent_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioMedium" class="priorities ${
+            taskData.priority.toLowerCase() == "medium" ? "mediumPrio" : ""
+          }">Medium<img src="./assets/icons/medium_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioLow" class="priorities ${
+            taskData.priority.toLowerCase() == "low" ? "lowPrio" : ""
+          }">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
           </div>
         </div>
         <div class="assignedToContainer">
