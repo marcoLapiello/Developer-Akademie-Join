@@ -89,7 +89,7 @@ function renderTaskDetailViewEditTemplate(taskData) {
           <p class="assignedTo">Assigned to</p>          
           <div class="assignedToDropdown" id="assignedToDropdown">
               <input id="searchUserToAssign" class="searchUserToAssign" 
-              onfocus="renderUserDropdownList(); openUsersDropdownList('assignedToDropdownArrow' , 'contactsToAssign')" oninput="filterUsersByName()" type="text" placeholder="Select contacts to assign" />
+              onfocus="openUserDropdownFromUserInput()" oninput="filterUsersByName()" type="text" placeholder="Select contacts to assign" />
               <img id="assignedToDropdownArrow" class="assignedToDropdownArrow" 
               onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign') , renderUserDropdownList()" src="./assets/icons/arrow_drop_down.png" alt="" />
           </div>

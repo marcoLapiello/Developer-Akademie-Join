@@ -88,6 +88,16 @@ export function openUsersDropdownList(arrow, content) {
   }
 }
 
+export async function openUserDropdownFromUserInput() {
+  if (document.getElementById("contactsToAssign").classList.contains("d_none")) {
+    await renderUserDropdownList();
+    openUsersDropdownList('assignedToDropdownArrow' , 'contactsToAssign');
+  }
+  else {
+    return;
+  }
+}
+
 export function closeUsersDropdownList(arrow, content) {
   document.getElementById(arrow).classList.remove("rotatedArrow");
   document.getElementById(content).classList.add("d_none");
