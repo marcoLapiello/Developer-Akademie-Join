@@ -91,9 +91,8 @@ export function openUsersDropdownList(arrow, content) {
 export async function openUserDropdownFromUserInput() {
   if (document.getElementById("contactsToAssign").classList.contains("d_none")) {
     await renderUserDropdownList();
-    openUsersDropdownList('assignedToDropdownArrow' , 'contactsToAssign');
-  }
-  else {
+    openUsersDropdownList("assignedToDropdownArrow", "contactsToAssign");
+  } else {
     return;
   }
 }
