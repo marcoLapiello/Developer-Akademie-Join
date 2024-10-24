@@ -434,6 +434,17 @@
               display: flex;
               justify-content: center;
               align-items: center;
+
+              & svg {
+                height: 19px;
+                width: 19px;
+
+                @media (max-width: $breakpoint-xs) {
+                  height: 13px;
+                  width: 13px;
+                }
+              }
+
               svg:hover {
                 cursor: pointer;
               }
@@ -476,6 +487,17 @@
               display: flex;
               justify-content: center;
               align-items: center;
+
+              & svg {
+                height: 19px;
+                width: 19px;
+
+                @media (max-width: $breakpoint-xs) {
+                  height: 13px;
+                  width: 13px;
+                }
+              }
+
               svg:hover {
                 cursor: pointer;
               }
