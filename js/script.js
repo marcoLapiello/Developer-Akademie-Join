@@ -62,6 +62,7 @@ import {
   setHighlightSubtaskDivBorder,
   removeHighlightSubtaskDivBorder,
   renderDeleteTaskTemplate,
+  getHashParameter,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -84,6 +85,7 @@ window.hideTaskModalFromBG = hideTaskModalFromBG;
 window.setHighlightSubtaskDivBorder = setHighlightSubtaskDivBorder;
 window.removeHighlightSubtaskDivBorder = removeHighlightSubtaskDivBorder;
 window.renderDeleteTaskTemplate = renderDeleteTaskTemplate;
+window.getHashParameter = getHashParameter;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;

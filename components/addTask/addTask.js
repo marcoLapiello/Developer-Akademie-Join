@@ -8,13 +8,26 @@ export let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "todo";
 
+export function getHashParameter() {
+  let hashParameter = window.location.hash;
+  let parameter = hashParameter.split("=")[1];
+  if (hashParameter) {
+    currentStatus = parameter;
+    console.log(currentStatus);
+  } else {
+    console.log(currentStatus);
+
+    return;
+  }
+}
+
 export function openTaskModal(status) {
-    if (!status) currentStatus == "todo"
-    if (status == "todo") currentStatus = "todo";
-    if (status == "inProgress") currentStatus = "inProgress";
-    if (status == "awaitFeedback") currentStatus = "awaitFeedback";
+  if (!status) currentStatus == "todo";
+  if (status == "todo") currentStatus = "todo";
+  if (status == "inProgress") currentStatus = "inProgress";
+  if (status == "awaitFeedback") currentStatus = "awaitFeedback";
   console.log(currentStatus);
-  
+
   document.getElementById("taskModalBackground").classList.remove("d_none");
   renderTaskTemplate();
   setTimeout(() => {
