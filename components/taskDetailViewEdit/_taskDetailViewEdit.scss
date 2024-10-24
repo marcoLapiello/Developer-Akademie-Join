@@ -242,4 +242,41 @@
       color: white;
     }
   }
+
+  .contactsToAssign {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 200px;
+    overflow-y: scroll;
+
+    .userListItem {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 5px 10px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #d1d1d192;
+        border-radius: 10px;
+      }
+    }
+
+    .initialsNameWrapper {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .initialsBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 42px;
+        width: 42px;
+        border-radius: 50%;
+        color: white;
+      }
+    }
+  }
 }
