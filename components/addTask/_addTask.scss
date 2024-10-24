@@ -30,7 +30,6 @@
     padding: 64px 24px 64px 24px;
   }
 
-
   h1 {
     font-size: 61px;
     font-weight: 700;
@@ -196,7 +195,7 @@
           justify-content: space-between;
           align-items: center;
 
-          p{
+          p {
             @media (max-width: $breakpoint-sm) {
               font-size: 14px;
             }
@@ -416,6 +415,8 @@
           }
         }
       }
+
+    //   #######################################################  SUBTASKS
 
       .addSubtaskContainer {
         position: relative;
