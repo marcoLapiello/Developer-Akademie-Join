@@ -350,12 +350,33 @@ export function validateTaskTitleByOninput() {
 
 export function newTaskUserFeedback() {
   newTaskUserFeedbackRef.classList.remove("d_none");
+  if (window.innerWidth < 1400) {
+    taskFeedbackResponsive();
+  } else {
+    taskFeedbackDesktop();
+  }
+}
+
+function taskFeedbackResponsive() {
   setTimeout(() => {
-    if (window.innerWidth < 1400) {
-      newTaskUserFeedbackRef.style.left = "calc(50% - 163px)";
-    } else {
-      newTaskUserFeedbackRef.style.left = "655px";
-    }
+    newTaskUserFeedbackRef.style.left = "50%";
+  }, 500);
+  setTimeout(() => {
+    newTaskUserFeedbackRef.style.left = "150%";
+  }, 1800);
+  setTimeout(() => {
+    newTaskUserFeedbackRef.classList.add("d_none");
+  }, 2800);
+  if (window.location.pathname === "/addTask.html") {
+    setTimeout(() => {
+      window.location.href = "/board.html";
+    }, 2300);
+  }
+}
+
+function taskFeedbackDesktop() {
+  setTimeout(() => {
+    newTaskUserFeedbackRef.style.left = "655px";
   }, 500);
   setTimeout(() => {
     newTaskUserFeedbackRef.style.left = "100%";
@@ -363,9 +384,9 @@ export function newTaskUserFeedback() {
   setTimeout(() => {
     newTaskUserFeedbackRef.classList.add("d_none");
   }, 2800);
-  if (window.location.pathname === '/addTask.html') {
+  if (window.location.pathname === "/addTask.html") {
     setTimeout(() => {
-      window.location.href = '/board.html';
+      window.location.href = "/board.html";
     }, 2300);
   }
 }
