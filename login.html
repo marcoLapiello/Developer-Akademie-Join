@@ -12,8 +12,17 @@
     <main>
       <section class="logInMainSection">
         <!-- SVG -->
+        
+        <div id="signUpDialogField" class="signUpDialogField d_none">
+          <div id="signUpUserFeedback" class="signUpUserFeedback">
+            <p>You Signed Up successfully</p>
+          </div>
+        </div>
 
-        <!-- sing up field -->
+        <div id="linkToSignUpBox" class="linkToSignUpBox">
+          <p>Not a Join user?</p>
+          <button>Sign up</button>
+        </div>
 
         <!-- render container -->
         <div class="logInRenderContainer">
@@ -42,13 +51,16 @@
               </div>
             </div>
             <div class="logInBtnBox">
-              <button class="signUpBtn">Sign up</button>
+              <button onclick="signUpNewUser()" id="signUpBtn" class="signUpBtn">Sign up</button>
             </div>
           </div>
           <!-- END signUpTemplate -->
         </div>
 
-        <!-- privacy container -->
+        <div class="privacyContainer">
+          <a href="./privacyPolicy.html" class="privacyLink">Privacy Policy</a>
+          <a href="./legalNotice.html" class="privacyLink">Legal notice</a>
+        </div>
       </section>
     </main>
   </body>
