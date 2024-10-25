@@ -85,10 +85,12 @@
 
     @media (max-width: $breakpoint-sm) {
       width: 100%;
+      margin-bottom: 36px;
     }
 
     p {
       font-size: 20px;
+      // margin-bottom: 1px;
       @media (max-width: $breakpoint-sm) {
         font-size: 18px;
       }
@@ -103,7 +105,7 @@
       font-size: 20px;
       outline: none;
       &:focus {
-        border: 1px solid #29abe2 !important;
+        border: 1px solid #29abe2;
       }
 
       @media (max-width: $breakpoint-sm) {
@@ -172,7 +174,7 @@
         .searchUserToAssign {
           padding: 0;
           border: none;
-          height: 48px;
+          height: 47px;
           width: 80%;
           outline: none;
           padding-left: 16px;
@@ -316,10 +318,14 @@
       .prioContainer {
         display: flex;
         gap: 16px;
-        max-width: 100%;
+        width: 100%;
 
         @media (max-width: $breakpoint-lg) {
           // justify-content: space-between;
+        }
+
+        @media (max-width: $breakpoint-sm) {
+          justify-content: space-evenly;
         }
 
         @media (max-width: 400px) {
@@ -342,6 +348,11 @@
 
           @media (max-width: $breakpoint-sm) {
             font-size: 16px;
+          }
+
+          @media (max-width: 400px) {
+            width: 70%;
+            padding: 10px 10px;
           }
 
           &:hover {
@@ -506,7 +517,7 @@
         }
 
         .subtaskContainer {
-          height: 120px;
+          max-height: 120px;
           // max-width: 440px;
           width: 100%;
           padding: 7px 0px;
@@ -517,6 +528,10 @@
           display: flex;
           flex-direction: column;
           overflow-y: auto;
+
+          @media (max-width: $breakpoint-sm) {
+            position: relative;
+          }
 
           .subtaskElementWrapper {
             width: 100%;
