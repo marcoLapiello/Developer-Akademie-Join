@@ -226,14 +226,18 @@ export function deleteSubtask(subtaskID, card) {
 }
 
 export function saveSubtaskEditing(subtaskID, card) {
-  if (card == "add") {
-    document.getElementById(`currentSubtaskText-${subtaskID}`).innerText = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
-    newTaskObject.subtasks[subtaskID].task = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
-    document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.remove("d_none");
-    document.getElementById(`editSubtaskBox-${subtaskID}`).classList.add("d_none");
+  if (document.getElementById(`editSubtaskInput-${subtaskID}`).value) {
+    if (card == "add") {
+      document.getElementById(`currentSubtaskText-${subtaskID}`).innerText = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
+      newTaskObject.subtasks[subtaskID].task = document.getElementById(`editSubtaskInput-${subtaskID}`).value;
+      document.getElementById(`currentSubtaskBox-${subtaskID}`).classList.remove("d_none");
+      document.getElementById(`editSubtaskBox-${subtaskID}`).classList.add("d_none");
+    } else {
+      return;
+    }
   } else {
-    // lösche das element im html mit der passenden ID
-    // überschreibe das subtask object aus der datenbank mit hilfe von tasksApiService.js / patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked)
+    deleteSubtask(subtaskID, card);
+    console.log("empty subtask deleted");
   }
 }
 
