@@ -351,83 +351,54 @@ export function validateTaskTitleByOninput() {
 export function newTaskUserFeedback() {
   newTaskUserFeedbackRef.classList.remove("d_none");
   if (window.innerWidth < 1400) {
-    taskFeedbackResponsive();
+    taskFeedbackResponsive(newTaskUserFeedbackRef);
+    if (window.location.pathname === "/addTask.html") {
+      setTimeout(() => {
+        window.location.href = "/board.html";
+      }, 2300);
+    }
   } else {
-    taskFeedbackDesktop();
+    if (window.location.pathname == "/board.html"){
+      hideTaskModal();
+    }
+    taskFeedbackDesktop(newTaskUserFeedbackRef);
+    if (window.location.pathname === "/addTask.html") {
+      setTimeout(() => {
+        window.location.href = "/board.html";
+      }, 2300);
+    } 
   }
-}
-
-function taskFeedbackResponsive() {
-  setTimeout(() => {
-    newTaskUserFeedbackRef.style.left = "50%";
-  }, 500);
-  setTimeout(() => {
-    newTaskUserFeedbackRef.style.left = "150%";
-  }, 1800);
-  setTimeout(() => {
-    newTaskUserFeedbackRef.classList.add("d_none");
-  }, 2800);
-  if (window.location.pathname === "/addTask.html") {
-    setTimeout(() => {
-      window.location.href = "/board.html";
-    }, 2300);
-  }
-}
-
-function taskFeedbackDesktop() {
-  if (window.location.pathname == "/board.html"){
-    console.log("we are in board");
-    
-    hideTaskModal();
-  }
-  setTimeout(() => {
-    newTaskUserFeedbackRef.style.left = "655px";
-  }, 500);
-  setTimeout(() => {
-    newTaskUserFeedbackRef.style.left = "100%";
-  }, 1800);
-  setTimeout(() => {
-    newTaskUserFeedbackRef.classList.add("d_none");
-  }, 2800);
-  if (window.location.pathname === "/addTask.html") {
-    console.log("we are in AddTask");
-    setTimeout(() => {
-      console.log("board got loaded");
-      window.location.href = "/board.html";
-    }, 2300);
-  } 
-  
 }
 
 export function editTaskUserFeedback() {
   editTaskUserFeedbackRef.classList.remove("d_none");
   if (window.innerWidth < 1400) {
-    editTaskFeedbackResponsive();
+    taskFeedbackResponsive(editTaskUserFeedbackRef);
   } else {
-    editTaskFeedbackDesktop();
+    taskFeedbackDesktop(editTaskUserFeedbackRef);
   }
 }
 
-function editTaskFeedbackResponsive() {
+function taskFeedbackResponsive(feedbackRef) {
   setTimeout(() => {
-    editTaskUserFeedbackRef.style.left = "50%";
+    feedbackRef.style.left = "50%";
   }, 500);
   setTimeout(() => {
-    editTaskUserFeedbackRef.style.left = "150%";
+    feedbackRef.style.left = "150%";
   }, 1800);
   setTimeout(() => {
-    editTaskUserFeedbackRef.classList.add("d_none");
+    feedbackRef.classList.add("d_none");
   }, 2800);
 }
 
-function editTaskFeedbackDesktop() {
+function taskFeedbackDesktop(feedbackRef) {
   setTimeout(() => {
-    editTaskUserFeedbackRef.style.left = "655px";
+    feedbackRef.style.left = "655px";
   }, 500);
   setTimeout(() => {
-    editTaskUserFeedbackRef.style.left = "100%";
+    feedbackRef.style.left = "100%";
   }, 1800);
   setTimeout(() => {
-    editTaskUserFeedbackRef.classList.add("d_none");
+    feedbackRef.classList.add("d_none");
   }, 2800);
 }
