@@ -18,7 +18,9 @@ function getEditInputValues() {
 // ! Refactor this function to use the return value from getEditInputValues
 export async function getEditTaskData(taskID) {
   let tasksArray = await getTasksArray();
-  const newSelectedUsers = {}; // Create a new object for the selected users
+  const newSelectedUsers = {
+    placeholder: "placeholder",
+  }; // Create a new object for the selected users
   selectedUsers.forEach((user) => {
     newSelectedUsers[user] = user;
   });
