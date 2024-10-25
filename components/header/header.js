@@ -5,7 +5,9 @@ export function toggle_d_None() {
 
 export function renderHeader() {
   const headerRef = document.getElementById("header");
-  headerRef.innerHTML += renderHeaderTemplate();
+  if (headerRef) {
+    headerRef.innerHTML += renderHeaderTemplate();
+  }
 }
 
 function renderHeaderTemplate() {
