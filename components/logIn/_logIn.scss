@@ -19,6 +19,29 @@
     gap: 32px;
     padding: 48px 115px;
     border-radius: 30px;
+    position: relative;
+
+    .backArrow {
+      position: absolute;
+      left: 48px;
+      top: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50vh;
+      transition: all 0.12s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0C2E621F;
+      }
+
+      svg {
+        width: 32px;
+        height: 32px;
+        fill: #29abe2;
+      }
+    }
 
     .logInTextBox {
       display: flex;
@@ -93,6 +116,77 @@
       }
     }
 
+    .signUpInputArea {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+
+      input {
+        width: 422px;
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        padding: 13px 21px;
+        font-size: 20px;
+        background-position: 95%;
+        background-repeat: no-repeat;
+
+        &::placeholder {
+          color: #d1d1d1;
+          height: 24px;
+        }
+      }
+
+      .inputName {
+        background-image: url(/assets/icons/inputName.svg);
+        &:focus {
+          border: 1px solid #29abe2;
+          outline: none;
+        }
+      }
+
+      .inputEmail {
+        background-image: url(/assets/icons/inputEmail.svg);
+        &:focus {
+          border: 1px solid #29abe2;
+          outline: none;
+        }
+      }
+
+      .inputPassword {
+        background-image: url(/assets/icons/password.svg);
+        &:focus {
+          border: 1px solid #29abe2;
+          outline: none;
+        }
+      }
+
+      .checkToRememberBox {
+        display: flex;
+        font-size: 16px;
+        gap: 8px;
+        padding-left: 42px;
+        align-items: center;
+
+        .checkboxRememberMe {
+          width: 16px;
+          height: 16px;
+        }
+
+        p {
+          font-size: 16px;
+          color: #d1d1d1;
+        }
+
+        a {
+          color: #29abe2;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
     .logInBtnBox {
       display: flex;
       justify-content: center;
@@ -106,6 +200,24 @@
         background-color: #2a3647;
         font-size: 21px;
         line-height: 1;
+        font-weight: 700;
+        color: white;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+          background-color: #29abe2;
+          box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      .signUpBtn {
+        height: 55px;
+        padding: 15px 24px;
+        border: none;
+        border-radius: 10px;
+        background-color: #2a3647;
+        font-size: 21px;
+        line-height: 25px;
         font-weight: 700;
         color: white;
         transition: all 0.1s ease-in-out;
