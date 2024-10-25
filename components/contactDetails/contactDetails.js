@@ -7,6 +7,13 @@ const contactListRef = document.getElementById("contactList");
 let selectedUserId = null;
 let isProcessing = false;
 
+/**
+ * Handles the selection of a user by their ID. If the user is already selected and reload is false,
+ * it deselects the user. Otherwise, it selects the user and processes the selection.
+ *
+ * @param {number} id - The ID of the user to be selected.
+ * @param {boolean} [reload=false] - Optional parameter to force reload the user selection.
+ */
 export function selectedUser(id, reload = false) {
   if (isProcessing) return;
   if (selectedUserId === id && !reload) {
@@ -21,6 +28,14 @@ export function selectedUser(id, reload = false) {
   }, 600);
 }
 
+/**
+ * Handles the selection of a user by their ID and updates the UI accordingly.
+ *
+ * @param {number|string} id - The ID of the user to be selected.
+ * @param {boolean} reload - A flag indicating whether to reload the contact list.
+ *
+ * @returns {void}
+ */
 export function isUserSelected(id, reload) {
   if (reload) renderContactList();
   setTimeout(() => {
@@ -33,6 +48,14 @@ export function isUserSelected(id, reload) {
   selectedUserId = id;
 }
 
+/**
+ * Handles the scenario when no user is selected.
+ *
+ * This function performs the following actions:
+ * 1. Toggles the visibility of the user panel.
+ * 2. Highlights the selected user.
+ * 3. After a delay of 500ms, renders the contact details and resets the selected user ID to null.
+ */
 function noneSelectedUser() {
   userPanelVisibility();
   highlightedSelectedUser();
@@ -42,6 +65,12 @@ function noneSelectedUser() {
   }, 500);
 }
 
+/**
+ * Highlights the selected user by adding a CSS class to the corresponding element.
+ *
+ * @param {string} id - The ID of the user to be highlighted.
+ * @param {boolean} reload - A flag indicating whether the function should reload. If true, the function returns immediately.
+ */
 function highlightedSelectedUser(id, reload) {
   if (reload) return;
   const selectedUserButton = document.querySelectorAll(".userListItem");
@@ -53,6 +82,13 @@ function highlightedSelectedUser(id, reload) {
   selectedUserRef.classList.add("selectedUser");
 }
 
+/**
+ * Toggles the visibility of the user detail panel after a delay.
+ *
+ * This function waits for 250 milliseconds before toggling the "visible" class
+ * on the element with the ID "userDetailPanel". If the element is found, its
+ * visibility is toggled.
+ */
 function userPanelVisibility() {
   setTimeout(() => {
     const contactDetailsBoxRef = document.getElementById("userDetailPanel");
@@ -60,11 +96,25 @@ function userPanelVisibility() {
   }, 250);
 }
 
+/**
+ *
+ * Scrolls the page smoothly to the user element with the specified ID.
+ *
+ * @param {string} id - The ID of the user element to scroll to.
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView} for more information.
+ */
 function scrollToUser(id) {
   const selectedUserElement = document.getElementById(id);
-  if (selectedUserElement) selectedUserElement.scrollIntoView({ behavior: "smooth", block: "center" }); // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+  if (selectedUserElement) selectedUserElement.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
+/**
+ * Toggles the display of contact details and contact list elements based on their current display styles.
+ * If the contact details element is currently hidden, it will be shown and the contact list will be hidden.
+ * If the contact list element is currently hidden, it will be shown and the contact details will be hidden.
+ * Additionally, highlights the selected user when the contact details are shown.
+ */
 export function switchMobile() {
   const contactDetailsComputedStyle = window.getComputedStyle(contactDetailsRef);
   const contactListComputedStyle = window.getComputedStyle(contactListRef);
@@ -78,8 +128,20 @@ export function switchMobile() {
   }
 }
 
+/**
+ * Updates the display style of contact details and contact list elements based on the window's inner width.
+ *
+ * - If the window width is 1401 pixels or more and both `contactDetailsRef` and `contactListRef` are defined:
+ *   - If `contactListRef` is displayed as "flex", `contactDetailsRef` will also be displayed as "flex".
+ * - If the window width is 1400 pixels or less and both `contactDetailsRef` and `contactListRef` are defined:
+ *   - If `contactListRef` is displayed as "flex", `contactDetailsRef` will be hidden.
+ * - If the window width matches the screen width and both `contactDetailsRef` and `contactListRef` are defined, and the screen width is greater than 1400 pixels:
+ *   - Both `contactDetailsRef` and `contactListRef` will be displayed as "flex".
+ *
+ * @see {@link https://www.w3schools.com/jsref/prop_win_innerwidth.asp} for more information on `window.innerWidth`.
+ */
 function updateWidth() {
-  const width = window.innerWidth; // https://www.w3schools.com/jsref/prop_win_innerwidth.asp
+  const width = window.innerWidth;
   if (width >= 1401 && contactDetailsRef && contactListRef) {
     if (contactListRef.style.display === "flex") contactDetailsRef.style.display = "flex";
   } else if (width <= 1400 && contactDetailsRef && contactListRef) {
@@ -92,6 +154,13 @@ function updateWidth() {
 }
 window.addEventListener("resize", updateWidth); // https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
 
+/**
+ * Toggles the display of user profile buttons for mobile view.
+ *
+ * This function checks the current display style of the user profile buttons.
+ * If the buttons are not displayed, it sets their display style to "flex" and
+ * changes the background color of the mobile user profile buttons.
+ */
 export function userProfileButtonsMobile() {
   const userProfileButtonsRef = document.getElementById("userProfileButtons");
   const userProfileButtonsStyle = window.getComputedStyle(userProfileButtonsRef);
@@ -102,6 +171,15 @@ export function userProfileButtonsMobile() {
   }
 }
 
+/**
+ * Adds a click event listener to the document to control the behavior of the mobile
+ * user profile button (`userProfileButtonsMobile`). When the contact list is hidden,
+ * this function hides the main profile buttons if the click is outside certain elements.
+ * It also changes the background color of the mobile button with a delay.
+ *
+ * @event click - Triggered when any area within the document is clicked.
+ * @param {Event} event - The click event object containing event-related details.
+ */
 document.addEventListener("click", (event) => {
   const userProfileButtonsMobileRef = document.getElementById("userProfileButtonsMobile");
   if (!userProfileButtonsMobileRef) return;
@@ -117,6 +195,15 @@ document.addEventListener("click", (event) => {
   }
 });
 
+/**
+ * Renders the contact details for a given user ID.
+ *
+ * If no ID is provided and `contactDetailsRef` is available, it renders a fallback template.
+ * Otherwise, it fetches the users array, finds the user by ID, and renders the user's details.
+ *
+ * @param {string} id - The ID of the user whose details are to be rendered.
+ * @returns {Promise<void>} A promise that resolves when the contact details have been rendered.
+ */
 export async function renderContactDetails(id) {
   if (!id && contactDetailsRef) {
     contactDetailsRef.innerHTML = renderDetailsTemplateFallback();
@@ -127,14 +214,32 @@ export async function renderContactDetails(id) {
   if (contactDetailsRef) contactDetailsRef.innerHTML = renderDetailsTemplate(user);
 }
 
+/**
+ * Renders the contact details and updates the contact list after deleting a user.
+ *
+ * @param {number} userId - The ID of the user to be deleted.
+ */
 export function renderAfterDelete(userId) {
   deleteChosenUser(userId);
   renderContactDetails();
-  setInterval(() => {
+  setTimeout(() => {
     renderContactList();
   }, 100);
 }
 
+/**
+ * Generates the HTML template for rendering user contact details.
+ *
+ * @param {Object[]} user - An array containing user details.
+ * @param {Object} user[].profile - The profile object of the user.
+ * @param {string} user[].profile.first_name - The first name of the user.
+ * @param {string} user[].profile.last_name - The last name of the user.
+ * @param {string} user[].profile.email - The email address of the user.
+ * @param {string} user[].profile.phone - The phone number of the user.
+ * @param {string} user[].user_color - The background color associated with the user.
+ * @param {string} user[].id - The unique identifier of the user.
+ * @returns {string} The HTML template string for the user contact details.
+ */
 function renderDetailsTemplate(user) {
   return /*html*/ `   
       <div class="contactDetailsBox">
@@ -178,6 +283,11 @@ function renderDetailsTemplate(user) {
     `;
 }
 
+/**
+ * Generates the fallback HTML template for the contact details section.
+ *
+ * @returns {string} The HTML string for the contact details fallback template.
+ */
 function renderDetailsTemplateFallback() {
   return /*html*/ `
       <div class="contactDetailsBox" >
