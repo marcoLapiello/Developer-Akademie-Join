@@ -1,3 +1,7 @@
+/**
+ * @module taskCards
+ */
+
 import { returnIcon } from "../icons.js";
 import { getUsersArray, getTasksArray } from "../../js/script.js";
 import { patchTaskUpdate } from "../../js/tasksApiService.js";
