@@ -57,7 +57,6 @@ export async function getFilteredTasksArray() {
       noneShownTasks.forEach((element) => element.classList.add("d_none"));
     } else {
       unfilteredTasksArray.forEach((element) => element.classList.remove("d_none"));
-      noneShownTasks.forEach((element) => element.classList.remove("d_none"));
       return;
     }
   } else {
