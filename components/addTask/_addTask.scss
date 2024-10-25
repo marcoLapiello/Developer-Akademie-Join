@@ -90,7 +90,7 @@
 
     p {
       font-size: 20px;
-      margin-bottom: 4px;
+      // margin-bottom: 1px;
       @media (max-width: $breakpoint-sm) {
         font-size: 18px;
       }
@@ -174,7 +174,7 @@
         .searchUserToAssign {
           padding: 0;
           border: none;
-          height: 48px;
+          height: 47px;
           width: 80%;
           outline: none;
           padding-left: 16px;
