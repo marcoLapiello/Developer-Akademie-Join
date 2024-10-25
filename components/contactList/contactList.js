@@ -1,3 +1,7 @@
+/**
+ * @module contactList
+ */
+
 import { getUsersArray } from "../../js/script.js";
 import { returnIcon } from "../icons.js";
 
@@ -134,6 +138,18 @@ function renderContactListContent(letter) {
   `;
 }
 
+/**
+ * Renders a contact list item for a given user.
+ *
+ * @param {Object} user - The user object containing user details.
+ * @param {string} user.id - The unique identifier for the user.
+ * @param {string} user.user_color - The background color associated with the user.
+ * @param {Object} user.profile - The profile object containing user profile details.
+ * @param {string} user.profile.first_name - The first name of the user.
+ * @param {string} user.profile.last_name - The last name of the user.
+ * @param {string} user.profile.email - The email address of the user.
+ * @returns {string} - The HTML string representing a contact list item.
+ */
 function renderContactListUsers(user) {
   return /*html*/ `
     <li onclick="selectedUser('${user[1].id}')" class="userListItem" id="${user[1].id}">
