@@ -40,8 +40,9 @@ import { loadTasks, patchNewTask, deleteExistungTask } from "./tasksApiService.j
 window.patchNewTask = patchNewTask;
 window.deleteExistungTask = deleteExistungTask;
 
-import { getLogInTemplate } from "../components/logIn/logIn.js";
+import { getLogInTemplate, getSignUpTemplate } from "../components/logIn/logIn.js";
 window.getLogInTemplate = getLogInTemplate;
+window.getSignUpTemplate = getSignUpTemplate;
 
 import {
   getNewTaskTemplate,
@@ -166,7 +167,7 @@ export let editUserFeedbackRef = document.getElementById("editUserFeedback");
 export let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
 export let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteContactBtn");
 export let newTaskUserFeedbackRef = document.getElementById("newTaskUserFeedback");
-export let editTaskUserFeedbackRef = document.getElementById("editTaskUserFeedback")
+export let editTaskUserFeedbackRef = document.getElementById("editTaskUserFeedback");
 
 export let contactModalRef = document.getElementById("contactModal");
 
