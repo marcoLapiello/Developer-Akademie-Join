@@ -4,6 +4,8 @@ import { returnIcon } from "../icons.js";
 
 import { getTaskTemplate, getDeleteTaskTemplate } from "../addTask/taskTemplate.js";
 
+import { newTaskUserFeedbackRef } from "../../js/script.js";
+
 export let currentPrio = "medium";
 let currentProgress = 0;
 let currentStatus = "todo";
@@ -343,5 +345,27 @@ export function validateTaskTitleByOninput() {
   if (inputLettersCount > 2) {
     validateTaskTitleInput();
     document.getElementById("taskTitleInput").classList.remove("borderColorRed");
+  }
+}
+
+export function newTaskUserFeedback() {
+  newTaskUserFeedbackRef.classList.remove("d_none");
+  setTimeout(() => {
+    if (window.innerWidth < 1400) {
+      newTaskUserFeedbackRef.style.left = "calc(50% - 163px)";
+    } else {
+      newTaskUserFeedbackRef.style.left = "655px";
+    }
+  }, 500);
+  setTimeout(() => {
+    newTaskUserFeedbackRef.style.left = "100%";
+  }, 1800);
+  setTimeout(() => {
+    newTaskUserFeedbackRef.classList.add("d_none");
+  }, 2800);
+  if (window.location.pathname === '/addTask.html') {
+    setTimeout(() => {
+      window.location.href = '/board.html';
+    }, 2300);
   }
 }
