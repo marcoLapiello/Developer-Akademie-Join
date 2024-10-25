@@ -134,19 +134,6 @@ function renderContactListContent(letter) {
   `;
 }
 
-/**
- * Renders a contact list item for a given user.
- *
- * @param {Object} user - The user object containing user details.
- * @param {Array} user[1] - The array containing user details.
- * @param {string} user[1].id - The unique identifier for the user.
- * @param {string} user[1].user_color - The background color for the user's initials.
- * @param {Object} user[1].profile - The profile object containing user information.
- * @param {string} user[1].profile.first_name - The first name of the user.
- * @param {string} user[1].profile.last_name - The last name of the user.
- * @param {string} user[1].profile.email - The email address of the user.
- * @returns {string} The HTML string representing the contact list item.
- */
 function renderContactListUsers(user) {
   return /*html*/ `
     <li onclick="selectedUser('${user[1].id}')" class="userListItem" id="${user[1].id}">

@@ -227,19 +227,6 @@ export function renderAfterDelete(userId) {
   }, 100);
 }
 
-/**
- * Generates the HTML template for rendering user contact details.
- *
- * @param {Object[]} user - An array containing user details.
- * @param {Object} user[].profile - The profile object of the user.
- * @param {string} user[].profile.first_name - The first name of the user.
- * @param {string} user[].profile.last_name - The last name of the user.
- * @param {string} user[].profile.email - The email address of the user.
- * @param {string} user[].profile.phone - The phone number of the user.
- * @param {string} user[].user_color - The background color associated with the user.
- * @param {string} user[].id - The unique identifier of the user.
- * @returns {string} The HTML template string for the user contact details.
- */
 function renderDetailsTemplate(user) {
   return /*html*/ `   
       <div class="contactDetailsBox">
