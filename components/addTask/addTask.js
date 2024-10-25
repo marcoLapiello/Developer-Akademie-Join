@@ -4,7 +4,7 @@ import { returnIcon } from "../icons.js";
 
 import { getTaskTemplate, getDeleteTaskTemplate } from "../addTask/taskTemplate.js";
 
-import { newTaskUserFeedbackRef } from "../../js/script.js";
+import { newTaskUserFeedbackRef, editTaskUserFeedbackRef } from "../../js/script.js";
 
 export let currentPrio = "medium";
 let currentProgress = 0;
@@ -375,6 +375,11 @@ function taskFeedbackResponsive() {
 }
 
 function taskFeedbackDesktop() {
+  if (window.location.pathname == "/board.html"){
+    console.log("we are in board");
+    
+    hideTaskModal();
+  }
   setTimeout(() => {
     newTaskUserFeedbackRef.style.left = "655px";
   }, 500);
@@ -385,8 +390,44 @@ function taskFeedbackDesktop() {
     newTaskUserFeedbackRef.classList.add("d_none");
   }, 2800);
   if (window.location.pathname === "/addTask.html") {
+    console.log("we are in AddTask");
     setTimeout(() => {
+      console.log("board got loaded");
       window.location.href = "/board.html";
     }, 2300);
+  } 
+  
+}
+
+export function editTaskUserFeedback() {
+  editTaskUserFeedbackRef.classList.remove("d_none");
+  if (window.innerWidth < 1400) {
+    editTaskFeedbackResponsive();
+  } else {
+    editTaskFeedbackDesktop();
   }
+}
+
+function editTaskFeedbackResponsive() {
+  setTimeout(() => {
+    editTaskUserFeedbackRef.style.left = "50%";
+  }, 500);
+  setTimeout(() => {
+    editTaskUserFeedbackRef.style.left = "150%";
+  }, 1800);
+  setTimeout(() => {
+    editTaskUserFeedbackRef.classList.add("d_none");
+  }, 2800);
+}
+
+function editTaskFeedbackDesktop() {
+  setTimeout(() => {
+    editTaskUserFeedbackRef.style.left = "655px";
+  }, 500);
+  setTimeout(() => {
+    editTaskUserFeedbackRef.style.left = "100%";
+  }, 1800);
+  setTimeout(() => {
+    editTaskUserFeedbackRef.classList.add("d_none");
+  }, 2800);
 }
