@@ -54,7 +54,8 @@ async function getAssignedUsers(task) {
   let usersArray = await getUsersArray();
   const matchedUsers = usersArray.filter((user) => filteredTask.includes(user[1].id)); // Match the users with the assigned users of the task (needed for the initials)
   let initialsHTML = "";
-  matchedUsers.forEach((user) => {
+  matchedUsers.slice(0, 4).forEach((user) => {
+    // Slice the matched users to only show 4 initials
     // Create the initials for the assigned users
     initialsHTML += /*html*/ `
         <span class="initials" style="background-color: ${user[1].user_color}">${user[1].profile.initials}</span>     
@@ -120,7 +121,7 @@ function renderCardsTemplate(task, assignedUsers) {
         }
         <div class="assignedPriority">
             <div class="assignedTo">
-            ${assignedUsers}
+            ${assignedUsers} <span>${Object.values(task.assignedTo).length > 4 ? `<p>+${Object.values(task.assignedTo).length - 4}</p>` : ""}</span>
             </div>
             <div class="priority">
                 ${returnIcon(`${task.priority.toLowerCase()}`, `${task.priority.toLowerCase()}Icon`)}
