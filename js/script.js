@@ -67,6 +67,7 @@ import {
   renderDeleteTaskTemplate,
   getHashParameter,
   newTaskUserFeedback,
+  editTaskUserFeedback,
 } from "../components/addTask/addTask.js";
 window.getNewTaskTemplate = getNewTaskTemplate;
 window.selectPrio = selectPrio;
@@ -91,6 +92,7 @@ window.removeHighlightSubtaskDivBorder = removeHighlightSubtaskDivBorder;
 window.renderDeleteTaskTemplate = renderDeleteTaskTemplate;
 window.getHashParameter = getHashParameter;
 window.newTaskUserFeedback = newTaskUserFeedback;
+window.editTaskUserFeedback = editTaskUserFeedback;
 
 import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
 window.updateProgress = updateProgress;
@@ -164,6 +166,7 @@ export let editUserFeedbackRef = document.getElementById("editUserFeedback");
 export let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
 export let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteContactBtn");
 export let newTaskUserFeedbackRef = document.getElementById("newTaskUserFeedback");
+export let editTaskUserFeedbackRef = document.getElementById("editTaskUserFeedback")
 
 export let contactModalRef = document.getElementById("contactModal");
 

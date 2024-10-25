@@ -32,8 +32,9 @@ export async function patchNewTask() {
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    await renderTasks();
     newTaskUserFeedback();
+    await renderTasks();
+    
     return id;
   } else {
     return;

@@ -36,6 +36,7 @@ export async function getEditTaskData(taskID) {
   setGlobalVariablesToDefault();
   overwriteSelectedUsers("");
   toggleTaskDetailView();
+  editTaskUserFeedback();
 }
 
 // The function renders the task detail view edit template
