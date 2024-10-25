@@ -180,6 +180,7 @@ export function getNewUser() {
   let user = {
     id: id,
     password: "",
+    isLoggedIn: false,
     user_color: getRandomUserColor(),
     profile: {
       first_name: name,
