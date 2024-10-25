@@ -1,40 +1,66 @@
 import { returnIcon } from "../icons.js";
 import { getUsersArray, getTasksArray } from "../../js/script.js";
-import { updateProgress } from "../taskDetailViewEdit/editTask.js"; // added by Richard 21.10. 08:30
+import { updateProgress } from "../taskDetailViewEdit/editTask.js";
 
-// The function renders the task detail view edit template with the task data
+/**
+ * Renders the task detail view for a given task ID.
+ *
+ * This function fetches the tasks array, renders the assigned users and subtasks for the given task ID,
+ * and updates the task detail view element with the rendered template.
+ *
+ * @param {string} taskID - The ID of the task to render the detail view for.
+ * @returns {Promise<void>} A promise that resolves when the task detail view has been rendered.
+ */
 export async function renderTaskDetailView(taskID) {
   let tasksArray = await getTasksArray();
-  let assignedUsers = await renderAssignedUser(taskID, tasksArray); // Fetch assigned users for the task and render them
-  let subtasks = await renderSubtasks(taskID, tasksArray); // Fetch subtasks for the task and render them
-  const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
-  const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
-  if (taskDetailViewRef && taskData) taskDetailViewRef.innerHTML = renderTaskDetailViewTemplate(taskData, assignedUsers, subtasks); // Render the task detail view template with the task data, assigned users and subtasks
+  let assignedUsers = await renderAssignedUser(taskID, tasksArray);
+  let subtasks = await renderSubtasks(taskID, tasksArray);
+  const taskDetailViewRef = document.getElementById("taskDetailView");
+  const taskData = tasksArray.find(([id]) => id === taskID)[1];
+  if (taskDetailViewRef && taskData) taskDetailViewRef.innerHTML = renderTaskDetailViewTemplate(taskData, assignedUsers, subtasks);
   toggleTaskDetailView();
 }
 
-// The function find the assigned users for a task and returns the user data
-// for each user assigned to the task.
+/**
+ * Retrieves the data of users assigned to a specific task.
+ *
+ * @param {string} taskID - The ID of the task to retrieve assigned users for.
+ * @param {Array} tasksArray - An array of tasks where each task is represented as a tuple [taskID, taskData].
+ * @returns {Promise<Array>} A promise that resolves to an array of user data objects assigned to the specified task.
+ */
 export async function getAssignedUsersData(taskID, tasksArray) {
   let usersArray = await getUsersArray();
-  const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
-  const assignedTo = Object.values(taskData.assignedTo); // Get the assigned users for the task
+  const taskData = tasksArray.find(([id]) => id === taskID)[1];
+  const assignedTo = Object.values(taskData.assignedTo);
   const assignedUsers = [];
   assignedTo.forEach((userId) => {
-    // Find the user data for each user assigned to the task and push it to the assignedUsers array
     const user = usersArray.find((usersGroup) => usersGroup[1].id === userId);
     if (user) assignedUsers.push(user[1]);
   });
   return assignedUsers;
 }
 
-// The function toggles the task detail view on and off
+/**
+ * Toggles the visibility of the task detail view element.
+ * This function selects the element with the ID "taskDetailView" and toggles the "d_none" class on it.
+ */
 export function toggleTaskDetailView() {
   const taskDetailViewRef = document.getElementById("taskDetailView");
   taskDetailViewRef.classList.toggle("d_none");
 }
 
-// The function toggles the task detail view off when the user clicks outside the task detail view
+/**
+ * Adds a click event listener to toggle the visibility of the task detail view
+ * when clicking directly on the task detail view container.
+ *
+ * - Targets the element with the ID "taskDetailView".
+ * - Checks if the clicked element is the "taskDetailView" itself.
+ * - Toggles the "d_none" class to hide or show the task detail view.
+ *
+ * @listens click
+ * @param {MouseEvent} event - The click event triggered by user interaction.
+ * @returns {void}
+ */
 document.addEventListener("click", (event) => {
   const taskDetailViewRef = document.getElementById("taskDetailView");
   if (event.target.id == "taskDetailView") {
@@ -42,9 +68,15 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// The function renders the assigned users for a task and returns the user data as HTML
+/**
+ * Renders the assigned users for a given task.
+ *
+ * @param {number} taskID - The ID of the task for which to render assigned users.
+ * @param {Array} tasksArray - The array of tasks containing user data.
+ * @returns {Promise<string>} A promise that resolves to an HTML string representing the list of assigned users.
+ */
 async function renderAssignedUser(taskID, tasksArray) {
-  let assignedUsers = await getAssignedUsersData(taskID, tasksArray); // Fetch assigned users for the task and render them
+  let assignedUsers = await getAssignedUsersData(taskID, tasksArray);
   let userListHTML = "";
   assignedUsers.forEach((user) => {
     if (user) {
@@ -61,14 +93,19 @@ async function renderAssignedUser(taskID, tasksArray) {
   return userListHTML;
 }
 
-// The function renders the subtasks for a task and returns the subtasks as HTML
+/**
+ * Renders the HTML for the subtasks of a given task.
+ *
+ * @param {string} taskID - The ID of the task for which subtasks are to be rendered.
+ * @param {Array} tasksArray - An array of tasks, where each task is represented as an array with the first element being the task ID and the second element being the task data.
+ * @returns {Promise<string>} A promise that resolves to a string containing the HTML for the subtasks.
+ */
 async function renderSubtasks(taskID, tasksArray) {
-  const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
-  const subtasks = Object.values(taskData.subtasks); // Get the subtasks for the task
+  const taskData = tasksArray.find(([id]) => id === taskID)[1];
+  const subtasks = Object.values(taskData.subtasks);
   let subtasksListHTML = "";
   if (subtasks.length > 1) subtasksListHTML += /*html*/ ` <span>Subtasks</span> `;
   subtasks.forEach((subtask) => {
-    // Render the subtasks the id is not a placeholder and push the subtask to the subtasksListHTML
     if (subtask && subtask !== "placeholder") {
       subtasksListHTML += /*html*/ `
         <li class="subtask" id="subtasksID${subtask.id}">
@@ -87,51 +124,70 @@ async function renderSubtasks(taskID, tasksArray) {
   return subtasksListHTML;
 }
 
-// The function checks a subtask and updates the task data with the new subtask status
-// and returns the updated task data
+/**
+ * Handles the checking and unchecking of a subtask checkbox.
+ *
+ * @param {Event} event - The event object from the checkbox interaction.
+ * @param {number} taskID - The ID of the task containing the subtask.
+ * @param {string} currentTaskStatus - The current status of the task.
+ * @returns {Promise<void>} - A promise that resolves when the subtask status is updated.
+ */
 export async function checkedSubtask(event, taskID, currentTaskStatus) {
   let tasksArray = await getTasksArray();
-  const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
-  let checkboxId = event.target.id; // Get the checkbox ID the checkbox is the subtask ID
-  let isChecked = event.target.checked; // Get the status of the checkbox
-  const foundSubtask = taskData.subtasks[checkboxId]; // Find the subtask in the task data with the subtask ID
-  if (foundSubtask) foundSubtask.isDone = isChecked; // Update the subtask status with the new status
+  const taskData = tasksArray.find(([id]) => id === taskID)[1];
+  let checkboxId = event.target.id;
+  let isChecked = event.target.checked;
+  const foundSubtask = taskData.subtasks[checkboxId];
+  if (foundSubtask) foundSubtask.isDone = isChecked;
   updateProgress(taskID, checkboxId, isChecked, currentTaskStatus);
 }
 
-// The function renders the task detail view template with the subtasks and assigned users data
+/**
+ * Renders the task detail view template.
+ *
+ * @param {Object} currentTask - The current task object.
+ * @param {string} currentTask.id - The ID of the current task.
+ * @param {string} currentTask.status - The status of the current task.
+ * @param {string} currentTask.categoryColor - The color of the task category.
+ * @param {string} currentTask.category - The category of the task.
+ * @param {string} currentTask.title - The title of the task.
+ * @param {string} currentTask.description - The description of the task.
+ * @param {string} currentTask.dueDate - The due date of the task.
+ * @param {string} currentTask.priority - The priority of the task.
+ * @param {string} assignedUsers - The HTML string of assigned users.
+ * @param {string} subtasks - The HTML string of subtasks.
+ * @returns {string} The HTML string for the task detail view.
+ */
 function renderTaskDetailViewTemplate(currentTask, assignedUsers, subtasks) {
   let taskID = currentTask.id;
   let status = currentTask.status;
   return /*html*/ `
-<div class="taskDetailViewCardContainer">
-    <div id="taskDetailViewCard" class="taskDetailViewCard">
-        <div class="header"> 
-            <div class="category" style="background-color: ${currentTask.categoryColor}">${currentTask.category}</div>
-            <div onclick="toggleTaskDetailView()" class="closeButton">${returnIcon("closeX")}</div>
-        </div>
-        <div class="title">${currentTask.title}</div>
-        <div class="description">${currentTask.description}</div>
-        <div class="dueDate"><span>Due date:</span><p>${currentTask.dueDate}</p></div>
-        <div class="priority"><span>Priority:</span><p>${currentTask.priority}</p>${returnIcon(`${currentTask.priority}`, `${currentTask.priority}Icon`)}</div>
-        <div class="assignedTo">
-        <span>Assigned To:</span>
-        <ul class="userNames">
-            ${assignedUsers}
-        </ul>
-        <div class="subtasks">
-          <ul>
-              ${subtasks}
-          </ul>
-        </div>
-        <div class="buttons">                
-            <button onclick="renderDeleteTaskTemplate('${status}', '${taskID}')" class="deleteButton">${returnIcon("delete")}Delete</button>  
-            <button onclick="renderTaskDetailViewEdit('${currentTask.id}')" class="editButton">${returnIcon("edit")}Edit</button>  
-            </div>
-        </div>
-    </div>  
-</div>
-
-
+      <div class="taskDetailViewCardContainer">
+          <div id="taskDetailViewCard" class="taskDetailViewCard">
+              <div class="header"> 
+                  <div class="category" style="background-color: ${currentTask.categoryColor}">${currentTask.category}</div>
+                  <div onclick="toggleTaskDetailView()" class="closeButton">${returnIcon("closeX")}</div>
+              </div>
+              <div class="title">${currentTask.title}</div>
+              <div class="description">${currentTask.description}</div>
+              <div class="dueDate"><span>Due date:</span><p>${currentTask.dueDate}</p></div>
+              <div class="priority"><span>Priority:</span><p>${currentTask.priority}</p>${returnIcon(`${currentTask.priority}`, `${currentTask.priority}Icon`)}</div>
+              <div class="assignedTo">
+              <span>Assigned To:</span>
+              <ul class="userNames">
+                  ${assignedUsers}
+              </ul>
+              <div class="subtasks">
+                <ul>
+                    ${subtasks}
+                </ul>
+              </div>
+              <div class="buttons">                
+                  <button onclick="renderDeleteTaskTemplate('${status}', '${taskID}')" class="deleteButton">${returnIcon("delete")}Delete</button>  
+                  <button onclick="renderTaskDetailViewEdit('${currentTask.id}')" class="editButton">${returnIcon("edit")}Edit</button>  
+                  </div>
+              </div>
+          </div>  
+      </div>
     `;
 }
