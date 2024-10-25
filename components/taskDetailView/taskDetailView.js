@@ -1,3 +1,7 @@
+/**
+ * @module taskDetailView
+ */
+
 import { returnIcon } from "../icons.js";
 import { getUsersArray, getTasksArray } from "../../js/script.js";
 import { updateProgress } from "../taskDetailViewEdit/editTask.js";

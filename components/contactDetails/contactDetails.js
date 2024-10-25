@@ -1,3 +1,7 @@
+/**
+ * @module contactDetails
+ */
+
 import { returnIcon } from "../icons.js";
 import { getUsersArray } from "../../js/script.js";
 import { renderContactList } from "../contactList/contactList.js";
@@ -227,6 +231,19 @@ export function renderAfterDelete(userId) {
   }, 100);
 }
 
+/**
+ * Generates the HTML template for rendering user contact details.
+ *
+ * @param {Object} user - The user object containing user details.
+ * @param {string} user.user_color - The background color for the user's initials.
+ * @param {Object} user.profile - The profile object containing user information.
+ * @param {string} user.profile.first_name - The first name of the user.
+ * @param {string} user.profile.last_name - The last name of the user.
+ * @param {string} user.profile.email - The email address of the user.
+ * @param {string} user.profile.phone - The phone number of the user.
+ * @param {string} user.id - The unique identifier of the user.
+ * @returns {string} The HTML template string for the user contact details.
+ */
 function renderDetailsTemplate(user) {
   return /*html*/ `   
       <div class="contactDetailsBox">
