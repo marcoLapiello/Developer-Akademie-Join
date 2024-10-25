@@ -112,7 +112,6 @@ export function closeUsersDropdownList(arrow, content) {
 export function closeDropdownFromWindow(event, content) {
   let isDropdownVisible = !document.getElementById(content).classList.contains("d_none");
   let isCategoryDropVisible = !document.getElementById("categorySelectionContainer").classList.contains("d_none");
-  console.log(isCategoryDropVisible);
   let isSubtaskContainer = event.target.id == "subtaskContainer";
   let isAddTaskContainer = event.target.id == "addTaskContainer";
   let isAddTaskMiddleLeft = event.target.id == "addTaskMiddleLeft";
@@ -124,7 +123,6 @@ export function closeDropdownFromWindow(event, content) {
   }
   if (isCategoryDropVisible) {
     if (isSubtaskContainer || isAddTaskContainer || isAddTaskMiddleLeft || isAddTaskMiddleRight) {
-      console.log("try to close");
       openCloseDropdown("categoryDropdownArrow", "categorySelectionContainer");
     }
   }
