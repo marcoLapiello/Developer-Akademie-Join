@@ -15,8 +15,9 @@ function getEditInputValues() {
 }
 
 // Get the new values from the input fields over the Funktion getEditInputValues and push the new values to the database
+// ! Refactor this function to use the return value from getEditInputValues
 export async function getEditTaskData(taskID) {
-  let tasksArray = await getTasksArray(); // Fetch tasks array to get the task data for the task ID
+  let tasksArray = await getTasksArray();
   const newSelectedUsers = {}; // Create a new object for the selected users
   selectedUsers.forEach((user) => {
     newSelectedUsers[user] = user;
@@ -29,21 +30,22 @@ export async function getEditTaskData(taskID) {
   if (priorityInput) taskData.priority = priorityInput;
   if (selectedUsers) taskData.assignedTo = newSelectedUsers;
   if (newTaskObject.subtasks) taskData.subtasks = newTaskObject.subtasks;
-  patchTaskUpdate(taskData, taskID, taskData.status); // Patch the task update
-  setGlobalVariablesToDefault(); // Set the global variables to default
-  overwriteSelectedUsers(""); // Overwrite the selected users
-  toggleTaskDetailView(); // Toggle the task detail view
+  patchTaskUpdate(taskData, taskID, taskData.status); // Patch the task update to the database with the new values
+  setGlobalVariablesToDefault();
+  overwriteSelectedUsers("");
+  toggleTaskDetailView();
 }
 
 // The function renders the task detail view edit template
 export async function renderTaskDetailViewEdit(taskID) {
-  let tasksArray = await getTasksArray(); // Fetch tasks array
+  let tasksArray = await getTasksArray();
   const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
   const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
-  taskDetailViewRef.innerHTML = renderTaskDetailViewEditTemplate(taskData); // Render the task detail view edit template
-  setEditInputValues(taskData); // Set the input values to the task data
+  taskDetailViewRef.innerHTML = renderTaskDetailViewEditTemplate(taskData);
+  setEditInputValues(taskData); // Set the input values to the task data values
 }
 
+// Set Edit Input Values from the task data object
 function setEditInputValues(taskData) {
   document.getElementById("taskTitleInput").value = taskData.title;
   document.getElementById("taskDescription").value = taskData.description;
@@ -54,7 +56,7 @@ function setEditInputValues(taskData) {
       document.getElementById("subtaskContainer").innerHTML += getSubtaskTemplate(subtask.task, subtask.id);
     }
   });
-  const assignedUsers = Object.values(taskData.assignedTo).filter((value) => value !== "placeholder");
+  const assignedUsers = Object.values(taskData.assignedTo).filter((value) => value !== "placeholder"); // Get the assigned users from the task data object and filter out the placeholder
   overwriteSelectedUsers(assignedUsers);
   renderUserDropdownList();
 }
@@ -104,11 +106,8 @@ function renderTaskDetailViewEditTemplate(taskData) {
               onclick="openCloseDropdown('assignedToDropdownArrow' , 'contactsToAssign') , renderUserDropdownList()" src="./assets/icons/arrow_drop_down.png" alt="" />
           </div>
         </div>
-
         <div id="contactsToAssign" class="contactsToAssign d_none"></div>
-
         <div id="currentAssignation" class="currentAssignation"></div>   
-
         <div class="subtasksContainer">
           <p class="subtasks">Subtasks</p>
           <div class="addSubtaskContainer">
@@ -122,9 +121,7 @@ function renderTaskDetailViewEditTemplate(taskData) {
             </div>
             <ul class="subtaskContainer" id="subtaskContainer"></ul>
           </div>
-        </div>   
-        
-        
+        </div>        
         <div id="addTaskBottomContainer" class="addTaskBottomContainer">
           <p><span style="color: red">*</span>This field is required</p>
           <div id="taskBtnContainer" class="taskBtnContainer">

@@ -74,6 +74,7 @@
         font-size: 61px;
         font-weight: bold;
         line-height: 120%;
+        word-break: break-all;
 
         @media (max-width: $breakpoint-xs) {
           font-size: 30px;
