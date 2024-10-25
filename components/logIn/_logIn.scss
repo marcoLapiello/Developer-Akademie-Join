@@ -3,6 +3,38 @@
   height: 100dvh;
   position: relative;
   display: flex;
+  overflow: hidden;
+}
+
+.signUpDialogField {
+  position: absolute;
+  z-index: 500;
+  width: 100%;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.15);
+
+  .signUpUserFeedback {
+    background-color: #2a3647;
+    position: absolute;
+    padding: 25px;
+    border-radius: 20px;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+    left: 50%;
+    bottom: -80px;
+    transform: translate(-50%, 0px);
+    transition: all 0.4s ease-out;
+  
+    &.translateSignUpFeedback {
+      transform: translate(-50%, calc(-50dvh - 80px));
+    }    
+   
+    p {
+      color: white;
+      line-height: 24px;
+      font-size: 20px;
+    }
+  }
+  
 }
 
 .logInRenderContainer {

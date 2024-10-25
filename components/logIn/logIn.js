@@ -1,5 +1,5 @@
 export function getLogInTemplate() {
-  return /*html*/`
+  return /*html*/ `
     <div class="logInTemplate">
       <div class="logInTextBox">
         <p class="logInText">Log in</p>
@@ -19,10 +19,10 @@ export function getLogInTemplate() {
       </div>
     </div>
   `;
-}  
+}
 
 export function getSignUpTemplate() {
-  return /*html*/`
+  return /*html*/ `
     <div class="logInTemplate">
             <div class="backArrow">
               <svg class="${className}" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
@@ -47,8 +47,23 @@ export function getSignUpTemplate() {
               </div>
             </div>
             <div class="logInBtnBox">
-              <button class="signUpBtn">Sign up</button>
+              <button onclick="signUpNewUser()" id="signUpBtn" class="signUpBtn">Sign up</button>
             </div>
           </div>
   `;
+}
+
+export function signUpNewUser() {
+  userFeedbackAfterSignUp()
+}
+
+function userFeedbackAfterSignUp() {
+  document.getElementById("signUpDialogField").classList.remove("d_none");
+  setTimeout(() => {
+    document.getElementById("signUpUserFeedback").classList.add("translateSignUpFeedback");
+  }, 100);
+  setTimeout(() => {
+    document.getElementById("signUpDialogField").classList.add("d_none");
+    document.getElementById("signUpUserFeedback").classList.remove("translateSignUpFeedback");
+  }, 1000);
 }

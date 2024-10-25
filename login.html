@@ -15,6 +15,12 @@
 
         <!-- sing up field -->
 
+        <div id="signUpDialogField" class="signUpDialogField d_none">
+          <div id="signUpUserFeedback" class="signUpUserFeedback">
+            <p>You Signed Up successfully</p>
+          </div>
+        </div>
+
         <!-- render container -->
         <div class="logInRenderContainer">
           <!-- START signUpTemplate -->
@@ -42,15 +48,15 @@
               </div>
             </div>
             <div class="logInBtnBox">
-              <button class="signUpBtn">Sign up</button>
+              <button onclick="signUpNewUser()" id="signUpBtn" class="signUpBtn">Sign up</button>
             </div>
           </div>
           <!-- END signUpTemplate -->
         </div>
 
         <div class="privacyContainer">
-            <a href="./privacyPolicy.html" class="privacyLink">Privacy Policy</a>
-            <a href="./legalNotice.html" class="privacyLink">Legal notice</a>
+          <a href="./privacyPolicy.html" class="privacyLink">Privacy Policy</a>
+          <a href="./legalNotice.html" class="privacyLink">Legal notice</a>
         </div>
       </section>
     </main>

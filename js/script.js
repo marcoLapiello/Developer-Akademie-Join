@@ -40,9 +40,10 @@ import { loadTasks, patchNewTask, deleteExistungTask } from "./tasksApiService.j
 window.patchNewTask = patchNewTask;
 window.deleteExistungTask = deleteExistungTask;
 
-import { getLogInTemplate, getSignUpTemplate } from "../components/logIn/logIn.js";
+import { getLogInTemplate, getSignUpTemplate, signUpNewUser } from "../components/logIn/logIn.js";
 window.getLogInTemplate = getLogInTemplate;
 window.getSignUpTemplate = getSignUpTemplate;
+window.signUpNewUser = signUpNewUser;
 
 import {
   getNewTaskTemplate,
