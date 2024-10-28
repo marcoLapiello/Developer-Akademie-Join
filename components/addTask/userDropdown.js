@@ -2,9 +2,26 @@
  * @module "userDropdown.js"
  */
 
+/**
+ * Function to retrieve an array of user objects.
+ * @function getUsersArray
+ * @returns {Array<Object>} - An array containing user objects with relevant user data.
+ */
 import { getUsersArray } from "../../js/script.js";
 
+/**
+ * An array that holds the currently selected users.
+ * Can be modified to add or remove users based on selection.
+ * @type {Array<Object>}
+ * @exports selectedUsers
+ */
 export let selectedUsers = [];
+
+/**
+ * An array that stores all user objects globally within the application.
+ * Used to keep a reference of all users across different components or functions.
+ * @type {Array<Object>}
+ */
 let globalUserArray = [];
 
 /**

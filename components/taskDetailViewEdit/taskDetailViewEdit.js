@@ -12,40 +12,45 @@ import { patchTaskUpdate } from "../../js/tasksApiService.js";
 /**
  * Retrieves the values from the task edit input fields.
  *
- * @returns {Object} An object containing the values from the input fields:
- * - `titleInput` {string}: The value of the task title input field.
- * - `descriptionInput` {string}: The value of the task description input field.
- * - `dueDateInput` {string}: The value of the task due date input field.
- * - `priorityInput` {string}: The current priority value.
+ * @returns {Object} An object containing the following properties:
+ * - titleInput {string}: The value of the task title input field.
+ * - descriptionInput {string}: The value of the task description input field.
+ * - dueDateInput {string}: The value of the task due date input field.
+ * - priorityInput {string}: The current priority value.
+ * - newSelectedUsers {Object}: An object containing the selected users.
  */
 function getEditInputValues() {
   const titleInput = document.getElementById("taskTitleInput").value;
   const descriptionInput = document.getElementById("taskDescription").value;
   const dueDateInput = document.getElementById("taskDueDate").value;
   const priorityInput = currentPrio;
-  return { titleInput, descriptionInput, dueDateInput, priorityInput };
-}
-
-// ! Refactor this function to use the return value from getEditInputValues
-/**
- * Updates the task data with the provided task ID by fetching the tasks array,
- * updating the task details with the input values, and then patching the task update.
- *
- * @async
- * @function getEditTaskData
- * @param {string} taskID - The ID of the task to be edited.
- * @returns {Promise<void>} - A promise that resolves when the task data has been updated.
- */
-export async function getEditTaskData(taskID) {
-  let tasksArray = await getTasksArray();
   const newSelectedUsers = {
     placeholder: "placeholder",
   };
   selectedUsers.forEach((user) => {
     newSelectedUsers[user] = user;
   });
+  return { titleInput, descriptionInput, dueDateInput, priorityInput, newSelectedUsers };
+}
+
+/**
+ * Asynchronously retrieves and updates task data based on the provided task ID.
+ *
+ * This function performs the following steps:
+ * 1. Retrieves the array of tasks.
+ * 2. Finds the task data corresponding to the provided task ID.
+ * 3. Gets the input values for editing the task.
+ * 4. Updates the task data with the new input values if they are provided.
+ * 5. Patches the updated task data to the server.
+ * 6. Finalizes the task editing process.
+ *
+ * @param {string} taskID - The ID of the task to be edited.
+ * @returns {Promise<void>} - A promise that resolves when the task data has been updated.
+ */
+export async function getEditTaskData(taskID) {
+  let tasksArray = await getTasksArray();
   const taskData = tasksArray.find(([id]) => id === taskID)[1];
-  const { titleInput, descriptionInput, dueDateInput, priorityInput } = getEditInputValues();
+  const { titleInput, descriptionInput, dueDateInput, priorityInput, newSelectedUsers } = getEditInputValues();
   if (titleInput) taskData.title = titleInput;
   if (descriptionInput) taskData.description = descriptionInput;
   if (dueDateInput) taskData.dueDate = dueDateInput;
@@ -53,6 +58,20 @@ export async function getEditTaskData(taskID) {
   if (selectedUsers) taskData.assignedTo = newSelectedUsers;
   if (newTaskObject.subtasks) taskData.subtasks = newTaskObject.subtasks;
   patchTaskUpdate(taskData, taskID, taskData.status);
+  finalizeTaskEdit();
+}
+
+/**
+ * Finalizes the task editing process by resetting global variables,
+ * clearing selected users, toggling the task detail view, and providing user feedback.
+ *
+ * This function performs the following actions:
+ * 1. Resets global variables to their default values.
+ * 2. Clears the list of selected users.
+ * 3. Toggles the visibility of the task detail view.
+ * 4. Provides feedback to the user about the task editing process.
+ */
+function finalizeTaskEdit() {
   setGlobalVariablesToDefault();
   overwriteSelectedUsers("");
   toggleTaskDetailView();

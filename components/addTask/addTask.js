@@ -2,14 +2,68 @@
  * @module "addTask.js"
  */
 
+/**
+ * Imports the following functions and variables from the userDropdown module:
+ * - closeUsersDropdownList: Function to close the users dropdown list.
+ * - selectedUsers: Variable that holds the list of selected users.
+ * - clearSelectedUsers: Function to clear the list of selected users.
+ */
 import { closeUsersDropdownList, selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
+/**
+ * Imports the returnIcon function from the icons module.
+ * The returnIcon function is used to retrieve an icon based on certain criteria.
+ */
 import { returnIcon } from "../icons.js";
+/**
+ * Imports the following functions from the taskTemplate module:
+ * - getTaskTemplate: Function to retrieve the template for a task.
+ * - getDeleteTaskTemplate: Function to retrieve the template for deleting a task.
+ */
 import { getTaskTemplate, getDeleteTaskTemplate } from "../addTask/taskTemplate.js";
+/**
+ * Imports the following references from the script module:
+ * - newTaskUserFeedbackRef: Reference for user feedback related to creating a new task.
+ * - editTaskUserFeedbackRef: Reference for user feedback related to editing an existing task.
+ */
 import { newTaskUserFeedbackRef, editTaskUserFeedbackRef } from "../../js/script.js";
 
+/**
+ * Exports the currentPrio variable with an initial value of "medium".
+ * This variable represents the current priority level of a task.
+ */
 export let currentPrio = "medium";
+
+/**
+ * Declares the currentProgress variable with an initial value of 0.
+ * This variable represents the current progress of a task.
+ */
 let currentProgress = 0;
+
+/**
+ * Declares the currentStatus variable with an initial value of "todo".
+ * This variable represents the current status of a task.
+ */
 let currentStatus = "todo";
+
+/**
+ * Declares the emptyTaskTemplate object with default values.
+ * This object serves as a template for creating new tasks.
+ *
+ * Properties:
+ * - id: The unique identifier for the task.
+ * - title: The title of the task.
+ * - description: A detailed description of the task.
+ * - assignedTo: An object containing information about the user assigned to the task.
+ * - dueDate: The due date for the task.
+ * - creationDate: The date the task was created.
+ * - creatorId: The unique identifier of the task creator.
+ * - priority: The priority level of the task.
+ * - category: The category to which the task belongs.
+ * - categoryColor: The color associated with the task category.
+ * - progress: The current progress of the task.
+ * - status: The current status of the task.
+ * - subtasks: An object containing information about the subtasks of the task.
+ */
 let emptyTaskTemplate = {
   id: "",
   title: "",
@@ -27,6 +81,26 @@ let emptyTaskTemplate = {
     placeholder: "placeholder",
   },
 };
+
+/**
+ * Exports the newTaskObject with default values.
+ * This object serves as a template for creating new tasks.
+ *
+ * Properties:
+ * - id: The unique identifier for the task.
+ * - title: The title of the task.
+ * - description: A detailed description of the task.
+ * - assignedTo: An object containing information about the user assigned to the task.
+ * - dueDate: The due date for the task.
+ * - creationDate: The date the task was created.
+ * - creatorId: The unique identifier of the task creator.
+ * - priority: The priority level of the task.
+ * - category: The category to which the task belongs.
+ * - categoryColor: The color associated with the task category.
+ * - progress: The current progress of the task.
+ * - status: The current status of the task.
+ * - subtasks: An object containing information about the subtasks of the task.
+ */
 export let newTaskObject = {
   id: "",
   title: "",
