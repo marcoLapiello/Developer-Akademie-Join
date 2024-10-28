@@ -40,7 +40,7 @@ import { loadTasks, patchNewTask, deleteExistungTask } from "./tasksApiService.j
 window.patchNewTask = patchNewTask;
 window.deleteExistungTask = deleteExistungTask;
 
-import { getLogInTemplate, getSignUpTemplate, signUpNewUser, renderLogInTemplate, renderSignUpTemplate, initRenderLogInPage, goToSignUpPage, goToLogInPage } from "../components/logIn/logIn.js";
+import { getLogInTemplate, getSignUpTemplate, signUpNewUser, renderLogInTemplate, renderSignUpTemplate, initRenderLogInPage, goToSignUpPage, goToLogInPage, doGuestLogIn, logInRegistratedUsert, toggleRememberMe, getUserLogInDataFromLocalStorage } from "../components/logIn/logIn.js";
 window.getLogInTemplate = getLogInTemplate;
 window.getSignUpTemplate = getSignUpTemplate;
 window.signUpNewUser = signUpNewUser;
@@ -49,6 +49,10 @@ window.renderSignUpTemplate = renderSignUpTemplate;
 window.initRenderLogInPage = initRenderLogInPage;
 window.goToSignUpPage = goToSignUpPage;
 window.goToLogInPage = goToLogInPage;
+window.doGuestLogIn = doGuestLogIn;
+window.logInRegistratedUsert = logInRegistratedUsert;
+window.toggleRememberMe = toggleRememberMe;
+window.getUserLogInDataFromLocalStorage = getUserLogInDataFromLocalStorage;
 
 import {
   getNewTaskTemplate,
