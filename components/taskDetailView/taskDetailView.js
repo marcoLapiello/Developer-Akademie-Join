@@ -1,5 +1,5 @@
 /**
- * @module taskDetailView
+ * @module "taskDetailView.js"
  */
 
 import { returnIcon } from "../icons.js";

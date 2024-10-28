@@ -1,5 +1,5 @@
 /**
- * @module taskCards
+ * @module "taskCards.js"
  */
 
 import { returnIcon } from "../icons.js";

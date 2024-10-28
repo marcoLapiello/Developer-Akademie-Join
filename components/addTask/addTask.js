@@ -1,5 +1,5 @@
 /**
- * @module addTask
+ * @module "addTask.js"
  */
 
 import { closeUsersDropdownList, selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
