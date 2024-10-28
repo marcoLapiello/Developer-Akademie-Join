@@ -40,7 +40,21 @@ import { loadTasks, patchNewTask, deleteExistungTask } from "./tasksApiService.j
 window.patchNewTask = patchNewTask;
 window.deleteExistungTask = deleteExistungTask;
 
-import { getLogInTemplate, getSignUpTemplate, signUpNewUser, renderLogInTemplate, renderSignUpTemplate, initRenderLogInPage, goToSignUpPage, goToLogInPage, doGuestLogIn, logInRegistratedUsert, toggleRememberMe, getUserLogInDataFromLocalStorage } from "../components/logIn/logIn.js";
+import {
+  getLogInTemplate,
+  getSignUpTemplate,
+  signUpNewUser,
+  renderLogInTemplate,
+  renderSignUpTemplate,
+  initRenderLogInPage,
+  goToSignUpPage,
+  goToLogInPage,
+  doGuestLogIn,
+  logInRegistratedUser,
+  toggleRememberMe,
+  getUserLogInDataFromLocalStorage,
+  getNewUserData,
+} from "../components/logIn/logIn.js";
 window.getLogInTemplate = getLogInTemplate;
 window.getSignUpTemplate = getSignUpTemplate;
 window.signUpNewUser = signUpNewUser;
@@ -50,9 +64,10 @@ window.initRenderLogInPage = initRenderLogInPage;
 window.goToSignUpPage = goToSignUpPage;
 window.goToLogInPage = goToLogInPage;
 window.doGuestLogIn = doGuestLogIn;
-window.logInRegistratedUsert = logInRegistratedUsert;
+window.logInRegistratedUser = logInRegistratedUser;
 window.toggleRememberMe = toggleRememberMe;
 window.getUserLogInDataFromLocalStorage = getUserLogInDataFromLocalStorage;
+window.getNewUserData = getNewUserData;
 
 import {
   getNewTaskTemplate,
@@ -160,6 +175,9 @@ window.validateEditPhonenumber = validateEditPhonenumber;
 window.hideAddNewUserDialogFromBG = hideAddNewUserDialogFromBG;
 window.hideConfirmDeleteUserDialogFromBG = hideConfirmDeleteUserDialogFromBG;
 window.hideEditChosenUserDialogFromBG = hideEditChosenUserDialogFromBG;
+
+import { initSummary } from "../components/summary/summary.js"
+window.initSummary = initSummary;
 
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
