@@ -103,6 +103,7 @@ export function goToLogInPage() {
 
 export function doGuestLogIn() {
   console.log("guest login requested");
+  window.location.href = "../summary.html";
 }
 
 export function logInRegistratedUsert() {
