@@ -2,6 +2,12 @@
  * @module "board.js"
  */
 
+/**
+ * Function that retrieves an icon, likely used for UI rendering.
+ * @function returnIcon
+ * @param {string} iconName - The name of the icon to retrieve.
+ * @returns {HTMLElement} - An HTML element representing the icon.
+ */
 import { returnIcon } from "../icons.js";
 
 /**
