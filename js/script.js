@@ -176,7 +176,7 @@ window.hideAddNewUserDialogFromBG = hideAddNewUserDialogFromBG;
 window.hideConfirmDeleteUserDialogFromBG = hideConfirmDeleteUserDialogFromBG;
 window.hideEditChosenUserDialogFromBG = hideEditChosenUserDialogFromBG;
 
-import { initSummary } from "../components/summary/summary.js"
+import { initSummary } from "../components/summary/summary.js";
 window.initSummary = initSummary;
 
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
@@ -216,6 +216,5 @@ export async function getTasksArray() {
   return tasksArray;
 }
 
-// später diese Funktion in eine "onload init Funktion packen"
 getUsersArray();
 getTasksArray();
