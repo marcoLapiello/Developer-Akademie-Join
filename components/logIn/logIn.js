@@ -75,6 +75,9 @@ function renderJoinLogo() {
 function animateJoinLogo() {
   document.getElementById("joinLogoBox").classList.add("joinLogoAnimation");
   document.getElementById("logoAnimationDialog").style.opacity = "0";
+  setTimeout(() => {
+    document.getElementById("logoAnimationDialog").classList.add("d_none");
+  }, 600);
   // #logoAnimationDialog
 }
 
