@@ -2,8 +2,16 @@
     max-width: 1920px;
     margin: 0 auto;
     padding: 40px 20px;
-    height: calc(100dvh - 96px);
+    
    
+}
+
+@media (max-width: $breakpoint-lg){
+    .privacyText{
+        height: calc(100dvh - 150px);
+    }
+
+
 }
 
 .privacyText {
