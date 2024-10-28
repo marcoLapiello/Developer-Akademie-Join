@@ -1,3 +1,5 @@
+import { returnIcon } from "../icons.js";
+
 export function getLogInTemplate() {
   return /*html*/ `
     <div class="logInTemplate">
@@ -65,9 +67,28 @@ export function renderSignUpTemplate() {
   logInRenderContainerRef.innerHTML = getSignUpTemplate();
 }
 
+function renderJoinLogo() {
+  document.getElementById("joinLogoBox").innerHTML = "";
+  document.getElementById("joinLogoBox").innerHTML = returnIcon("joinLogo", "logInJoinLogoSmall");
+}
+
+function animateJoinLogo() {
+  document.getElementById("joinLogoBox").classList.remove("joinLogoAnimation");
+  document.getElementById("logoAnimationDialog").style.opacity = "0";
+  setTimeout(() => {
+    document.getElementById("logoAnimationDialog").classList.add("d_none");
+  }, 600);
+  // #logoAnimationDialog
+}
+
+// ########################
 export function initRenderLogInPage() {
   // animation of Join Logo
+  renderJoinLogo();
   renderLogInTemplate();
+  setTimeout(() => {
+    animateJoinLogo();
+  }, 800);
 }
 
 export function goToSignUpPage() {
