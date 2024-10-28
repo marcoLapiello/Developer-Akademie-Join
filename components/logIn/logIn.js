@@ -1,5 +1,7 @@
 import { returnIcon } from "../icons.js";
 
+import { getRandomUserColor } from "../contactModal/contactModal.js";
+
 export function getLogInTemplate() {
   return /*html*/ `
     <div class="logInTemplate">
@@ -16,7 +18,7 @@ export function getLogInTemplate() {
         </div>
       </div>
       <div class="logInBtnBox">
-        <button onclick="logInRegistratedUsert()" class="logInBtn">Log in</button>
+        <button onclick="logInRegistratedUser()" class="logInBtn">Log in</button>
         <button onclick="doGuestLogIn()" class="guestLogInBtn">Guest Log In</button>
       </div>
     </div>
@@ -38,12 +40,12 @@ export function getSignUpTemplate() {
               <div class="blueUnderlineDiv"></div>
             </div>
             <div class="signUpInputArea">
-              <input class="inputName" type="password" placeholder="Name" />
-              <input class="inputEmail" type="email" placeholder="Email" />
-              <input class="inputPassword" type="password" placeholder="Password" />
-              <input class="inputPassword" type="password" placeholder="Password" />
+              <input id="signUpInputName" class="inputName" type="text" placeholder="Name" />
+              <input id="signUpInputEmail" class="inputEmail" type="email" placeholder="Email" />
+              <input id="signUpInputPassword" class="inputPassword" type="password" placeholder="Password" />
+              <input id="signUpInputPasswordRepeat" class="inputPassword" type="password" placeholder="Password" />
               <div class="checkToRememberBox">
-                <input class="checkboxRememberMe" type="checkbox" />
+                <input id="privacyPolicyCheckBox" class="checkboxRememberMe" type="checkbox" />
                 <p>I accept the</p>
                 <a href="./privacyPolicy.html">Privacy policy</a>
               </div>
@@ -101,11 +103,13 @@ export function goToLogInPage() {
   document.getElementById("linkToSignUpBox").classList.remove("d_none");
 }
 
+// log in USer functions
 export function doGuestLogIn() {
   console.log("guest login requested");
+  window.location.href = "../summary.html";
 }
 
-export function logInRegistratedUsert() {
+export function logInRegistratedUser() {
   toggleRememberMe();
   console.log("Log In for registrated user requested");
 }
@@ -144,11 +148,38 @@ export function getUserLogInDataFromLocalStorage() {
   return userLogInData;
 }
 
+// sign up User functions
 export function signUpNewUser() {
   userFeedbackAfterSignUp();
+  console.log(getNewUserData());
+
   setTimeout(() => {
     goToLogInPage();
   }, 1150);
+}
+
+export function getNewUserData() {
+  let fullName = document.getElementById("signUpInputName").value;
+  let nameParts = fullName.split(" ");
+  let name = nameParts[0];
+  let surname = nameParts[1];
+  let userInitials = name.charAt(0) + surname.charAt(0);
+  let id = userInitials + Date.now();
+  let email = document.getElementById("signUpInputEmail").value;
+  let user = {
+    id: id,
+    password: document.getElementById("signUpInputPassword").value,
+    isLoggedIn: false,
+    user_color: getRandomUserColor(),
+    profile: {
+      first_name: name,
+      last_name: surname,
+      initials: userInitials,
+      email: email,
+      phone: "",
+    },
+  };
+  return user;
 }
 
 function userFeedbackAfterSignUp() {
@@ -161,3 +192,12 @@ function userFeedbackAfterSignUp() {
     document.getElementById("signUpUserFeedback").classList.remove("translateSignUpFeedback");
   }, 1150);
 }
+
+// user object erstellen
+// datenbank abfragen (daten synchron ziehen und bereitstellen mit init Funktion) ob user schon erstellt wurde (abgleich der Emailadresse)
+// --- wenn vorhanden --> Fehlermeldung
+// --- wenn neu --->
+//         user daten an firebase patchen
+//         user login daten an login fenster schicken
+
+// login:  userDatenZiehen und abgleichen ob user vorhanden
