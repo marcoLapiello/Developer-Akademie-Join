@@ -2,6 +2,32 @@
  * @module "contactModal.js"
  */
 
+/**
+ * Imports various functions and references from the script module.
+ *
+ * - `getUsersArray`: Function to retrieve an array of user objects.
+ * - `addContactNameInputRef`: Reference to the input field for adding a contact's name.
+ * - `addContactEmailInputRef`: Reference to the input field for adding a contact's email.
+ * - `addContactPhoneInputRef`: Reference to the input field for adding a contact's phone number.
+ * - `editContactNameInputRef`: Reference to the input field for editing a contact's name.
+ * - `editContactEmailInputRef`: Reference to the input field for editing a contact's email.
+ * - `editContactPhoneInputRef`: Reference to the input field for editing a contact's phone number.
+ * - `editNewUserLogoRef`: Reference to the logo element for a new user during the edit process.
+ * - `saveEditedUserButtonRef`: Reference to the button for saving edited user details.
+ * - `addedUserFeedbackRef`: Reference to the element that displays feedback for added users.
+ * - `editUserFeedbackRef`: Reference to the element that displays feedback for edited users.
+ * - `confirmDeleteUserModalRef`: Reference to the modal for confirming user deletion.
+ * - `deleteChosenUserBtnRef`: Reference to the button for deleting a selected user.
+ * - `sureToDeleteContactBtnRef`: Reference to the button for confirming contact deletion.
+ * - `addNameWarningRef`: Reference to the warning message for invalid name input.
+ * - `addEmailWarningRef`: Reference to the warning message for invalid email input.
+ * - `addPhoneWarningRef`: Reference to the warning message for invalid phone number input.
+ * - `editNameWarningRef`: Reference to the warning message for invalid name during edit.
+ * - `editEmailWarningRef`: Reference to the warning message for invalid email during edit.
+ * - `editPhoneWarningRef`: Reference to the warning message for invalid phone number during edit.
+ *
+ * Each reference is typically used to manipulate or retrieve values from the corresponding DOM elements.
+ */
 import {
   getUsersArray,
   addContactNameInputRef,
@@ -25,9 +51,38 @@ import {
   editPhoneWarningRef,
 } from "../../js/script.js";
 
+/**
+ * Function to update the details of an existing user in the system.
+ * This function typically sends a request to the API to modify user data.
+ *
+ * @function editExistingUser
+ * @param {string} userId - The ID of the user to be edited.
+ * @param {Object} userData - An object containing the updated user details.
+ * @param {string} userData.name - The updated name of the user.
+ * @param {string} userData.email - The updated email of the user.
+ * @param {string} userData.phone - The updated phone number of the user.
+ * @returns {Promise<Object>} - A promise that resolves to the updated user object.
+ */
 import { editExistingUser } from "../../js/apiService.js";
+
+/**
+ * Function to remove the active contact from the contact list.
+ * This function typically updates the UI and may also send a request to the server
+ * to delete the contact from the database.
+ *
+ * @function removeAktivContactButton
+ * @param {string} contactId - The ID of the contact to be removed.
+ * @returns {void}
+ */
 import { removeAktivContactButton } from "../contactList/contactList.js";
 
+/**
+ * An array of color codes used to represent users or elements within the application.
+ * Each color is represented as a hex string.
+ * This array can be used to assign different colors to user-related UI elements for better visual differentiation.
+ *
+ * @type {Array<string>}
+ */
 let userColors = [
   "#FF7A00",
   "#FF5EB3",
