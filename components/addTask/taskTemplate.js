@@ -1,4 +1,8 @@
 /**
+ * @module taskTemplate
+ */
+
+/**
  * Generates the HTML template for the "Add Task".
  *
  * The template includes fields for task title, description, assigned contacts, due date, priority, category, and subtasks.
