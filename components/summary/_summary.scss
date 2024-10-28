@@ -85,6 +85,11 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        transition: all 0.1s ease-in;
+
+                        img {
+                            transition: all 0.1s ease-in;
+                        }
                     }
 
                     .amountContainer {

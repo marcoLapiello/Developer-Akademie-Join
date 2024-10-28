@@ -176,6 +176,9 @@ window.hideAddNewUserDialogFromBG = hideAddNewUserDialogFromBG;
 window.hideConfirmDeleteUserDialogFromBG = hideConfirmDeleteUserDialogFromBG;
 window.hideEditChosenUserDialogFromBG = hideEditChosenUserDialogFromBG;
 
+import { initSummary } from "../components/summary/summary.js"
+window.initSummary = initSummary;
+
 export let addContactNameInputRef = document.getElementById("addContactNameInput");
 export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
 export let addContactPhoneInputRef = document.getElementById("addContactPhoneInput");

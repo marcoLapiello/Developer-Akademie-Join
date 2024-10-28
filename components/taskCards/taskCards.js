@@ -1,5 +1,5 @@
 /**
- * @module taskCards
+ * @module "taskCards.js"
  */
 
 import { returnIcon } from "../icons.js";
@@ -96,25 +96,19 @@ async function getAssignedUsers(task) {
 }
 
 /**
- * Translates a given task status from its internal representation to a more user-friendly format.
+ * Translates a given task status to a more readable format.
  *
- * @param {string} currentStatus - The current status of the task. Expected values are "todo", "inProgress", "awaitFeedback", or "done".
- * @returns {string} The translated status. If the input status does not match any of the expected values, it returns the input status unchanged.
+ * @param {string} currentStatus - The current status of the task.
+ * @returns {string} The translated status.
  */
 function translatedStatus(currentStatus) {
-  let translatedStatus;
-  if (currentStatus === "todo") {
-    translatedStatus = "To do";
-  } else if (currentStatus === "inProgress") {
-    translatedStatus = "In progress";
-  } else if (currentStatus === "awaitFeedback") {
-    translatedStatus = "Await feedback";
-  } else if (currentStatus === "done") {
-    translatedStatus = "Done";
-  } else {
-    return currentStatus;
-  }
-  return translatedStatus;
+  const statusMap = {
+    todo: "To do",
+    inProgress: "In progress",
+    awaitFeedback: "Await feedback",
+    done: "Done",
+  };
+  return statusMap[currentStatus] || currentStatus;
 }
 
 /**

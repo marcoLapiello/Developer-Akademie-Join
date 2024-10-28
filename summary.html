@@ -8,86 +8,14 @@
     <script type="module" src="./js/script.js" defer></script>
     <title>JOIN</title>
   </head>
-  <body>
+  <body onload="initSummary()">
     <main>
       <nav id="sidebar" class="sidebar"></nav>
       <section class="mainSection">
         <section id="content" class="content">
           <header id="header" class="header"></header>
-          <div id="placeholder" class="placeholder">
-            <div id="summaryWrapper" class="summaryWrapper">
-
-              <div id="summaryHeadline" class="summaryHeadline">
-                <h1>Join 360</h1>
-                <div class="headlineSeparator"></div>
-                <span>Key Metrics at a Glance</span>
-              </div>
-
-              <div id="summaryMiddleContent" class="summaryMiddleContent">
-                <div id="summaryTasksStatus" class="summaryTasksStatus">
-                  <div id="statusFirstLine" class="statusFirstLine">
-
-                    <div id="toDoWrapper" class="toDoWrapper">
-                      <div id="" class="iconContainer">
-                        <img src="./assets/icons/pencil_white.png" alt="">
-                      </div>
-                      <div id="" class="amountContainer">
-                        <p id="amountToDo" class="amount">1</p>
-                        <span>To-do</span>
-                      </div>
-                    </div>
-
-                    <div id="DoneWrapper" class="toDoWrapper">
-                      <div id="" class="iconContainer">
-                        <img src="./assets/icons/check_white_fat.png" alt="">
-                      </div>
-                      <div id="" class="amountContainer">
-                        <p id="amountDone" class="amount">1</p>
-                        <span>Done</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div id="statusSecondLine" class="statusSecondLine">
-                    <div id="urgentAmountWrapper" class="urgentAmountWrapper">
-                      <div id="" class="iconContainer">
-                        <img src="./assets/icons/urgent_Icon_white_big.png" alt="">
-                      </div>
-                      <div id="" class="amountContainer">
-                        <p id="amountUrgent" class="amount">1</p>
-                        <span>Urgent</span>
-                      </div>
-                    </div>
-                    <div class="urgentSeparator"></div>
-                    <div id="urgentDeadlineContainer" class="urgentDeadlineContainer">
-                      <p id="urgentDeadline">October 16, 2024</p>
-                      <span>Upcoming Deadline</span>
-                    </div>
-                  </div>
-
-                  <div id="statusThirdLine" class="statusThirdLine">
-                    <div id="" class="amountContainer">
-                      <p id="amountUrgent" class="amount">5</p>
-                      <span>Tasks in Board</span>
-                    </div>
-                    <div id="" class="amountContainer">
-                      <p id="amountUrgent" class="amount">2</p>
-                      <span>Tasks In Progress</span>
-                    </div>
-                    <div id="" class="amountContainer">
-                      <p id="amountUrgent" class="amount">2</p>
-                      <span>Awaiting Feedback</span>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div id="summaryWelcomeMessage" class="summaryWelcomeMessage">
-                  <h2 id="dynamicWelcome">Good morning,</h2>
-                  <h1 id="dynamicUser">Motherfucker</h1>
-                </div>
-              </div>
-            </div>
+          <div id="summaryContent" class="placeholder">
+            
           </div>
         </section>
       </section>

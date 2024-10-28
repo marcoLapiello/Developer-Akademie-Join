@@ -1,3 +1,7 @@
+/**
+ * @module "taskDetailViewEdit.js"
+ */
+
 import { returnIcon } from "../icons.js";
 import { getTasksArray } from "../../js/script.js";
 import { currentPrio, setGlobalVariablesToDefault, getSubtaskTemplate, newTaskObject } from "../addTask/addTask.js";
@@ -5,50 +9,86 @@ import { overwriteSelectedUsers, selectedUsers, renderUserDropdownList } from ".
 import { toggleTaskDetailView } from "../taskDetailView/taskDetailView.js";
 import { patchTaskUpdate } from "../../js/tasksApiService.js";
 
-// Get the new values from the input fields
+/**
+ * Retrieves the values from the task edit input fields.
+ *
+ * @returns {Object} An object containing the values from the input fields:
+ * - `titleInput` {string}: The value of the task title input field.
+ * - `descriptionInput` {string}: The value of the task description input field.
+ * - `dueDateInput` {string}: The value of the task due date input field.
+ * - `priorityInput` {string}: The current priority value.
+ */
 function getEditInputValues() {
-  const titleInput = document.getElementById("taskTitleInput").value; // Get the new title input value
-  const descriptionInput = document.getElementById("taskDescription").value; // Get the new description input value
-  const dueDateInput = document.getElementById("taskDueDate").value; // Get the new due date input value
-  const priorityInput = currentPrio; // Get the new prio input value
+  const titleInput = document.getElementById("taskTitleInput").value;
+  const descriptionInput = document.getElementById("taskDescription").value;
+  const dueDateInput = document.getElementById("taskDueDate").value;
+  const priorityInput = currentPrio;
   return { titleInput, descriptionInput, dueDateInput, priorityInput };
 }
 
-// Get the new values from the input fields over the Funktion getEditInputValues and push the new values to the database
 // ! Refactor this function to use the return value from getEditInputValues
+/**
+ * Updates the task data with the provided task ID by fetching the tasks array,
+ * updating the task details with the input values, and then patching the task update.
+ *
+ * @async
+ * @function getEditTaskData
+ * @param {string} taskID - The ID of the task to be edited.
+ * @returns {Promise<void>} - A promise that resolves when the task data has been updated.
+ */
 export async function getEditTaskData(taskID) {
   let tasksArray = await getTasksArray();
   const newSelectedUsers = {
     placeholder: "placeholder",
-  }; // Create a new object for the selected users
+  };
   selectedUsers.forEach((user) => {
     newSelectedUsers[user] = user;
   });
-  const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
-  const { titleInput, descriptionInput, dueDateInput, priorityInput } = getEditInputValues(); // Get the new values from the input fields
+  const taskData = tasksArray.find(([id]) => id === taskID)[1];
+  const { titleInput, descriptionInput, dueDateInput, priorityInput } = getEditInputValues();
   if (titleInput) taskData.title = titleInput;
   if (descriptionInput) taskData.description = descriptionInput;
   if (dueDateInput) taskData.dueDate = dueDateInput;
   if (priorityInput) taskData.priority = priorityInput;
   if (selectedUsers) taskData.assignedTo = newSelectedUsers;
   if (newTaskObject.subtasks) taskData.subtasks = newTaskObject.subtasks;
-  patchTaskUpdate(taskData, taskID, taskData.status); // Patch the task update to the database with the new values
+  patchTaskUpdate(taskData, taskID, taskData.status);
   setGlobalVariablesToDefault();
   overwriteSelectedUsers("");
   toggleTaskDetailView();
   editTaskUserFeedback();
 }
 
-// The function renders the task detail view edit template
+/**
+ * Renders the task detail view in edit mode for a given task ID.
+ *
+ * This function fetches the tasks array, finds the task data corresponding to the provided task ID,
+ * and updates the inner HTML of the task detail view element with the edit template. It also sets
+ * the input values for editing based on the task data.
+ *
+ * @async
+ * @function renderTaskDetailViewEdit
+ * @param {string} taskID - The ID of the task to be edited.
+ * @returns {Promise<void>} A promise that resolves when the task detail view has been rendered.
+ */
 export async function renderTaskDetailViewEdit(taskID) {
   let tasksArray = await getTasksArray();
-  const taskData = tasksArray.find(([id]) => id === taskID)[1]; // Find the task data for the task ID in the tasks array
-  const taskDetailViewRef = document.getElementById("taskDetailView"); // Get task detail view element
+  const taskData = tasksArray.find(([id]) => id === taskID)[1];
+  const taskDetailViewRef = document.getElementById("taskDetailView");
   taskDetailViewRef.innerHTML = renderTaskDetailViewEditTemplate(taskData);
-  setEditInputValues(taskData); // Set the input values to the task data values
+  setEditInputValues(taskData);
 }
 
-// Set Edit Input Values from the task data object
+/**
+ * Sets the input values for editing a task based on the provided task data.
+ *
+ * @param {Object} taskData - The data of the task to be edited.
+ * @param {string} taskData.title - The title of the task.
+ * @param {string} taskData.description - The description of the task.
+ * @param {string} taskData.dueDate - The due date of the task.
+ * @param {Object} taskData.subtasks - The subtasks of the task.
+ * @param {Object} taskData.assignedTo - The users assigned to the task.
+ */
 function setEditInputValues(taskData) {
   document.getElementById("taskTitleInput").value = taskData.title;
   document.getElementById("taskDescription").value = taskData.description;
@@ -59,12 +99,19 @@ function setEditInputValues(taskData) {
       document.getElementById("subtaskContainer").innerHTML += getSubtaskTemplate(subtask.task, subtask.id);
     }
   });
-  const assignedUsers = Object.values(taskData.assignedTo).filter((value) => value !== "placeholder"); // Get the assigned users from the task data object and filter out the placeholder
+  const assignedUsers = Object.values(taskData.assignedTo).filter((value) => value !== "placeholder");
   overwriteSelectedUsers(assignedUsers);
   renderUserDropdownList();
 }
 
-// The function renders the task detail view edit template
+/**
+ * Renders the task detail view edit template.
+ *
+ * @param {Object} taskData - The data of the task to be edited.
+ * @param {string} taskData.id - The unique identifier of the task.
+ * @param {string} taskData.priority - The priority level of the task (e.g., "urgent", "medium", "low").
+ * @returns {string} The HTML template for the task detail view edit.
+ */
 function renderTaskDetailViewEditTemplate(taskData) {
   return /*html*/ `
   <div class="taskDetailViewCardContainer">

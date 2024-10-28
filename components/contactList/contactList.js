@@ -1,5 +1,5 @@
 /**
- * @module contactList
+ * @module "contactList.js"
  */
 
 import { getUsersArray } from "../../js/script.js";
