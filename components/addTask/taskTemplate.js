@@ -1,9 +1,16 @@
+/**
+ * Generates the HTML template for the "Add Task".
+ *
+ * The template includes fields for task title, description, assigned contacts, due date, priority, category, and subtasks.
+ * It also includes validation warnings and buttons for clearing the form or creating a new task.
+ *
+ * @returns {string} The HTML template for the "Add Task".
+ */
 export function getTaskTemplate() {
   return /*html*/ `
     <div onclick="closeDropdownFromWindow(event, 'contactsToAssign'); removeHighlightSubtaskDivBorder(event)" id="addTaskContainer" class="addTaskContainer">
       <img class="${window.location.pathname === "/addTask.html" ? "d_none" : "closeModal"}" src="./assets/icons/x_btn.svg" onclick="hideTaskModal()" alt="" />
               <h1>Add Task</h1>
-
               <div id="addTaskMiddleContent" class="addTaskMiddleContent">
                 <div id="addTaskMiddleLeft" class="addTaskMiddleLeft">
                   <div class="marginMinusFourteenPx">
@@ -11,12 +18,10 @@ export function getTaskTemplate() {
                     <input oninput="validateTaskTitleByOninput()" id="taskTitleInput" class="taskTitleInput" type="text" placeholder="Enter a title" />
                     <p class="addTaskValidationWarning"><span id="taskTitleWarning" class="d_none">Insert a title longer than 3 letters</span>&nbsp;</p>
                   </div>
-
                   <div>
                     <p>Description</p>
                     <textarea name="" id="taskDescription" placeholder="Enter a description"></textarea>
                   </div>
-
                   <div class="assignedToContainer">
                     <p>Assigned to</p>
                     <div class="">
@@ -121,9 +126,15 @@ export function getTaskTemplate() {
   `;
 }
 
-export function getDeleteTaskTemplate(status ,taskID) {
-  return /*html*/ `
-    
+/**
+ * Generates the HTML template for the delete task confirmation dialog.
+ *
+ * @param {string} status - The status of the task to be deleted.
+ * @param {string} taskID - The unique identifier of the task to be deleted.
+ * @returns {string} The HTML string for the delete task confirmation dialog.
+ */
+export function getDeleteTaskTemplate(status, taskID) {
+  return /*html*/ `    
     <div id="confirmDeleteUserContainer" class="confirmDeleteUserContainer">
       <img class="deleteModalLogo" src="./assets/icons/joinLogo.png" alt="" />
       <h2>Delete Task?</h2>
@@ -144,7 +155,6 @@ export function getDeleteTaskTemplate(status ,taskID) {
           <img src="./assets/icons/check.svg" alt="" />
         </button>
       </div>
-    </div>
-      
+    </div>      
   `;
 }
