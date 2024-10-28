@@ -3,24 +3,24 @@
  */
 
 /**
- * Function to retrieve an array of user objects.
- * @function getUsersArray
- * @returns {Array<Object>} - An array containing user objects with relevant user data.
+ * Imports the function to retrieve the array of users.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users from the script.
  */
 import { getUsersArray } from "../../js/script.js";
 
 /**
- * An array that holds the currently selected users.
- * Can be modified to add or remove users based on selection.
- * @type {Array<Object>}
- * @exports selectedUsers
+ * An array to store the selected users.
+ *
+ * @type {Array}
  */
 export let selectedUsers = [];
 
 /**
- * An array that stores all user objects globally within the application.
- * Used to keep a reference of all users across different components or functions.
- * @type {Array<Object>}
+ * A global array to store user data.
+ *
+ * @type {Array}
  */
 let globalUserArray = [];
 

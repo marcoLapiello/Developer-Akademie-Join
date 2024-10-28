@@ -3,66 +3,83 @@
  */
 
 /**
- * Imports the following functions and variables from the userDropdown module:
- * - closeUsersDropdownList: Function to close the users dropdown list.
- * - selectedUsers: Variable that holds the list of selected users.
- * - clearSelectedUsers: Function to clear the list of selected users.
+ * Imports functions and variables for handling the user dropdown list.
+ *
+ * @module userDropdown
+ * @function closeUsersDropdownList - Closes the users dropdown list.
+ * @variable selectedUsers - An array to store the selected users.
+ * @function clearSelectedUsers - Clears the array of selected users.
  */
 import { closeUsersDropdownList, selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
+
 /**
- * Imports the returnIcon function from the icons module.
- * The returnIcon function is used to retrieve an icon based on certain criteria.
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
  */
 import { returnIcon } from "../icons.js";
+
 /**
- * Imports the following functions from the taskTemplate module:
- * - getTaskTemplate: Function to retrieve the template for a task.
- * - getDeleteTaskTemplate: Function to retrieve the template for deleting a task.
+ * Imports functions to retrieve task templates.
+ *
+ * @module taskTemplate
+ * @function getTaskTemplate - Retrieves the template for a task.
+ * @function getDeleteTaskTemplate - Retrieves the template for deleting a task.
  */
 import { getTaskTemplate, getDeleteTaskTemplate } from "../addTask/taskTemplate.js";
+
 /**
- * Imports the following references from the script module:
- * - newTaskUserFeedbackRef: Reference for user feedback related to creating a new task.
- * - editTaskUserFeedbackRef: Reference for user feedback related to editing an existing task.
+ * Imports references for user feedback elements related to tasks.
+ *
+ * @module script
+ * @constant {HTMLElement} newTaskUserFeedbackRef - Reference to the element for displaying feedback for a new task.
+ * @constant {HTMLElement} editTaskUserFeedbackRef - Reference to the element for displaying feedback for an edited task.
  */
 import { newTaskUserFeedbackRef, editTaskUserFeedbackRef } from "../../js/script.js";
 
 /**
- * Exports the currentPrio variable with an initial value of "medium".
- * This variable represents the current priority level of a task.
+ * A variable to store the current priority level of a task.
+ *
+ * @type {string}
  */
 export let currentPrio = "medium";
 
 /**
- * Declares the currentProgress variable with an initial value of 0.
- * This variable represents the current progress of a task.
+ * A variable to store the current progress of a task.
+ *
+ * @type {number}
  */
 let currentProgress = 0;
 
 /**
- * Declares the currentStatus variable with an initial value of "todo".
- * This variable represents the current status of a task.
+ * A variable to store the current status of a task.
+ *
+ * @type {string}
  */
 let currentStatus = "todo";
 
 /**
- * Declares the emptyTaskTemplate object with default values.
- * This object serves as a template for creating new tasks.
+ * A template object for an empty task.
  *
- * Properties:
- * - id: The unique identifier for the task.
- * - title: The title of the task.
- * - description: A detailed description of the task.
- * - assignedTo: An object containing information about the user assigned to the task.
- * - dueDate: The due date for the task.
- * - creationDate: The date the task was created.
- * - creatorId: The unique identifier of the task creator.
- * - priority: The priority level of the task.
- * - category: The category to which the task belongs.
- * - categoryColor: The color associated with the task category.
- * - progress: The current progress of the task.
- * - status: The current status of the task.
- * - subtasks: An object containing information about the subtasks of the task.
+ * @type {Object}
+ * @property {string} id - The unique identifier for the task.
+ * @property {string} title - The title of the task.
+ * @property {string} description - The description of the task.
+ * @property {Object} assignedTo - The user(s) assigned to the task.
+ * @property {string} assignedTo.placeholder - Placeholder for assigned users.
+ * @property {string} dueDate - The due date of the task.
+ * @property {string} creationDate - The creation date of the task.
+ * @property {string} creatorId - The ID of the task creator.
+ * @property {string} priority - The priority level of the task.
+ * @property {string} category - The category of the task.
+ * @property {string} categoryColor - The color associated with the task category.
+ * @property {string} progress - The progress of the task.
+ * @property {string} status - The status of the task.
+ * @property {Object} subtasks - The subtasks associated with the task.
+ * @property {string} subtasks.placeholder - Placeholder for subtasks.
  */
 let emptyTaskTemplate = {
   id: "",
@@ -83,23 +100,24 @@ let emptyTaskTemplate = {
 };
 
 /**
- * Exports the newTaskObject with default values.
- * This object serves as a template for creating new tasks.
+ * An object template for a new task.
  *
- * Properties:
- * - id: The unique identifier for the task.
- * - title: The title of the task.
- * - description: A detailed description of the task.
- * - assignedTo: An object containing information about the user assigned to the task.
- * - dueDate: The due date for the task.
- * - creationDate: The date the task was created.
- * - creatorId: The unique identifier of the task creator.
- * - priority: The priority level of the task.
- * - category: The category to which the task belongs.
- * - categoryColor: The color associated with the task category.
- * - progress: The current progress of the task.
- * - status: The current status of the task.
- * - subtasks: An object containing information about the subtasks of the task.
+ * @type {Object}
+ * @property {string} id - The unique identifier for the task.
+ * @property {string} title - The title of the task.
+ * @property {string} description - The description of the task.
+ * @property {Object} assignedTo - The user(s) assigned to the task.
+ * @property {string} assignedTo.placeholder - Placeholder for assigned users.
+ * @property {string} dueDate - The due date of the task.
+ * @property {string} creationDate - The creation date of the task.
+ * @property {string} creatorId - The ID of the task creator.
+ * @property {string} priority - The priority level of the task.
+ * @property {string} category - The category of the task.
+ * @property {string} categoryColor - The color associated with the task category.
+ * @property {string} progress - The progress of the task.
+ * @property {string} status - The status of the task.
+ * @property {Object} subtasks - The subtasks associated with the task.
+ * @property {string} subtasks.placeholder - Placeholder for subtasks.
  */
 export let newTaskObject = {
   id: "",

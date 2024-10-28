@@ -3,10 +3,12 @@
  */
 
 /**
- * Function that retrieves an icon, likely used for UI rendering.
- * @function returnIcon
- * @param {string} iconName - The name of the icon to retrieve.
- * @returns {HTMLElement} - An HTML element representing the icon.
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
  */
 import { returnIcon } from "../icons.js";
 

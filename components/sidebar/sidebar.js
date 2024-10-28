@@ -3,21 +3,19 @@
  */
 
 /**
- * Function to retrieve an icon for use in the user interface.
- * This function typically returns an HTML element representing the specified icon.
+ * Imports the function to retrieve an icon element for use in the user interface.
  *
- * @function returnIcon
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
  * @param {string} iconName - The name or identifier of the icon to retrieve.
- * @returns {HTMLElement} - The HTML element corresponding to the requested icon.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
  */
 import { returnIcon } from "../icons.js";
 
 /**
- * The path of the current URL, excluding the domain.
- * This variable is derived from the browser's window location and can be used
- * to determine the current page or for routing purposes within the application.
+ * Retrieves the current URL path of the window.
  *
- * @constant {string} urlPath - The pathname of the current URL.
+ * @type {string}
  */
 const urlPath = window.location.pathname;
 

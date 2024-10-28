@@ -3,19 +3,20 @@
  */
 
 /**
- * Function to retrieve an array of user objects from the specified module.
- * This is typically used to fetch user data for display or processing within the application.
- * @function getUsersArray
- * @returns {Array<Object>} - An array of user objects containing relevant user information.
+ * Imports the function to retrieve the array of users.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users from the script.
  */
 import { getUsersArray } from "../../js/script.js";
 
 /**
- * Function to retrieve an icon element for use in the user interface.
- * This function likely returns an HTML element representing the specified icon.
- * @function returnIcon
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
  * @param {string} iconName - The name or identifier of the icon to retrieve.
- * @returns {HTMLElement} - The HTML element corresponding to the requested icon.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
  */
 import { returnIcon } from "../icons.js";
 

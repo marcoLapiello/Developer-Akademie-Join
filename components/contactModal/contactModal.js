@@ -3,30 +3,29 @@
  */
 
 /**
- * Imports various functions and references from the script module.
+ * Imports various functions and references for handling user contacts.
  *
- * - `getUsersArray`: Function to retrieve an array of user objects.
- * - `addContactNameInputRef`: Reference to the input field for adding a contact's name.
- * - `addContactEmailInputRef`: Reference to the input field for adding a contact's email.
- * - `addContactPhoneInputRef`: Reference to the input field for adding a contact's phone number.
- * - `editContactNameInputRef`: Reference to the input field for editing a contact's name.
- * - `editContactEmailInputRef`: Reference to the input field for editing a contact's email.
- * - `editContactPhoneInputRef`: Reference to the input field for editing a contact's phone number.
- * - `editNewUserLogoRef`: Reference to the logo element for a new user during the edit process.
- * - `saveEditedUserButtonRef`: Reference to the button for saving edited user details.
- * - `addedUserFeedbackRef`: Reference to the element that displays feedback for added users.
- * - `editUserFeedbackRef`: Reference to the element that displays feedback for edited users.
- * - `confirmDeleteUserModalRef`: Reference to the modal for confirming user deletion.
- * - `deleteChosenUserBtnRef`: Reference to the button for deleting a selected user.
- * - `sureToDeleteContactBtnRef`: Reference to the button for confirming contact deletion.
- * - `addNameWarningRef`: Reference to the warning message for invalid name input.
- * - `addEmailWarningRef`: Reference to the warning message for invalid email input.
- * - `addPhoneWarningRef`: Reference to the warning message for invalid phone number input.
- * - `editNameWarningRef`: Reference to the warning message for invalid name during edit.
- * - `editEmailWarningRef`: Reference to the warning message for invalid email during edit.
- * - `editPhoneWarningRef`: Reference to the warning message for invalid phone number during edit.
- *
- * Each reference is typically used to manipulate or retrieve values from the corresponding DOM elements.
+ * @module script
+ * @function getUsersArray - Retrieves the array of users.
+ * @constant {HTMLElement} addContactNameInputRef - Reference to the input element for adding a contact's name.
+ * @constant {HTMLElement} addContactEmailInputRef - Reference to the input element for adding a contact's email.
+ * @constant {HTMLElement} addContactPhoneInputRef - Reference to the input element for adding a contact's phone number.
+ * @constant {HTMLElement} editContactNameInputRef - Reference to the input element for editing a contact's name.
+ * @constant {HTMLElement} editContactEmailInputRef - Reference to the input element for editing a contact's email.
+ * @constant {HTMLElement} editContactPhoneInputRef - Reference to the input element for editing a contact's phone number.
+ * @constant {HTMLElement} editNewUserLogoRef - Reference to the element for editing a new user's logo.
+ * @constant {HTMLElement} saveEditedUserButtonRef - Reference to the button for saving an edited user.
+ * @constant {HTMLElement} addedUserFeedbackRef - Reference to the element for displaying feedback after adding a user.
+ * @constant {HTMLElement} editUserFeedbackRef - Reference to the element for displaying feedback after editing a user.
+ * @constant {HTMLElement} confirmDeleteUserModalRef - Reference to the modal for confirming user deletion.
+ * @constant {HTMLElement} deleteChosenUserBtnRef - Reference to the button for deleting the chosen user.
+ * @constant {HTMLElement} sureToDeleteContactBtnRef - Reference to the button for confirming contact deletion.
+ * @constant {HTMLElement} addNameWarningRef - Reference to the element for displaying a warning when adding a name.
+ * @constant {HTMLElement} addEmailWarningRef - Reference to the element for displaying a warning when adding an email.
+ * @constant {HTMLElement} addPhoneWarningRef - Reference to the element for displaying a warning when adding a phone number.
+ * @constant {HTMLElement} editNameWarningRef - Reference to the element for displaying a warning when editing a name.
+ * @constant {HTMLElement} editEmailWarningRef - Reference to the element for displaying a warning when editing an email.
+ * @constant {HTMLElement} editPhoneWarningRef - Reference to the element for displaying a warning when editing a phone number.
  */
 import {
   getUsersArray,
@@ -52,36 +51,25 @@ import {
 } from "../../js/script.js";
 
 /**
- * Function to update the details of an existing user in the system.
- * This function typically sends a request to the API to modify user data.
+ * Imports the function to edit an existing user.
  *
- * @function editExistingUser
- * @param {string} userId - The ID of the user to be edited.
- * @param {Object} userData - An object containing the updated user details.
- * @param {string} userData.name - The updated name of the user.
- * @param {string} userData.email - The updated email of the user.
- * @param {string} userData.phone - The updated phone number of the user.
- * @returns {Promise<Object>} - A promise that resolves to the updated user object.
+ * @module apiService
+ * @function editExistingUser - Edits the details of an existing user in the database.
  */
 import { editExistingUser } from "../../js/apiService.js";
 
 /**
- * Function to remove the active contact from the contact list.
- * This function typically updates the UI and may also send a request to the server
- * to delete the contact from the database.
+ * Imports the function to remove the active contact button.
  *
- * @function removeAktivContactButton
- * @param {string} contactId - The ID of the contact to be removed.
- * @returns {void}
+ * @module contactList
+ * @function removeAktivContactButton - Removes the active contact button from the contact list.
  */
 import { removeAktivContactButton } from "../contactList/contactList.js";
 
 /**
- * An array of color codes used to represent users or elements within the application.
- * Each color is represented as a hex string.
- * This array can be used to assign different colors to user-related UI elements for better visual differentiation.
+ * An array of color codes used for user identification.
  *
- * @type {Array<string>}
+ * @type {string[]}
  */
 let userColors = [
   "#FF7A00",
