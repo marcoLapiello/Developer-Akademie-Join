@@ -1,5 +1,5 @@
 /**
- * @module userDropdown
+ * @module "userDropdown.js"
  */
 
 import { getUsersArray } from "../../js/script.js";

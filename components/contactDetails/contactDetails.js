@@ -1,5 +1,5 @@
 /**
- * @module contactDetails
+ * @module "contactDetails.js"
  */
 
 import { returnIcon } from "../icons.js";

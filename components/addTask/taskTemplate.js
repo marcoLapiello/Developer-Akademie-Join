@@ -1,5 +1,5 @@
 /**
- * @module taskTemplate
+ * @module "taskTemplate.js"
  */
 
 /**
