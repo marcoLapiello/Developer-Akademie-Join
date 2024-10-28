@@ -156,8 +156,6 @@ export function getUserLogInDataFromLocalStorage() {
 
 // sign up User functions
 export function signUpNewUser() {
-  // validation
-  // -> validate input fields
   // -> get usersArray from firebase
   // -> compare users with new signup data --> error or accept
   // -> check if privace policy is accepted
