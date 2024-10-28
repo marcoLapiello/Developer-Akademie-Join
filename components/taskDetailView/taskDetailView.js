@@ -20,7 +20,6 @@ import { returnIcon } from "../icons.js";
  * @function getTasksArray - Retrieves the array of tasks from the script.
  */
 import { getUsersArray, getTasksArray } from "../../js/script.js";
-import { getUsersArray, getTasksArray } from "../../js/script.js";
 
 /**
  * Imports the function to update the progress of a task.
