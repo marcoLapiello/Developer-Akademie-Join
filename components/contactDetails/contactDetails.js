@@ -2,13 +2,59 @@
  * @module "contactDetails.js"
  */
 
+/**
+ * Function to retrieve a specific icon element for UI components.
+ * Imported from the icons module.
+ * @function returnIcon
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element for the requested icon.
+ */
 import { returnIcon } from "../icons.js";
+
+/**
+ * Retrieves an array of user objects, typically from an external data source or API.
+ * @function getUsersArray
+ * @returns {Array<Object>} - An array of user objects, each containing user-related data.
+ */
 import { getUsersArray } from "../../js/script.js";
+
+/**
+ * Function to render the contact list within the UI.
+ * It typically takes an array of contact objects and updates the display.
+ * @function renderContactList
+ * @param {Array<Object>} contacts - An array of contact objects to be rendered.
+ * @returns {void}
+ */
 import { renderContactList } from "../contactList/contactList.js";
 
+/**
+ * Reference to the HTML element that displays contact details.
+ * This element is retrieved by its ID and is used to update or display information related to a specific contact.
+ * @constant {HTMLElement} contactDetailsRef - The DOM element for displaying contact details.
+ */
 const contactDetailsRef = document.getElementById("contactDetails");
+
+/**
+ * Reference to the HTML element that contains the list of contacts.
+ * This element is retrieved by its ID and is used to update or render the list of contacts in the UI.
+ * @constant {HTMLElement} contactListRef - The DOM element for displaying the contact list.
+ */
 const contactListRef = document.getElementById("contactList");
+
+/**
+ * Holds the ID of the currently selected user.
+ * Initially set to null, indicating that no user is selected.
+ * This variable is used to track which user is currently being interacted with.
+ * @type {string|null}
+ */
 let selectedUserId = null;
+
+/**
+ * Indicates whether a process is currently underway.
+ * Initially set to false, meaning no process is active.
+ * This variable is used to manage the state of ongoing operations in the application.
+ * @type {boolean}
+ */
 let isProcessing = false;
 
 /**
