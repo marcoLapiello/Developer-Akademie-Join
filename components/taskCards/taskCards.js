@@ -2,11 +2,69 @@
  * @module "taskCards.js"
  */
 
+/**
+ * Imports the `returnIcon` function from the icons module.
+ * This function is used to retrieve an icon element for the user interface.
+ *
+ * @function returnIcon
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
+ */
 import { returnIcon } from "../icons.js";
+
+/**
+ * Imports functions to retrieve user and task data from the specified module.
+ *
+ * - `getUsersArray`: Function that retrieves an array of user objects.
+ * - `getTasksArray`: Function that retrieves an array of task objects.
+ *
+ * These functions are typically used to fetch data necessary for displaying users and tasks
+ * in the application.
+ *
+ * @function getUsersArray
+ * @returns {Array<Object>} - An array of user objects containing relevant user information.
+ *
+ * @function getTasksArray
+ * @returns {Array<Object>} - An array of task objects containing relevant task information.
+ */
 import { getUsersArray, getTasksArray } from "../../js/script.js";
+
+/**
+ * Function to update an existing task by sending a patch request to the server.
+ * This function typically modifies specific fields of a task without replacing the entire object.
+ *
+ * @function patchTaskUpdate
+ * @param {string} taskId - The ID of the task to be updated.
+ * @param {Object} updateData - An object containing the fields to be updated.
+ * @param {string} [updateData.title] - The new title of the task (optional).
+ * @param {string} [updateData.description] - The new description of the task (optional).
+ * @param {boolean} [updateData.completed] - The completion status of the task (optional).
+ * @returns {Promise<Object>} - A promise that resolves to the updated task object from the server.
+ */
 import { patchTaskUpdate } from "../../js/tasksApiService.js";
+
+/**
+ * Function to open the task modal for adding or editing tasks.
+ * This function typically displays the modal window and initializes it
+ * with any existing task data if available.
+ *
+ * @function openTaskModal
+ * @param {Object} [task] - An optional task object to pre-fill the modal (if editing).
+ * @param {string} [task.id] - The ID of the task to be edited (optional).
+ * @param {string} [task.title] - The title of the task (optional).
+ * @param {string} [task.description] - The description of the task (optional).
+ * @returns {void}
+ */
 import { openTaskModal } from "../addTask/addTask.js";
 
+/**
+ * A reference to the currently dragged HTML element.
+ * This variable is used to track which element is being dragged in drag-and-drop operations.
+ * It is typically assigned during drag events and can be used to manage the state
+ * of the drag-and-drop interface.
+ *
+ * @type {HTMLElement|undefined}
+ */
 let currentDraggedElement;
 
 /**
