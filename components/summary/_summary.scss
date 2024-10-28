@@ -59,6 +59,23 @@
                     justify-content: center;
                     align-items: center;
                     gap: 18px;
+                    transition: all 0.1s ease-in;
+
+                    &:hover {
+                        cursor: pointer;
+                        scale: 1.1;
+                        background-color: #2A3647;
+                        color: white;
+
+                        .iconContainer {
+                            background-color: white;
+
+                            img {
+                                filter: invert(43%) sepia(17%) saturate(524%) hue-rotate(180deg) brightness(35%) contrast(93%);
+                            }
+                        }
+
+                    }
 
                     .iconContainer {
                         height: 69px;
@@ -98,6 +115,25 @@
                 justify-content: space-evenly;
                 align-items: center;
                 // gap: 61px;
+                transition: all 0.1s ease-in;
+
+                &:hover {
+                    cursor: pointer;
+                    scale: 1.1;
+                    background-color: #2A3647;
+                    color: white;
+
+                    .urgentDeadlineContainer {
+                        p {
+                            color: white;
+                        }
+
+                        span {
+                            color: white;
+                        }
+                    }
+
+                }
 
                 .urgentAmountWrapper {
                     display: flex;
@@ -176,6 +212,15 @@
                     justify-content: center;
                     align-items: center;
                     text-align: center;
+                    transition: all 0.1s ease-in;
+
+                    &:hover {
+                        cursor: pointer;
+                        scale: 1.1;
+                        background-color: #2A3647;
+                        color: white;
+
+                    }
 
                     p {
                         font-size: 64px;
