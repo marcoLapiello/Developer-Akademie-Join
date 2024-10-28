@@ -8,16 +8,16 @@ export function getLogInTemplate() {
         <div class="blueUnderlineDiv"></div>
       </div>
       <div class="logInInputArea">
-        <input class="inputEmail" type="email" placeholder="Email" />
-        <input class="inputPassword" type="password" placeholder="Password" />
+        <input id="logInInputEmail" class="inputEmail" type="email" placeholder="Email" />
+        <input id="logInInputPassword" class="inputPassword" type="password" placeholder="Password" />
         <div class="checkToRememberBox">
-          <input class="checkboxRememberMe" type="checkbox" />
+          <input id="checkboxRememberMe" class="checkboxRememberMe" type="checkbox" />
           <p>Remember me</p>
         </div>
       </div>
       <div class="logInBtnBox">
-        <button class="logInBtn">Log in</button>
-        <button class="guestLogInBtn">Guest Log In</button>
+        <button onclick="logInRegistratedUsert()" class="logInBtn">Log in</button>
+        <button onclick="doGuestLogIn()" class="guestLogInBtn">Guest Log In</button>
       </div>
     </div>
   `;
@@ -81,11 +81,11 @@ function animateJoinLogo() {
   // #logoAnimationDialog
 }
 
-// ########################
+// ####### Init Function
 export function initRenderLogInPage() {
-  // animation of Join Logo
   renderJoinLogo();
   renderLogInTemplate();
+  getUserLogInDataFromLocalStorage();
   setTimeout(() => {
     animateJoinLogo();
   }, 800);
@@ -99,6 +99,49 @@ export function goToSignUpPage() {
 export function goToLogInPage() {
   renderLogInTemplate();
   document.getElementById("linkToSignUpBox").classList.remove("d_none");
+}
+
+export function doGuestLogIn() {
+  console.log("guest login requested");
+}
+
+export function logInRegistratedUsert() {
+  toggleRememberMe();
+  console.log("Log In for registrated user requested");
+}
+
+export function toggleRememberMe() {
+  let checkboxRememberMeRef = document.getElementById("checkboxRememberMe");
+  let checkBoxStatus = checkboxRememberMeRef.checked;
+  if (checkBoxStatus) {
+    setUserDataToLocalStorage();
+  } else {
+    removeUserDataFromLocalStorage();
+  }
+}
+
+function setUserDataToLocalStorage() {
+  let userLogInData = {
+    email: document.getElementById("logInInputEmail").value,
+    password: document.getElementById("logInInputPassword").value,
+  };
+  let userLogInDataJson = JSON.stringify(userLogInData);
+  localStorage.setItem("joinUserLogInData", userLogInDataJson);
+}
+
+function removeUserDataFromLocalStorage() {
+  localStorage.removeItem("joinUserLogInData");
+}
+
+export function getUserLogInDataFromLocalStorage() {
+  let userLogInDataJson = localStorage.getItem("joinUserLogInData");
+  let userLogInData = JSON.parse(userLogInDataJson);
+  if (userLogInData != null) {
+    document.getElementById("checkboxRememberMe").checked = true;
+    document.getElementById("logInInputEmail").value = userLogInData.email;
+    document.getElementById("logInInputPassword").value = userLogInData.password;
+  }
+  return userLogInData;
 }
 
 export function signUpNewUser() {
