@@ -1,8 +1,16 @@
+/**
+ * Toggles the "d_none" class on the element with the ID "dropDown".
+ * This function is used to show or hide the user menu.
+ */
 export function toggle_d_None() {
   let userMenuRef = document.getElementById("dropDown");
   userMenuRef.classList.toggle("d_none");
 }
 
+/**
+ * Renders the header by injecting the header template into the element with the ID "header".
+ * If the element is found, the template is appended to its inner HTML.
+ */
 export function renderHeader() {
   const headerRef = document.getElementById("header");
   if (headerRef) {
@@ -10,6 +18,23 @@ export function renderHeader() {
   }
 }
 
+/**
+ * Generates the HTML template for the header section of the Kanban Project Management Tool.
+ *
+ * The header includes:
+ * - A title section with the text "Kanban Project Management Tool".
+ * - A right-side section with:
+ *   - A help icon linking to the help page.
+ *   - A user profile initials section that toggles a dropdown menu.
+ *
+ * The dropdown menu includes links to:
+ * - Help page
+ * - Legal Notice page
+ * - Privacy Policy page
+ * - Log out page
+ *
+ * @returns {string} The HTML template for the header section.
+ */
 function renderHeaderTemplate() {
   return /*html*/ `
       <div class = "headerText">
@@ -34,7 +59,6 @@ function renderHeaderTemplate() {
           <div class="logOut">
             <a href="./login.html">Log out</a>
           </div>
-
         </div>
       </div>
     `;
