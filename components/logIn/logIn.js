@@ -11,7 +11,9 @@ export function getLogInTemplate() {
       </div>
       <div class="logInInputArea">
         <input id="logInInputEmail" class="inputEmail" type="email" placeholder="Email" />
+        <div><span id="logInInputEmailWarning"></span>&nbsp;</div>
         <input id="logInInputPassword" class="inputPassword" type="password" placeholder="Password" />
+        <div><span id="logInInputPasswordWarning"></span>&nbsp;</div>
         <div class="checkToRememberBox">
           <input id="checkboxRememberMe" class="checkboxRememberMe" type="checkbox" />
           <p>Remember me</p>
@@ -41,9 +43,13 @@ export function getSignUpTemplate() {
             </div>
             <div class="signUpInputArea">
               <input id="signUpInputName" class="inputName" type="text" placeholder="Name" />
+              <div><span id="signUpInputNameWarning"></span>&nbsp;</div>
               <input id="signUpInputEmail" class="inputEmail" type="email" placeholder="Email" />
+              <div><span id="signUpInputEmailWarning"></span>&nbsp;</div>
               <input id="signUpInputPassword" class="inputPassword" type="password" placeholder="Password" />
+              <div><span id="signUpInputPasswordWarning"></span>&nbsp;</div>
               <input id="signUpInputPasswordRepeat" class="inputPassword" type="password" placeholder="Password" />
+              <div><span id="signUpInputPasswordRepeatWarning"></span>&nbsp;</div>
               <div class="checkToRememberBox">
                 <input id="privacyPolicyCheckBox" class="checkboxRememberMe" type="checkbox" />
                 <p>I accept the</p>
@@ -150,11 +156,20 @@ export function getUserLogInDataFromLocalStorage() {
 
 // sign up User functions
 export function signUpNewUser() {
-  userFeedbackAfterSignUp();
+  // validation
+  // -> validate input fields
+  // -> get usersArray from firebase
+  // -> compare users with new signup data --> error or accept
+  // -> check if privace policy is accepted
+  let isSignUpValidationOK = signUpCompleteValidation();
+  if (!isSignUpValidationOK) {
+    console.log("Some validation is not ok");
+    return;
+  }
   console.log(getNewUserData());
-
+  userFeedbackAfterSignUp();
   setTimeout(() => {
-    goToLogInPage();
+    // goToLogInPage();
   }, 1150);
 }
 
@@ -180,6 +195,122 @@ export function getNewUserData() {
     },
   };
   return user;
+}
+
+function signUpCompleteValidation() {
+  let isNameValid = validateSignUpName();
+  let isEmailValid = validateEmailInput();
+  let isPasswordInputValid = validateSignUpPassword();
+  let isPasswordRepeatInputValid = validateSignUpPasswordRepeat();
+  let isPasswordComparingValid = compareSignUpPasswords();
+  let isPrivacyPolicyChecked = checkAcceptedPrivacyPolicy();
+  //
+  if (isNameValid && isEmailValid && isPasswordInputValid && isPasswordRepeatInputValid && isPasswordComparingValid && isPrivacyPolicyChecked) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+export function validateSignUpName() {
+  let inputRef = document.getElementById("signUpInputName");
+  let nameInput = inputRef.value;
+  let warningRef = document.getElementById("signUpInputNameWarning");
+  if (!nameInput.length) {
+    warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
+    inputRef.classList.add("borderColorRed");
+    return false;
+  }
+  if (nameInput.value) {
+    let namePartsCount = inputRef.value.split(" ").length;
+    if (namePartsCount != 2) {
+      warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
+      inputRef.classList.add("borderColorRed");
+      return false;
+    }
+  }
+  inputRef.classList.remove("borderColorRed");
+  return true;
+}
+
+export function validateEmailInput() {
+  let inputRef = document.getElementById("signUpInputEmail");
+  let warningRef = document.getElementById("signUpInputEmailWarning");
+  if (!inputRef.value || inputRef.value.length < 6) {
+    inputRef.classList.add("borderColorRed");
+    warningRef.innerHTML = "Enter a valid email address.";
+    return false;
+  }
+  if (inputRef.value) {
+    let emailInput = inputRef.value;
+    let mailPartAfterAt = emailInput.split("@")[1];
+    let atCounter = emailInput.split("@").length;
+    if (!emailInput.includes("@") || !mailPartAfterAt.includes(".") || atCounter > 2 || /[äöüß]/.test(emailInput)) {
+      inputRef.classList.add("borderColorRed");
+      warningRef.innerHTML = "Enter a valid email address.";
+      return false;
+    }
+  }
+  inputRef.classList.remove("borderColorRed");
+  return true;
+}
+
+function validateSignUpPassword() {
+  let passwordInputRef = document.getElementById("signUpInputPassword");
+  let passwordWarningRef = document.getElementById("signUpInputPasswordWarning");
+  if (passwordInputRef.value.length < 6) {
+    passwordInputRef.classList.add("borderColorRed");
+    passwordWarningRef.innerHTML = "Enter a valid password.";
+    return false;
+  } else {
+    passwordInputRef.classList.remove("borderColorRed");
+    return true;
+  }
+}
+
+function validateSignUpPasswordRepeat() {
+  let passwordRepeatInputRef = document.getElementById("signUpInputPasswordRepeat");
+  let passwordRepeatWarningRef = document.getElementById("signUpInputPasswordRepeatWarning");
+  if (passwordRepeatInputRef.value.length < 6) {
+    passwordRepeatInputRef.classList.add("borderColorRed");
+    passwordRepeatWarningRef.innerHTML = "Enter a valid password.";
+    return false;
+  } else {
+    passwordRepeatInputRef.classList.remove("borderColorRed");
+    return true;
+  }
+}
+
+function compareSignUpPasswords() {
+  let isPasswordInputValid = validateSignUpPassword();
+  let isPasswordRepeatInputValid = validateSignUpPasswordRepeat();
+  if (isPasswordInputValid && isPasswordRepeatInputValid) {
+    let passwordInputRef = document.getElementById("signUpInputPassword");
+    let passwordRepeatInputRef = document.getElementById("signUpInputPasswordRepeat");
+    let passwordRepeatWarningRef = document.getElementById("signUpInputPasswordRepeatWarning");
+    if (passwordInputRef.value && passwordInputRef.value != passwordRepeatInputRef.value) {
+      passwordRepeatInputRef.classList.add("borderColorRed");
+      passwordRepeatWarningRef.innerHTML = "The passwords do not match. Please try again.";
+      return false;
+    } else {
+      passwordRepeatInputRef.classList.remove("borderColorRed");
+      return true;
+    }
+  } else {
+    return false;
+  }
+}
+
+function checkAcceptedPrivacyPolicy() {
+  let isPrivacyPolicyChecked = document.getElementById("privacyPolicyCheckBox").checked;
+  if (isPrivacyPolicyChecked) {
+    console.log(isPrivacyPolicyChecked);
+    return true;
+  }
+  else {
+    console.log(isPrivacyPolicyChecked);
+    return false;
+  }
 }
 
 function userFeedbackAfterSignUp() {
