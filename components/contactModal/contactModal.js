@@ -162,7 +162,7 @@ export function validateEditPhonenumber() {
   }
 }
 
-function getRandomUserColor() {
+export function getRandomUserColor() {
   let randomIndex = Math.floor(Math.random() * userColors.length);
   let randomColor = userColors[randomIndex];
   return randomColor;
