@@ -73,7 +73,7 @@ function renderJoinLogo() {
 }
 
 function animateJoinLogo() {
-  document.getElementById("joinLogoBox").classList.add("joinLogoAnimation");
+  document.getElementById("joinLogoBox").classList.remove("joinLogoAnimation");
   document.getElementById("logoAnimationDialog").style.opacity = "0";
   setTimeout(() => {
     document.getElementById("logoAnimationDialog").classList.add("d_none");
