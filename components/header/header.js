@@ -1,4 +1,8 @@
 /**
+ * @module "header.js"
+ */
+
+/**
  * Toggles the "d_none" class on the element with the ID "dropDown".
  * This function is used to show or hide the user menu.
  */
