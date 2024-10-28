@@ -1,3 +1,14 @@
+/**
+ * @module "icons.js"
+ */
+
+/**
+ * Returns an SVG icon based on the specified type and optional class name.
+ *
+ * @param {string} type - The type of icon to return. Valid types are 'edit', 'delete', 'person', 'arrowLeft', 'dots', 'plus', and 'searchLens'.
+ * @param {string} [className=""] - Optional class name to apply to the SVG element.
+ * @returns {string} The SVG markup for the specified icon.
+ */
 export function returnIcon(type, className = "") {
   const icons = {
     edit: /*html*/ `
@@ -65,7 +76,6 @@ export function returnIcon(type, className = "") {
           </clipPath>
           </defs>
         </svg>
-
       `,
     low: /*html*/ `
       <svg class="${className}" viewBox="0 0 21 15" xmlns="http://www.w3.org/2000/svg">
