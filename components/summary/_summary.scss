@@ -1,0 +1,212 @@
+.summaryWrapper {
+    background-color: rgb(246, 247, 248);
+    height: calc(100dvh - 96px);
+    padding: 80px 96px 96px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+
+    .summaryHeadline {
+        width: 625px;
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        h1 {
+            font-size: 61px;
+            font-weight: 700;
+        }
+
+        span {
+            font-size: 27px;
+            font-weight: 400;
+        }
+
+        .headlineSeparator {
+            height: 100%;
+            width: 3px;
+            background-color: #29abe2;
+        }
+    }
+
+    .summaryMiddleContent {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        gap: 84px;
+
+        .summaryTasksStatus {
+            width: 560px;
+            height: 562px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+            .statusFirstLine {
+                width: 560px;
+                display: flex;
+                justify-content: space-between;
+
+                .toDoWrapper {
+                    width: 264px;
+                    height: 168px;
+                    border-radius: 30px;
+                    // padding: 38px 19px;
+                    background-color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 18px;
+
+                    .iconContainer {
+                        height: 69px;
+                        width: 69px;
+                        border-radius: 50vh;
+                        background-color: #2A3647;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .amountContainer {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        p {
+                            font-size: 64px;
+                            font-weight: 600;
+                        }
+
+                        span {
+                            font-size: 20px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+
+            .statusSecondLine {
+                width: 560px;
+                height: 168px;
+                border-radius: 30px;
+                background-color: white;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                // gap: 61px;
+
+                .urgentAmountWrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 18px;
+
+                    .iconContainer {
+                        height: 60px;
+                        width: 60px;
+                        border-radius: 50vh;
+                        background-color: #FF3D00;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .amountContainer {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        p {
+                            font-size: 64px;
+                            font-weight: 600;
+                        }
+
+                        span {
+                            font-size: 20px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+
+                .urgentSeparator {
+                    height: 102px;
+                    width: 2px;
+                    background-color: #D1D1D1;
+                }
+
+                .urgentDeadlineContainer {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 13px;
+
+                    p {
+                        font-size: 21px;
+                        font-weight: 700;
+                        color: #2A3647;
+                    }
+
+                    span {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #2A3647;
+                    }
+                }
+            }
+
+            .statusThirdLine {
+                width: 560px;
+                height: 168px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .amountContainer {
+                    height: 168px;
+                    width: 168px;
+                    padding: 25px;
+                    background-color: white;
+                    border-radius: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+
+                    p {
+                        font-size: 64px;
+                        font-weight: 600;
+                    }
+
+                    span {
+                        font-size: 20px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        .summaryWelcomeMessage {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+
+            h2 {
+                font-size: 47px;
+                font-weight: 500;
+                color: #2A3647;
+            }
+
+            h1 {
+                font-size: 64px;
+                font-weight: 700;
+                color: #29ABE2;
+            }
+        }
+    }
+
+}
