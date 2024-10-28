@@ -2,8 +2,44 @@
  * @module "taskDetailView.js"
  */
 
+/**
+ * Function to retrieve an icon element for use in the user interface.
+ * This function typically generates and returns an HTML element representing
+ * the specified icon based on the provided icon name.
+ *
+ * @function returnIcon
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
+ */
 import { returnIcon } from "../icons.js";
+
+/**
+ * Imports functions to retrieve user and task data from the specified module.
+ *
+ * - `getUsersArray`: Function that retrieves an array of user objects from the data source.
+ * - `getTasksArray`: Function that retrieves an array of task objects from the data source.
+ *
+ * These functions are typically used to fetch data necessary for displaying users and tasks
+ * in the application.
+ *
+ * @function getUsersArray
+ * @returns {Array<Object>} - An array of user objects, each containing user-related information.
+ *
+ * @function getTasksArray
+ * @returns {Array<Object>} - An array of task objects, each containing task-related information.
+ */
 import { getUsersArray, getTasksArray } from "../../js/script.js";
+
+/**
+ * Function to update the progress status of a task.
+ * This function typically modifies the completion status of a task
+ * and may also update the UI to reflect the current progress.
+ *
+ * @function updateProgress
+ * @param {string} taskId - The ID of the task whose progress is to be updated.
+ * @param {boolean} isCompleted - The new completion status of the task.
+ * @returns {void}
+ */
 import { updateProgress } from "../taskDetailViewEdit/editTask.js";
 
 /**
