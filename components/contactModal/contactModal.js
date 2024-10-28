@@ -44,7 +44,7 @@ let userColors = [
   "#FFBB2B",
 ];
 
-function validateNameInput(inputRef, warningRef) {
+export function validateNameInput(inputRef, warningRef) {
   if (!inputRef.value) {
     warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
     inputRef.style.borderColor = "rgb(255, 0, 0)";
@@ -61,7 +61,7 @@ function validateNameInput(inputRef, warningRef) {
   return true;
 }
 
-function validateEmailInput(inputRef, warningRef) {
+export function validateEmailInput(inputRef, warningRef) {
   if (!inputRef.value || inputRef.value.length < 6) {
     inputRef.style.borderColor = "rgb(255, 0, 0)";
     warningRef.innerHTML = "Enter a valid email address.";
