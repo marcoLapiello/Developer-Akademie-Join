@@ -2,7 +2,23 @@
  * @module "sidebar.js"
  */
 
+/**
+ * Function to retrieve an icon for use in the user interface.
+ * This function typically returns an HTML element representing the specified icon.
+ *
+ * @function returnIcon
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element corresponding to the requested icon.
+ */
 import { returnIcon } from "../icons.js";
+
+/**
+ * The path of the current URL, excluding the domain.
+ * This variable is derived from the browser's window location and can be used
+ * to determine the current page or for routing purposes within the application.
+ *
+ * @constant {string} urlPath - The pathname of the current URL.
+ */
 const urlPath = window.location.pathname;
 
 /**
