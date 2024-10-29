@@ -147,7 +147,7 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                           <div class="urgentSeparator"></div>
                           <div id="urgentDeadlineContainer" class="urgentDeadlineContainer">
                               <p id="urgentDeadline" style="${isDueDateInThePast ? 'color: red;' : ''}">${closestDueDate}</p>
-                              <span style="${isDueDateInThePast ? 'color: red;' : ''}">${isDueDateInThePast ? 'Deadline missed:<br> Date is in the past' : 'Upcoming Deadline'}</span>
+                              <span style="${isDueDateInThePast ? 'color: red;' : ''}">${isDueDateInThePast ? 'Deadline missed' : 'Upcoming Deadline'}</span>
                           </div>
                       </div>
   
