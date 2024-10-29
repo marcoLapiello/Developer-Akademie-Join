@@ -83,10 +83,10 @@ async function compareLogInData() {
   return isComparisionOK;
 }
 
+// UMSCHREIBEN sodass nur USER ID gespeichert wird!!!!
 function setUserLoggedInDataToLocalStorage() {
   let loggedInUserData = {
     email: document.getElementById("logInInputEmail").value,
-    password: document.getElementById("logInInputPassword").value,
   };
   let loggedInUserDataJson = JSON.stringify(loggedInUserData);
   localStorage.setItem("joinLoggedInUserData", loggedInUserDataJson);
