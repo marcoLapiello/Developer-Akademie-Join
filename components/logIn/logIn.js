@@ -71,7 +71,7 @@ export function getSignUpTemplate() {
                 <p>I accept the</p>
                 <a href="./privacyPolicy.html">Privacy policy</a>
               </div>
-              <div class="addTaskValidationWarning"><span id="checkBoxWarning">You have to read and accept our Privacy Policy</span>&nbsp;</div>
+              <div class="addTaskValidationWarning"><span id="checkBoxWarning"></span>&nbsp;</div>
             </div>
 
             </div>
@@ -321,14 +321,17 @@ function compareSignUpPasswords() {
 function checkAcceptedPrivacyPolicy() {
   let isPrivacyPolicyChecked = document.getElementById("privacyPolicyCheckBox").checked;
   if (isPrivacyPolicyChecked) {
+    document.getElementById("checkBoxWarning").innerText = "";
     console.log(isPrivacyPolicyChecked);
     return true;
   }
   else {
+    document.getElementById("checkBoxWarning").innerText = "You have to read and accept our Privacy Policy";
     console.log(isPrivacyPolicyChecked);
     return false;
   }
 }
+
 
 function userFeedbackAfterSignUp() {
   document.getElementById("signUpDialogField").classList.remove("d_none");
