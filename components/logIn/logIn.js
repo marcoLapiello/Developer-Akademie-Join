@@ -5,6 +5,7 @@ import { getRandomUserColor } from "../contactModal/contactModal.js";
 import { loadUsers, patchNewUser } from "../../js/apiService.js";
 
 import { getLogInTemplate, getSignUpTemplate } from "./logInTemplates.js";
+import { getUsersArray } from "../../js/script.js";
 
 export function renderLogInTemplate(email, password) {
   let logInRenderContainerRef = document.getElementById("logInRenderContainer");
@@ -62,7 +63,7 @@ export async function logInRegistratedUser() {
   let isLogInComparisionOK = await compareLogInData();
   if (isLogInComparisionOK) {
     toggleRememberMe();
-    setUserLoggedInDataToLocalStorage();
+    setUserIDToLocalStorage();
     window.location.href = "../summary.html";
   } else {
     console.log("log in data are not ok !!!");
@@ -84,12 +85,18 @@ async function compareLogInData() {
 }
 
 // UMSCHREIBEN sodass nur USER ID gespeichert wird!!!!
-function setUserLoggedInDataToLocalStorage() {
-  let loggedInUserData = {
-    email: document.getElementById("logInInputEmail").value,
-  };
-  let loggedInUserDataJson = JSON.stringify(loggedInUserData);
-  localStorage.setItem("joinLoggedInUserData", loggedInUserDataJson);
+async function setUserIDToLocalStorage() {
+  let usersArray = await getUsersArray();
+  let userEmail = document.getElementById("logInInputEmail").value;
+  let userID;
+  usersArray.forEach((element) => {
+    if (element[1].profile.email === userEmail) {
+      userID = element[1].id;
+    }
+  });
+  let userIdObject = { userID: `${userID}` };
+  let loggedInUserIdJson = JSON.stringify(userIdObject);
+  localStorage.setItem("loggedInUserId", loggedInUserIdJson);
 }
 
 export function toggleRememberMe() {

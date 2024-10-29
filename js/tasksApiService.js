@@ -34,7 +34,7 @@ export async function patchNewTask() {
     }
     newTaskUserFeedback();
     await renderTasks();
-    
+
     return id;
   } else {
     return;
@@ -55,8 +55,6 @@ export async function deleteExistungTask(status, taskID) {
   hideConfirmDeleteUserDialog();
   await renderTasks(status, status);
 }
-
-export async function delteSingleSubtaskDatabase() {}
 
 export async function patchUpdateSingleSubtaskDatabase(taskID, subtaskID, isChecked) {
   let response = await fetch(baseUrl + "/tasks/" + taskID + "/subtasks/" + subtaskID + ".json", {
