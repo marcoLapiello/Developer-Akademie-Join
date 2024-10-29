@@ -61,7 +61,7 @@ function renderHeaderTemplate() {
             <a href="./privacyPolicy.html">Privacy Policy</a>
           </div>
           <div class="logOut">
-            <a href="./index.html">Log out</a>
+            <a onclick="userLogOut()">Log out</a>
           </div>
         </div>
       </div>
