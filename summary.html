@@ -8,15 +8,13 @@
     <script type="module" src="./js/script.js" defer></script>
     <title>JOIN</title>
   </head>
-  <body onload="initSummary()">
+  <body onload="initSummary(); isUserLoggedIn();">
     <main>
       <nav id="sidebar" class="sidebar"></nav>
       <section class="mainSection">
         <section id="content" class="content">
           <header id="header" class="header"></header>
-          <div id="summaryContent" class="summaryContent">
-            
-          </div>
+          <div id="summaryContent" class="summaryContent"></div>
         </section>
       </section>
     </main>
