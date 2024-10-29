@@ -4,6 +4,9 @@
   position: relative;
   display: flex;
   overflow: hidden;
+
+  @media (max-width: $breakpoint-lg) {
+  }
 }
 
 .logoAnimationDialog {
@@ -14,6 +17,10 @@
   background-color: white;
   transition: all 0.6s ease-in;
   opacity: 1;
+
+  @media (max-width: $breakpoint-lg) {
+    background-color: #2a3647;
+  }
 }
 
 .joinLogoBox {
@@ -29,6 +36,13 @@
   top: 80px;
   left: 77px;
   transition: all 0.6s ease-in-out;
+
+  @media (max-width: $breakpoint-lg) {
+    width: 64px;
+    height: 78px;
+    top: 37px;
+    left: 38px;
+  }
 }
 
 .joinLogoAnimation {
@@ -45,8 +59,17 @@
   align-items: center;
   gap: 35px;
 
+  @media (max-width: $breakpoint-lg) {
+    top: calc(100dvh - 147px);
+    right: 50%;
+    transform: translate(50%);
+  }
+
   p {
     font-size: 20px;
+    @media (max-width: $breakpoint-lg) {
+      text-wrap: nowrap;
+    }
   }
 
   button {
@@ -60,6 +83,12 @@
     font-weight: 700;
     color: white;
     transition: all 0.1s ease-in-out;
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: 16px;
+      width: 104px;
+      text-wrap: nowrap;
+    }
 
     &:hover {
       background-color: #29abe2;
@@ -104,6 +133,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
+  @media (max-width: $breakpoint-lg) {
+    max-width: 396px;
+    width: calc(100% - 16px);
+    margin-right: 8px;
+    margin-left: 8px;
+    transform: translate(calc(-50% - 8px), -50%);
+  }
+
   .logInTemplate {
     background-color: white;
     display: flex;
@@ -113,6 +150,10 @@
     padding: 48px 115px;
     border-radius: 30px;
     position: relative;
+
+    @media (max-width: $breakpoint-lg) {
+      padding: 32px 16px;
+    }
 
     .backArrow {
       position: absolute;
@@ -124,6 +165,11 @@
       border-radius: 50vh;
       transition: all 0.12s ease-in-out;
       cursor: pointer;
+
+      @media (max-width: $breakpoint-lg) {
+        left: 29px;
+        top: 49px;
+      }
 
       &:hover {
         background-color: #0c2e621f;
@@ -145,6 +191,10 @@
       p {
         font-size: 61px;
         font-weight: 700;
+
+        @media (max-width: $breakpoint-lg) {
+          font-size: 47px;
+        }
       }
 
       .blueUnderlineDiv {
@@ -152,12 +202,20 @@
         height: 3px;
         background-color: #29abe2;
         border-radius: 50vh;
+        @media (max-width: $breakpoint-lg) {
+          width: 88px;
+        }
       }
     }
 
     .logInInputArea {
       display: flex;
       flex-direction: column;
+
+      @media (max-width: $breakpoint-lg) {
+        width: 100%;
+        max-width: 364px;
+      }
 
       input {
         width: 422px;
@@ -167,6 +225,10 @@
         font-size: 20px;
         background-position: 95%;
         background-repeat: no-repeat;
+
+        @media (max-width: $breakpoint-lg) {
+          width: 100%;
+        }
 
         &::placeholder {
           color: #d1d1d1;
@@ -198,10 +260,36 @@
         padding-left: 42px;
         align-items: center;
 
-        .checkboxRememberMe {
-          width: 16px;
-          height: 16px;
+        @media (max-width: $breakpoint-lg) {
+          padding-left: 16px;
         }
+
+        input[type="checkbox"] {
+          appearance: none; // Entfernt die Standarddarstellung der Checkbox
+          width: 20px;
+          height: 20px;
+          padding: 0;
+          border: 1px solid #d1d1d1;
+          border-radius: 4px;
+          cursor: pointer;
+          position: relative;
+        
+          &:checked {
+            background-color: #29abe2; // Ändert die Hintergrundfarbe, wenn gecheckt
+            border-color: #29abe2;
+        
+            &::after {
+              content: '✔'; // Unicode für ein Häkchen
+              color: white;  // Farbe des Häkchens
+              font-size: 16px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+        
 
         p {
           font-size: 16px;
@@ -215,6 +303,10 @@
       align-items: center;
       gap: 24px;
 
+      @media (max-width: $breakpoint-lg) {
+        width: 100%;
+      }
+
       input {
         width: 422px;
         border: 1px solid #d1d1d1;
@@ -223,6 +315,11 @@
         font-size: 20px;
         background-position: 95%;
         background-repeat: no-repeat;
+
+        @media (max-width: $breakpoint-lg) {
+          width: 100%;
+          max-width: 364px;
+        }
 
         &::placeholder {
           color: #d1d1d1;
@@ -259,6 +356,10 @@
         flex-direction: column;
         align-items: center;
 
+        @media (max-width: $breakpoint-lg) {
+          padding-top: 32px;
+        }
+
         .checkToRememberBox {
           display: flex;
           font-size: 16px;
@@ -290,6 +391,11 @@
       justify-content: center;
       gap: 35px;
 
+      @media (max-width: $breakpoint-lg) {
+        flex-direction: column;
+        gap: 21px;
+      }
+
       .logInBtn {
         height: 48px;
         padding: 15px 24px;
@@ -301,6 +407,11 @@
         font-weight: 700;
         color: white;
         transition: all 0.1s ease-in-out;
+
+        @media (max-width: $breakpoint-lg) {
+          height: 51px;
+          width: 180px;
+        }
 
         &:hover {
           background-color: #29abe2;
@@ -319,6 +430,12 @@
         font-weight: 700;
         color: white;
         transition: all 0.1s ease-in-out;
+
+        @media (max-width: $breakpoint-lg) {
+          height: 51px;
+          width: 180px;
+          font-size: 16px;
+        }
 
         &:hover {
           background-color: #29abe2;
@@ -364,6 +481,34 @@
     &:hover {
       color: #29abe2;
       font-weight: 700;
+    }
+  }
+
+  
+}
+
+#privacyPolicyCheckBox[type="checkbox"] {
+  appearance: none; // Entfernt die Standarddarstellung der Checkbox
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+
+  &:checked {
+    background-color: #29abe2; // Ändert die Hintergrundfarbe, wenn gecheckt
+    border-color: #29abe2;
+
+    &::after {
+      content: '✔'; // Unicode für ein Häkchen
+      color: white;  // Farbe des Häkchens
+      font-size: 16px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }
