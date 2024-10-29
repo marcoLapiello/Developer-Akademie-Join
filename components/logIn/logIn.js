@@ -4,7 +4,7 @@ import { getRandomUserColor } from "../contactModal/contactModal.js";
 
 import { loadUsers, patchNewUser } from "../../js/apiService.js";
 
-import { getLogInTemplate, getSignUpTemplate } from "./logInTemplates.js"
+import { getLogInTemplate, getSignUpTemplate } from "./logInTemplates.js";
 
 export function renderLogInTemplate(email, password) {
   let logInRenderContainerRef = document.getElementById("logInRenderContainer");
@@ -52,15 +52,44 @@ export function goToLogInPage() {
   document.getElementById("linkToSignUpBox").classList.remove("d_none");
 }
 
-// log in USer functions
+// log in User functions
 export function doGuestLogIn() {
   console.log("guest login requested");
   window.location.href = "../summary.html";
 }
 
-export function logInRegistratedUser() {
-  toggleRememberMe();
-  console.log("Log In for registrated user requested");
+export async function logInRegistratedUser() {
+  let isLogInComparisionOK = await compareLogInData();
+  if (isLogInComparisionOK) {
+    toggleRememberMe();
+    setUserLoggedInDataToLocalStorage();
+    window.location.href = "../summary.html";
+  } else {
+    console.log("log in data are not ok !!!");
+    return;
+  }
+}
+
+async function compareLogInData() {
+  let usersArray = await loadUsers();
+  let logInEmail = document.getElementById("logInInputEmail").value;
+  let logInPassword = document.getElementById("logInInputPassword").value;
+  let isComparisionOK = false;
+  usersArray.forEach((element) => {
+    if (element[1].profile.email === logInEmail && element[1].password === logInPassword) {
+      isComparisionOK = true;
+    }
+  });
+  return isComparisionOK;
+}
+
+// UMSCHREIBEN sodass nur USER ID gespeichert wird!!!!
+function setUserLoggedInDataToLocalStorage() {
+  let loggedInUserData = {
+    email: document.getElementById("logInInputEmail").value,
+  };
+  let loggedInUserDataJson = JSON.stringify(loggedInUserData);
+  localStorage.setItem("joinLoggedInUserData", loggedInUserDataJson);
 }
 
 export function toggleRememberMe() {
@@ -287,12 +316,3 @@ function userFeedbackAfterSignUp() {
     document.getElementById("signUpUserFeedback").classList.remove("translateSignUpFeedback");
   }, 1150);
 }
-
-// user object erstellen
-// datenbank abfragen (daten synchron ziehen und bereitstellen mit init Funktion) ob user schon erstellt wurde (abgleich der Emailadresse)
-// --- wenn vorhanden --> Fehlermeldung
-// --- wenn neu --->
-//         user daten an firebase patchen
-//         user login daten an login fenster schicken
-
-// login:  userDatenZiehen und abgleichen ob user vorhanden
