@@ -214,3 +214,20 @@ export async function getTasksArray() {
 
 getUsersArray();
 getTasksArray();
+
+function isUserLoggedIn() {
+  const loggedInUserIdJson = localStorage.getItem("loggedInUserId");
+  const loggedInUserId = JSON.parse(loggedInUserIdJson);
+  if (loggedInUserId === null) {
+    // window.location.href = "../index.html";
+    console.log("User is not logged in: Function isUserLoggedIn() temporary disabled");
+  }
+  return loggedInUserId;
+}
+window.isUserLoggedIn = isUserLoggedIn;
+
+function userLogOut() {
+  localStorage.removeItem("loggedInUserId");
+  window.location.href = "../index.html";
+}
+window.userLogOut = userLogOut;
