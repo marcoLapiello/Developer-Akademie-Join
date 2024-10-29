@@ -75,11 +75,9 @@ function getUserListItem(userArray, index, isInputChecked) {
           <span id="initials${index}" class="initials">${userArray[index][1].profile.initials}</span>
         </div>
         <p>${userArray[index][1].profile.first_name} ${userArray[index][1].profile.last_name}</p>
-      </div>
-      
-      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}'); removeUsersSearchFieldValue()" type="checkBox" ${
-    isInputChecked ? "checked" : ""
-  }>
+      </div>      
+      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}'); removeUsersSearchFieldValue()" type="checkBox" 
+      ${isInputChecked ? "checked" : ""}>
     </div>
   `;
 }
