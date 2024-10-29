@@ -2,6 +2,8 @@ import { returnIcon } from "../icons.js";
 
 import { getRandomUserColor } from "../contactModal/contactModal.js";
 
+import { loadUsers, patchNewUser } from "../../js/apiService.js";
+
 export function getLogInTemplate() {
   return /*html*/ `
     <div class="logInTemplate">
@@ -48,7 +50,6 @@ export function getSignUpTemplate() {
               <div class="blueUnderlineDiv"></div>
             </div>
             <div class="signUpInputArea">
-
             <div class="marginMinusFourteenPx">
               <input id="signUpInputName" class="inputName" type="text" placeholder="Name" />
               <div class="addTaskValidationWarning"><span id="signUpInputNameWarning"></span>&nbsp;</div>
@@ -73,7 +74,6 @@ export function getSignUpTemplate() {
               </div>
               <div class="addTaskValidationWarning"><span id="checkBoxWarning"></span>&nbsp;</div>
             </div>
-
             </div>
             <div class="logInBtnBox">
               <button onclick="signUpNewUser()" id="signUpBtn" class="signUpBtn">Sign up</button>
@@ -174,20 +174,45 @@ export function getUserLogInDataFromLocalStorage() {
 }
 
 // sign up User functions
-export function signUpNewUser() {
-  // -> get usersArray from firebase
-  // -> compare users with new signup data --> error or accept
-  // -> check if privace policy is accepted
+export async function signUpNewUser() {
   let isSignUpValidationOK = signUpCompleteValidation();
   if (!isSignUpValidationOK) {
     console.log("Some validation is not ok");
     return;
   }
-  console.log(getNewUserData());
+  let isNewUserNotRegistrated = await compareSignUpWithUsers();
+  if (!isNewUserNotRegistrated) {
+    console.log("user is still registrated");
+    return;
+  }
+  let newUser = getNewUserData();
+  await patchNewUser(newUser)
+
+  // -> patch data to firebase
+  // -> give login data to loginTemplate
+
+  // console.log(getNewUserData());
   userFeedbackAfterSignUp();
   setTimeout(() => {
     // goToLogInPage();
   }, 1150);
+}
+
+async function compareSignUpWithUsers() {
+  let usersArray = await loadUsers();
+  let newUser = getNewUserData();
+  let isComparisionOK = true;
+  console.log(usersArray);
+  console.log(newUser);
+  
+  
+  usersArray.forEach((element) => {
+    if (element[1].profile.email == newUser.profile.email) {
+      isComparisionOK = false;
+      console.log("user still exists");
+    }
+  });
+  return isComparisionOK;
 }
 
 export function getNewUserData() {
@@ -324,14 +349,12 @@ function checkAcceptedPrivacyPolicy() {
     document.getElementById("checkBoxWarning").innerText = "";
     console.log(isPrivacyPolicyChecked);
     return true;
-  }
-  else {
+  } else {
     document.getElementById("checkBoxWarning").innerText = "You have to read and accept our Privacy Policy";
     console.log(isPrivacyPolicyChecked);
     return false;
   }
 }
-
 
 function userFeedbackAfterSignUp() {
   document.getElementById("signUpDialogField").classList.remove("d_none");
