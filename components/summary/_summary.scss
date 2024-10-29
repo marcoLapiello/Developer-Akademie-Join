@@ -1,3 +1,12 @@
+// .summaryContent{
+//     @media (max-width: $breakpoint-sm) {
+//         position: absolute;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         max-width: 625px;
+//     }
+// }
+
 .summaryWrapper {
     background-color: rgb(246, 247, 248);
     height: calc(100dvh - 96px);
@@ -6,6 +15,19 @@
     flex-direction: column;
     gap: 56px;
 
+    @media (max-width: $breakpoint-lg) {
+        padding: 48px 48px;
+        align-items: center;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+        padding: 48px 16px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 625px;
+    }
+
     .summaryHeadline {
         width: 625px;
         display: flex;
@@ -13,20 +35,54 @@
         align-items: center;
         gap: 30px;
 
+        @media (max-width: $breakpoint-lg) {
+            width: 100%;
+            flex-direction: column;
+            // align-items: flex-start;
+            gap: 16px;
+        }
+
+        @media (max-width: $breakpoint-sm) {
+            align-items: start;
+        }
+
         h1 {
             font-size: 61px;
             font-weight: 700;
+
+            @media (max-width: $breakpoint-lg) {
+                font-size: 47px;
+            }
         }
 
         span {
             font-size: 27px;
             font-weight: 400;
+
+            @media (max-width: $breakpoint-lg) {
+                font-size: 20px;
+            }
         }
 
         .headlineSeparator {
             height: 100%;
             width: 3px;
             background-color: #29abe2;
+
+            @media (max-width: $breakpoint-lg) {
+                display: none;
+            }
+        }
+
+        .headlineSeparatorMobile {
+            width: 90px;
+            height: 3px;
+            background-color: #29abe2;
+            display: none;
+
+            @media (max-width: $breakpoint-lg) {
+                display: block;
+            }
         }
     }
 
@@ -43,23 +99,39 @@
             flex-direction: column;
             justify-content: space-between;
 
+            @media (max-width: $breakpoint-sm) {
+                width: 100%;
+                height: 384px;
+            }
+
 
             .statusFirstLine {
                 width: 560px;
                 display: flex;
                 justify-content: space-between;
 
+                @media (max-width: $breakpoint-sm) {
+                    width: 100%;
+                    gap: 16px;
+                }
+
                 .toDoWrapper {
                     width: 264px;
                     height: 168px;
                     border-radius: 30px;
-                    // padding: 38px 19px;
+
                     background-color: white;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     gap: 18px;
                     transition: all 0.1s ease-in;
+
+                    @media (max-width: $breakpoint-sm) {
+                        width: 186px;
+                        height: 110px;
+                        border-radius: 20px;
+                    }
 
                     &:hover {
                         cursor: pointer;
@@ -87,8 +159,18 @@
                         align-items: center;
                         transition: all 0.1s ease-in;
 
+                        @media (max-width: $breakpoint-sm) {
+                            width: 40px;
+                            height: 40px;
+                        }
+
                         img {
                             transition: all 0.1s ease-in;
+
+                            @media (max-width: $breakpoint-sm) {
+                                width: 20px;
+                                height: auto;
+                            }
                         }
                     }
 
@@ -101,11 +183,19 @@
                         p {
                             font-size: 64px;
                             font-weight: 600;
+
+                            @media (max-width: $breakpoint-sm) {
+                                font-size: 47px;
+                            }
                         }
 
                         span {
                             font-size: 20px;
                             font-weight: 400;
+
+                            @media (max-width: $breakpoint-sm) {
+                                font-size: 14px;
+                            }
                         }
                     }
                 }
@@ -121,6 +211,13 @@
                 align-items: center;
                 gap: 36px;
                 transition: all 0.1s ease-in;
+
+                @media (max-width: $breakpoint-sm) {
+                    width: 100%;
+                    height: 110px;
+                    border-radius: 20px;
+                    gap: 18px;
+                }
 
                 &:hover {
                     cursor: pointer;
@@ -154,6 +251,20 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+
+                        @media (max-width: $breakpoint-sm) {
+                            width: 40px;
+                            height: 40px;
+                        }
+
+                        img {
+                            transition: all 0.1s ease-in;
+
+                            @media (max-width: $breakpoint-sm) {
+                                width: 20px;
+                                height: auto;
+                            }
+                        }
                     }
 
                     .amountContainer {
@@ -165,11 +276,19 @@
                         p {
                             font-size: 64px;
                             font-weight: 600;
+
+                            @media (max-width: $breakpoint-sm) {
+                                font-size: 47px;
+                            }
                         }
 
                         span {
                             font-size: 20px;
                             font-weight: 400;
+
+                            @media (max-width: $breakpoint-sm) {
+                                font-size: 14px;
+                            }
                         }
                     }
                 }
@@ -178,6 +297,10 @@
                     height: 102px;
                     width: 2px;
                     background-color: #D1D1D1;
+
+                    @media (max-width: $breakpoint-sm) {
+                        height: 68px;
+                    }
                 }
 
                 .urgentDeadlineContainer {
@@ -189,12 +312,20 @@
                         font-size: 21px;
                         font-weight: 700;
                         color: #2A3647;
+
+                        @media (max-width: $breakpoint-sm) {
+                            font-size: 16px;
+                        }
                     }
 
                     span {
                         font-size: 16px;
                         font-weight: 400;
                         color: #2A3647;
+
+                        @media (max-width: $breakpoint-sm) {
+                            font-size: 14px;
+                        }
                     }
                 }
             }
@@ -205,6 +336,11 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
+                @media (max-width: $breakpoint-sm) {
+                    width: 100%;
+                    height: 110px;
+                }
 
                 .amountContainer {
                     height: 168px;
@@ -219,6 +355,12 @@
                     text-align: center;
                     transition: all 0.1s ease-in;
 
+                    @media (max-width: $breakpoint-sm) {
+                        width: 110px;
+                        height: 110px;
+                        border-radius: 20px;
+                    }
+
                     &:hover {
                         cursor: pointer;
                         scale: 1.1;
@@ -230,11 +372,19 @@
                     p {
                         font-size: 64px;
                         font-weight: 600;
+
+                        @media (max-width: $breakpoint-sm) {
+                            font-size: 47px;
+                        }
                     }
 
                     span {
                         font-size: 20px;
                         font-weight: 400;
+
+                        @media (max-width: $breakpoint-sm) {
+                            font-size: 14px;
+                        }
                     }
                 }
             }
@@ -244,6 +394,10 @@
             display: flex;
             flex-direction: column;
             gap: 3px;
+
+            @media (max-width: $breakpoint-lg) {
+                display: none;
+            }
 
             h2 {
                 font-size: 47px;
