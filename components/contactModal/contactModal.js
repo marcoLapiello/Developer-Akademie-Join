@@ -2,6 +2,31 @@
  * @module "contactModal.js"
  */
 
+/**
+ * Imports various functions and references for handling user contacts.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users.
+ * @constant {HTMLElement} addContactNameInputRef - Reference to the input element for adding a contact's name.
+ * @constant {HTMLElement} addContactEmailInputRef - Reference to the input element for adding a contact's email.
+ * @constant {HTMLElement} addContactPhoneInputRef - Reference to the input element for adding a contact's phone number.
+ * @constant {HTMLElement} editContactNameInputRef - Reference to the input element for editing a contact's name.
+ * @constant {HTMLElement} editContactEmailInputRef - Reference to the input element for editing a contact's email.
+ * @constant {HTMLElement} editContactPhoneInputRef - Reference to the input element for editing a contact's phone number.
+ * @constant {HTMLElement} editNewUserLogoRef - Reference to the element for editing a new user's logo.
+ * @constant {HTMLElement} saveEditedUserButtonRef - Reference to the button for saving an edited user.
+ * @constant {HTMLElement} addedUserFeedbackRef - Reference to the element for displaying feedback after adding a user.
+ * @constant {HTMLElement} editUserFeedbackRef - Reference to the element for displaying feedback after editing a user.
+ * @constant {HTMLElement} confirmDeleteUserModalRef - Reference to the modal for confirming user deletion.
+ * @constant {HTMLElement} deleteChosenUserBtnRef - Reference to the button for deleting the chosen user.
+ * @constant {HTMLElement} sureToDeleteContactBtnRef - Reference to the button for confirming contact deletion.
+ * @constant {HTMLElement} addNameWarningRef - Reference to the element for displaying a warning when adding a name.
+ * @constant {HTMLElement} addEmailWarningRef - Reference to the element for displaying a warning when adding an email.
+ * @constant {HTMLElement} addPhoneWarningRef - Reference to the element for displaying a warning when adding a phone number.
+ * @constant {HTMLElement} editNameWarningRef - Reference to the element for displaying a warning when editing a name.
+ * @constant {HTMLElement} editEmailWarningRef - Reference to the element for displaying a warning when editing an email.
+ * @constant {HTMLElement} editPhoneWarningRef - Reference to the element for displaying a warning when editing a phone number.
+ */
 import {
   getUsersArray,
   addContactNameInputRef,
@@ -25,9 +50,27 @@ import {
   editPhoneWarningRef,
 } from "../../js/script.js";
 
+/**
+ * Imports the function to edit an existing user.
+ *
+ * @module apiService
+ * @function editExistingUser - Edits the details of an existing user in the database.
+ */
 import { editExistingUser } from "../../js/apiService.js";
+
+/**
+ * Imports the function to remove the active contact button.
+ *
+ * @module contactList
+ * @function removeAktivContactButton - Removes the active contact button from the contact list.
+ */
 import { removeAktivContactButton } from "../contactList/contactList.js";
 
+/**
+ * An array of color codes used for user identification.
+ *
+ * @type {string[]}
+ */
 let userColors = [
   "#FF7A00",
   "#FF5EB3",

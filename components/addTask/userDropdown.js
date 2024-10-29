@@ -2,9 +2,26 @@
  * @module "userDropdown.js"
  */
 
+/**
+ * Imports the function to retrieve the array of users.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users from the script.
+ */
 import { getUsersArray } from "../../js/script.js";
 
+/**
+ * An array to store the selected users.
+ *
+ * @type {Array}
+ */
 export let selectedUsers = [];
+
+/**
+ * A global array to store user data.
+ *
+ * @type {Array}
+ */
 let globalUserArray = [];
 
 /**

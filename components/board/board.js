@@ -2,6 +2,14 @@
  * @module "board.js"
  */
 
+/**
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
+ */
 import { returnIcon } from "../icons.js";
 
 /**

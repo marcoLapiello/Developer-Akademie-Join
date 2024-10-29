@@ -2,13 +2,58 @@
  * @module "contactDetails.js"
  */
 
+/**
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
+ */
 import { returnIcon } from "../icons.js";
+
+/**
+ * Imports the function to retrieve the array of users.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users from the script.
+ */
 import { getUsersArray } from "../../js/script.js";
+
+/**
+ * Imports the function to render the contact list.
+ *
+ * @module contactList
+ * @function renderContactList - Renders the contact list on the user interface.
+ */
 import { renderContactList } from "../contactList/contactList.js";
 
+/**
+ * A reference to the contact details element in the DOM.
+ *
+ * @type {HTMLElement}
+ */
 const contactDetailsRef = document.getElementById("contactDetails");
+
+/**
+ * A reference to the contact list element in the DOM.
+ *
+ * @type {HTMLElement}
+ */
 const contactListRef = document.getElementById("contactList");
+
+/**
+ * A variable to store the ID of the selected user.
+ *
+ * @type {number|null}
+ */
 let selectedUserId = null;
+
+/**
+ * A flag indicating whether a process is currently running.
+ *
+ * @type {boolean}
+ */
 let isProcessing = false;
 
 /**
@@ -142,7 +187,7 @@ export function switchMobile() {
  * - If the window width matches the screen width and both `contactDetailsRef` and `contactListRef` are defined, and the screen width is greater than 1400 pixels:
  *   - Both `contactDetailsRef` and `contactListRef` will be displayed as "flex".
  *
- * @see {@link https://www.w3schools.com/jsref/prop_win_innerwidth.asp} for more information on `window.innerWidth`.
+ * @see {@link https://www.w3schools.com/jsref/prop_win_innerwidth.asp} for more information.
  */
 function updateWidth() {
   const width = window.innerWidth;
@@ -156,7 +201,18 @@ function updateWidth() {
     contactListRef.style.display = "flex";
   }
 }
-window.addEventListener("resize", updateWidth); // https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event
+
+/**
+ * Event listener for the "resize" event on the window object.
+ * Calls the `updateWidth` function whenever the window is resized.
+ *
+ * @event resize
+ * @listens window#resize
+ * @function updateWidth - The function that executes when the window is resized
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event} for more information.
+ */
+window.addEventListener("resize", updateWidth);
 
 /**
  * Toggles the display of user profile buttons for mobile view.
@@ -164,6 +220,7 @@ window.addEventListener("resize", updateWidth); // https://developer.mozilla.org
  * This function checks the current display style of the user profile buttons.
  * If the buttons are not displayed, it sets their display style to "flex" and
  * changes the background color of the mobile user profile buttons.
+ * @see {@link https://www.w3schools.com/jsref/jsref_getcomputedstyle.asp} for more information.
  */
 export function userProfileButtonsMobile() {
   const userProfileButtonsRef = document.getElementById("userProfileButtons");

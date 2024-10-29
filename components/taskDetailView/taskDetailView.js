@@ -2,8 +2,31 @@
  * @module "taskDetailView.js"
  */
 
+/**
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon based on the provided icon name.
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
+ */
 import { returnIcon } from "../icons.js";
+
+/**
+ * Imports functions to retrieve arrays of users and tasks.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users from the script.
+ * @function getTasksArray - Retrieves the array of tasks from the script.
+ */
 import { getUsersArray, getTasksArray } from "../../js/script.js";
+
+/**
+ * Imports the function to update the progress of a task.
+ *
+ * @module editTask
+ * @function updateProgress - Updates the progress of a task in the task detail view.
+ */
 import { updateProgress } from "../taskDetailViewEdit/editTask.js";
 
 /**

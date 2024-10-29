@@ -49,8 +49,13 @@ async function deleteUserData(id) {
   }
 }
 
-async function patchNewUser() {
-  let newUser = getNewUser();
+export async function patchNewUser(userObject) {
+  let newUser;
+  if (userObject) {
+    newUser = userObject;
+  } else {
+    newUser = getNewUser();
+  }
   let id = newUser.id;
   let response = await fetch(baseUrl + "/user/" + id + ".json", {
     method: "PATCH",

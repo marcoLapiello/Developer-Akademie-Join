@@ -2,11 +2,46 @@
  * @module "taskCards.js"
  */
 
+/**
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
+ */
 import { returnIcon } from "../icons.js";
+
+/**
+ * Imports functions to retrieve arrays of users and tasks.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users from the script.
+ * @function getTasksArray - Retrieves the array of tasks from the script.
+ */
 import { getUsersArray, getTasksArray } from "../../js/script.js";
+
+/**
+ * Imports the function to update a task in the database service.
+ *
+ * @module tasksApiService
+ * @function patchTaskUpdate - Updates a task in the database.
+ */
 import { patchTaskUpdate } from "../../js/tasksApiService.js";
+
+/**
+ * Imports the function to open the task modal.
+ *
+ * @module addTask
+ * @function openTaskModal - Opens the modal for adding or editing a task.
+ */
 import { openTaskModal } from "../addTask/addTask.js";
 
+/**
+ * A variable to store the currently dragged element.
+ *
+ * @type {HTMLElement}
+ */
 let currentDraggedElement;
 
 /**
@@ -96,25 +131,19 @@ async function getAssignedUsers(task) {
 }
 
 /**
- * Translates a given task status from its internal representation to a more user-friendly format.
+ * Translates a given task status to a more readable format.
  *
- * @param {string} currentStatus - The current status of the task. Expected values are "todo", "inProgress", "awaitFeedback", or "done".
- * @returns {string} The translated status. If the input status does not match any of the expected values, it returns the input status unchanged.
+ * @param {string} currentStatus - The current status of the task.
+ * @returns {string} The translated status.
  */
 function translatedStatus(currentStatus) {
-  let translatedStatus;
-  if (currentStatus === "todo") {
-    translatedStatus = "To do";
-  } else if (currentStatus === "inProgress") {
-    translatedStatus = "In progress";
-  } else if (currentStatus === "awaitFeedback") {
-    translatedStatus = "Await feedback";
-  } else if (currentStatus === "done") {
-    translatedStatus = "Done";
-  } else {
-    return currentStatus;
-  }
-  return translatedStatus;
+  const statusMap = {
+    todo: "To do",
+    inProgress: "In progress",
+    awaitFeedback: "Await feedback",
+    done: "Done",
+  };
+  return statusMap[currentStatus] || currentStatus;
 }
 
 /**

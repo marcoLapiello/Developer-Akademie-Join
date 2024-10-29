@@ -2,8 +2,29 @@
  * @module "editTask.js"
  */
 
+/**
+ * Imports the function to retrieve the array of tasks.
+ *
+ * @module script
+ * @function getTasksArray - Retrieves the array of tasks from the script.
+ */
 import { getTasksArray } from "../../js/script.js";
+
+/**
+ * Imports functions to update subtasks in the database service.
+ *
+ * @module tasksApiService
+ * @function patchUpdateSingleSubtaskDatabase - Updates a single subtask in the database.
+ * @function patchUpdateSubtasksProgress - Updates the progress of multiple subtasks in the database.
+ */
 import { patchUpdateSingleSubtaskDatabase, patchUpdateSubtasksProgress } from "../../js/tasksApiService.js";
+
+/**
+ * Imports the function to render tasks.
+ *
+ * @module taskCards
+ * @function renderTasks - Renders the tasks on the user interface.
+ */
 import { renderTasks } from "../taskCards/taskCards.js";
 
 /**
