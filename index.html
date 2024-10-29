@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,14 +8,34 @@
     <script type="module" src="./js/script.js" defer></script>
     <title>JOIN</title>
   </head>
-  <body>
+  <body onload="initRenderLogInPage()">
     <main>
-      <nav id="sidebar" class="sidebar"></nav>
-      <section class="mainSection">
-        <section id="content" class="content">
-          <header id="header" class="header"></header>
-          <div id="placeholder" class="placeholder"></div>
-        </section>
+      <section class="logInMainSection">
+         <div id="joinLogoBox" class="joinLogoBox joinLogoAnimation"></div>
+         <div id="logoAnimationDialog" class="logoAnimationDialog"></div>
+
+        <div id="signUpDialogField" class="signUpDialogField d_none">
+          <div id="signUpUserFeedback" class="signUpUserFeedback">
+            <p>You Signed Up successfully</p>
+          </div>
+        </div>
+
+        <div id="linkToSignUpBox" class="linkToSignUpBox">
+          <p>Not a Join user?</p>
+          <button onclick="goToSignUpPage()" id="linkToSignUpBoxBtn">Sign up</button>
+        </div>
+
+        <!-- render container -->
+        <div id="logInRenderContainer" class="logInRenderContainer">
+          <!-- START signUpTemplate -->
+
+          <!-- END signUpTemplate -->
+        </div>
+
+        <div class="privacyContainer">
+          <a href="./privacyPolicy.html" class="privacyLink">Privacy Policy</a>
+          <a href="./legalNotice.html" class="privacyLink">Legal notice</a>
+        </div>
       </section>
     </main>
   </body>

@@ -239,6 +239,12 @@
       .inputEmail {
         background-image: url(/assets/icons/inputEmail.svg);
         margin-bottom: 32px;
+        
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+
         &:focus {
           border: 1px solid #29abe2;
           outline: none;
