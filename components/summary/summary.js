@@ -8,7 +8,8 @@ async function renderSummary() {
   let tasks = await loadTasks();
   let currentTasksAmount = tasks.length;
   let urgentTasksAmount = getUrgentTasksAmount(tasks);
-  let closestDueDate = getClosestDueDate(tasks);
+  let [closestDueDate, isDueDateInThePast] = getClosestDueDate(tasks);
+  
   let [toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount] = getEveryStatusAmount(tasks);
   document.getElementById("summaryContent").innerHTML = getSummaryTemplate(
     currentTasksAmount,
@@ -17,7 +18,8 @@ async function renderSummary() {
     inProgressAmount,
     awaitFeedbackAmount,
     doneAmount,
-    closestDueDate
+    closestDueDate,
+    isDueDateInThePast
   );
 }
 
@@ -25,6 +27,7 @@ function getClosestDueDate(tasks) {
   const currentDate = new Date();
   let closestDueDate = null;
   let smallestDateDifference = Infinity;
+  let isDueDateInThePast = false;
   for (let index = 0; index < tasks.length; index++) {
     if (tasks[index][1].priority === "Urgent") {
       const dueDate = new Date(tasks[index][1].dueDate);
@@ -36,7 +39,10 @@ function getClosestDueDate(tasks) {
     }
   }
   let formattedDate = getFormattedUpcomingDueDate(closestDueDate);
-  return formattedDate;
+  if (closestDueDate < currentDate) {
+    isDueDateInThePast = true;
+  }
+  return [formattedDate, isDueDateInThePast];
 }
 
 function getFormattedUpcomingDueDate(closestDueDate) {
@@ -93,7 +99,7 @@ async function loadTasks() {
   return tasks;
 }
 
-function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate) {
+function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast) {
     return /*html*/ `
           <div id="summaryWrapper" class="summaryWrapper">
   
@@ -128,7 +134,7 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                           </div>
                       </div>
   
-                      <div id="statusSecondLine" class="statusSecondLine">
+                      <div id="statusSecondLine" class="statusSecondLine" style = "${isDueDateInThePast ? 'border: 2px solid red;' : ''}">
                           <div id="urgentAmountWrapper" class="urgentAmountWrapper">
                               <div id="" class="iconContainer">
                                   <img src="./assets/icons/urgent_Icon_white_big.png" alt="">
@@ -140,8 +146,8 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                           </div>
                           <div class="urgentSeparator"></div>
                           <div id="urgentDeadlineContainer" class="urgentDeadlineContainer">
-                              <p id="urgentDeadline">${closestDueDate}</p>
-                              <span>Upcoming Deadline</span>
+                              <p id="urgentDeadline" style="${isDueDateInThePast ? 'color: red;' : ''}">${closestDueDate}</p>
+                              <span style="${isDueDateInThePast ? 'color: red;' : ''}">${isDueDateInThePast ? 'Deadline missed: Date is in the past' : 'Upcoming Deadline'}</span>
                           </div>
                       </div>
   
