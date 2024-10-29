@@ -9,7 +9,6 @@ async function renderSummary() {
   let currentTasksAmount = tasks.length;
   let urgentTasksAmount = getUrgentTasksAmount(tasks);
   let [closestDueDate, isDueDateInThePast] = getClosestDueDate(tasks);
-  
   let [toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount] = getEveryStatusAmount(tasks);
   document.getElementById("summaryContent").innerHTML = getSummaryTemplate(
     currentTasksAmount,
@@ -29,7 +28,7 @@ function getClosestDueDate(tasks) {
   let smallestDateDifference = Infinity;
   let isDueDateInThePast = false;
   for (let index = 0; index < tasks.length; index++) {
-    if (tasks[index][1].priority === "Urgent") {
+    if (tasks[index][1].priority === "Urgent" && tasks[index][1].status !== "done") {
       const dueDate = new Date(tasks[index][1].dueDate);
       const dateDifference = dueDate - currentDate;
       if (dateDifference < smallestDateDifference) {
@@ -107,6 +106,7 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                   <h1>Join 360</h1>
                   <div class="headlineSeparator"></div>
                   <span>Key Metrics at a Glance</span>
+                  <div class="headlineSeparatorMobile"></div>
               </div>
   
               <div id="summaryMiddleContent" class="summaryMiddleContent">
@@ -147,7 +147,7 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                           <div class="urgentSeparator"></div>
                           <div id="urgentDeadlineContainer" class="urgentDeadlineContainer">
                               <p id="urgentDeadline" style="${isDueDateInThePast ? 'color: red;' : ''}">${closestDueDate}</p>
-                              <span style="${isDueDateInThePast ? 'color: red;' : ''}">${isDueDateInThePast ? 'Deadline missed: Date is in the past' : 'Upcoming Deadline'}</span>
+                              <span style="${isDueDateInThePast ? 'color: red;' : ''}">${isDueDateInThePast ? 'Deadline missed:<br> Date is in the past' : 'Upcoming Deadline'}</span>
                           </div>
                       </div>
   
