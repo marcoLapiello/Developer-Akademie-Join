@@ -1,4 +1,4 @@
-.privacyText {
+.helpDescription, step {
     max-width: 1920px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -17,7 +17,7 @@
 }
 
 @media (max-width: $breakpoint-lg){
-    .privacyText{
+    .helpDescription{
         height: calc(100dvh - 150px);
         padding-left: 25px;
         padding-right: 25px;
