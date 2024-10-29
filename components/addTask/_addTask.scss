@@ -9,6 +9,18 @@
   }
 }
 
+.marginMinusFourteenPx {
+  margin-bottom: -14px;
+}
+
+.addTaskValidationWarning {
+  line-height: 14px;
+  span {
+    color: red;
+    font-size: 12px;
+  }
+}
+
 .addTaskContainer {
   // max-width: calc(1920px - 232px);
   width: 100%;

@@ -10,10 +10,16 @@ export function getLogInTemplate() {
         <div class="blueUnderlineDiv"></div>
       </div>
       <div class="logInInputArea">
+
+      <div class="marginMinusFourteenPx">
         <input id="logInInputEmail" class="inputEmail" type="email" placeholder="Email" />
-        <div><span id="logInInputEmailWarning"></span>&nbsp;</div>
+        <div class="addTaskValidationWarning"><span id="logInInputEmailWarning"></span>&nbsp;</div>
+      </div>
+      <div class="marginMinusFourteenPx">
         <input id="logInInputPassword" class="inputPassword" type="password" placeholder="Password" />
-        <div><span id="logInInputPasswordWarning"></span>&nbsp;</div>
+        <div class="addTaskValidationWarning"><span id="logInInputPasswordWarning"></span>&nbsp;</div>
+      </div>
+
         <div class="checkToRememberBox">
           <input id="checkboxRememberMe" class="checkboxRememberMe" type="checkbox" />
           <p>Remember me</p>
@@ -42,19 +48,32 @@ export function getSignUpTemplate() {
               <div class="blueUnderlineDiv"></div>
             </div>
             <div class="signUpInputArea">
+
+            <div class="marginMinusFourteenPx">
               <input id="signUpInputName" class="inputName" type="text" placeholder="Name" />
-              <div><span id="signUpInputNameWarning"></span>&nbsp;</div>
+              <div class="addTaskValidationWarning"><span id="signUpInputNameWarning"></span>&nbsp;</div>
+            </div>
+            <div class="marginMinusFourteenPx">
               <input id="signUpInputEmail" class="inputEmail" type="email" placeholder="Email" />
-              <div><span id="signUpInputEmailWarning"></span>&nbsp;</div>
+              <div class="addTaskValidationWarning"><span id="signUpInputEmailWarning"></span>&nbsp;</div>
+            </div>
+            <div class="marginMinusFourteenPx">
               <input id="signUpInputPassword" class="inputPassword" type="password" placeholder="Password" />
-              <div><span id="signUpInputPasswordWarning"></span>&nbsp;</div>
+              <div class="addTaskValidationWarning"><span id="signUpInputPasswordWarning"></span>&nbsp;</div>
+            </div>
+            <div class="marginMinusFourteenPx">
               <input id="signUpInputPasswordRepeat" class="inputPassword" type="password" placeholder="Password" />
-              <div><span id="signUpInputPasswordRepeatWarning"></span>&nbsp;</div>
+              <div class="addTaskValidationWarning"><span id="signUpInputPasswordRepeatWarning"></span>&nbsp;</div>
+            </div>
+            <div class="marginMinusFourteenPx checkToRememberContainer">
               <div class="checkToRememberBox">
                 <input id="privacyPolicyCheckBox" class="checkboxRememberMe" type="checkbox" />
                 <p>I accept the</p>
                 <a href="./privacyPolicy.html">Privacy policy</a>
               </div>
+              <div class="addTaskValidationWarning"><span id="checkBoxWarning">You have to read and accept our Privacy Policy</span>&nbsp;</div>
+            </div>
+
             </div>
             <div class="logInBtnBox">
               <button onclick="signUpNewUser()" id="signUpBtn" class="signUpBtn">Sign up</button>
