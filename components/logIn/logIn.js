@@ -58,10 +58,29 @@ export function doGuestLogIn() {
   window.location.href = "../summary.html";
 }
 
-export function logInRegistratedUser() {
-  toggleRememberMe();
-  setUserLoggedInDataToLocalStorage();
-  // window.location.href = "../summary.html";
+export async function logInRegistratedUser() {
+  let isLogInComparisionOK = await compareLogInData();
+  if (isLogInComparisionOK) {
+    toggleRememberMe();
+    setUserLoggedInDataToLocalStorage();
+    window.location.href = "../summary.html";
+  } else {
+    console.log("log in data are not ok !!!");
+    return;
+  }
+}
+
+async function compareLogInData() {
+  let usersArray = await loadUsers();
+  let logInEmail = document.getElementById("logInInputEmail").value;
+  let logInPassword = document.getElementById("logInInputPassword").value;
+  let isComparisionOK = false;
+  usersArray.forEach((element) => {
+    if (element[1].profile.email === logInEmail && element[1].password === logInPassword) {
+      isComparisionOK = true;
+    }
+  });
+  return isComparisionOK;
 }
 
 function setUserLoggedInDataToLocalStorage() {
