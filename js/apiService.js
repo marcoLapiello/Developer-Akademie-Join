@@ -1,4 +1,8 @@
 /**
+ * @module "apiService.js"
+ */
+
+/**
  * The base URL for the Firebase Realtime Database.
  *
  * @constant {string}
@@ -108,9 +112,7 @@ async function deleteUserData(id) {
   let response = await fetch(baseUrl + path + ".json", {
     method: "DELETE",
   });
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
+  if (!response.ok) throw new Error("Network response was not ok");
 }
 
 /**
@@ -135,9 +137,7 @@ export async function patchNewUser(userObject) {
     },
     body: JSON.stringify(newUser),
   });
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
+  if (!response.ok) throw new Error("Network response was not ok");
   return id;
 }
 
@@ -159,9 +159,7 @@ export async function editExistingUser(id, user) {
       },
       body: JSON.stringify(editedUserProfil),
     });
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+    if (!response.ok) throw new Error("Network response was not ok");
     selectedUser(id, true);
     hideEditChosenUserDialog();
     editUserFeedback();
@@ -178,9 +176,7 @@ export async function editExistingUser(id, user) {
  */
 export async function loadUsers() {
   let response = await fetch(baseUrl + "user" + ".json");
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
+  if (!response.ok) throw new Error("Network response was not ok");
   let responseAsJson = await response.json();
   let users = Object.entries(responseAsJson);
   return users;
