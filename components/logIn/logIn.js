@@ -4,7 +4,7 @@ import { getRandomUserColor } from "../contactModal/contactModal.js";
 
 import { loadUsers, patchNewUser } from "../../js/apiService.js";
 
-export function getLogInTemplate() {
+export function getLogInTemplate(email, password) {
   return /*html*/ `
     <div class="logInTemplate">
       <div class="logInTextBox">
@@ -14,11 +14,13 @@ export function getLogInTemplate() {
       <div class="logInInputArea">
 
       <div class="marginMinusFourteenPx">
-        <input id="logInInputEmail" class="inputEmail" type="email" placeholder="Email" />
+        <input id="logInInputEmail" class="inputEmail" type="email" placeholder="Email" 
+        ${email ? `value="${email}"` : ""}/>
         <div class="addTaskValidationWarning"><span id="logInInputEmailWarning"></span>&nbsp;</div>
       </div>
       <div class="marginMinusFourteenPx">
-        <input id="logInInputPassword" class="inputPassword" type="password" placeholder="Password" />
+        <input id="logInInputPassword" class="inputPassword" type="password" placeholder="Password" 
+        ${password ? `value="${password}"` : ""}/>
         <div class="addTaskValidationWarning"><span id="logInInputPasswordWarning"></span>&nbsp;</div>
       </div>
 
@@ -82,10 +84,10 @@ export function getSignUpTemplate() {
   `;
 }
 
-export function renderLogInTemplate() {
+export function renderLogInTemplate(email, password) {
   let logInRenderContainerRef = document.getElementById("logInRenderContainer");
   logInRenderContainerRef.innerHTML = "";
-  logInRenderContainerRef.innerHTML = getLogInTemplate();
+  logInRenderContainerRef.innerHTML = getLogInTemplate(email, password);
 }
 
 export function renderSignUpTemplate() {
@@ -185,27 +187,24 @@ export async function signUpNewUser() {
     console.log("user is still registrated");
     return;
   }
-  let newUser = getNewUserData();
-  await patchNewUser(newUser)
-
-  // -> patch data to firebase
-  // -> give login data to loginTemplate
-
-  // console.log(getNewUserData());
+  await patchNewUser(getNewUserData());
   userFeedbackAfterSignUp();
   setTimeout(() => {
-    // goToLogInPage();
+    renderLogInWithData();
   }, 1150);
+}
+
+function renderLogInWithData() {
+  let newUser = getNewUserData();
+  let email = newUser.profile.email;
+  let password = newUser.password;
+  renderLogInTemplate(email, password);
 }
 
 async function compareSignUpWithUsers() {
   let usersArray = await loadUsers();
   let newUser = getNewUserData();
   let isComparisionOK = true;
-  console.log(usersArray);
-  console.log(newUser);
-  
-  
   usersArray.forEach((element) => {
     if (element[1].profile.email == newUser.profile.email) {
       isComparisionOK = false;
