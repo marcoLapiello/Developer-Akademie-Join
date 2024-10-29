@@ -40,8 +40,7 @@ export function renderSidebar() {
  * @returns {string} The HTML template for the sidebar.
  */
 function renderSidebarTemplate() {
-  return /*html*/ `
-    
+  return /*html*/ `    
       <div class="sidebarUpperPart">
         <img class= "joinLogo"  src="./assets/icons/joinLogo.png" />
         <div class="sidebar-Block">
@@ -51,7 +50,6 @@ function renderSidebarTemplate() {
           <a class="${urlPath === "/contacts.html" ? "active" : ""}" href="./contacts.html">${returnIcon("contacts")}Contacts</a>
         </div>
       </div>
-
       <div id="information">
         <a class="${urlPath === "/privacyPolicy.html" ? "active" : ""}" id="privacyPolicy" href="./privacyPolicy.html">Privacy Policy</a>
         <a class="${urlPath === "/legalNotice.html" ? "active" : ""}" id="legalNotice" href="./legalNotice.html">Legal Notice</a>
