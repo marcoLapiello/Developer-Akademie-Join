@@ -41,8 +41,6 @@ window.patchNewTask = patchNewTask;
 window.deleteExistungTask = deleteExistungTask;
 
 import {
-  getLogInTemplate,
-  getSignUpTemplate,
   signUpNewUser,
   renderLogInTemplate,
   renderSignUpTemplate,
@@ -55,8 +53,6 @@ import {
   getUserLogInDataFromLocalStorage,
   getNewUserData,
 } from "../components/logIn/logIn.js";
-window.getLogInTemplate = getLogInTemplate;
-window.getSignUpTemplate = getSignUpTemplate;
 window.signUpNewUser = signUpNewUser;
 window.renderLogInTemplate = renderLogInTemplate;
 window.renderSignUpTemplate = renderSignUpTemplate;
