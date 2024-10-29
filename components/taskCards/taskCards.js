@@ -182,7 +182,8 @@ function renderCardsMenuTemplate(currentStatus) {
 function renderCardsTemplate(task, assignedUsers) {
   return /*html*/ `
   <div class="cardsContainer" id="cardsContainer">
-    <div onclick="renderTaskDetailView('${task.id}')" draggable="true" ondragstart="startDragging('${task.id}')" id="${task.id}" class="card"> 
+    <div onclick="renderTaskDetailView('${task.id}')" draggable="true" ondragstart="startDragging('${task.id}')" id="${task.id}" class="card" 
+      ${task.status !== "done" && task.dueDate < new Date().toISOString().slice(0, 10) ? "style='border: 2px solid red;'" : ""}>
         <div class="taskHeader">
           <div class="category" style="background-color: ${task.categoryColor}">${task.category}</div>
           <button onclick="toggleMobileMenu(event,'${task.id}')" class="moveToButton">${returnIcon("dots")}</button>
