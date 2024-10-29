@@ -64,7 +64,10 @@ export async function logInRegistratedUser() {
   if (isLogInComparisionOK) {
     toggleRememberMe();
     setUserIDToLocalStorage();
-    window.location.href = "../summary.html";
+    setTimeout(() => {
+      // setTimeout is needed to wait for the local storage to be set
+      window.location.href = "../summary.html";
+    }, 100);
   } else {
     console.log("log in data are not ok !!!");
     return;
