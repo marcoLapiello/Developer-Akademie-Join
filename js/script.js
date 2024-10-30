@@ -196,7 +196,10 @@ import {
   getUserLogInDataFromLocalStorage,
   getNewUserData,
   enableLogInButton,
-  enableSignUpButton
+  enableSignUpButton,
+  setBorderColorBlue,
+  setBorderColorGrey,
+  removeValidationWarning,
 } from "../components/logIn/logIn.js";
 
 /**
@@ -215,6 +218,9 @@ import {
  * @function getNewUserData - Retrieves new user data.
  * @function enableLogInButton - Enables Log In Button after entering email and password
  * @function enableSignUpButton - Enables Sign Up Button after entering all input fields
+ * @function setBorderColorBlue -
+ * @function setBorderColorGrey -
+ * @function removeValidationWarning -
  */
 window.signUpNewUser = signUpNewUser;
 window.renderLogInTemplate = renderLogInTemplate;
@@ -229,6 +235,9 @@ window.getUserLogInDataFromLocalStorage = getUserLogInDataFromLocalStorage;
 window.getNewUserData = getNewUserData;
 window.enableLogInButton = enableLogInButton;
 window.enableSignUpButton = enableSignUpButton;
+window.setBorderColorBlue = setBorderColorBlue;
+window.setBorderColorGrey = setBorderColorGrey;
+window.removeValidationWarning = removeValidationWarning;
 
 /**
  * Imports various functions for handling tasks and subtasks.
@@ -606,3 +615,10 @@ function userLogOut() {
   window.location.href = "../index.html";
 }
 window.userLogOut = userLogOut;
+
+
+function backToLastSite(){
+  window.history.back();
+}
+
+window.backToLastSite = backToLastSite;

@@ -47,19 +47,35 @@ export function getSignUpTemplate() {
             </div>
             <div class="signUpInputArea">
             <div class="marginMinusFourteenPx">
-              <input oninput="enableSignUpButton()" id="signUpInputName" class="inputName" type="text" placeholder="Name" />
+              <input oninput="enableSignUpButton();
+                              removeValidationWarning('signUpInputName', 'signUpInputNameWarning')" 
+                     onfocus="setBorderColorBlue('signUpInputName')" 
+                     onblur="setBorderColorGrey('signUpInputName', 'signUpInputNameWarning')" 
+                     id="signUpInputName" class="inputName" type="text" placeholder="Name" />
               <div class="addTaskValidationWarning"><span id="signUpInputNameWarning"></span>&nbsp;</div>
             </div>
             <div class="marginMinusFourteenPx">
-              <input oninput="enableSignUpButton()" id="signUpInputEmail" class="inputEmail" type="email" placeholder="Email" />
+              <input oninput="enableSignUpButton()
+                            removeValidationWarning('signUpInputEmail', 'signUpInputEmailWarning')" 
+                     onfocus="setBorderColorBlue('signUpInputEmail')"
+                     onblur="setBorderColorGrey('signUpInputEmail', 'signUpInputEmailWarning')" 
+                     id="signUpInputEmail" class="inputEmail" type="email" placeholder="Email" />
               <div class="addTaskValidationWarning"><span id="signUpInputEmailWarning"></span>&nbsp;</div>
             </div>
             <div class="marginMinusFourteenPx">
-              <input oninput="enableSignUpButton()" id="signUpInputPassword" class="inputPassword" type="password" placeholder="Password" />
+              <input oninput="enableSignUpButton()
+                              removeValidationWarning('signUpInputPassword', 'signUpInputPasswordWarning')"
+                    onfocus="setBorderColorBlue('signUpInputPassword')"
+                    onblur="setBorderColorGrey('signUpInputPassword', 'signUpInputPasswordWarning')"
+                     id="signUpInputPassword" class="inputPassword" type="password" placeholder="Password" />
               <div class="addTaskValidationWarning"><span id="signUpInputPasswordWarning"></span>&nbsp;</div>
             </div>
             <div class="marginMinusFourteenPx">
-              <input oninput="enableSignUpButton()" id="signUpInputPasswordRepeat" class="inputPassword" type="password" placeholder="Password" />
+              <input oninput="enableSignUpButton()
+                              removeValidationWarning('signUpInputPasswordRepeat', 'signUpInputPasswordRepeatWarning')" 
+                     onfocus="setBorderColorBlue('signUpInputPasswordRepeat')"
+                     onblur="setBorderColorGrey('signUpInputPasswordRepeat', 'signUpInputPasswordRepeatWarning')"
+                      id="signUpInputPasswordRepeat" class="inputPassword" type="password" placeholder="Password" />
               <div class="addTaskValidationWarning"><span id="signUpInputPasswordRepeatWarning"></span>&nbsp;</div>
             </div>
             <div class="marginMinusFourteenPx checkToRememberContainer">
