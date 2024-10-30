@@ -8,12 +8,12 @@ export function getLogInTemplate(email, password) {
       <div class="logInInputArea">
 
       <div class="marginMinusFourteenPx">
-        <input id="logInInputEmail" class="inputEmail" type="email" placeholder="Email" 
+        <input id="logInInputEmail" class="inputEmail" oninput="enableLogInButton()" type="email" placeholder="Email" 
         ${email ? `value="${email}"` : ""}/>
         <div class="addTaskValidationWarning"><span id="logInInputEmailWarning"></span>&nbsp;</div>
       </div>
       <div class="marginMinusFourteenPx">
-        <input id="logInInputPassword" class="inputPassword" type="password" placeholder="Password" 
+        <input id="logInInputPassword" class="inputPassword" oninput="enableLogInButton()" type="password" placeholder="Password" 
         ${password ? `value="${password}"` : ""}/>
         <div class="addTaskValidationWarning"><span id="logInInputPasswordWarning"></span>&nbsp;</div>
       </div>
@@ -24,7 +24,7 @@ export function getLogInTemplate(email, password) {
         </div>
       </div>
       <div class="logInBtnBox">
-        <button onclick="logInRegistratedUser()" class="logInBtn buttonDisabled" disabled>Log in</button>
+        <button onclick="logInRegistratedUser()" id="logInBtn" class="logInBtn buttonDisabled" disabled>Log in</button>
         <button onclick="doGuestLogIn()" class="guestLogInBtn">Guest Log In</button>
       </div>
     </div>

@@ -55,9 +55,18 @@ export function goToLogInPage() {
 
 // log in User functions
 export function enableLogInButton() {
-  let emailInput = document.getElementById("").value; 
-  let PasswordInput = document.getElementById("").value;
+  let emailInput = document.getElementById("logInInputEmail").value;
+  let passwordInput = document.getElementById("logInInputPassword").value;
+  let logInBtnRef = document.getElementById("logInBtn");
+  if (emailInput.length > 0 && passwordInput.length > 0) {
+    logInBtnRef.classList.remove("buttonDisabled");
+    logInBtnRef.disabled = false;
+  }else {
+    logInBtnRef.classList.add("buttonDisabled");
+    logInBtnRef.disabled = true;
+  }
 }
+
 
 export function doGuestLogIn() {
   setGuestAsLoggedInToLocalStorage();
