@@ -60,9 +60,6 @@ export function goToLogInPage() {
 export function enableLogInButton() {
   let emailInput = document.getElementById("logInInputEmail").value;
   let passwordInput = document.getElementById("logInInputPassword").value;
-  console.log(emailInput);
-  console.log(passwordInput);
-
   let logInBtnRef = document.getElementById("logInBtn");
   if (emailInput && passwordInput) {
     logInBtnRef.classList.remove("buttonDisabled");
@@ -425,3 +422,11 @@ export function removeValidationWarning(inputId, warningId) {
     return;
   }
 }
+
+export function goToPrivacyLegal(site) {
+  window.location.href = `./${site}.html`;
+  document.getElementById("sidebarBlock").classList.add("d_none");
+}
+
+// privacyPolicy
+// legalNotice
