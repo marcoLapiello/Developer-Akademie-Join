@@ -44,15 +44,19 @@ async function sortUsers() {
 }
 
 /**
- * Groups users by the first letter of their first name.
+ * Groups users by the first letter of their first name after sorting and filtering them.
  *
- * This function sorts users and then groups them into an object where each key is the first letter
- * of the user's first name (in uppercase), and the value is an array of users whose first names start with that letter.
+ * This function first sorts the users using the `sortUsers` function, then filters out users
+ * whose password is an empty string. It then groups the users by the first letter of their
+ * first name (case-insensitive) and returns an object where the keys are the first letters
+ * and the values are arrays of users.
  *
- * @returns {Promise<Object>} A promise that resolves to an object where keys are uppercase letters and values are arrays of users.
+ * @returns {Promise<Object>} A promise that resolves to an object where keys are the first
+ * letters of users' first names and values are arrays of users.
  */
 async function groupedUsers() {
   let sortedUsersArray = await sortUsers();
+  sortedUsersArray = sortedUsersArray.filter((user) => user[1].password === "");
   let groupedUsersObjekt = {};
   sortedUsersArray.forEach((user) => {
     const firstLetter = user[1].profile.first_name.toUpperCase().charAt(0);
