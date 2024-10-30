@@ -1,10 +1,37 @@
 const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebasedatabase.app/";
 
-export function initSummary() {
-  renderSummary();
+export async function initSummary() {
+  let [
+    currentTasksAmount,
+    urgentTasksAmount,
+    toDoAmount,
+    inProgressAmount,
+    awaitFeedbackAmount,
+    doneAmount,
+    closestDueDate,
+    isDueDateInThePast,
+    welcomeMessage,
+    loggedInUser
+  ] = await getSummaryData();
+  const previousPage = sessionStorage.get
+  if (window.innerWidth <= 1400 && document.referrer.includes("index.html")) {
+    showWelcomeMessageInMobile(welcomeMessage, loggedInUser);
+  }
+  renderSummary(currentTasksAmount,
+    urgentTasksAmount,
+    toDoAmount,
+    inProgressAmount,
+    awaitFeedbackAmount,
+    doneAmount,
+    closestDueDate,
+    isDueDateInThePast,
+    welcomeMessage,
+    loggedInUser
+  );
+  
 }
 
-async function renderSummary() {
+async function getSummaryData() {
   let tasks = await loadTasks();
   let currentTasksAmount = tasks.length;
   let urgentTasksAmount = getUrgentTasksAmount(tasks);
@@ -12,6 +39,33 @@ async function renderSummary() {
   let [toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount] = getEveryStatusAmount(tasks);
   let welcomeMessage = getWelcomeMessage();
   let loggedInUser = await getLoggedInUser();
+
+  return [
+    currentTasksAmount,
+    urgentTasksAmount,
+    toDoAmount,
+    inProgressAmount,
+    awaitFeedbackAmount,
+    doneAmount,
+    closestDueDate,
+    isDueDateInThePast,
+    welcomeMessage,
+    loggedInUser,
+  ];
+}
+
+async function renderSummary(
+  currentTasksAmount,
+  urgentTasksAmount,
+  toDoAmount,
+  inProgressAmount,
+  awaitFeedbackAmount,
+  doneAmount,
+  closestDueDate,
+  isDueDateInThePast,
+  welcomeMessage,
+  loggedInUser
+) {
   document.getElementById("summaryContent").innerHTML = getSummaryTemplate(
     currentTasksAmount,
     urgentTasksAmount,
@@ -32,8 +86,10 @@ async function getLoggedInUser() {
   const convertedLoggedInUserData = JSON.parse(loggedInUserData);
   let loggedInUserName = "";
   for (let index = 0; index < users.length; index++) {
-    if (users[index][1].id === convertedLoggedInUserData.userID) {
+    if (loggedInUserData && users[index][1].id === convertedLoggedInUserData.userID) {
       loggedInUserName = users[index][1].profile.first_name + " " + users[index][1].profile.last_name;
+    } else if (!convertedLoggedInUserData.userID) {
+      loggedInUserName = "Dear Guest";
     }
   }
   return loggedInUserName;
@@ -131,6 +187,15 @@ function getWelcomeMessage() {
   return welcomeMessage;
 }
 
+function showWelcomeMessageInMobile(welcomeMessage, loggedInUser) {
+  document.getElementById("dynamicWelcome").innerHTML = welcomeMessage;
+  document.getElementById("dynamicUser").innerHTML = loggedInUser;
+  document.getElementById("summaryWelcomeMessageMobile").classList.remove("d_none");
+  setTimeout(() => {
+    document.getElementById("summaryWelcomeMessageMobile").classList.add("d_none");
+  }, 2000);
+}
+
 async function loadTasks() {
   let response = await fetch(baseUrl + "tasks" + ".json");
   if (!response.ok) {
@@ -142,13 +207,22 @@ async function loadTasks() {
   return tasks;
 }
 
-function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage, loggedInUser) {
-    return /*html*/ `
+function getSummaryTemplate(
+  currentTasksAmount,
+  urgentTasksAmount,
+  toDoAmount,
+  inProgressAmount,
+  awaitFeedbackAmount,
+  doneAmount,
+  closestDueDate,
+  isDueDateInThePast,
+  welcomeMessage,
+  loggedInUser
+) {
+  return /*html*/ `
+              
           <div id="summaryWrapper" class="summaryWrapper">
-              <div id="summaryWelcomeMessageMobile" class="summaryWelcomeMessageMobile">
-                <h2 id="dynamicWelcome">${welcomeMessage}</h2>
-                <h1 id="dynamicUser">${loggedInUser}</h1>
-              </div>
+              
           
   
               <div id="summaryHeadline" class="summaryHeadline">
@@ -183,7 +257,9 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                         </div>
                       </div>
   
-                      <div onclick="redirectToBoard()" id="statusSecondLine" class="statusSecondLine" style = "${isDueDateInThePast ? 'border: 2px solid red;' : ''}">
+                      <div onclick="redirectToBoard()" id="statusSecondLine" class="statusSecondLine" style = "${
+                        isDueDateInThePast ? "border: 2px solid red;" : ""
+                      }">
                           <div id="urgentAmountWrapper" class="urgentAmountWrapper">
                               <div id="" class="iconContainer">
                                   <img src="./assets/icons/urgent_Icon_white_big.png" alt="">
@@ -195,8 +271,10 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                           </div>
                           <div class="urgentSeparator"></div>
                           <div id="urgentDeadlineContainer" class="urgentDeadlineContainer">
-                              <p id="urgentDeadline" style="${isDueDateInThePast ? 'color: red;' : ''}">${closestDueDate}</p>
-                              <span style="${isDueDateInThePast ? 'color: red;' : ''}">${isDueDateInThePast ? 'Deadline missed' : 'Upcoming Deadline'}</span>
+                              <p id="urgentDeadline" style="${isDueDateInThePast ? "color: red;" : ""}">${closestDueDate}</p>
+                              <span style="${isDueDateInThePast ? "color: red;" : ""}">${
+    isDueDateInThePast ? "Deadline missed" : "Upcoming Deadline"
+  }</span>
                           </div>
                       </div>
   
