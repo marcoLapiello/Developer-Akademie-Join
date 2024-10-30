@@ -11,6 +11,7 @@ export function renderLogInTemplate(email, password) {
   let logInRenderContainerRef = document.getElementById("logInRenderContainer");
   logInRenderContainerRef.innerHTML = "";
   logInRenderContainerRef.innerHTML = getLogInTemplate(email, password);
+  enableLogInButton();
 }
 
 export function renderSignUpTemplate() {
