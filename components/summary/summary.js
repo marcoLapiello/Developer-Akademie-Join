@@ -145,6 +145,11 @@ async function loadTasks() {
 function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage, loggedInUser) {
     return /*html*/ `
           <div id="summaryWrapper" class="summaryWrapper">
+              <div id="summaryWelcomeMessageMobile" class="summaryWelcomeMessageMobile">
+                <h2 id="dynamicWelcome">${welcomeMessage}</h2>
+                <h1 id="dynamicUser">${loggedInUser}</h1>
+              </div>
+          
   
               <div id="summaryHeadline" class="summaryHeadline">
                   <h1>Join 360</h1>
@@ -157,25 +162,25 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                   <div id="summaryTasksStatus" class="summaryTasksStatus">
                       <div id="statusFirstLine" class="statusFirstLine">
   
-                          <div onclick="redirectToBoard()" id="toDoWrapper" class="toDoWrapper">
-                              <div id="" class="iconContainer">
-                                  <img src="./assets/icons/pencil_white.png" alt="">
-                              </div>
-                              <div id="" class="amountContainer">
-                                  <p id="amountToDo" class="amount">${toDoAmount}</p>
-                                  <span>To-do</span>
-                              </div>
-                          </div>
-  
-                          <div onclick="redirectToBoard()" id="DoneWrapper" class="toDoWrapper">
-                              <div id="" class="iconContainer">
-                                  <img src="./assets/icons/check_white_fat.png" alt="">
-                              </div>
-                              <div id="" class="amountContainer">
-                                  <p id="amountDone" class="amount">${doneAmount}</p>
-                                  <span>Done</span>
-                              </div>
-                          </div>
+                        <div onclick="redirectToBoard()" id="toDoWrapper" class="toDoWrapper">
+                            <div id="" class="iconContainer">
+                                <img src="./assets/icons/pencil_white.png" alt="">
+                            </div>
+                            <div id="" class="amountContainer">
+                                <p id="amountToDo" class="amount">${toDoAmount}</p>
+                                <span>To-do</span>
+                            </div>
+                        </div>
+
+                        <div onclick="redirectToBoard()" id="DoneWrapper" class="toDoWrapper">
+                            <div id="" class="iconContainer">
+                                <img src="./assets/icons/check_white_fat.png" alt="">
+                            </div>
+                            <div id="" class="amountContainer">
+                                <p id="amountDone" class="amount">${doneAmount}</p>
+                                <span>Done</span>
+                            </div>
+                        </div>
                       </div>
   
                       <div onclick="redirectToBoard()" id="statusSecondLine" class="statusSecondLine" style = "${isDueDateInThePast ? 'border: 2px solid red;' : ''}">
