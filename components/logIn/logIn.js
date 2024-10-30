@@ -11,7 +11,9 @@ export function renderLogInTemplate(email, password) {
   let logInRenderContainerRef = document.getElementById("logInRenderContainer");
   logInRenderContainerRef.innerHTML = "";
   logInRenderContainerRef.innerHTML = getLogInTemplate(email, password);
-  enableLogInButton();
+  setTimeout(() => {
+    enableLogInButton();
+  }, 100);
 }
 
 export function renderSignUpTemplate() {
@@ -58,6 +60,9 @@ export function goToLogInPage() {
 export function enableLogInButton() {
   let emailInput = document.getElementById("logInInputEmail").value;
   let passwordInput = document.getElementById("logInInputPassword").value;
+  console.log(emailInput);
+  console.log(passwordInput);
+
   let logInBtnRef = document.getElementById("logInBtn");
   if (emailInput && passwordInput) {
     logInBtnRef.classList.remove("buttonDisabled");
