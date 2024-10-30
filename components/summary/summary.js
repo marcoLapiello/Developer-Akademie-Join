@@ -10,6 +10,8 @@ async function renderSummary() {
   let urgentTasksAmount = getUrgentTasksAmount(tasks);
   let [closestDueDate, isDueDateInThePast] = getClosestDueDate(tasks);
   let [toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount] = getEveryStatusAmount(tasks);
+  let welcomeMessage = getWelcomeMessage();
+  
   document.getElementById("summaryContent").innerHTML = getSummaryTemplate(
     currentTasksAmount,
     urgentTasksAmount,
@@ -18,7 +20,8 @@ async function renderSummary() {
     awaitFeedbackAmount,
     doneAmount,
     closestDueDate,
-    isDueDateInThePast
+    isDueDateInThePast,
+    welcomeMessage
   );
 }
 
@@ -87,6 +90,22 @@ function getUrgentTasksAmount(tasks) {
   return currentTasksAmount;
 }
 
+function getWelcomeMessage() {
+  let welcomeMessage = "";
+  const currentDate = new Date();
+  const currentDailyHour = currentDate.getHours();
+  if (currentDailyHour >= 5 && currentDailyHour <= 11) {
+    welcomeMessage = "Good morning,";
+  } else if (currentDailyHour >= 12 && currentDailyHour <= 17) {
+    welcomeMessage = "Good afternoon,";
+  } else if (currentDailyHour >= 18 && currentDailyHour <= 22) {
+    welcomeMessage = "Good evening,";
+  } else if (currentDailyHour > 22 || currentDailyHour < 5) {
+    welcomeMessage = "Good night,";
+  }
+  return welcomeMessage;
+}
+
 async function loadTasks() {
   let response = await fetch(baseUrl + "tasks" + ".json");
   if (!response.ok) {
@@ -98,7 +117,7 @@ async function loadTasks() {
   return tasks;
 }
 
-function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast) {
+function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage) {
     return /*html*/ `
           <div id="summaryWrapper" class="summaryWrapper">
   
@@ -113,7 +132,7 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                   <div id="summaryTasksStatus" class="summaryTasksStatus">
                       <div id="statusFirstLine" class="statusFirstLine">
   
-                          <div id="toDoWrapper" class="toDoWrapper">
+                          <div onclick="redirectToBoard()" id="toDoWrapper" class="toDoWrapper">
                               <div id="" class="iconContainer">
                                   <img src="./assets/icons/pencil_white.png" alt="">
                               </div>
@@ -123,7 +142,7 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                               </div>
                           </div>
   
-                          <div id="DoneWrapper" class="toDoWrapper">
+                          <div onclick="redirectToBoard()" id="DoneWrapper" class="toDoWrapper">
                               <div id="" class="iconContainer">
                                   <img src="./assets/icons/check_white_fat.png" alt="">
                               </div>
@@ -134,7 +153,7 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                           </div>
                       </div>
   
-                      <div id="statusSecondLine" class="statusSecondLine" style = "${isDueDateInThePast ? 'border: 2px solid red;' : ''}">
+                      <div onclick="redirectToBoard()" id="statusSecondLine" class="statusSecondLine" style = "${isDueDateInThePast ? 'border: 2px solid red;' : ''}">
                           <div id="urgentAmountWrapper" class="urgentAmountWrapper">
                               <div id="" class="iconContainer">
                                   <img src="./assets/icons/urgent_Icon_white_big.png" alt="">
@@ -152,15 +171,15 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
                       </div>
   
                       <div id="statusThirdLine" class="statusThirdLine">
-                          <div id="" class="amountContainer">
+                          <div onclick="redirectToBoard()" id="" class="amountContainer">
                               <p id="amountUrgent" class="amount">${currentTasksAmount}</p>
                               <span>Tasks in Board</span>
                           </div>
-                          <div id="" class="amountContainer">
+                          <div onclick="redirectToBoard()" id="" class="amountContainer">
                               <p id="amountUrgent" class="amount">${inProgressAmount}</p>
                               <span>Tasks In Progress</span>
                           </div>
-                          <div id="" class="amountContainer">
+                          <div onclick="redirectToBoard()" id="" class="amountContainer">
                               <p id="amountUrgent" class="amount">${awaitFeedbackAmount}</p>
                               <span>Awaiting Feedback</span>
                           </div>
@@ -169,10 +188,14 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
   
   
                   <div id="summaryWelcomeMessage" class="summaryWelcomeMessage">
-                      <h2 id="dynamicWelcome">Good morning,</h2>
+                      <h2 id="dynamicWelcome">${welcomeMessage}</h2>
                       <h1 id="dynamicUser">complete your Function!!</h1>
                   </div>
               </div>
           </div>
       `;
+}
+
+export function redirectToBoard() {
+  window.location.href = "./board.html";
 }
