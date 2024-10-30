@@ -11,7 +11,7 @@ async function renderSummary() {
   let [closestDueDate, isDueDateInThePast] = getClosestDueDate(tasks);
   let [toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount] = getEveryStatusAmount(tasks);
   let welcomeMessage = getWelcomeMessage();
-  
+  // let loggedInUser = getLoggedInUser();
   document.getElementById("summaryContent").innerHTML = getSummaryTemplate(
     currentTasksAmount,
     urgentTasksAmount,
@@ -23,6 +23,26 @@ async function renderSummary() {
     isDueDateInThePast,
     welcomeMessage
   );
+}
+
+async function getLoggedInUser() {
+  const users = await loadUsers();
+  console.log(users);
+  for (let index = 0; index < users.length; index++) {
+    const element = array[index];
+    
+  }
+}
+
+async function loadUsers() {
+  let response = await fetch(baseUrl + "user" + ".json");
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  let responseAsJson = await response.json();
+  let users = Object.entries(responseAsJson);
+
+  return users;
 }
 
 function getClosestDueDate(tasks) {
