@@ -1,3 +1,10 @@
+/**
+ * Generates the HTML template for the login form.
+ *
+ * @param {string} email - The email address to pre-fill in the email input field.
+ * @param {string} password - The password to pre-fill in the password input field.
+ * @returns {string} The HTML template string for the login form.
+ */
 export function getLogInTemplate(email, password) {
   return /*html*/ `
     <div class="logInTemplate">
@@ -31,6 +38,18 @@ export function getLogInTemplate(email, password) {
   `;
 }
 
+/**
+ * Generates the HTML template for the sign-up page.
+ *
+ * The template includes:
+ * - A back arrow to navigate to the login page.
+ * - A title "Sign up" with an underline.
+ * - Input fields for name, email, password, and password confirmation.
+ * - A checkbox to accept the privacy policy.
+ * - A sign-up button that is initially disabled and gets enabled based on input validation.
+ *
+ * @returns {string} The HTML template for the sign-up page.
+ */
 export function getSignUpTemplate() {
   return /*html*/ `
     <div class="logInTemplate">
