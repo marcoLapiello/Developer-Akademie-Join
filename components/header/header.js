@@ -75,11 +75,11 @@ function renderHeaderTemplate(initials) {
       <div class = "headerText">
       <span>Kanban Project Management Tool</span>
       </div>
-      <div class="header-rightSide">
+      <div class="header-rightSide ${hideSidebarFromUnLogged() ? "" : "d_none"}">
         <a href="./help.html">
           <img src="./assets/icons/questionMark_small.png" alt="Help" />
         </a>
-        <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials ${hideSidebarFromUnLogged() ? "" : "d_none"}">
+        <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
           <span>${initials ? initials : "G"}</span>
           <div class="dropDown d_none" id="dropDown">
           <div class="help">
