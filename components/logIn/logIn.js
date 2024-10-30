@@ -58,15 +58,14 @@ export function enableLogInButton() {
   let emailInput = document.getElementById("logInInputEmail").value;
   let passwordInput = document.getElementById("logInInputPassword").value;
   let logInBtnRef = document.getElementById("logInBtn");
-  if (emailInput.length > 0 && passwordInput.length > 0) {
+  if (emailInput && passwordInput) {
     logInBtnRef.classList.remove("buttonDisabled");
     logInBtnRef.disabled = false;
-  }else {
+  } else {
     logInBtnRef.classList.add("buttonDisabled");
     logInBtnRef.disabled = true;
   }
 }
-
 
 export function doGuestLogIn() {
   setGuestAsLoggedInToLocalStorage();
@@ -154,6 +153,22 @@ export function getUserLogInDataFromLocalStorage() {
 }
 
 // sign up User functions
+export function enableSignUpButton() {
+  let nameInput = document.getElementById("signUpInputName").value;
+  let emailInput = document.getElementById("signUpInputEmail").value;
+  let passwordInput = document.getElementById("signUpInputPassword").value;
+  let passwordRepeatInput = document.getElementById("signUpInputPasswordRepeat").value;
+  let privacyPolicyChecked = document.getElementById("privacyPolicyCheckBox").checked;
+  let signUpBtnRef = document.getElementById("signUpBtn");
+  if (nameInput && emailInput && passwordInput && passwordRepeatInput && privacyPolicyChecked) {
+    signUpBtnRef.classList.remove("buttonDisabled");
+    signUpBtnRef.disabled = false;
+  } else {
+    signUpBtnRef.classList.add("buttonDisabled");
+    signUpBtnRef.disabled = true;
+  }
+}
+
 export async function signUpNewUser() {
   let isSignUpValidationOK = signUpCompleteValidation();
   if (!isSignUpValidationOK) {

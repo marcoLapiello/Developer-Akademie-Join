@@ -196,6 +196,7 @@ import {
   getUserLogInDataFromLocalStorage,
   getNewUserData,
   enableLogInButton,
+  enableSignUpButton
 } from "../components/logIn/logIn.js";
 
 /**
@@ -213,6 +214,7 @@ import {
  * @function getUserLogInDataFromLocalStorage - Retrieves user login data from local storage.
  * @function getNewUserData - Retrieves new user data.
  * @function enableLogInButton - Enables Log In Button after entering email and password
+ * @function enableSignUpButton - Enables Sign Up Button after entering all input fields
  */
 window.signUpNewUser = signUpNewUser;
 window.renderLogInTemplate = renderLogInTemplate;
@@ -226,6 +228,7 @@ window.toggleRememberMe = toggleRememberMe;
 window.getUserLogInDataFromLocalStorage = getUserLogInDataFromLocalStorage;
 window.getNewUserData = getNewUserData;
 window.enableLogInButton = enableLogInButton;
+window.enableSignUpButton = enableSignUpButton;
 
 /**
  * Imports various functions for handling tasks and subtasks.

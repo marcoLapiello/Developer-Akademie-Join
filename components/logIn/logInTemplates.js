@@ -47,24 +47,24 @@ export function getSignUpTemplate() {
             </div>
             <div class="signUpInputArea">
             <div class="marginMinusFourteenPx">
-              <input id="signUpInputName" class="inputName" type="text" placeholder="Name" />
+              <input oninput="enableSignUpButton()" id="signUpInputName" class="inputName" type="text" placeholder="Name" />
               <div class="addTaskValidationWarning"><span id="signUpInputNameWarning"></span>&nbsp;</div>
             </div>
             <div class="marginMinusFourteenPx">
-              <input id="signUpInputEmail" class="inputEmail" type="email" placeholder="Email" />
+              <input oninput="enableSignUpButton()" id="signUpInputEmail" class="inputEmail" type="email" placeholder="Email" />
               <div class="addTaskValidationWarning"><span id="signUpInputEmailWarning"></span>&nbsp;</div>
             </div>
             <div class="marginMinusFourteenPx">
-              <input id="signUpInputPassword" class="inputPassword" type="password" placeholder="Password" />
+              <input oninput="enableSignUpButton()" id="signUpInputPassword" class="inputPassword" type="password" placeholder="Password" />
               <div class="addTaskValidationWarning"><span id="signUpInputPasswordWarning"></span>&nbsp;</div>
             </div>
             <div class="marginMinusFourteenPx">
-              <input id="signUpInputPasswordRepeat" class="inputPassword" type="password" placeholder="Password" />
+              <input oninput="enableSignUpButton()" id="signUpInputPasswordRepeat" class="inputPassword" type="password" placeholder="Password" />
               <div class="addTaskValidationWarning"><span id="signUpInputPasswordRepeatWarning"></span>&nbsp;</div>
             </div>
             <div class="marginMinusFourteenPx checkToRememberContainer">
               <div class="checkToRememberBox">
-                <input id="privacyPolicyCheckBox" class="checkboxRememberMe" type="checkbox" />
+                <input oninput="enableSignUpButton()" id="privacyPolicyCheckBox" class="checkboxRememberMe" type="checkbox" />
                 <p>I accept the</p>
                 <a href="./privacyPolicy.html">Privacy policy</a>
               </div>
@@ -72,7 +72,7 @@ export function getSignUpTemplate() {
             </div>
             </div>
             <div class="logInBtnBox">
-              <button onclick="signUpNewUser()" id="signUpBtn" class="signUpBtn">Sign up</button>
+              <button onclick="signUpNewUser()" id="signUpBtn" class="signUpBtn buttonDisabled" disabled>Sign up</button>
             </div>
           </div>
   `;
