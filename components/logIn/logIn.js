@@ -93,14 +93,20 @@ async function compareLogInData() {
   let usersArray = await loadUsers();
   let logInEmail = document.getElementById("logInInputEmail").value;
   let logInPassword = document.getElementById("logInInputPassword").value;
+  let logInInputPasswordWarningRef = document.getElementById("logInInputPasswordWarning");
   let isComparisionOK = false;
   usersArray.forEach((element) => {
     if (element[1].profile.email === logInEmail && element[1].password === logInPassword) {
+      logInInputPasswordWarningRef.innerHTML = "";
       isComparisionOK = true;
     }
   });
+  logInInputPasswordWarningRef.innerHTML = "Email or password wrong, try again.";
   return isComparisionOK;
 }
+
+// #logInInputEmailWarning
+// #logInInputPasswordWarning
 
 async function setUserIDToLocalStorage() {
   let usersArray = await getUsersArray();
@@ -180,11 +186,11 @@ export async function signUpNewUser() {
     console.log("user is still registrated");
     return;
   }
-  // await patchNewUser(getNewUserData());
-  // userFeedbackAfterSignUp();
-  // setTimeout(() => {
-  //   renderLogInWithData();
-  // }, 1150);
+  await patchNewUser(getNewUserData());
+  userFeedbackAfterSignUp();
+  setTimeout(() => {
+    renderLogInWithData();
+  }, 1150);
 }
 
 function renderLogInWithData() {

@@ -253,7 +253,6 @@
 
       .inputPassword {
         background-image: url(/assets/icons/password.svg);
-        margin-bottom: 48px;
         &:focus {
           border: 1px solid #29abe2;
           outline: none;
@@ -264,6 +263,7 @@
         display: flex;
         gap: 8px;
         padding-left: 42px;
+        padding-top: 48px;
         align-items: center;
 
         @media (max-width: $breakpoint-lg) {
