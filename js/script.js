@@ -195,6 +195,7 @@ import {
   toggleRememberMe,
   getUserLogInDataFromLocalStorage,
   getNewUserData,
+  enableLogInButton,
 } from "../components/logIn/logIn.js";
 
 /**
@@ -211,6 +212,7 @@ import {
  * @function toggleRememberMe - Toggles the "remember me" option.
  * @function getUserLogInDataFromLocalStorage - Retrieves user login data from local storage.
  * @function getNewUserData - Retrieves new user data.
+ * @function enableLogInButton - Enables Log In Button after entering email and password
  */
 window.signUpNewUser = signUpNewUser;
 window.renderLogInTemplate = renderLogInTemplate;
@@ -223,6 +225,7 @@ window.logInRegistratedUser = logInRegistratedUser;
 window.toggleRememberMe = toggleRememberMe;
 window.getUserLogInDataFromLocalStorage = getUserLogInDataFromLocalStorage;
 window.getNewUserData = getNewUserData;
+window.enableLogInButton = enableLogInButton;
 
 /**
  * Imports various functions for handling tasks and subtasks.

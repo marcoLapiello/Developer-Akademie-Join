@@ -54,7 +54,10 @@ export function goToLogInPage() {
 }
 
 // log in User functions
-function enableLogInButton() {}
+export function enableLogInButton() {
+  let emailInput = document.getElementById("").value; 
+  let PasswordInput = document.getElementById("").value;
+}
 
 export function doGuestLogIn() {
   setGuestAsLoggedInToLocalStorage();
