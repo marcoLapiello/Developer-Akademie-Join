@@ -24,7 +24,7 @@ export function getLogInTemplate(email, password) {
         </div>
       </div>
       <div class="logInBtnBox">
-        <button onclick="logInRegistratedUser()" class="logInBtn">Log in</button>
+        <button onclick="logInRegistratedUser()" class="logInBtn" disabled>Log in</button>
         <button onclick="doGuestLogIn()" class="guestLogInBtn">Guest Log In</button>
       </div>
     </div>

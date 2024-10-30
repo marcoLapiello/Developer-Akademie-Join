@@ -54,9 +54,13 @@ export function goToLogInPage() {
 }
 
 // log in User functions
+function enableLogInButton() {}
+
 export function doGuestLogIn() {
   setGuestAsLoggedInToLocalStorage();
-  window.location.href = "../summary.html";
+  setTimeout(() => {
+    window.location.href = "../summary.html";
+  }, 100);
 }
 
 export async function logInRegistratedUser() {
@@ -96,11 +100,11 @@ async function setUserIDToLocalStorage() {
       userID = element[1].id;
     }
   });
-  localStorage.setItem("loggedInUserId", JSON.stringify({userID: `${userID}`}));
+  localStorage.setItem("loggedInUserId", JSON.stringify({ userID: `${userID}` }));
 }
 
 function setGuestAsLoggedInToLocalStorage() {
-  localStorage.setItem("loggedInUserId" ,JSON.stringify({ guest: "guest" }));
+  localStorage.setItem("loggedInUserId", JSON.stringify({ guest: "guest" }));
 }
 
 export function toggleRememberMe() {
