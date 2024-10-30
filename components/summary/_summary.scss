@@ -1,536 +1,532 @@
 .summaryWrapper {
-    background-color: rgb(246, 247, 248);
-    height: calc(100dvh - 96px);
-    padding: 80px 96px 96px 96px;
+  background-color: rgb(246, 247, 248);
+  height: calc(100dvh - 96px);
+  padding: 80px 96px 96px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  overflow-y: auto;
+
+  @media (max-width: $breakpoint-lg) {
+    padding: 48px 48px;
+    align-items: center;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 48px 16px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 90%;
+    gap: 36px;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    padding: 24px 8px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 625px;
+  }
+
+  @media (max-width: 400px) {
+    gap: 24px;
+  }
+
+  .summaryHeadline {
+    width: 625px;
     display: flex;
-    flex-direction: column;
-    gap: 56px;
+    // justify-content: space-between;
+    align-items: center;
+    gap: 30px;
 
     @media (max-width: $breakpoint-lg) {
-        padding: 48px 48px;
-        align-items: center;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-        padding: 48px 16px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        min-width: 90%;
-        gap: 36px;
+      width: 100%;
+      flex-direction: column;
+      // align-items: flex-start;
+      gap: 16px;
     }
 
     @media (max-width: $breakpoint-xs) {
-        padding: 24px 8px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        max-width: 625px;
+      align-items: start;
     }
 
     @media (max-width: 400px) {
-        gap: 24px;
+      gap: 8px;
     }
 
-    .summaryHeadline {
-        width: 625px;
+    h1 {
+      font-size: 61px;
+      font-weight: 700;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 54px;
+      }
+
+      @media (max-width: $breakpoint-xs) {
+        font-size: 47px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 32px;
+      }
+    }
+
+    span {
+      font-size: 27px;
+      font-weight: 400;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 24px;
+      }
+
+      @media (max-width: $breakpoint-xs) {
+        font-size: 20px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 14px;
+      }
+    }
+
+    .headlineSeparator {
+      height: 100%;
+      width: 3px;
+      background-color: #29abe2;
+
+      @media (max-width: $breakpoint-lg) {
+        display: none;
+      }
+    }
+
+    .headlineSeparatorMobile {
+      width: 90px;
+      height: 3px;
+      background-color: #29abe2;
+      display: none;
+
+      @media (max-width: $breakpoint-lg) {
+        display: block;
+      }
+    }
+  }
+
+  .summaryMiddleContent {
+    display: flex;
+    align-items: center;
+    gap: 84px;
+
+    .summaryTasksStatus {
+      width: 560px;
+      height: 562px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media (max-width: $breakpoint-sm) {
+        width: 100%;
+        height: 484px;
+      }
+
+      @media (max-width: $breakpoint-xs) {
+        width: 100%;
+        height: 384px;
+      }
+
+      @media (max-width: 400px) {
+        height: 272px;
+      }
+
+      .statusFirstLine {
+        width: 560px;
         display: flex;
-        // justify-content: space-between;
-        align-items: center;
-        gap: 30px;
+        justify-content: space-between;
 
-        @media (max-width: $breakpoint-lg) {
-            width: 100%;
-            flex-direction: column;
-            // align-items: flex-start;
-            gap: 16px;
+        @media (max-width: $breakpoint-sm) {
+          width: 100%;
+          gap: 16px;
         }
 
-        @media (max-width: $breakpoint-xs) {
-            align-items: start;
-        }
+        .toDoWrapper {
+          width: 264px;
+          height: 168px;
+          border-radius: 30px;
 
-        @media (max-width: 400px) {
-            gap: 8px;
-        }
+          background-color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 18px;
+          transition: all 0.1s ease-in;
 
-        h1 {
-            font-size: 61px;
-            font-weight: 700;
+          @media (max-width: $breakpoint-sm) {
+            width: 208px;
+            height: 124px;
+            border-radius: 20px;
+          }
+
+          @media (max-width: $breakpoint-xs) {
+            width: 186px;
+            height: 110px;
+            border-radius: 20px;
+          }
+
+          @media (max-width: 400px) {
+            width: 144px;
+            height: 85px;
+            border-radius: 15px;
+          }
+
+          &:hover {
+            cursor: pointer;
+            scale: 1.1;
+            background-color: #2a3647;
+            color: white;
+
+            .iconContainer {
+              background-color: white;
+
+              img {
+                filter: invert(43%) sepia(17%) saturate(524%) hue-rotate(180deg) brightness(35%) contrast(93%);
+              }
+            }
+          }
+
+          .iconContainer {
+            height: 69px;
+            width: 69px;
+            border-radius: 50vh;
+            background-color: #2a3647;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.1s ease-in;
 
             @media (max-width: $breakpoint-sm) {
-                font-size: 54px;
-            }
-
-            @media (max-width: $breakpoint-xs) {
-                font-size: 47px;
+              width: 40px;
+              height: 40px;
             }
 
             @media (max-width: 400px) {
-                font-size: 32px;
-            }
-        }
-
-        span {
-            font-size: 27px;
-            font-weight: 400;
-
-            @media (max-width: $breakpoint-sm) {
-                font-size: 24px;
+              width: 35px;
+              height: 35px;
             }
 
-            @media (max-width: $breakpoint-xs) {
-                font-size: 20px;
+            img {
+              transition: all 0.1s ease-in;
+
+              @media (max-width: $breakpoint-sm) {
+                width: 20px;
+                height: auto;
+              }
             }
+          }
 
-            @media (max-width: 400px) {
-                font-size: 14px;
-            }
-        }
-
-        .headlineSeparator {
-            height: 100%;
-            width: 3px;
-            background-color: #29abe2;
-
-            @media (max-width: $breakpoint-lg) {
-                display: none;
-            }
-        }
-
-        .headlineSeparatorMobile {
-            width: 90px;
-            height: 3px;
-            background-color: #29abe2;
-            display: none;
-
-            @media (max-width: $breakpoint-lg) {
-                display: block;
-            }
-        }
-    }
-
-    .summaryMiddleContent {
-        display: flex;
-        align-items: center;
-        gap: 84px;
-
-        .summaryTasksStatus {
-            width: 560px;
-            height: 562px;
+          .amountContainer {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
 
-            @media (max-width: $breakpoint-sm) {
-                width: 100%;
-                height: 484px;
+            p {
+              font-size: 64px;
+              font-weight: 600;
+
+              @media (max-width: $breakpoint-sm) {
+                font-size: 47px;
+              }
+
+              @media (max-width: 400px) {
+                font-size: 32px;
+              }
             }
 
-            @media (max-width: $breakpoint-xs) {
-                width: 100%;
-                height: 384px;
+            span {
+              font-size: 20px;
+              font-weight: 400;
+
+              @media (max-width: $breakpoint-sm) {
+                font-size: 14px;
+              }
+
+              @media (max-width: 400px) {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      .statusSecondLine {
+        width: 560px;
+        height: 168px;
+        border-radius: 30px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+        transition: all 0.1s ease-in;
+
+        @media (max-width: $breakpoint-sm) {
+          width: 100%;
+          height: 124px;
+          border-radius: 20px;
+          gap: 24px;
+        }
+
+        @media (max-width: $breakpoint-xs) {
+          width: 100%;
+          height: 110px;
+          border-radius: 20px;
+          gap: 18px;
+        }
+
+        @media (max-width: 400px) {
+          width: 100%;
+          height: 85px;
+          border-radius: 15px;
+          gap: 18px;
+        }
+
+        &:hover {
+          cursor: pointer;
+          scale: 1.1;
+          background-color: #2a3647;
+          color: white;
+
+          .urgentDeadlineContainer {
+            p {
+              color: white;
+            }
+
+            span {
+              color: white;
+            }
+          }
+        }
+
+        .urgentAmountWrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 18px;
+
+          .iconContainer {
+            height: 60px;
+            width: 60px;
+            border-radius: 50vh;
+            background-color: #ff3d00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media (max-width: $breakpoint-sm) {
+              width: 40px;
+              height: 40px;
+            }
+
+            @media (max-width: $breakpoint-sm) {
+              width: 35px;
+              height: 35px;
+            }
+
+            img {
+              transition: all 0.1s ease-in;
+
+              @media (max-width: $breakpoint-sm) {
+                width: 20px;
+                height: auto;
+              }
+            }
+          }
+
+          .amountContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+              font-size: 64px;
+              font-weight: 600;
+
+              @media (max-width: $breakpoint-sm) {
+                font-size: 47px;
+              }
+
+              @media (max-width: 400px) {
+                font-size: 36px;
+              }
+            }
+
+            span {
+              font-size: 20px;
+              font-weight: 400;
+
+              @media (max-width: $breakpoint-sm) {
+                font-size: 14px;
+              }
+
+              @media (max-width: 400px) {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+
+        .urgentSeparator {
+          height: 102px;
+          width: 2px;
+          background-color: #d1d1d1;
+
+          @media (max-width: $breakpoint-sm) {
+            height: 84px;
+          }
+
+          @media (max-width: $breakpoint-xs) {
+            height: 68px;
+          }
+        }
+
+        .urgentDeadlineContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+
+          p {
+            font-size: 21px;
+            font-weight: 700;
+            color: #2a3647;
+
+            @media (max-width: $breakpoint-sm) {
+              font-size: 16px;
             }
 
             @media (max-width: 400px) {
-                height: 272px;
+              font-size: 12px;
+            }
+          }
+
+          span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #2a3647;
+
+            @media (max-width: $breakpoint-sm) {
+              font-size: 14px;
             }
 
-
-            .statusFirstLine {
-                width: 560px;
-                display: flex;
-                justify-content: space-between;
-
-                @media (max-width: $breakpoint-sm) {
-                    width: 100%;
-                    gap: 16px;
-                }
-
-                .toDoWrapper {
-                    width: 264px;
-                    height: 168px;
-                    border-radius: 30px;
-
-                    background-color: white;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 18px;
-                    transition: all 0.1s ease-in;
-
-                    @media (max-width: $breakpoint-sm) {
-                        width: 208px;
-                        height: 124px;
-                        border-radius: 20px;
-                    }
-
-                    @media (max-width: $breakpoint-xs) {
-                        width: 186px;
-                        height: 110px;
-                        border-radius: 20px;
-                    }
-
-                    @media (max-width: 400px) {
-                        width: 144px;
-                        height: 85px;
-                        border-radius: 15px;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-                        scale: 1.1;
-                        background-color: #2A3647;
-                        color: white;
-
-                        .iconContainer {
-                            background-color: white;
-
-                            img {
-                                filter: invert(43%) sepia(17%) saturate(524%) hue-rotate(180deg) brightness(35%) contrast(93%);
-                            }
-                        }
-
-                    }
-
-                    .iconContainer {
-                        height: 69px;
-                        width: 69px;
-                        border-radius: 50vh;
-                        background-color: #2A3647;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        transition: all 0.1s ease-in;
-
-                        @media (max-width: $breakpoint-sm) {
-                            width: 40px;
-                            height: 40px;
-                        }
-
-                        @media (max-width: 400px) {
-                            width: 35px;
-                            height: 35px;
-                        }
-
-                        img {
-                            transition: all 0.1s ease-in;
-
-                            @media (max-width: $breakpoint-sm) {
-                                width: 20px;
-                                height: auto;
-                            }
-                        }
-                    }
-
-                    .amountContainer {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        align-items: center;
-
-                        p {
-                            font-size: 64px;
-                            font-weight: 600;
-
-                            @media (max-width: $breakpoint-sm) {
-                                font-size: 47px;
-                            }
-
-                            @media (max-width: 400px) {
-                                font-size: 32px;
-                            }
-                        }
-
-                        span {
-                            font-size: 20px;
-                            font-weight: 400;
-
-                            @media (max-width: $breakpoint-sm) {
-                                font-size: 14px;
-                            }
-
-                            @media (max-width: 400px) {
-                                font-size: 10px;
-                            }
-                        }
-                    }
-                }
+            @media (max-width: 400px) {
+              font-size: 10px;
             }
+          }
+        }
+      }
 
-            .statusSecondLine {
-                width: 560px;
-                height: 168px;
-                border-radius: 30px;
-                background-color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 36px;
-                transition: all 0.1s ease-in;
+      .statusThirdLine {
+        width: 560px;
+        height: 168px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-                @media (max-width: $breakpoint-sm) {
-                    width: 100%;
-                    height: 124px;
-                    border-radius: 20px;
-                    gap: 24px;
-                }
-
-                @media (max-width: $breakpoint-xs) {
-                    width: 100%;
-                    height: 110px;
-                    border-radius: 20px;
-                    gap: 18px;
-                }
-
-                @media (max-width: 400px) {
-                    width: 100%;
-                    height: 85px;
-                    border-radius: 15px;
-                    gap: 18px;
-                }
-
-                &:hover {
-                    cursor: pointer;
-                    scale: 1.1;
-                    background-color: #2A3647;
-                    color: white;
-
-                    .urgentDeadlineContainer {
-                        p {
-                            color: white;
-                        }
-
-                        span {
-                            color: white;
-                        }
-                    }
-
-                }
-
-                .urgentAmountWrapper {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 18px;
-
-                    .iconContainer {
-                        height: 60px;
-                        width: 60px;
-                        border-radius: 50vh;
-                        background-color: #FF3D00;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        @media (max-width: $breakpoint-sm) {
-                            width: 40px;
-                            height: 40px;
-                        }
-
-                        @media (max-width: $breakpoint-sm) {
-                            width: 35px;
-                            height: 35px;
-                        }
-
-                        img {
-                            transition: all 0.1s ease-in;
-
-                            @media (max-width: $breakpoint-sm) {
-                                width: 20px;
-                                height: auto;
-                            }
-                        }
-                    }
-
-                    .amountContainer {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        align-items: center;
-
-                        p {
-                            font-size: 64px;
-                            font-weight: 600;
-
-                            @media (max-width: $breakpoint-sm) {
-                                font-size: 47px;
-                            }
-
-                            @media (max-width: 400px) {
-                                font-size: 36px;
-                            }
-                        }
-
-                        span {
-                            font-size: 20px;
-                            font-weight: 400;
-
-                            @media (max-width: $breakpoint-sm) {
-                                font-size: 14px;
-                            }
-
-                            @media (max-width: 400px) {
-                                font-size: 12px;
-                            }
-                        }
-                    }
-                }
-
-                .urgentSeparator {
-                    height: 102px;
-                    width: 2px;
-                    background-color: #D1D1D1;
-
-                    @media (max-width: $breakpoint-sm) {
-                        height: 84px;
-                    }
-
-                    @media (max-width: $breakpoint-xs) {
-                        height: 68px;
-                    }
-                }
-
-                .urgentDeadlineContainer {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 13px;
-
-                    p {
-                        font-size: 21px;
-                        font-weight: 700;
-                        color: #2A3647;
-
-                        @media (max-width: $breakpoint-sm) {
-                            font-size: 16px;
-                        }
-
-                        @media (max-width: 400px) {
-                            font-size: 12px;
-                        }
-                    }
-
-                    span {
-                        font-size: 16px;
-                        font-weight: 400;
-                        color: #2A3647;
-
-                        @media (max-width: $breakpoint-sm) {
-                            font-size: 14px;
-                        }
-
-                        @media (max-width: 400px) {
-                            font-size: 10px;
-                        }
-                    }
-                }
-            }
-
-            .statusThirdLine {
-                width: 560px;
-                height: 168px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                @media (max-width: $breakpoint-sm) {
-                    width: 100%;
-                    height: 110px;
-                }
-
-                @media (max-width: 400px) {
-                    height: 85px;
-                }
-
-                .amountContainer {
-                    height: 168px;
-                    width: 168px;
-                    padding: 25px;
-                    background-color: white;
-                    border-radius: 30px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                    transition: all 0.1s ease-in;
-
-                    @media (max-width: $breakpoint-sm) {
-                        width: 124px;
-                        height: 124px;
-                        border-radius: 20px;
-                    }
-
-                    @media (max-width: $breakpoint-xs) {
-                        width: 110px;
-                        height: 110px;
-                        border-radius: 20px;
-                    }
-
-                    @media (max-width: 400px) {
-                        width: 90px;
-                        height: 85px;
-                        border-radius: 15px;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-                        scale: 1.1;
-                        background-color: #2A3647;
-                        color: white;
-
-                    }
-
-                    p {
-                        font-size: 64px;
-                        font-weight: 600;
-
-                        @media (max-width: $breakpoint-sm) {
-                            font-size: 47px;
-                        }
-
-                        @media (max-width: 400px) {
-                            font-size: 32px;
-                        }
-                    }
-
-                    span {
-                        font-size: 20px;
-                        font-weight: 400;
-
-                        @media (max-width: $breakpoint-sm) {
-                            font-size: 14px;
-                        }
-
-                        @media (max-width: 400px) {
-                            font-size: 10px;
-                        }
-                    }
-                }
-            }
+        @media (max-width: $breakpoint-sm) {
+          width: 100%;
+          height: 110px;
         }
 
-        .summaryWelcomeMessage {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-
-            @media (max-width: $breakpoint-lg) {
-                display: none;
-            }
-
-            h2 {
-                font-size: 47px;
-                font-weight: 500;
-                color: #2A3647;
-            }
-
-            h1 {
-                font-size: 64px;
-                font-weight: 700;
-                color: #29ABE2;
-            }
+        @media (max-width: 400px) {
+          height: 85px;
         }
+
+        .amountContainer {
+          height: 168px;
+          width: 168px;
+          padding: 25px;
+          background-color: white;
+          border-radius: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          transition: all 0.1s ease-in;
+
+          @media (max-width: $breakpoint-sm) {
+            width: 124px;
+            height: 124px;
+            border-radius: 20px;
+          }
+
+          @media (max-width: $breakpoint-xs) {
+            width: 110px;
+            height: 110px;
+            border-radius: 20px;
+          }
+
+          @media (max-width: 400px) {
+            width: 90px;
+            height: 85px;
+            border-radius: 15px;
+          }
+
+          &:hover {
+            cursor: pointer;
+            scale: 1.1;
+            background-color: #2a3647;
+            color: white;
+          }
+
+          p {
+            font-size: 64px;
+            font-weight: 600;
+
+            @media (max-width: $breakpoint-sm) {
+              font-size: 47px;
+            }
+
+            @media (max-width: 400px) {
+              font-size: 32px;
+            }
+          }
+
+          span {
+            font-size: 20px;
+            font-weight: 400;
+
+            @media (max-width: $breakpoint-sm) {
+              font-size: 14px;
+            }
+
+            @media (max-width: 400px) {
+              font-size: 10px;
+            }
+          }
+        }
+      }
     }
 
+    .summaryWelcomeMessage {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      @media (max-width: $breakpoint-lg) {
+        display: none;
+      }
+
+      h2 {
+        font-size: 47px;
+        font-weight: 500;
+        color: #2a3647;
+      }
+
+      h1 {
+        font-size: 64px;
+        font-weight: 700;
+        color: #29abe2;
+      }
+    }
+  }
 }
