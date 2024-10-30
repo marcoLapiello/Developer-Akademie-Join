@@ -103,29 +103,17 @@ export function filterUsersByName() {
   });
 }
 
-/**
- * Renders the user dropdown list by fetching the user array and updating the DOM.
- * It clears the existing list, fetches the user array, and iterates through it to
- * create and insert list items for each user. It also checks if the user is already
- * selected and marks the corresponding input as checked. Finally, it calls the
- * renderCurrentAssignation function to update the current assignation.
- *
- * @async
- * @function renderUserDropdownList
- * @returns {Promise<void>} A promise that resolves when the user dropdown list is rendered.
- */
 export async function renderUserDropdownList() {
   document.getElementById("contactsToAssign").innerHTML = "";
   let userArray = await getUsersArray();
   globalUserArray = userArray;
+  userArray = userArray.filter((user) => user[1].password === "");
   for (let index = 0; index < userArray.length; index++) {
     let currentUserId = userArray[index][1].id;
     let isInputChecked = false;
     if (selectedUsers.length > 0) {
       for (let id = 0; id < selectedUsers.length; id++) {
-        if (selectedUsers[id] == currentUserId) {
-          isInputChecked = true;
-        }
+        if (selectedUsers[id] == currentUserId) isInputChecked = true;
       }
     }
     document.getElementById("contactsToAssign").insertAdjacentHTML("beforeend", getUserListItem(userArray, index, isInputChecked));
@@ -279,7 +267,7 @@ export function renderCurrentAssignation() {
 function getCurrentAssignationTemplate(userId, currentUserIndex) {
   return /*html*/ `
     <div id="initialsBox${userId}" class="initialsBox" style="background-color: ${globalUserArray[currentUserIndex][1].user_color}">
-          <span id="initials${userId}" class="initials">${globalUserArray[currentUserIndex][1].profile.initials}</span>
-        </div>
+        <span id="initials${userId}" class="initials">${globalUserArray[currentUserIndex][1].profile.initials}</span>
+    </div>
   `;
 }
