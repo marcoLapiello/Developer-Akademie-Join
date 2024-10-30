@@ -2,6 +2,12 @@
  * @module "header.js"
  */
 
+/**
+ * Imports the function to retrieve the array of users.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users from the script.
+ */
 import { getUsersArray } from "../../js/script.js";
 
 /**
