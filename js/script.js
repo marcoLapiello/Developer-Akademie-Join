@@ -606,3 +606,10 @@ function userLogOut() {
   window.location.href = "../index.html";
 }
 window.userLogOut = userLogOut;
+
+
+function backToLastSite(){
+  window.history.back();
+}
+
+window.backToLastSite = backToLastSite;
