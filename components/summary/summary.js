@@ -112,7 +112,7 @@ function getClosestDueDate(tasks) {
   let smallestDateDifference = Infinity;
   let isDueDateInThePast = false;
   for (let index = 0; index < tasks.length; index++) {
-    if (tasks[index][1].priority === "Urgent" && tasks[index][1].status !== "done") {
+    if (tasks[index][1].status !== "done") {
       const dueDate = new Date(tasks[index][1].dueDate);
       const dateDifference = dueDate - currentDate;
       if (dateDifference < smallestDateDifference) {
@@ -121,8 +121,10 @@ function getClosestDueDate(tasks) {
       }
     }
   }
+  let currentDay = currentDate.getDay();
+  let closestDueDateDay = closestDueDate.getDay();
   let formattedDate = getFormattedUpcomingDueDate(closestDueDate);
-  if (closestDueDate < currentDate) {
+  if (closestDueDate < currentDate && closestDueDateDay < currentDay) {
     isDueDateInThePast = true;
   }
   return [formattedDate, isDueDateInThePast];
