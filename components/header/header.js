@@ -2,6 +2,8 @@
  * @module "header.js"
  */
 
+import { getUsersArray } from "../../js/script.js";
+
 /**
  * Toggles the "d_none" class on the element with the ID "dropDown".
  * This function is used to show or hide the user menu.
@@ -12,14 +14,27 @@ export function toggle_d_None() {
 }
 
 /**
- * Renders the header by injecting the header template into the element with the ID "header".
- * If the element is found, the template is appended to its inner HTML.
+ * Renders the header by fetching the logged-in user's initials and updating the header element.
+ *
+ * This function retrieves the logged-in user's ID from local storage, fetches the user data,
+ * and updates the header element with the user's initials.
+ *
+ * @async
+ * @function renderHeader
+ * @returns {Promise<void>} A promise that resolves when the header is rendered.
  */
-export function renderHeader() {
+export async function renderHeader() {
   const headerRef = document.getElementById("header");
-  if (headerRef) {
-    headerRef.innerHTML += renderHeaderTemplate();
+  const loggedInUserIdJson = localStorage.getItem("loggedInUserId");
+  const loggedInUserId = JSON.parse(loggedInUserIdJson);
+  let initials;
+  if (loggedInUserIdJson && loggedInUserId.userID) {
+    const currentUser = loggedInUserId.userID;
+    const userArray = await getUsersArray();
+    const user = userArray.find(([user]) => user === currentUser)[1];
+    initials = user.profile.initials;
   }
+  if (headerRef) headerRef.innerHTML += renderHeaderTemplate(initials);
 }
 
 /**
@@ -39,7 +54,7 @@ export function renderHeader() {
  *
  * @returns {string} The HTML template for the header section.
  */
-function renderHeaderTemplate() {
+function renderHeaderTemplate(initials) {
   return /*html*/ `
       <div class = "headerText">
       <span>Kanban Project Management Tool</span>
@@ -49,7 +64,7 @@ function renderHeaderTemplate() {
           <img src="./assets/icons/questionMark_small.png" alt="Help" />
         </a>
         <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
-          <span>G</span>
+          <span>${initials ? initials : "G"}</span>
           <div class="dropDown d_none" id="dropDown">
           <div class="help">
             <a href="./help.html">Help</a>

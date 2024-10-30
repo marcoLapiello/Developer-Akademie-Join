@@ -43,7 +43,7 @@ function renderSidebarTemplate() {
   return /*html*/ `    
       <div class="sidebarUpperPart">
         <img class= "joinLogo"  src="./assets/icons/joinLogo.png" />
-        <div class="sidebar-Block">
+        <div id="sidebarBlock" class="sidebar-Block">
           <a class="${urlPath === "/summary.html" ? "active" : ""}" href="./summary.html">${returnIcon("summary")}Summary</a>
           <a class="${urlPath === "/addTask.html" ? "active" : ""}" href="./addTask.html">${returnIcon("addTask")}Add Task</a>
           <a class="${urlPath === "/board.html" ? "active" : ""}" href="./board.html">${returnIcon("board")}Board</a>
