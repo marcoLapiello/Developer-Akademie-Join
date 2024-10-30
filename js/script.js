@@ -616,9 +616,7 @@ function userLogOut() {
 }
 window.userLogOut = userLogOut;
 
-
-function backToLastSite(){
+function backToLastSite() {
   window.history.back();
 }
-
 window.backToLastSite = backToLastSite;

@@ -1,9 +1,6 @@
 import { returnIcon } from "../icons.js";
-
 import { getRandomUserColor } from "../contactModal/contactModal.js";
-
 import { loadUsers, patchNewUser } from "../../js/apiService.js";
-
 import { getLogInTemplate, getSignUpTemplate } from "./logInTemplates.js";
 import { getUsersArray } from "../../js/script.js";
 
@@ -111,9 +108,6 @@ async function compareLogInData() {
     return isComparisionOK;
   }
 }
-
-// #logInInputEmailWarning
-// #logInInputPasswordWarning
 
 async function setUserIDToLocalStorage() {
   let usersArray = await getUsersArray();
@@ -422,11 +416,3 @@ export function removeValidationWarning(inputId, warningId) {
     return;
   }
 }
-
-export function goToPrivacyLegal(site) {
-  window.location.href = `./${site}.html`;
-  document.getElementById("sidebarBlock").classList.add("d_none");
-}
-
-// privacyPolicy
-// legalNotice
