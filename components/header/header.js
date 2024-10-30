@@ -60,6 +60,16 @@ export async function renderHeader() {
  *
  * @returns {string} The HTML template for the header section.
  */
+
+function hideSidebarFromUnLogged() {
+  let loggedInData = localStorage.getItem("loggedInUserId");
+  if (!loggedInData) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 function renderHeaderTemplate(initials) {
   return /*html*/ `
       <div class = "headerText">
@@ -69,7 +79,7 @@ function renderHeaderTemplate(initials) {
         <a href="./help.html">
           <img src="./assets/icons/questionMark_small.png" alt="Help" />
         </a>
-        <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
+        <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials ${hideSidebarFromUnLogged() ? "" : "d_none"}">
           <span>${initials ? initials : "G"}</span>
           <div class="dropDown d_none" id="dropDown">
           <div class="help">
