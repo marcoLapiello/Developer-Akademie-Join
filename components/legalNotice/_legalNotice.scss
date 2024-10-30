@@ -6,6 +6,23 @@
     padding-left: 80px;
     overflow: auto; 
 
+
+    .backArrow{
+        display: flex;
+        width: 100%;
+        justify-content: end;
+    
+        & img{
+            &:hover{
+                background-color: #eeeeee;
+                transform: scale(1.1);
+                border-radius: 60%;
+                cursor: pointer;
+            }
+        }
+    }
+
+
     & h1{
         font-size: 30px;
     }

@@ -509,7 +509,7 @@ window.hideEditChosenUserDialogFromBG = hideEditChosenUserDialogFromBG;
  * @module summary
  * @function initSummary - Initializes the summary component.
  */
-import { initSummary } from "../components/summary/summary.js";
+import { initSummary, redirectToBoard } from "../components/summary/summary.js";
 
 /**
  * Exposes the initSummary function to the global window object.
@@ -517,6 +517,7 @@ import { initSummary } from "../components/summary/summary.js";
  * @function initSummary - Initializes the summary component.
  */
 window.initSummary = initSummary;
+window.redirectToBoard = redirectToBoard;
 
 /**
  * References to various DOM elements used in the script.
@@ -614,3 +615,10 @@ function userLogOut() {
   window.location.href = "../index.html";
 }
 window.userLogOut = userLogOut;
+
+
+function backToLastSite(){
+  window.history.back();
+}
+
+window.backToLastSite = backToLastSite;
