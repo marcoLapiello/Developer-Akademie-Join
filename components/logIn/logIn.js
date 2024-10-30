@@ -84,7 +84,6 @@ export async function logInRegistratedUser() {
       window.location.href = "../summary.html";
     }, 100);
   } else {
-    console.log("log in data are not ok !!!");
     return;
   }
 }
@@ -179,12 +178,10 @@ export function enableSignUpButton() {
 export async function signUpNewUser() {
   let isSignUpValidationOK = signUpCompleteValidation();
   if (!isSignUpValidationOK) {
-    console.log("Some validation is not ok");
     return;
   }
   let isNewUserNotRegistrated = await compareSignUpWithUsers();
   if (!isNewUserNotRegistrated) {
-    console.log("user is still registrated");
     return;
   }
   await patchNewUser(getNewUserData());
@@ -209,7 +206,6 @@ async function compareSignUpWithUsers() {
   usersArray.forEach((element) => {
     if (element[1].profile.email == newUser.profile.email) {
       isComparisionOK = false;
-      console.log("user still exists");
     }
   });
   return isComparisionOK;
