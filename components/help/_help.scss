@@ -1,40 +1,41 @@
-.helpDescription, step {
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    max-height: 100%;
-    padding-left: 80px;
-    padding-right: 80px;
-    overflow: auto; 
+.helpDescription {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  max-height: calc(100vh - 96px);
+  padding-left: 80px;
+  padding-right: 80px;
+  overflow: auto;
 
-    & h1{
-        font-size: 30px;
-    }
+  & h1 {
+    font-size: 30px;
+  }
 
-    &  h2, h3, h4{
-        font-size: 20px;
-    }
+  & h2,
+  h3,
+  h4 {
+    font-size: 20px;
+  }
 }
 
+.backArrow {
+  display: flex;
+  width: 100%;
+  justify-content: end;
 
-.backArrow{
-    display: flex;
-    width: 100%;
-    justify-content: end;
-
-    & img{
-        &:hover{
-            background-color: #eeeeee;
-            transform: scale(1.1);
-            border-radius: 60%;
-            cursor: pointer;
-        }
+  & img {
+    &:hover {
+      background-color: #eeeeee;
+      transform: scale(1.1);
+      border-radius: 60%;
+      cursor: pointer;
     }
+  }
 }
-@media (max-width: $breakpoint-lg){
-    .helpDescription{
-        height: calc(100dvh - 150px);
-        padding-left: 25px;
-        padding-right: 25px;
-    }
+@media (max-width: $breakpoint-lg) {
+  .helpDescription {
+    height: calc(100dvh - 160px);
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }
