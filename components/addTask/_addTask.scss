@@ -38,7 +38,7 @@
   position: relative;
 
   @media (max-width: $breakpoint-lg) {
-    max-height: calc(100dvh - 80px - 96px);
+    max-height: calc(100dvh - 80px - 80px);
     padding: 80px 48px 96px 48px;
     align-items: center;
     overflow-y: auto;
@@ -513,6 +513,7 @@
             border: none;
             padding: 0;
             padding-left: 16px;
+            font-size: 16px;
 
             @media (max-width: $breakpoint-sm) {
               height: 37px;
