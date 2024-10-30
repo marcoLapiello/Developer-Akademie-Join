@@ -107,8 +107,12 @@ async function compareLogInData() {
       isComparisionOK = true;
     }
   });
-  logInInputPasswordWarningRef.innerHTML = "Email or password wrong, try again.";
-  return isComparisionOK;
+  if (isComparisionOK) {
+    return isComparisionOK;
+  } else {
+    logInInputPasswordWarningRef.innerHTML = "Email or password wrong, try again.";
+    return isComparisionOK;
+  }
 }
 
 // #logInInputEmailWarning

@@ -10,6 +10,10 @@ header {
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.25);
   z-index: 60;
 
+  @media (max-width: $breakpoint-lg) {
+    height: 80px;
+  }
+
   & .headerText {
     @media (max-width: $breakpoint-lg) {
       background-image: url("../assets/icons/JoinLogoHeaderResponsive.png");
@@ -32,12 +36,12 @@ header {
         display: none;
       }
 
-      &:hover{
+      &:hover {
         transform: scale(1.1);
       }
     }
 
-    .user-Profile-Initials {  
+    .user-Profile-Initials {
       width: 56px;
       height: 56px;
       border: 3px solid #2a3647;
@@ -53,7 +57,7 @@ header {
         color: lightblue;
       }
 
-      &:hover{
+      &:hover {
         background-color: #e1e6ec;
       }
     }
@@ -71,7 +75,6 @@ header {
     top: 96px;
     right: 15px;
     z-index: 10;
-    
 
     & a {
       color: #cdcdcd;
@@ -114,7 +117,7 @@ header {
       gap: 8px;
     }
 
-    & .help{
+    & .help {
       width: 130px;
       height: 46px;
       border-radius: 8px;
@@ -123,7 +126,7 @@ header {
       padding-left: 16px;
       gap: 8px;
       display: none;
-      
+
       @media (max-width: $breakpoint-lg) {
         display: inline-block;
       }
