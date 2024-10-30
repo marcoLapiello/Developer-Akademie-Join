@@ -11,7 +11,7 @@ async function renderSummary() {
   let [closestDueDate, isDueDateInThePast] = getClosestDueDate(tasks);
   let [toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount] = getEveryStatusAmount(tasks);
   let welcomeMessage = getWelcomeMessage();
-  // let loggedInUser = getLoggedInUser();
+  let loggedInUser = await getLoggedInUser();
   document.getElementById("summaryContent").innerHTML = getSummaryTemplate(
     currentTasksAmount,
     urgentTasksAmount,
@@ -21,17 +21,22 @@ async function renderSummary() {
     doneAmount,
     closestDueDate,
     isDueDateInThePast,
-    welcomeMessage
+    welcomeMessage,
+    loggedInUser
   );
 }
 
 async function getLoggedInUser() {
   const users = await loadUsers();
-  console.log(users);
+  const loggedInUserData = localStorage.getItem("loggedInUserId");
+  const convertedLoggedInUserData = JSON.parse(loggedInUserData);
+  let loggedInUserName = "";
   for (let index = 0; index < users.length; index++) {
-    const element = array[index];
-    
+    if (users[index][1].id === convertedLoggedInUserData.userID) {
+      loggedInUserName = users[index][1].profile.first_name + " " + users[index][1].profile.last_name;
+    }
   }
+  return loggedInUserName;
 }
 
 async function loadUsers() {
@@ -137,7 +142,7 @@ async function loadTasks() {
   return tasks;
 }
 
-function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage) {
+function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage, loggedInUser) {
     return /*html*/ `
           <div id="summaryWrapper" class="summaryWrapper">
   
@@ -209,7 +214,7 @@ function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, i
   
                   <div id="summaryWelcomeMessage" class="summaryWelcomeMessage">
                       <h2 id="dynamicWelcome">${welcomeMessage}</h2>
-                      <h1 id="dynamicUser">complete your Function!!</h1>
+                      <h1 id="dynamicUser">${loggedInUser}</h1>
                   </div>
               </div>
           </div>
