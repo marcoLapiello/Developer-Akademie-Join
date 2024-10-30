@@ -180,11 +180,11 @@ export async function signUpNewUser() {
     console.log("user is still registrated");
     return;
   }
-  await patchNewUser(getNewUserData());
-  userFeedbackAfterSignUp();
-  setTimeout(() => {
-    renderLogInWithData();
-  }, 1150);
+  // await patchNewUser(getNewUserData());
+  // userFeedbackAfterSignUp();
+  // setTimeout(() => {
+  //   renderLogInWithData();
+  // }, 1150);
 }
 
 function renderLogInWithData() {
@@ -192,6 +192,7 @@ function renderLogInWithData() {
   let email = newUser.profile.email;
   let password = newUser.password;
   renderLogInTemplate(email, password);
+  document.getElementById("linkToSignUpBox").classList.remove("d_none");
 }
 
 async function compareSignUpWithUsers() {
@@ -235,11 +236,8 @@ function signUpCompleteValidation() {
   let isNameValid = validateSignUpName();
   let isEmailValid = validateEmailInput();
   let isPasswordInputValid = validateSignUpPassword();
-  let isPasswordRepeatInputValid = validateSignUpPasswordRepeat();
   let isPasswordComparingValid = compareSignUpPasswords();
-  let isPrivacyPolicyChecked = checkAcceptedPrivacyPolicy();
-  //
-  if (isNameValid && isEmailValid && isPasswordInputValid && isPasswordRepeatInputValid && isPasswordComparingValid && isPrivacyPolicyChecked) {
+  if (isNameValid && isEmailValid && isPasswordInputValid && isPasswordComparingValid) {
     return true;
   } else {
     return false;
@@ -250,21 +248,24 @@ export function validateSignUpName() {
   let inputRef = document.getElementById("signUpInputName");
   let nameInput = inputRef.value;
   let warningRef = document.getElementById("signUpInputNameWarning");
-  if (!nameInput.length) {
+  if (!nameInput) {
     warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
     inputRef.classList.add("borderColorRed");
     return false;
-  }
-  if (nameInput.value) {
-    let namePartsCount = inputRef.value.split(" ").length;
-    if (namePartsCount != 2) {
+  } else {
+    let namePartsCount = nameInput.split(" ").length;
+    let nameLastLetter = nameInput[nameInput.length - 1];
+    let nameFirstLetter = nameInput[0];
+    if (namePartsCount != 2 || nameLastLetter == " " || nameFirstLetter == " ") {
       warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
       inputRef.classList.add("borderColorRed");
       return false;
+    } else {
+      inputRef.classList.remove("borderColorRed");
+      warningRef.innerHTML = "";
+      return true;
     }
   }
-  inputRef.classList.remove("borderColorRed");
-  return true;
 }
 
 export function validateEmailInput() {
@@ -286,39 +287,28 @@ export function validateEmailInput() {
     }
   }
   inputRef.classList.remove("borderColorRed");
+  warningRef.innerHTML = "";
   return true;
 }
 
 function validateSignUpPassword() {
   let passwordInputRef = document.getElementById("signUpInputPassword");
   let passwordWarningRef = document.getElementById("signUpInputPasswordWarning");
-  if (passwordInputRef.value.length < 6) {
+  let isPasswordIncludingWhitespaces = passwordInputRef.value.includes(" ");
+  if (passwordInputRef.value.length < 6 || isPasswordIncludingWhitespaces) {
     passwordInputRef.classList.add("borderColorRed");
-    passwordWarningRef.innerHTML = "Enter a valid password.";
+    passwordWarningRef.innerHTML = "Enter a password of at least six characters.";
     return false;
   } else {
     passwordInputRef.classList.remove("borderColorRed");
-    return true;
-  }
-}
-
-function validateSignUpPasswordRepeat() {
-  let passwordRepeatInputRef = document.getElementById("signUpInputPasswordRepeat");
-  let passwordRepeatWarningRef = document.getElementById("signUpInputPasswordRepeatWarning");
-  if (passwordRepeatInputRef.value.length < 6) {
-    passwordRepeatInputRef.classList.add("borderColorRed");
-    passwordRepeatWarningRef.innerHTML = "Enter a valid password.";
-    return false;
-  } else {
-    passwordRepeatInputRef.classList.remove("borderColorRed");
+    passwordWarningRef.innerHTML = "";
     return true;
   }
 }
 
 function compareSignUpPasswords() {
   let isPasswordInputValid = validateSignUpPassword();
-  let isPasswordRepeatInputValid = validateSignUpPasswordRepeat();
-  if (isPasswordInputValid && isPasswordRepeatInputValid) {
+  if (isPasswordInputValid) {
     let passwordInputRef = document.getElementById("signUpInputPassword");
     let passwordRepeatInputRef = document.getElementById("signUpInputPasswordRepeat");
     let passwordRepeatWarningRef = document.getElementById("signUpInputPasswordRepeatWarning");
@@ -328,22 +318,10 @@ function compareSignUpPasswords() {
       return false;
     } else {
       passwordRepeatInputRef.classList.remove("borderColorRed");
+      passwordRepeatWarningRef.innerHTML = "";
       return true;
     }
   } else {
-    return false;
-  }
-}
-
-function checkAcceptedPrivacyPolicy() {
-  let isPrivacyPolicyChecked = document.getElementById("privacyPolicyCheckBox").checked;
-  if (isPrivacyPolicyChecked) {
-    document.getElementById("checkBoxWarning").innerText = "";
-    console.log(isPrivacyPolicyChecked);
-    return true;
-  } else {
-    document.getElementById("checkBoxWarning").innerText = "You have to read and accept our Privacy Policy";
-    console.log(isPrivacyPolicyChecked);
     return false;
   }
 }
