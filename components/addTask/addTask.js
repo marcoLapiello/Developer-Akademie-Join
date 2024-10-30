@@ -441,7 +441,6 @@ export function saveSubtaskEditing(subtaskID, card) {
     }
   } else {
     deleteSubtask(subtaskID, card);
-    console.log("empty subtask deleted");
   }
 }
 
