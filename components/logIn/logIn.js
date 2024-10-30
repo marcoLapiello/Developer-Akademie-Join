@@ -60,9 +60,6 @@ export function goToLogInPage() {
 export function enableLogInButton() {
   let emailInput = document.getElementById("logInInputEmail").value;
   let passwordInput = document.getElementById("logInInputPassword").value;
-  console.log(emailInput);
-  console.log(passwordInput);
-
   let logInBtnRef = document.getElementById("logInBtn");
   if (emailInput && passwordInput) {
     logInBtnRef.classList.remove("buttonDisabled");
@@ -290,6 +287,8 @@ export function validateEmailInput() {
   let inputRef = document.getElementById("signUpInputEmail");
   let warningRef = document.getElementById("signUpInputEmailWarning");
   if (!inputRef.value || inputRef.value.length < 6) {
+    inputRef.classList.remove("borderColorBlue");
+    inputRef.classList.remove("borderColorGrey");
     inputRef.classList.add("borderColorRed");
     warningRef.innerHTML = "Enter a valid email address.";
     return false;
@@ -299,7 +298,15 @@ export function validateEmailInput() {
     let mailPartAfterAt = emailInput.split("@")[1];
     let atCounter = emailInput.split("@").length;
     let isWhitespaceIncluded = emailInput.includes(" ");
-    if (!emailInput.includes("@") || !mailPartAfterAt.includes(".") || isWhitespaceIncluded || atCounter > 2 || /[äöüß]/.test(emailInput)) {
+    if (
+      !emailInput.includes("@") ||
+      !mailPartAfterAt.includes(".") ||
+      isWhitespaceIncluded ||
+      atCounter > 2 ||
+      /[äöüß]/.test(emailInput) ||
+      emailInput[emailInput.length - 1] == "." ||
+      emailInput[emailInput.length - 2] == "."
+    ) {
       inputRef.classList.remove("borderColorBlue");
       inputRef.classList.remove("borderColorGrey");
       inputRef.classList.add("borderColorRed");
@@ -380,7 +387,18 @@ export function setBorderColorGrey(inputId, warningId) {
     document.getElementById(inputId).classList.add("borderColorRed");
     document.getElementById(inputId).classList.remove("borderColorBlue");
     document.getElementById(inputId).classList.remove("borderColorGrey");
-    return;
+    if ((inputId = "signUpInputName")) {
+      validateSignUpName();
+    }
+    if ((inputId = "signUpInputEmail")) {
+      validateEmailInput();
+    }
+    if ((inputId = "signUpInputPassword")) {
+      validateSignUpPassword();
+    }
+    if ((inputId = "signUpInputPasswordRepeat")) {
+      compareSignUpPasswords();
+    }
   }
 }
 
@@ -404,3 +422,11 @@ export function removeValidationWarning(inputId, warningId) {
     return;
   }
 }
+
+export function goToPrivacyLegal(site) {
+  window.location.href = `./${site}.html`;
+  document.getElementById("sidebarBlock").classList.add("d_none");
+}
+
+// privacyPolicy
+// legalNotice
