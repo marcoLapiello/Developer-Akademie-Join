@@ -55,7 +55,7 @@ export function goToLogInPage() {
 
 // log in User functions
 export function doGuestLogIn() {
-  console.log("guest login requested");
+  setGuestAsLoggedInToLocalStorage();
   window.location.href = "../summary.html";
 }
 
@@ -87,7 +87,6 @@ async function compareLogInData() {
   return isComparisionOK;
 }
 
-// UMSCHREIBEN sodass nur USER ID gespeichert wird!!!!
 async function setUserIDToLocalStorage() {
   let usersArray = await getUsersArray();
   let userEmail = document.getElementById("logInInputEmail").value;
@@ -97,9 +96,11 @@ async function setUserIDToLocalStorage() {
       userID = element[1].id;
     }
   });
-  let userIdObject = { userID: `${userID}` };
-  let loggedInUserIdJson = JSON.stringify(userIdObject);
-  localStorage.setItem("loggedInUserId", loggedInUserIdJson);
+  localStorage.setItem("loggedInUserId", JSON.stringify({userID: `${userID}`}));
+}
+
+function setGuestAsLoggedInToLocalStorage() {
+  localStorage.setItem("loggedInUserId" ,JSON.stringify({ guest: "guest" }));
 }
 
 export function toggleRememberMe() {
