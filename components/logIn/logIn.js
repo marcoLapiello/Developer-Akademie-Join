@@ -11,6 +11,9 @@ export function renderLogInTemplate(email, password) {
   let logInRenderContainerRef = document.getElementById("logInRenderContainer");
   logInRenderContainerRef.innerHTML = "";
   logInRenderContainerRef.innerHTML = getLogInTemplate(email, password);
+  setTimeout(() => {
+    enableLogInButton();
+  }, 100);
 }
 
 export function renderSignUpTemplate() {
@@ -57,6 +60,9 @@ export function goToLogInPage() {
 export function enableLogInButton() {
   let emailInput = document.getElementById("logInInputEmail").value;
   let passwordInput = document.getElementById("logInInputPassword").value;
+  console.log(emailInput);
+  console.log(passwordInput);
+
   let logInBtnRef = document.getElementById("logInBtn");
   if (emailInput && passwordInput) {
     logInBtnRef.classList.remove("buttonDisabled");
@@ -101,8 +107,12 @@ async function compareLogInData() {
       isComparisionOK = true;
     }
   });
-  logInInputPasswordWarningRef.innerHTML = "Email or password wrong, try again.";
-  return isComparisionOK;
+  if (isComparisionOK) {
+    return isComparisionOK;
+  } else {
+    logInInputPasswordWarningRef.innerHTML = "Email or password wrong, try again.";
+    return isComparisionOK;
+  }
 }
 
 // #logInInputEmailWarning
@@ -264,6 +274,8 @@ export function validateSignUpName() {
     let nameFirstLetter = nameInput[0];
     if (namePartsCount != 2 || nameLastLetter == " " || nameFirstLetter == " ") {
       warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
+      inputRef.classList.remove("borderColorBlue");
+      inputRef.classList.remove("borderColorGrey");
       inputRef.classList.add("borderColorRed");
       return false;
     } else {
@@ -286,7 +298,10 @@ export function validateEmailInput() {
     let emailInput = inputRef.value;
     let mailPartAfterAt = emailInput.split("@")[1];
     let atCounter = emailInput.split("@").length;
-    if (!emailInput.includes("@") || !mailPartAfterAt.includes(".") || atCounter > 2 || /[äöüß]/.test(emailInput)) {
+    let isWhitespaceIncluded = emailInput.includes(" ");
+    if (!emailInput.includes("@") || !mailPartAfterAt.includes(".") || isWhitespaceIncluded || atCounter > 2 || /[äöüß]/.test(emailInput)) {
+      inputRef.classList.remove("borderColorBlue");
+      inputRef.classList.remove("borderColorGrey");
       inputRef.classList.add("borderColorRed");
       warningRef.innerHTML = "Enter a valid email address.";
       return false;
@@ -302,6 +317,8 @@ function validateSignUpPassword() {
   let passwordWarningRef = document.getElementById("signUpInputPasswordWarning");
   let isPasswordIncludingWhitespaces = passwordInputRef.value.includes(" ");
   if (passwordInputRef.value.length < 6 || isPasswordIncludingWhitespaces) {
+    passwordInputRef.classList.remove("borderColorBlue");
+    passwordInputRef.classList.remove("borderColorGrey");
     passwordInputRef.classList.add("borderColorRed");
     passwordWarningRef.innerHTML = "Enter a password of at least six characters.";
     return false;
@@ -319,6 +336,8 @@ function compareSignUpPasswords() {
     let passwordRepeatInputRef = document.getElementById("signUpInputPasswordRepeat");
     let passwordRepeatWarningRef = document.getElementById("signUpInputPasswordRepeatWarning");
     if (passwordInputRef.value && passwordInputRef.value != passwordRepeatInputRef.value) {
+      passwordRepeatInputRef.classList.remove("borderColorBlue");
+      passwordRepeatInputRef.classList.remove("borderColorGrey");
       passwordRepeatInputRef.classList.add("borderColorRed");
       passwordRepeatWarningRef.innerHTML = "The passwords do not match. Please try again.";
       return false;
@@ -341,4 +360,47 @@ function userFeedbackAfterSignUp() {
     document.getElementById("signUpDialogField").classList.add("d_none");
     document.getElementById("signUpUserFeedback").classList.remove("translateSignUpFeedback");
   }, 1150);
+}
+
+// set border color to blue, ---> / onFocus
+export function setBorderColorBlue(inputId) {
+  document.getElementById(inputId).classList.remove("borderColorGrey");
+  document.getElementById(inputId).classList.remove("borderColorRed");
+  document.getElementById(inputId).classList.add("borderColorBlue");
+}
+
+// onBlur
+export function setBorderColorGrey(inputId, warningId) {
+  let warningText = document.getElementById(warningId).innerText;
+  if (!warningText) {
+    document.getElementById(inputId).classList.remove("borderColorRed");
+    document.getElementById(inputId).classList.remove("borderColorBlue");
+    document.getElementById(inputId).classList.add("borderColorGrey");
+  } else {
+    document.getElementById(inputId).classList.add("borderColorRed");
+    document.getElementById(inputId).classList.remove("borderColorBlue");
+    document.getElementById(inputId).classList.remove("borderColorGrey");
+    return;
+  }
+}
+
+// onInput
+export function removeValidationWarning(inputId, warningId) {
+  let warningText = document.getElementById(warningId).innerText;
+  if (warningText) {
+    if ((inputId = "signUpInputName")) {
+      validateSignUpName();
+    }
+    if ((inputId = "signUpInputEmail")) {
+      validateEmailInput();
+    }
+    if ((inputId = "signUpInputPassword")) {
+      validateSignUpPassword();
+    }
+    if ((inputId = "signUpInputPasswordRepeat")) {
+      compareSignUpPasswords();
+    }
+  } else {
+    return;
+  }
 }
