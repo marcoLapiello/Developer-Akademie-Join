@@ -39,11 +39,21 @@ export function renderSidebar() {
  *
  * @returns {string} The HTML template for the sidebar.
  */
+
+function hideSidebarFromUnlogged() {
+  let loggedInData = localStorage.getItem("loggedInUserId");
+  if (!loggedInData) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 function renderSidebarTemplate() {
   return /*html*/ `    
       <div class="sidebarUpperPart">
         <img class= "joinLogo"  src="./assets/icons/joinLogo.png" />
-        <div id="sidebarBlock" class="sidebar-Block">
+        <div id="sidebarBlock" class="sidebar-Block ${hideSidebarFromUnlogged() ? "" : "d_none"}">
           <a class="${urlPath === "/summary.html" ? "active" : ""}" href="./summary.html">${returnIcon("summary")}Summary</a>
           <a class="${urlPath === "/addTask.html" ? "active" : ""}" href="./addTask.html">${returnIcon("addTask")}Add Task</a>
           <a class="${urlPath === "/board.html" ? "active" : ""}" href="./board.html">${returnIcon("board")}Board</a>
