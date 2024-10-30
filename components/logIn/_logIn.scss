@@ -157,6 +157,8 @@
 
     .backArrow {
       position: absolute;
+      width: 40px;
+      height: 40px;
       left: 48px;
       top: 64px;
       display: flex;
@@ -168,7 +170,7 @@
 
       @media (max-width: $breakpoint-lg) {
         left: 29px;
-        top: 49px;
+        top: 46px;
       }
 
       &:hover {
