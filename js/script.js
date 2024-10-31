@@ -600,8 +600,8 @@ function isUserLoggedIn() {
   const loggedInUserIdJson = localStorage.getItem("loggedInUserId");
   const loggedInUserId = JSON.parse(loggedInUserIdJson);
   if (loggedInUserId === null) {
-    // window.location.href = "../index.html";
-    console.log("User is not logged in: Function isUserLoggedIn() temporary disabled");
+    window.location.href = "../index.html";
+    // console.log("User is not logged in: Function isUserLoggedIn() temporary disabled");
   }
   return loggedInUserId;
 }
@@ -616,6 +616,9 @@ function userLogOut() {
 }
 window.userLogOut = userLogOut;
 
+/**
+ * Navigates the browser to the previous page in the session history.
+ */
 function backToLastSite() {
   window.history.back();
 }

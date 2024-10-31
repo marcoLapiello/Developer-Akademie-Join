@@ -157,14 +157,23 @@ function validatePhoneNumberInput(inputRef, warningRef) {
   }
   if (inputRef.value) {
     let phoneNumber = inputRef.value;
-    if (phoneNumber.length < 8 || phoneNumber[0] != "+") {
-      inputRef.style.borderColor = "rgb(255, 0, 0)";
+    let validCharacters = /^[0-9+\s]+$/.test(phoneNumber);
+    if (phoneNumber.length < 8 || phoneNumber[0] != "+" || validCharacters == false) {
+      inputRef.classList.add("borderColorRed");
       warningRef.innerHTML = "Enter a valid phone number with country code.";
+      console.log("falsche scheiße");
+
       return false;
+    } else {
+      inputRef.classList.remove("borderColorRed");
+      warningRef.innerHTML = "";
+
+      return true;
     }
   }
-  return true;
 }
+
+// inputRef.style.borderColor = "rgb(255, 0, 0)";
 
 /**
  * Validates all inputs based on the specified type.

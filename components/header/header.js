@@ -2,6 +2,12 @@
  * @module "header.js"
  */
 
+/**
+ * Imports the function to retrieve the array of users.
+ *
+ * @module script
+ * @function getUsersArray - Retrieves the array of users from the script.
+ */
 import { getUsersArray } from "../../js/script.js";
 
 /**
@@ -54,17 +60,27 @@ export async function renderHeader() {
  *
  * @returns {string} The HTML template for the header section.
  */
+
+function hideSidebarFromUnLogged() {
+  let loggedInData = localStorage.getItem("loggedInUserId");
+  if (!loggedInData) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 function renderHeaderTemplate(initials) {
   return /*html*/ `
       <div class = "headerText">
       <span>Kanban Project Management Tool</span>
       </div>
-      <div class="header-rightSide">
+      <div class="header-rightSide ${hideSidebarFromUnLogged() ? "" : "d_none"}">
         <a href="./help.html">
           <img src="./assets/icons/questionMark_small.png" alt="Help" />
         </a>
         <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
-          <span>${initials ? initials : "G"}</span>
+          <span>${initials ? initials.toUpperCase() : "G"}</span>
           <div class="dropDown d_none" id="dropDown">
           <div class="help">
             <a href="./help.html">Help</a>
