@@ -14,9 +14,26 @@ import { getUsersArray } from "../../js/script.js";
  * Toggles the "d_none" class on the element with the ID "dropDown".
  * This function is used to show or hide the user menu.
  */
-export function toggle_d_None() {
-  let userMenuRef = document.getElementById("dropDown");
-  userMenuRef.classList.toggle("d_none");
+export function openCloseUserMenu(event) {
+  const userMenuRef = document.getElementById("dropDown");
+
+  event.stopPropagation();
+  if (userMenuRef.classList.contains("d_none")) {
+    userMenuRef.classList.remove("d_none");
+    document.addEventListener("click", closeMenuOnOutsideClick);
+    userMenuRef.addEventListener("click", (element) => element.stopPropagation());
+  } else {
+    userMenuRef.classList.add("d_none");
+    document.removeEventListener("click", closeMenuOnOutsideClick);
+  }
+}
+
+function closeMenuOnOutsideClick(event) {
+  const userMenuRef = document.getElementById("dropDown");
+  if (!userMenuRef.contains(event.target)) {
+    userMenuRef.classList.add("d_none");
+    document.removeEventListener("click", closeMenuOnOutsideClick);
+  }
 }
 
 /**
@@ -79,7 +96,7 @@ function renderHeaderTemplate(initials) {
         <a href="./help.html">
           <img src="./assets/icons/questionMark_small.png" alt="Help" />
         </a>
-        <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
+        <div onclick="openCloseUserMenu(event)" id="user_Profile_Initials" class="user-Profile-Initials">
           <span>${initials ? initials.toUpperCase() : "G"}</span>
           <div class="dropDown d_none" id="dropDown">
           <div class="help">

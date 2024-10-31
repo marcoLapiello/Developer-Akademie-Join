@@ -129,7 +129,7 @@ renderSidebar();
  * @function toggle_d_None - Toggles the display property of an element.
  * @function renderHeader - Renders the header on the user interface.
  */
-import { toggle_d_None, renderHeader } from "../components/header/header.js";
+import { openCloseUserMenu, renderHeader } from "../components/header/header.js";
 renderHeader();
 
 /**
@@ -137,7 +137,7 @@ renderHeader();
  *
  * @function toggle_d_None - Toggles the display property of an element.
  */
-window.toggle_d_None = toggle_d_None;
+window.openCloseUserMenu = openCloseUserMenu;
 
 /**
  * Imports the function to render the board head template.
