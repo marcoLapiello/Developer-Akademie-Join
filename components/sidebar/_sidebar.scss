@@ -43,7 +43,7 @@
 }
 
 .active {
-  background-color: #091931!important; 
+  background-color: #091931 !important;
 }
 
 #information {
@@ -52,12 +52,11 @@
 
   & a {
     color: #a8a8a8;
-  
-    &:hover{
+
+    &:hover {
       color: #29abe2;
     }
   }
-  
 }
 
 .sidebar-Block {
@@ -85,11 +84,11 @@
   font-size: 16px;
   line-height: 19.2px;
   gap: 15px;
-  padding: 0;
+  padding-block: 10px;
   padding-inline: 56px;
   opacity: 100%;
   width: 100%;
-  
+
   @media (max-width: $breakpoint-lg) {
     display: flex;
     line-height: 120%;
@@ -107,13 +106,12 @@
   & svg {
     height: 30px;
     width: 30px;
-    fill: #CDCDCD;
+    fill: #cdcdcd;
   }
 
-  &:hover{
+  &:hover {
     background-color: #2a3d59;
   }
-
 }
 
 #information {
@@ -131,6 +129,7 @@
   & a {
     display: flex;
     align-items: center;
+    padding-block: 5px;
     padding-inline: 56px;
     width: 100%;
   }
