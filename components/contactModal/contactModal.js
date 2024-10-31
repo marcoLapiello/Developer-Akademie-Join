@@ -171,8 +171,6 @@ function validatePhoneNumberInput(inputRef, warningRef) {
   }
 }
 
-// inputRef.style.borderColor = "rgb(255, 0, 0)";
-
 /**
  * Validates all inputs based on the specified type.
  *
