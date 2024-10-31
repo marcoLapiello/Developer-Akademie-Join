@@ -73,7 +73,10 @@
         font-size: 61px;
         font-weight: bold;
         line-height: 120%;
-        word-break: break-all;
+        hyphens: auto;
+        overflow-wrap: break-word;
+        word-break: normal;
+        white-space: normal;
 
         @media (max-width: $breakpoint-xs) {
           font-size: 30px;
