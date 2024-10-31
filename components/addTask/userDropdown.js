@@ -103,6 +103,13 @@ export function filterUsersByName() {
   });
 }
 
+/**
+ * Renders the user dropdown list by fetching the users array, filtering out users with passwords,
+ * and inserting the user list items into the dropdown.
+ *
+ * @async
+ * @function renderUserDropdownList
+ */
 export async function renderUserDropdownList() {
   document.getElementById("contactsToAssign").innerHTML = "";
   let userArray = await getUsersArray();
