@@ -1,9 +1,12 @@
 .logInMainSection {
   width: 100%;
+  min-height: 850px;
   height: 100dvh;
+  max-height: 100dvh;
   position: relative;
   display: flex;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   @media (max-width: $breakpoint-lg) {
   }
@@ -92,14 +95,14 @@
 
 .linkToSignUpBox {
   position: absolute;
-  top: 67px;
+  bottom: calc(100dvh - 147px);
   right: 122px;
   display: flex;
   align-items: center;
   gap: 35px;
 
   @media (max-width: $breakpoint-lg) {
-    top: calc(100dvh - 147px);
+    bottom: 99px;
     right: 50%;
     transform: translate(50%);
   }
