@@ -601,7 +601,6 @@ function isUserLoggedIn() {
   const loggedInUserId = JSON.parse(loggedInUserIdJson);
   if (loggedInUserId === null) {
     window.location.href = "../index.html";
-    // console.log("User is not logged in: Function isUserLoggedIn() temporary disabled");
   }
   return loggedInUserId;
 }
