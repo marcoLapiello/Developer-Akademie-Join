@@ -45,6 +45,13 @@ import { openTaskModal } from "../addTask/addTask.js";
 let currentDraggedElement;
 
 /**
+ * A variable to store a reference to the dynamic mobile menu.
+ *
+ * @type {string}
+ */
+let mobileMenuRefDynamic = "";
+
+/**
  * Adds a new task category based on the given status.
  * If the window width is greater than 1400 pixels, it opens a task modal.
  * Otherwise, it redirects to the addTask.html page with the status as a URL parameter.
@@ -237,18 +244,14 @@ function renderCardsFallbackTemplate(currentStatus) {
 }
 
 /**
- * Toggles the visibility of a mobile menu by adding or removing the "d_none" class.
- * Stops the propagation of the event to prevent it from bubbling up the DOM tree.
+ * Toggles the visibility of a mobile menu based on its current state.
  *
- * @param {Event} event - The event object associated with the click event.
+ * @param {Event} event - The event object from the click event.
  * @param {string} id - The unique identifier for the mobile menu element.
  */
-let mobileMenuRefDynamic = "";
-
 function toggleMobileMenu(event, id) {
   const mobileMenuRef = document.getElementById(`mobileMenu${id}`);
   mobileMenuRefDynamic = `mobileMenu${id}`;
-  
   event.stopPropagation();
   if (mobileMenuRef.classList.contains("d_none")) {
     mobileMenuRef.classList.remove("d_none");
@@ -261,6 +264,15 @@ function toggleMobileMenu(event, id) {
 }
 window.toggleMobileMenu = toggleMobileMenu;
 
+/**
+ * Closes the task menu if a click is detected outside of it.
+ *
+ * This function is intended to be used as an event handler for click events.
+ * It checks if the click event's target is not the mobile menu element, and if so,
+ * it hides the mobile menu and removes the event listener.
+ *
+ * @param {Event} event - The click event object.
+ */
 function closeTaskMenuOnOutsideClick(event) {
   const mobileMenuRef = document.getElementById(mobileMenuRefDynamic);
   if (mobileMenuRef !== event.target.id) {
