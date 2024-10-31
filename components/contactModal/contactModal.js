@@ -161,8 +161,6 @@ function validatePhoneNumberInput(inputRef, warningRef) {
     if (phoneNumber.length < 8 || phoneNumber[0] != "+" || validCharacters == false) {
       inputRef.classList.add("borderColorRed");
       warningRef.innerHTML = "Enter a valid phone number with country code.";
-      console.log("falsche scheiße");
-
       return false;
     } else {
       inputRef.classList.remove("borderColorRed");
