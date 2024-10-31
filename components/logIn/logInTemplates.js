@@ -1,5 +1,5 @@
 /**
- * @module "logInTemplate.js"
+ * @module "logInTemplates.js"
  */
 
 /**
