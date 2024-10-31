@@ -80,7 +80,7 @@ function renderHeaderTemplate(initials) {
           <img src="./assets/icons/questionMark_small.png" alt="Help" />
         </a>
         <div onclick="toggle_d_None()" id="user_Profile_Initials" class="user-Profile-Initials">
-          <span>${initials ? initials : "G"}</span>
+          <span>${initials ? initials.toUpperCase() : "G"}</span>
           <div class="dropDown d_none" id="dropDown">
           <div class="help">
             <a href="./help.html">Help</a>
