@@ -1,4 +1,8 @@
 /**
+ * @module "logInTemplates.js"
+ */
+
+/**
  * Generates the HTML template for the login form.
  *
  * @param {string} email - The email address to pre-fill in the email input field.
