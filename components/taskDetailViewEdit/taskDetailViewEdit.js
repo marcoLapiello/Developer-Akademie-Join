@@ -2,11 +2,59 @@
  * @module "taskDetailViewEdit.js"
  */
 
+/**
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
+ */
 import { returnIcon } from "../icons.js";
+
+/**
+ * Imports the function to retrieve the array of tasks.
+ *
+ * @module script
+ * @function getTasksArray - Retrieves the array of tasks from the script.
+ */
 import { getTasksArray } from "../../js/script.js";
+
+/**
+ * Imports various functions and variables for handling tasks and subtasks.
+ *
+ * @module addTask
+ * @variable currentPrio - The current priority level of a task.
+ * @function setGlobalVariablesToDefault - Resets global variables to their default values.
+ * @function getSubtaskTemplate - Retrieves the template for a subtask.
+ * @variable newTaskObject - An object template for a new task.
+ */
 import { currentPrio, setGlobalVariablesToDefault, getSubtaskTemplate, newTaskObject } from "../addTask/addTask.js";
+
+/**
+ * Imports functions and variables for handling the user dropdown list in the add task component.
+ *
+ * @module userDropdown
+ * @function overwriteSelectedUsers - Overwrites the selected users.
+ * @variable selectedUsers - An array to store the selected users.
+ * @function renderUserDropdownList - Renders the user dropdown list.
+ */
 import { overwriteSelectedUsers, selectedUsers, renderUserDropdownList } from "../addTask/userDropdown.js";
+
+/**
+ * Imports the function to toggle the task detail view.
+ *
+ * @module taskDetailView
+ * @function toggleTaskDetailView - Toggles the visibility of the task detail view.
+ */
 import { toggleTaskDetailView } from "../taskDetailView/taskDetailView.js";
+
+/**
+ * Imports the function to update a task in the database service.
+ *
+ * @module tasksApiService
+ * @function patchTaskUpdate - Updates a task in the database.
+ */
 import { patchTaskUpdate } from "../../js/tasksApiService.js";
 
 /**
