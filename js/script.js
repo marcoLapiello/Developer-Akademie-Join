@@ -216,11 +216,11 @@ import {
  * @function toggleRememberMe - Toggles the "remember me" option.
  * @function getUserLogInDataFromLocalStorage - Retrieves user login data from local storage.
  * @function getNewUserData - Retrieves new user data.
- * @function enableLogInButton - Enables Log In Button after entering email and password
- * @function enableSignUpButton - Enables Sign Up Button after entering all input fields
- * @function setBorderColorBlue -
- * @function setBorderColorGrey -
- * @function removeValidationWarning -
+ * @function enableLogInButton - Enables the login button.
+ * @function enableSignUpButton - Enables the signup button.
+ * @function setBorderColorBlue - Sets the border color to blue.
+ * @function setBorderColorGrey - Sets the border color to grey.
+ * @function removeValidationWarning - Removes validation warnings.
  */
 window.signUpNewUser = signUpNewUser;
 window.renderLogInTemplate = renderLogInTemplate;
