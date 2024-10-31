@@ -103,11 +103,8 @@ function animateJoinLogo() {
 
 /**
  * Initializes and renders the login page.
- * This function performs the following steps:
- * 1. Renders the Join logo.
- * 2. Renders the login template.
- * 3. Retrieves user login data from local storage.
- * 4. Animates the Join logo after a delay of 800 milliseconds.
+ * Scrolls to the top, renders the join logo and login template, retrieves user login data from local storage,
+ * and animates the join logo after a short delay.
  */
 export function initRenderLogInPage() {
   scrollToTop();
@@ -119,6 +116,10 @@ export function initRenderLogInPage() {
   }, 800);
 }
 
+/**
+ * Scrolls the window to the top and sets the scroll restoration to manual.
+ * This function ensures that the page does not automatically scroll to the previous position.
+ */
 function scrollToTop() {
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
