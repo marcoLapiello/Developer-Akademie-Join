@@ -69,14 +69,16 @@ export function removeUsersSearchFieldValue() {
  */
 function getUserListItem(userArray, index, isInputChecked) {
   return /*html*/ `
-    <div id="${userArray[index][1].id}" class="userListItem">
+    <div onclick="selectUser('${userArray[index][1].id}')" 
+    id="${userArray[index][1].id}" 
+    class="userListItem ${isInputChecked ? "checked" : ""}">
       <div class="initialsNameWrapper">
         <div id="initialsBox${index}" class="initialsBox" style="background-color: ${userArray[index][1].user_color}">
           <span id="initials${index}" class="initials">${userArray[index][1].profile.initials}</span>
         </div>
-        <p>${userArray[index][1].profile.first_name} ${userArray[index][1].profile.last_name}</p>
-      </div>      
-      <input id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}'); removeUsersSearchFieldValue()" type="checkBox" 
+          <p>${userArray[index][1].profile.first_name} ${userArray[index][1].profile.last_name}</p>
+        </div>      
+      <input class="userCheckbox" id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}'); removeUsersSearchFieldValue()" type="checkBox" 
       ${isInputChecked ? "checked" : ""}>
     </div>
   `;
@@ -227,18 +229,24 @@ export function closeDropdownFromWindow(event, content) {
 }
 
 /**
- * Toggles the selection of a user by their ID. If the user is already selected,
- * they are removed from the selection. If the user is not selected, they are added.
- * After updating the selection, the current assignation is re-rendered.
+ * Toggles the selection of a user by their userId.
+ * Updates the checkbox state and the visual representation of the user item.
+ * Adds or removes the userId from the selectedUsers array.
+ * Calls renderCurrentAssignation to update the UI with the current selection.
  *
- * @param {string} userId - The ID of the user to select or deselect.
+ * @param {string} userId - The ID of the user to be selected or deselected.
  */
 export function selectUser(userId) {
-  if (selectedUsers.includes(userId)) {
-    let index = selectedUsers.indexOf(userId);
-    selectedUsers.splice(index, 1);
+  const checkbox = document.getElementById(`userCheckbox${userId}`);
+  const userItem = document.getElementById(userId);
+  checkbox.checked = !checkbox.checked;
+  if (checkbox.checked) {
+    userItem.classList.add("checked");
+    if (!selectedUsers.includes(userId)) selectedUsers.push(userId);
   } else {
-    selectedUsers.push(userId);
+    userItem.classList.remove("checked");
+    const index = selectedUsers.indexOf(userId);
+    if (index > -1) selectedUsers.splice(index, 1);
   }
   renderCurrentAssignation();
 }
