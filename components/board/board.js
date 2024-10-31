@@ -24,7 +24,6 @@ import { returnIcon } from "../icons.js";
 function getBoardTemplate() {
   return /*html*/ `
     <div class="boardContainer">
-      <!-- board left part -->
       <div class="boardLeft">
         <p>Board</p>
         <a href="../addTask.html">
@@ -33,7 +32,6 @@ function getBoardTemplate() {
           </button>
         </a>
       </div>
-      <!-- board right part -->
       <div class="boardRight">
         <div class="taskSearchFieldContainer">
           <input id="searchTasksField" oninput="getFilteredTasksArray()" onchange="getFilteredTasksArray()" type="text" placeholder="Find Task" />
