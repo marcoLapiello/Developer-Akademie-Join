@@ -110,12 +110,19 @@ function animateJoinLogo() {
  * 4. Animates the Join logo after a delay of 800 milliseconds.
  */
 export function initRenderLogInPage() {
+  scrollToTop();
   renderJoinLogo();
   renderLogInTemplate();
   getUserLogInDataFromLocalStorage();
   setTimeout(() => {
     animateJoinLogo();
   }, 800);
+}
+
+function scrollToTop() {
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
 }
 
 /**
