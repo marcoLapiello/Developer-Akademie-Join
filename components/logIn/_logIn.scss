@@ -14,8 +14,13 @@
 
 .logoAnimationDialog {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 4000;
+  min-height: 860px;
   height: 100dvh;
+  max-height: 100dvh;
   width: 100%;
   background-color: white;
   transition: all 0.6s ease-in;
@@ -88,7 +93,7 @@
 }
 
 .joinLogoAnimation {
-  top: 50dvh;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(2.7);
 }
@@ -539,7 +544,7 @@
   position: absolute;
   bottom: 40px;
   left: 50%;
-  transform: translatex(-50%);
+  transform: translateX(-50%);
 
   a {
     color: #d1d1d1;
