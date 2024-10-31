@@ -243,12 +243,32 @@ function renderCardsFallbackTemplate(currentStatus) {
  * @param {Event} event - The event object associated with the click event.
  * @param {string} id - The unique identifier for the mobile menu element.
  */
+let mobileMenuRefDynamic = "";
+
 function toggleMobileMenu(event, id) {
   const mobileMenuRef = document.getElementById(`mobileMenu${id}`);
-  mobileMenuRef.classList.toggle("d_none");
+  mobileMenuRefDynamic = `mobileMenu${id}`;
+  
   event.stopPropagation();
+  if (mobileMenuRef.classList.contains("d_none")) {
+    mobileMenuRef.classList.remove("d_none");
+    document.addEventListener("click", closeTaskMenuOnOutsideClick);
+    mobileMenuRef.addEventListener("click", (element) => element.stopPropagation());
+  } else {
+    mobileMenuRef.classList.add("d_none");
+    document.removeEventListener("click", closeTaskMenuOnOutsideClick);
+  }
 }
 window.toggleMobileMenu = toggleMobileMenu;
+
+function closeTaskMenuOnOutsideClick(event) {
+  const mobileMenuRef = document.getElementById(mobileMenuRefDynamic);
+  if (mobileMenuRef !== event.target.id) {
+    mobileMenuRef.classList.add("d_none");
+    document.removeEventListener("click", closeTaskMenuOnOutsideClick);
+  }
+}
+window.closeTaskMenuOnOutsideClick = closeTaskMenuOnOutsideClick;
 
 //! Drag and Drop Functionality for Task Cards
 
