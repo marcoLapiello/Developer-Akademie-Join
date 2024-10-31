@@ -71,23 +71,7 @@ import { removeAktivContactButton } from "../contactList/contactList.js";
  *
  * @type {string[]}
  */
-let userColors = [
-  "#FF7A00",
-  "#FF5EB3",
-  "#6E52FF",
-  "#9327FF",
-  "#00BEE8",
-  "#1FD7C1",
-  "#FF745E",
-  "#FFA35E",
-  "#FC71FF",
-  "#FFC701",
-  "#0038FF",
-  "#C3FF2B",
-  "#FFE62B",
-  "#FF4646",
-  "#FFBB2B",
-];
+let userColors = ["#FF7A00", "#FF5EB3", "#6E52FF", "#9327FF", "#00BEE8", "#1FD7C1", "#FF745E", "#FFA35E", "#FC71FF", "#FFC701", "#0038FF", "#C3FF2B", "#FFE62B", "#FF4646", "#FFBB2B"];
 
 /**
  * Validates the name input field to ensure it contains both a name and a surname separated by a space or hyphen.

@@ -80,8 +80,7 @@ export async function getFilteredTasksArray() {
     let filterLetters = document.getElementById("searchTasksField").value.toLowerCase();
     if (filterLetters) {
       let filteredTasksArray = unfilteredTasksArray.filter(
-        (element) =>
-          element.childNodes[3].children[0].innerHTML.toLowerCase().includes(filterLetters) || element.childNodes[3].children[1].innerHTML.toLowerCase().includes(filterLetters)
+        (element) => element.childNodes[3].children[0].innerHTML.toLowerCase().includes(filterLetters) || element.childNodes[3].children[1].innerHTML.toLowerCase().includes(filterLetters)
       );
       let noneShownTasks = unfilteredTasksArray.filter((element) => !filteredTasksArray.includes(element));
       unfilteredTasksArray.forEach((element) => element.classList.remove("d_none"));

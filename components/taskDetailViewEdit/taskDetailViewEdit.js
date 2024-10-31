@@ -209,9 +209,7 @@ function renderTaskDetailViewEditTemplate(taskData) {
           <div onclick="selectPrio(event)" id="prioMedium" class="priorities ${
             taskData.priority.toLowerCase() == "medium" ? "mediumPrio" : ""
           }">Medium<img src="./assets/icons/medium_icon.png" alt="" /></div>
-          <div onclick="selectPrio(event)" id="prioLow" class="priorities ${
-            taskData.priority.toLowerCase() == "low" ? "lowPrio" : ""
-          }">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioLow" class="priorities ${taskData.priority.toLowerCase() == "low" ? "lowPrio" : ""}">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
           </div>
         </div>
         <div class="assignedToContainer">
