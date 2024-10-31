@@ -16,7 +16,6 @@ import { getUsersArray } from "../../js/script.js";
  */
 export function openCloseUserMenu(event) {
   const userMenuRef = document.getElementById("dropDown");
-
   event.stopPropagation();
   if (userMenuRef.classList.contains("d_none")) {
     userMenuRef.classList.remove("d_none");
@@ -28,6 +27,11 @@ export function openCloseUserMenu(event) {
   }
 }
 
+/**
+ * Closes the user menu if a click is detected outside of it.
+ *
+ * @param {Event} event - The click event that triggers the function.
+ */
 function closeMenuOnOutsideClick(event) {
   const userMenuRef = document.getElementById("dropDown");
   if (!userMenuRef.contains(event.target)) {
@@ -61,23 +65,10 @@ export async function renderHeader() {
 }
 
 /**
- * Generates the HTML template for the header section of the Kanban Project Management Tool.
+ * Checks if a user is logged in by verifying the presence of a user ID in local storage.
  *
- * The header includes:
- * - A title section with the text "Kanban Project Management Tool".
- * - A right-side section with:
- *   - A help icon linking to the help page.
- *   - A user profile initials section that toggles a dropdown menu.
- *
- * The dropdown menu includes links to:
- * - Help page
- * - Legal Notice page
- * - Privacy Policy page
- * - Log out page
- *
- * @returns {string} The HTML template for the header section.
+ * @returns {boolean} - Returns `true` if a user is logged in, otherwise `false`.
  */
-
 function hideSidebarFromUnLogged() {
   let loggedInData = localStorage.getItem("loggedInUserId");
   if (!loggedInData) {
@@ -87,6 +78,12 @@ function hideSidebarFromUnLogged() {
   }
 }
 
+/**
+ * Renders the header template for the Kanban Project Management Tool.
+ *
+ * @param {string} initials - The initials of the user to be displayed in the header. If not provided, defaults to "G".
+ * @returns {string} The HTML string for the header template.
+ */
 function renderHeaderTemplate(initials) {
   return /*html*/ `
       <div class = "headerText">
