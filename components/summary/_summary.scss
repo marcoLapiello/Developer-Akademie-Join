@@ -44,7 +44,7 @@
     @media (max-width: $breakpoint-lg) {
         padding: 48px 48px;
         align-items: center;
-        height: calc(100dvh - 80px);
+        height: calc(100dvh - 80px - 80px);
     }
 
     @media (max-width: $breakpoint-sm) {
