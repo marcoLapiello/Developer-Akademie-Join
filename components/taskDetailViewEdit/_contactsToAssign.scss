@@ -1,0 +1,59 @@
+.contactsToAssign {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 200px;
+  overflow-y: scroll;
+
+  .userListItem {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 10px;
+
+    &.checked {
+      color: white;
+      background-color: #2a3647;
+      border-radius: 10px;
+    }
+
+    .userCheckbox:hover {
+      cursor: pointer;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+      background-color: #091931;
+      border-radius: 10px;
+    }
+  }
+
+  .initialsNameWrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    & p {
+      @media (max-width: $breakpoint-xs) {
+        font-size: 14px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .initialsBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 42px;
+      min-width: 42px;
+      border-radius: 50%;
+      color: white;
+    }
+  }
+}

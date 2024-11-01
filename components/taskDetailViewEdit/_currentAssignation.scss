@@ -1,0 +1,15 @@
+.currentAssignation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .initialsBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 42px;
+    min-width: 42px;
+    border-radius: 50%;
+    color: white;
+  }
+}

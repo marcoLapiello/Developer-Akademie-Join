@@ -1,0 +1,80 @@
+.priorityContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media (max-width: $breakpoint-xs) {
+    align-items: center;
+  }
+
+  .priority {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  .prioContainer {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: $breakpoint-xs) {
+      flex-direction: column;
+    }
+
+    .priorities {
+      width: 136px;
+      padding: 16px 10px;
+      font-size: 20px;
+      font-weight: 400;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 16px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+      }
+
+      &.urgentPrio {
+        background-color: #ff3d00;
+        cursor: auto;
+        box-shadow: none;
+        color: white;
+
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      &.mediumPrio {
+        background-color: #ffa800;
+        cursor: auto;
+        box-shadow: none;
+        color: white;
+
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      &.lowPrio {
+        background-color: #7ae229;
+        cursor: auto;
+        box-shadow: none;
+        color: white;
+
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+}

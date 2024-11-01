@@ -1,0 +1,27 @@
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%;
+  }
+  .taskTitleInput {
+    width: 100%;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 20px;
+    outline: none;
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 16px;
+    }
+
+    &:focus {
+      border: 1px solid #29abe2;
+    }
+  }
+}

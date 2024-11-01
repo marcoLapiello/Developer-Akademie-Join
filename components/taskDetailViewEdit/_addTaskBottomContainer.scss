@@ -1,0 +1,81 @@
+.addTaskBottomContainer {
+  width: 976px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (max-width: $breakpoint-lg) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .taskBtnContainer {
+    display: flex;
+
+    .clearBtn {
+      gap: 4px;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #2a3647;
+      background-color: white;
+      font-size: 20px;
+      font-weight: 400;
+      color: #2a3647;
+      margin-right: 24px;
+      transition: all 0.1s ease-in-out;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 16px;
+      }
+
+      @media (max-width: $breakpoint-xs) and (max-height: 950px) {
+        font-size: 16px;
+        padding: 10px 14px;
+      }
+
+      &:hover {
+        border: 1px solid #29abe2;
+        color: #29abe2;
+        box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+
+        img {
+          filter: invert(46%) sepia(52%) saturate(2400%) hue-rotate(163deg) brightness(95%) contrast(101%);
+        }
+      }
+    }
+
+    .createBtn {
+      gap: 4px;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #2a3647;
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      transition: all 0.1s ease-in-out;
+
+      svg {
+        fill: white;
+      }
+
+      &:hover {
+        background-color: #29abe2;
+        box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25);
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 16px;
+      }
+
+      @media (max-width: $breakpoint-xs) and (max-height: 950px) {
+        font-size: 16px;
+        padding: 10px 14px;
+      }
+    }
+  }
+}

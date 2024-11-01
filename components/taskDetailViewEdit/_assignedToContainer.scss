@@ -1,0 +1,55 @@
+.assignedToContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .assignedTo {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  .assignedToDropdown {
+    height: 50px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    padding: 12px 16px;
+    padding-left: 0px;
+    font-size: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 16px;
+    }
+
+    .searchUserToAssign {
+      width: 100%;
+      border: none;
+      padding: 12px 16px;
+      font-size: 16px;
+      outline: none;
+
+      &:focus .assignedToDropdownContainer {
+        border: 1px solid #29abe2;
+      }
+    }
+    .assignedToDropdownArrow {
+      rotate: 180deg;
+      border-radius: 12px;
+      transition: all 0.1s ease-in;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #d1d1d192;
+      }
+    }
+
+    .rotatedArrow {
+      rotate: 0deg;
+    }
+  }
+}

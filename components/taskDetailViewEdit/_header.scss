@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: end;
+  .closeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+
+    & svg {
+      height: 15px;
+      width: 15px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #eeeeee;
+    }
+  }
+}
