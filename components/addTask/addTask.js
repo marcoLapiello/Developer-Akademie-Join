@@ -32,20 +32,19 @@ import { returnIcon } from "../icons.js";
 import { getTaskTemplate, getDeleteTaskTemplate } from "../addTask/taskTemplate.js";
 
 /**
- * Imports references for user feedback elements related to tasks.
- *
- * @module script
- * @constant {HTMLElement} newTaskUserFeedbackRef - Reference to the element for displaying feedback for a new task.
- * @constant {HTMLElement} editTaskUserFeedbackRef - Reference to the element for displaying feedback for an edited task.
- */
-import { newTaskUserFeedbackRef, editTaskUserFeedbackRef } from "../../js/script.js";
-
-/**
  * A variable to store the current priority level of a task.
  *
  * @type {string}
  */
 export let currentPrio = "medium";
+
+/**
+ * References to feedback elements for tasks.
+ *
+ * @type {HTMLElement}
+ */
+let newTaskUserFeedbackRef = document.getElementById("newTaskUserFeedback");
+let editTaskUserFeedbackRef = document.getElementById("editTaskUserFeedback");
 
 /**
  * A variable to store the current progress of a task.
