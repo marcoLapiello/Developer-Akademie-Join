@@ -1,0 +1,36 @@
+.priority {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 16px;
+  }
+
+  & span {
+    width: 100px;
+  }
+
+  & p::first-letter {
+    text-transform: uppercase;
+  }
+
+  .urgentIcon {
+    height: 17px;
+    width: 17px;
+    fill: #ff3d00;
+  }
+  .mediumIcon {
+    height: 17px;
+    width: 17px;
+    fill: #ffa800;
+  }
+  .lowIcon {
+    height: 17px;
+    width: 17px;
+    fill: #7ae229;
+  }
+}

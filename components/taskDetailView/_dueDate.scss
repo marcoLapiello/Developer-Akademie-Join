@@ -1,0 +1,15 @@
+.dueDate {
+  display: flex;
+  gap: 25px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 16px;
+  }
+
+  & span {
+    width: 100px;
+  }
+}

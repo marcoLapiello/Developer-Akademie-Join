@@ -1,0 +1,41 @@
+.buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+
+  .deleteButton,
+  .editButton {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 120%;
+    background-color: unset;
+    border: unset;
+    width: 70px;
+
+    &:hover {
+      cursor: pointer;
+      color: #29abe2;
+      fill: #29abe2;
+      font-weight: bold;
+    }
+
+    & svg {
+      height: 24px;
+      width: 24px;
+    }
+  }
+  .deleteButton {
+    width: 85px;
+  }
+
+  .editButton {
+    justify-content: end;
+    &:hover {
+      border-left: 1px solid #d1d1d1;
+    }
+  }
+}
