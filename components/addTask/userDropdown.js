@@ -78,7 +78,9 @@ function getUserListItem(userArray, index, isInputChecked) {
         </div>
           <p>${userArray[index][1].profile.first_name} ${userArray[index][1].profile.last_name}</p>
         </div>      
-      <input class="userCheckbox" id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${userArray[index][1].id}'); removeUsersSearchFieldValue()" type="checkBox" 
+      <input class="userCheckbox" id="userCheckbox${userArray[index][1].id}" onchange="selectUser('${
+    userArray[index][1].id
+  }'); removeUsersSearchFieldValue()" type="checkBox" 
       ${isInputChecked ? "checked" : ""}>
     </div>
   `;
@@ -106,6 +108,24 @@ export function filterUsersByName() {
 }
 
 /**
+ * Asynchronously sorts an array of users by their first names in alphabetical order.
+ *
+ * @async
+ * @function sortUsersArray
+ * @returns {Promise<Array>} A promise that resolves to a sorted array of users.
+ */
+async function sortUsersArray() {
+  let usersArray = await getUsersArray();
+  let sortedUsersArray = Object.values(usersArray);
+  sortedUsersArray.sort((userA, userB) => {
+    const firstNameA = userA[1].profile.first_name.toLowerCase();
+    const firstNameB = userB[1].profile.first_name.toLowerCase();
+    return firstNameA.localeCompare(firstNameB, "de");
+  });
+  return sortedUsersArray;
+}
+
+/**
  * Renders the user dropdown list by fetching the users array, filtering out users with passwords,
  * and inserting the user list items into the dropdown.
  *
@@ -114,7 +134,7 @@ export function filterUsersByName() {
  */
 export async function renderUserDropdownList() {
   document.getElementById("contactsToAssign").innerHTML = "";
-  let userArray = await getUsersArray();
+  let userArray = await sortUsersArray();
   globalUserArray = userArray;
   userArray = userArray.filter((user) => user[1].password === "");
   for (let index = 0; index < userArray.length; index++) {
