@@ -1,0 +1,92 @@
+.contactListContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  max-width: 400px;
+  width: 100%;
+
+  .alphabetSection {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    padding-left: 36px;
+    height: 58px;
+    max-width: 352px;
+    width: 100%;
+    line-height: 120%;
+
+    @media (max-width: $breakpoint-xs) {
+      padding-left: 30px;
+    }
+  }
+  .horizontalLine {
+    height: 1px;
+    max-width: 352px;
+    width: 100%;
+    margin: 15px;
+    background-color: #d1d1d1;
+    border: unset;
+  }
+  .userListItem {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    gap: 35px;
+    height: 78px;
+    width: 352px;
+    list-style-type: none;
+
+    @media (max-width: $breakpoint-xs) {
+      width: 300px;
+      padding-left: 10px;
+    }
+
+    .userInitials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      line-height: 120%;
+      letter-spacing: -1px;
+      color: #ffffff;
+      height: 42px;
+      width: 42px;
+      border: 2px solid white;
+      border-radius: 100%;
+      padding-right: 1px;
+    }
+
+    .userProfile {
+      display: flex;
+      flex-direction: column;
+
+      .userName {
+        font-size: 20px;
+        color: #000000;
+        line-height: 120%;
+      }
+
+      .usersMail {
+        font-size: 16px;
+        color: #007cee;
+        line-height: 120%;
+
+        @media (max-width: $breakpoint-xs) {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: linear-gradient(rgba(240, 240, 240, 1) 0%, rgba(249, 249, 249, 1) 100%);
+      border: 0px solid transparent;
+      border-radius: 10px;
+    }
+
+    &:hover .userInitials {
+      border: 2px solid rgb(255, 255, 255);
+    }
+  }
+}

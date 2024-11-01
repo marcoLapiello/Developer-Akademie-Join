@@ -1,0 +1,14 @@
+.selectedUser {
+  background-color: #2a3647;
+  border-radius: 10px;
+
+  .userProfile {
+    .userName {
+      color: #ffffff !important;
+    }
+  }
+
+  &:hover {
+    background: #2a3647 !important;
+  }
+}
