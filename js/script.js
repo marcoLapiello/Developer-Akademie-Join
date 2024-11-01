@@ -3,570 +3,273 @@
  */
 
 /**
- * Imports the function to retrieve a task template.
+ * Imports functions for handling task templates.
  *
  * @module taskTemplate
- * @function getTaskTemplate - Retrieves the template for a task.
  */
-import { getTaskTemplate } from "../components/addTask/taskTemplate.js";
+import * as taskTemplate from "../components/addTask/taskTemplate.js";
 
 /**
  * Exposes the getTaskTemplate function to the global window object.
- *
- * @function getTaskTemplate - Retrieves the template for a task.
  */
-window.getTaskTemplate = getTaskTemplate;
+window.getTaskTemplate = taskTemplate.getTaskTemplate;
 
 /**
- * Imports functions and variables for rendering the contact list and managing contact buttons.
+ * Imports functions for handling contact list operations.
  *
  * @module contactList
- * @function renderContactList - Renders the contact list on the user interface.
- * @function aktivNewContactButton - Activates the new contact button.
- * @function removeAktivContactButton - Removes the active contact button.
  */
-import { renderContactList, aktivNewContactButton, removeAktivContactButton } from "../components/contactList/contactList.js";
-renderContactList();
+import * as contactList from "../components/contactList/contactList.js";
+contactList.renderContactList();
 
 /**
- * Exposes the aktivNewContactButton and removeAktivContactButton functions to the global window object.
- *
- * @function aktivNewContactButton - Activates the new contact button.
- * @function removeAktivContactButton - Removes the active contact button.
+ * Exposes functions to the global window object for activating and removing the active contact button.
  */
-window.aktivNewContactButton = aktivNewContactButton;
-window.removeAktivContactButton = removeAktivContactButton;
+window.aktivNewContactButton = contactList.aktivNewContactButton;
+window.removeAktivContactButton = contactList.removeAktivContactButton;
 
 /**
- * Imports functions and variables for rendering contact details, handling deletions, managing the selected user, and switching mobile views.
+ * Imports functions for handling contact details operations.
  *
  * @module contactDetails
- * @function renderContactDetails - Renders the details of a contact.
- * @function renderAfterDelete - Renders the view after a contact is deleted.
- * @variable selectedUser - The currently selected user.
- * @function switchMobile - Switches the view to mobile mode.
- * @variable userProfileButtonsMobile - Buttons for user profile actions in mobile view.
  */
-import { renderContactDetails, renderAfterDelete, selectedUser, switchMobile, userProfileButtonsMobile } from "../components/contactDetails/contactDetails.js";
-renderContactDetails();
+import * as contactDetails from "../components/contactDetails/contactDetails.js";
+contactDetails.renderContactDetails();
 
 /**
  * Exposes functions and variables to the global window object for rendering contact details, handling deletions, managing the selected user, and switching mobile views.
- *
- * @function renderContactDetails - Renders the details of a contact.
- * @function renderAfterDelete - Renders the view after a contact is deleted.
- * @variable selectedUser - The currently selected user.
- * @function switchMobile - Switches the view to mobile mode.
- * @variable userProfileButtonsMobile - Buttons for user profile actions in mobile view.
  */
-window.renderContactDetails = renderContactDetails;
-window.renderAfterDelete = renderAfterDelete;
-window.selectedUser = selectedUser;
-window.switchMobile = switchMobile;
-window.userProfileButtonsMobile = userProfileButtonsMobile;
+window.renderContactDetails = contactDetails.renderContactDetails;
+window.renderAfterDelete = contactDetails.renderAfterDelete;
+window.selectedUser = contactDetails.selectedUser;
+window.switchMobile = contactDetails.switchMobile;
+window.userProfileButtonsMobile = contactDetails.userProfileButtonsMobile;
 
 /**
- * Imports the function to render tasks.
+ * Imports functions for handling task cards operations.
  *
  * @module taskCards
- * @function renderTasks - Renders the tasks on the user interface.
  */
-import { renderTasks } from "../components/taskCards/taskCards.js";
-renderTasks();
+import * as taskCards from "../components/taskCards/taskCards.js";
+taskCards.renderTasks();
 
 /**
- * Imports functions for rendering and toggling the task detail view, and for handling checked subtasks.
+ * Imports functions for handling task detail view operations.
  *
  * @module taskDetailView
- * @function renderTaskDetailView - Renders the detailed view of a task.
- * @function toggleTaskDetailView - Toggles the visibility of the task detail view.
- * @function checkedSubtask - Handles the state of a checked subtask.
  */
-import { renderTaskDetailView, toggleTaskDetailView, checkedSubtask } from "../components/taskDetailView/taskDetailView.js";
+import * as taskDetailView from "../components/taskDetailView/taskDetailView.js";
 
 /**
  * Exposes functions to the global window object for toggling the task detail view, handling checked subtasks, and rendering the task detail view.
- *
- * @function toggleTaskDetailView - Toggles the visibility of the task detail view.
- * @function checkedSubtask - Handles the state of a checked subtask.
- * @function renderTaskDetailView - Renders the detailed view of a task.
  */
-window.toggleTaskDetailView = toggleTaskDetailView;
-window.checkedSubtask = checkedSubtask;
-window.renderTaskDetailView = renderTaskDetailView;
+window.toggleTaskDetailView = taskDetailView.toggleTaskDetailView;
+window.checkedSubtask = taskDetailView.checkedSubtask;
+window.renderTaskDetailView = taskDetailView.renderTaskDetailView;
 
 /**
- * Imports functions for rendering the editable task detail view and retrieving edited task data.
+ * Imports functions for handling task detail view editing.
  *
  * @module taskDetailViewEdit
- * @function renderTaskDetailViewEdit - Renders the editable view of a task.
- * @function getEditTaskData - Retrieves the data of an edited task.
  */
-import { renderTaskDetailViewEdit, getEditTaskData } from "../components/taskDetailViewEdit/taskDetailViewEdit.js";
+import * as taskDetailViewEdit from "../components/taskDetailViewEdit/taskDetailViewEdit.js";
 
 /**
  * Exposes functions to the global window object for rendering the editable task detail view and retrieving edited task data.
- *
- * @function renderTaskDetailViewEdit - Renders the editable view of a task.
- * @function getEditTaskData - Retrieves the data of an edited task.
  */
-window.renderTaskDetailViewEdit = renderTaskDetailViewEdit;
-window.getEditTaskData = getEditTaskData;
+window.renderTaskDetailViewEdit = taskDetailViewEdit.renderTaskDetailViewEdit;
+window.getEditTaskData = taskDetailViewEdit.getEditTaskData;
 
 /**
- * Imports the function to render the sidebar.
+ * Imports functions for handling sidebar operations.
  *
  * @module sidebar
- * @function renderSidebar - Renders the sidebar on the user interface.
  */
-import { renderSidebar } from "../components/sidebar/sidebar.js";
-renderSidebar();
+import * as sidebar from "../components/sidebar/sidebar.js";
+sidebar.renderSidebar();
 
 /**
- * Imports functions for toggling the display and rendering the header.
+ * Imports functions for handling header operations.
  *
  * @module header
- * @function toggle_d_None - Toggles the display property of an element.
- * @function renderHeader - Renders the header on the user interface.
  */
-import { openCloseUserMenu, renderHeader } from "../components/header/header.js";
-renderHeader();
+import * as header from "../components/header/header.js";
+header.renderHeader();
 
 /**
- * Exposes the toggle_d_None function to the global window object.
- *
- * @function toggle_d_None - Toggles the display property of an element.
+ * Exposes the openCloseUserMenu function to the global window object.
  */
-window.openCloseUserMenu = openCloseUserMenu;
+window.openCloseUserMenu = header.openCloseUserMenu;
 
 /**
- * Imports the function to render the board head template.
- *
- * @module board
- * @function renderBoardHeadTemplate - Renders the head template of the board.
- */
-import { renderBoardHeadTemplate } from "../components/board/board.js";
-renderBoardHeadTemplate();
-
-/**
- * Imports functions for loading tasks, patching new tasks, and deleting existing tasks.
+ * Imports functions for handling tasks API services.
  *
  * @module tasksApiService
- * @function loadTasks - Loads tasks from the API.
- * @function patchNewTask - Patches a new task to the API.
- * @function deleteExistungTask - Deletes an existing task from the API.
  */
-import { loadTasks, patchNewTask, deleteExistungTask } from "./tasksApiService.js";
+import * as tasksApiService from "./tasksApiService.js";
 
 /**
  * Exposes functions to the global window object for patching new tasks and deleting existing tasks.
- *
- * @function patchNewTask - Patches a new task to the API.
- * @function deleteExistungTask - Deletes an existing task from the API.
  */
-window.patchNewTask = patchNewTask;
-window.deleteExistungTask = deleteExistungTask;
+window.loadTasks = tasksApiService.loadTasks;
+window.patchNewTask = tasksApiService.patchNewTask;
+window.deleteExistungTask = tasksApiService.deleteExistungTask; // Unverändert
 
 /**
  * Imports functions for handling user authentication and rendering login/signup templates.
  *
  * @module logIn
- * @function signUpNewUser - Signs up a new user.
- * @function renderLogInTemplate - Renders the login template.
- * @function renderSignUpTemplate - Renders the signup template.
- * @function initRenderLogInPage - Initializes and renders the login page.
- * @function goToSignUpPage - Navigates to the signup page.
- * @function goToLogInPage - Navigates to the login page.
- * @function doGuestLogIn - Logs in as a guest user.
- * @function logInRegistratedUser - Logs in a registered user.
- * @function toggleRememberMe - Toggles the "remember me" option.
- * @function getUserLogInDataFromLocalStorage - Retrieves user login data from local storage.
- * @function getNewUserData - Retrieves new user data.
  */
-import {
-  signUpNewUser,
-  renderLogInTemplate,
-  renderSignUpTemplate,
-  initRenderLogInPage,
-  goToSignUpPage,
-  goToLogInPage,
-  doGuestLogIn,
-  logInRegistratedUser,
-  toggleRememberMe,
-  getUserLogInDataFromLocalStorage,
-  getNewUserData,
-  enableLogInButton,
-  enableSignUpButton,
-  setBorderColorBlue,
-  setBorderColorGrey,
-  removeValidationWarning,
-} from "../components/logIn/logIn.js";
+import * as logIn from "../components/logIn/logIn.js";
 
 /**
  * Exposes functions to the global window object for user authentication and rendering login/signup templates.
- *
- * @function signUpNewUser - Signs up a new user.
- * @function renderLogInTemplate - Renders the login template.
- * @function renderSignUpTemplate - Renders the signup template.
- * @function initRenderLogInPage - Initializes and renders the login page.
- * @function goToSignUpPage - Navigates to the signup page.
- * @function goToLogInPage - Navigates to the login page.
- * @function doGuestLogIn - Logs in as a guest user.
- * @function logInRegistratedUser - Logs in a registered user.
- * @function toggleRememberMe - Toggles the "remember me" option.
- * @function getUserLogInDataFromLocalStorage - Retrieves user login data from local storage.
- * @function getNewUserData - Retrieves new user data.
- * @function enableLogInButton - Enables the login button.
- * @function enableSignUpButton - Enables the signup button.
- * @function setBorderColorBlue - Sets the border color to blue.
- * @function setBorderColorGrey - Sets the border color to grey.
- * @function removeValidationWarning - Removes validation warnings.
  */
-window.signUpNewUser = signUpNewUser;
-window.renderLogInTemplate = renderLogInTemplate;
-window.renderSignUpTemplate = renderSignUpTemplate;
-window.initRenderLogInPage = initRenderLogInPage;
-window.goToSignUpPage = goToSignUpPage;
-window.goToLogInPage = goToLogInPage;
-window.doGuestLogIn = doGuestLogIn;
-window.logInRegistratedUser = logInRegistratedUser;
-window.toggleRememberMe = toggleRememberMe;
-window.getUserLogInDataFromLocalStorage = getUserLogInDataFromLocalStorage;
-window.getNewUserData = getNewUserData;
-window.enableLogInButton = enableLogInButton;
-window.enableSignUpButton = enableSignUpButton;
-window.setBorderColorBlue = setBorderColorBlue;
-window.setBorderColorGrey = setBorderColorGrey;
-window.removeValidationWarning = removeValidationWarning;
+window.signUpNewUser = logIn.signUpNewUser;
+window.renderSignUpTemplate = logIn.renderSignUpTemplate;
+window.goToSignUpPage = logIn.goToSignUpPage;
+window.getNewUserData = logIn.getNewUserData;
+window.enableSignUpButton = logIn.enableSignUpButton;
+window.renderLogInTemplate = logIn.renderLogInTemplate;
+window.initRenderLogInPage = logIn.initRenderLogInPage;
+window.goToLogInPage = logIn.goToLogInPage;
+window.logInRegistratedUser = logIn.logInRegistratedUser;
+window.enableLogInButton = logIn.enableLogInButton;
+window.doGuestLogIn = logIn.doGuestLogIn;
+window.toggleRememberMe = logIn.toggleRememberMe;
+window.getUserLogInDataFromLocalStorage = logIn.getUserLogInDataFromLocalStorage;
+window.setBorderColorBlue = logIn.setBorderColorBlue;
+window.setBorderColorGrey = logIn.setBorderColorGrey;
+window.removeValidationWarning = logIn.removeValidationWarning;
 
 /**
- * Imports various functions for handling tasks and subtasks.
+ * Imports functions for handling tasks and subtasks.
  *
  * @module addTask
- * @function getNewTaskTemplate - Retrieves the template for creating a new task.
- * @function selectPrio - Selects the priority of a task.
- * @function createNewSubtask - Creates a new subtask.
- * @function selectCategory - Selects the category of a task.
- * @function renderSubtaskElement - Renders a subtask element.
- * @function editSubtask - Edits a subtask.
- * @function deleteSubtask - Deletes a subtask.
- * @function saveSubtaskEditing - Saves the editing of a subtask.
- * @function clearAddTaskHTML - Clears the HTML for adding a task.
- * @function validateNewTaskInputs - Validates the inputs for a new task.
- * @function renderTaskTemplate - Renders the task template.
- * @function openTaskModal - Opens the task modal.
- * @function validateTaskTitleInput - Validates the task title input.
- * @function validateTaskDateInput - Validates the task date input.
- * @function validateTaskCategoryInput - Validates the task category input.
- * @function validateTaskTitleByOninput - Validates the task title input on input.
- * @function hideTaskModal - Hides the task modal.
- * @function hideTaskModalFromBG - Hides the task modal from the background.
- * @function setHighlightSubtaskDivBorder - Sets the highlight border for the subtask div.
- * @function removeHighlightSubtaskDivBorder - Removes the highlight border for the subtask div.
- * @function renderDeleteTaskTemplate - Renders the template for deleting a task.
- * @function getHashParameter - Retrieves a hash parameter.
- * @function newTaskUserFeedback - Provides feedback for a new task.
- * @function editTaskUserFeedback - Provides feedback for an edited task.
  */
-import {
-  getNewTaskTemplate,
-  selectPrio,
-  createNewSubtask,
-  selectCategory,
-  renderSubtaskElement,
-  editSubtask,
-  deleteSubtask,
-  saveSubtaskEditing,
-  clearAddTaskHTML,
-  validateNewTaskInputs,
-  renderTaskTemplate,
-  openTaskModal,
-  validateTaskTitleInput,
-  validateTaskDateInput,
-  validateTaskCategoryInput,
-  validateTaskTitleByOninput,
-  hideTaskModal,
-  hideTaskModalFromBG,
-  setHighlightSubtaskDivBorder,
-  removeHighlightSubtaskDivBorder,
-  renderDeleteTaskTemplate,
-  getHashParameter,
-  newTaskUserFeedback,
-  editTaskUserFeedback,
-} from "../components/addTask/addTask.js";
+import * as addTask from "../components/addTask/addTask.js";
 
 /**
  * Exposes functions to the global window object for handling tasks and subtasks.
- *
- * @function getNewTaskTemplate - Retrieves the template for creating a new task.
- * @function selectPrio - Selects the priority of a task.
- * @function createNewSubtask - Creates a new subtask.
- * @function selectCategory - Selects the category of a task.
- * @function renderSubtaskElement - Renders a subtask element.
- * @function editSubtask - Edits a subtask.
- * @function deleteSubtask - Deletes a subtask.
- * @function saveSubtaskEditing - Saves the editing of a subtask.
- * @function clearAddTaskHTML - Clears the HTML for adding a task.
- * @function validateNewTaskInputs - Validates the inputs for a new task.
- * @function renderTaskTemplate - Renders the task template.
- * @function openTaskModal - Opens the task modal.
- * @function validateTaskTitleInput - Validates the task title input.
- * @function validateTaskDateInput - Validates the task date input.
- * @function validateTaskCategoryInput - Validates the task category input.
- * @function validateTaskTitleByOninput - Validates the task title input on input.
- * @function hideTaskModal - Hides the task modal.
- * @function hideTaskModalFromBG - Hides the task modal from the background.
- * @function setHighlightSubtaskDivBorder - Sets the highlight border for the subtask div.
- * @function removeHighlightSubtaskDivBorder - Removes the highlight border for the subtask div.
- * @function renderDeleteTaskTemplate - Renders the template for deleting a task.
- * @function getHashParameter - Retrieves a hash parameter.
- * @function newTaskUserFeedback - Provides feedback for a new task.
- * @function editTaskUserFeedback - Provides feedback for an edited task.
  */
-window.getNewTaskTemplate = getNewTaskTemplate;
-window.selectPrio = selectPrio;
-window.createNewSubtask = createNewSubtask;
-window.selectCategory = selectCategory;
-window.renderSubtaskElement = renderSubtaskElement;
-window.editSubtask = editSubtask;
-window.deleteSubtask = deleteSubtask;
-window.saveSubtaskEditing = saveSubtaskEditing;
-window.clearAddTaskHTML = clearAddTaskHTML;
-window.validateNewTaskInputs = validateNewTaskInputs;
-window.renderTaskTemplate = renderTaskTemplate;
-window.openTaskModal = openTaskModal;
-window.validateTaskTitleInput = validateTaskTitleInput;
-window.validateTaskDateInput = validateTaskDateInput;
-window.validateTaskCategoryInput = validateTaskCategoryInput;
-window.validateTaskTitleByOninput = validateTaskTitleByOninput;
-window.hideTaskModal = hideTaskModal;
-window.hideTaskModalFromBG = hideTaskModalFromBG;
-window.setHighlightSubtaskDivBorder = setHighlightSubtaskDivBorder;
-window.removeHighlightSubtaskDivBorder = removeHighlightSubtaskDivBorder;
-window.renderDeleteTaskTemplate = renderDeleteTaskTemplate;
-window.getHashParameter = getHashParameter;
-window.newTaskUserFeedback = newTaskUserFeedback;
-window.editTaskUserFeedback = editTaskUserFeedback;
+window.getNewTaskTemplate = addTask.getNewTaskTemplate;
+window.selectPrio = addTask.selectPrio;
+window.selectCategory = addTask.selectCategory;
+window.renderTaskTemplate = addTask.renderTaskTemplate;
+window.renderDeleteTaskTemplate = addTask.renderDeleteTaskTemplate;
+window.createNewSubtask = addTask.createNewSubtask;
+window.renderSubtaskElement = addTask.renderSubtaskElement;
+window.editSubtask = addTask.editSubtask;
+window.deleteSubtask = addTask.deleteSubtask;
+window.saveSubtaskEditing = addTask.saveSubtaskEditing;
+window.setHighlightSubtaskDivBorder = addTask.setHighlightSubtaskDivBorder;
+window.removeHighlightSubtaskDivBorder = addTask.removeHighlightSubtaskDivBorder;
+window.validateNewTaskInputs = addTask.validateNewTaskInputs;
+window.validateTaskTitleInput = addTask.validateTaskTitleInput;
+window.validateTaskDateInput = addTask.validateTaskDateInput;
+window.validateTaskCategoryInput = addTask.validateTaskCategoryInput;
+window.validateTaskTitleByOninput = addTask.validateTaskTitleByOninput;
+window.openTaskModal = addTask.openTaskModal;
+window.hideTaskModal = addTask.hideTaskModal;
+window.hideTaskModalFromBG = addTask.hideTaskModalFromBG;
+window.clearAddTaskHTML = addTask.clearAddTaskHTML;
+window.getHashParameter = addTask.getHashParameter;
+window.newTaskUserFeedback = addTask.newTaskUserFeedback;
+window.editTaskUserFeedback = addTask.editTaskUserFeedback;
 
 /**
- * Imports the function to update the progress of a task.
+ * Imports functions for handling task detail view editing.
  *
  * @module editTask
- * @function updateProgress - Updates the progress of a task in the task detail view.
  */
-import { updateProgress } from "../components/taskDetailViewEdit/editTask.js";
+import * as editTask from "../components/taskDetailViewEdit/editTask.js";
 
 /**
  * Exposes the updateProgress function to the global window object.
- *
- * @function updateProgress - Updates the progress of a task in the task detail view.
  */
-window.updateProgress = updateProgress;
+window.updateProgress = editTask.updateProgress;
 
 /**
- * Imports functions for adding a contact, deleting a chosen user, and loading users.
+ * Imports functions for handling API services.
  *
  * @module apiService
- * @function addContact - Adds a new contact.
- * @function deleteChosenUser - Deletes the chosen user.
- * @function loadUsers - Loads the users.
  */
-import { addContact, deleteChosenUser, loadUsers } from "../js/apiService.js";
+import * as apiService from "../js/apiService.js";
 
 /**
- * Exposes functions to the global window object for adding a contact and deleting a chosen user.
- *
- * @function addContact - Adds a new contact.
- * @function deleteChosenUser - Deletes the chosen user.
+ * Exposes functions to the global window object for handling contacts.
  */
-window.addContact = addContact;
-window.deleteChosenUser = deleteChosenUser;
+window.addContact = apiService.addContact;
+window.deleteChosenUser = apiService.deleteChosenUser;
 
 /**
- * Imports the function to retrieve a filtered array of tasks.
+ * Imports functions for handling board operations.
  *
  * @module board
- * @function getFilteredTasksArray - Retrieves a filtered array of tasks based on certain criteria.
  */
-import { getFilteredTasksArray } from "../components/board/board.js";
+import * as board from "../components/board/board.js";
+board.renderBoardHeadTemplate();
 
 /**
  * Exposes the getFilteredTasksArray function to the global window object.
- *
- * @function getFilteredTasksArray - Retrieves a filtered array of tasks based on certain criteria.
  */
-window.getFilteredTasksArray = getFilteredTasksArray;
+window.getFilteredTasksArray = board.getFilteredTasksArray;
 
 /**
  * Imports functions for handling the user dropdown list in the add task component.
  *
  * @module userDropdown
- * @function renderUserDropdownList - Renders the user dropdown list.
- * @function openCloseDropdown - Opens or closes the dropdown list.
- * @function selectUser - Selects a user from the dropdown list.
- * @function openUsersDropdownList - Opens the users dropdown list.
- * @function closeUsersDropdownList - Closes the users dropdown list.
- * @function closeDropdownFromWindow - Closes the dropdown list from the window.
- * @function filterUsersByName - Filters users by name in the dropdown list.
- * @function removeUsersSearchFieldValue - Removes the search field value in the dropdown list.
- * @function openUserDropdownFromUserInput - Opens the user dropdown from user input.
  */
-import {
-  renderUserDropdownList,
-  openCloseDropdown,
-  selectUser,
-  openUsersDropdownList,
-  closeUsersDropdownList,
-  closeDropdownFromWindow,
-  filterUsersByName,
-  removeUsersSearchFieldValue,
-  openUserDropdownFromUserInput,
-} from "../components/addTask/userDropdown.js";
+import * as userDropdown from "../components/addTask/userDropdown.js";
 
 /**
- * Exposes functions to the global window object for handling the user dropdown list in the add task component.
- *
- * @function renderUserDropdownList - Renders the user dropdown list.
- * @function openCloseDropdown - Opens or closes the dropdown list.
- * @function selectUser - Selects a user from the dropdown list.
- * @function openUsersDropdownList - Opens the users dropdown list.
- * @function closeUsersDropdownList - Closes the users dropdown list.
- * @function closeDropdownFromWindow - Closes the dropdown list from the window.
- * @function filterUsersByName - Filters users by name in the dropdown list.
- * @function removeUsersSearchFieldValue - Removes the search field value in the dropdown list.
- * @function openUserDropdownFromUserInput - Opens the user dropdown from user input.
+ * Exposes functions to the global window object for handling the user dropdown list.
  */
-window.renderUserDropdownList = renderUserDropdownList;
-window.openCloseDropdown = openCloseDropdown;
-window.selectUser = selectUser;
-window.openUsersDropdownList = openUsersDropdownList;
-window.closeUsersDropdownList = closeUsersDropdownList;
-window.closeDropdownFromWindow = closeDropdownFromWindow;
-window.filterUsersByName = filterUsersByName;
-window.removeUsersSearchFieldValue = removeUsersSearchFieldValue;
-window.openUserDropdownFromUserInput = openUserDropdownFromUserInput;
+window.renderUserDropdownList = userDropdown.renderUserDropdownList;
+window.openCloseDropdown = userDropdown.openCloseDropdown;
+window.selectUser = userDropdown.selectUser;
+window.openUsersDropdownList = userDropdown.openUsersDropdownList;
+window.closeUsersDropdownList = userDropdown.closeUsersDropdownList;
+window.closeDropdownFromWindow = userDropdown.closeDropdownFromWindow;
+window.filterUsersByName = userDropdown.filterUsersByName;
+window.removeUsersSearchFieldValue = userDropdown.removeUsersSearchFieldValue;
+window.openUserDropdownFromUserInput = userDropdown.openUserDropdownFromUserInput;
 
 /**
  * Imports functions for handling user dialogs and validation in the contact modal.
  *
  * @module contactModal
- * @function showAddNewUserDialog - Shows the dialog for adding a new user.
- * @function hideAddNewUserDialog - Hides the dialog for adding a new user.
- * @function showEditChosenUserDialog - Shows the dialog for editing the chosen user.
- * @function hideEditChosenUserDialog - Hides the dialog for editing the chosen user.
- * @function hideConfirmDeleteUserDialog - Hides the dialog for confirming user deletion.
- * @function showConfirmDeleteUserDialog - Shows the dialog for confirming user deletion.
- * @function validateNewPhonenumber - Validates the phone number for a new user.
- * @function validateEditPhonenumber - Validates the phone number for an edited user.
- * @function hideAddNewUserDialogFromBG - Hides the add new user dialog from the background.
- * @function hideConfirmDeleteUserDialogFromBG - Hides the confirm delete user dialog from the background.
- * @function hideEditChosenUserDialogFromBG - Hides the edit chosen user dialog from the background.
  */
-import {
-  showAddNewUserDialog,
-  hideAddNewUserDialog,
-  showEditChosenUserDialog,
-  hideEditChosenUserDialog,
-  hideConfirmDeleteUserDialog,
-  showConfirmDeleteUserDialog,
-  validateNewPhonenumber,
-  validateEditPhonenumber,
-  hideAddNewUserDialogFromBG,
-  hideConfirmDeleteUserDialogFromBG,
-  hideEditChosenUserDialogFromBG,
-} from "../components/contactModal/contactModal.js";
+import * as contactModal from "../components/contactModal/contactModal.js";
 
 /**
  * Exposes functions to the global window object for handling user dialogs and validation in the contact modal.
- *
- * @function showAddNewUserDialog - Shows the dialog for adding a new user.
- * @function hideAddNewUserDialog - Hides the dialog for adding a new user.
- * @function showEditChosenUserDialog - Shows the dialog for editing the chosen user.
- * @function hideEditChosenUserDialog - Hides the dialog for editing the chosen user.
- * @function hideConfirmDeleteUserDialog - Hides the dialog for confirming user deletion.
- * @function showConfirmDeleteUserDialog - Shows the dialog for confirming user deletion.
- * @function validateNewPhonenumber - Validates the phone number for a new user.
- * @function validateEditPhonenumber - Validates the phone number for an edited user.
- * @function hideAddNewUserDialogFromBG - Hides the add new user dialog from the background.
- * @function hideConfirmDeleteUserDialogFromBG - Hides the confirm delete user dialog from the background.
- * @function hideEditChosenUserDialogFromBG - Hides the edit chosen user dialog from the background.
  */
-window.showAddNewUserDialog = showAddNewUserDialog;
-window.hideAddNewUserDialog = hideAddNewUserDialog;
-window.showEditChosenUserDialog = showEditChosenUserDialog;
-window.hideEditChosenUserDialog = hideEditChosenUserDialog;
-window.hideConfirmDeleteUserDialog = hideConfirmDeleteUserDialog;
-window.showConfirmDeleteUserDialog = showConfirmDeleteUserDialog;
-window.validateNewPhonenumber = validateNewPhonenumber;
-window.validateEditPhonenumber = validateEditPhonenumber;
-window.hideAddNewUserDialogFromBG = hideAddNewUserDialogFromBG;
-window.hideConfirmDeleteUserDialogFromBG = hideConfirmDeleteUserDialogFromBG;
-window.hideEditChosenUserDialogFromBG = hideEditChosenUserDialogFromBG;
+
+window.showAddNewUserDialog = contactModal.showAddNewUserDialog;
+window.hideAddNewUserDialog = contactModal.hideAddNewUserDialog;
+window.showEditChosenUserDialog = contactModal.showEditChosenUserDialog;
+window.hideEditChosenUserDialog = contactModal.hideEditChosenUserDialog;
+window.showConfirmDeleteUserDialog = contactModal.showConfirmDeleteUserDialog;
+window.hideConfirmDeleteUserDialog = contactModal.hideConfirmDeleteUserDialog;
+window.hideConfirmDeleteUserDialogFromBG = contactModal.hideConfirmDeleteUserDialogFromBG;
+window.validateNewPhonenumber = contactModal.validateNewPhonenumber;
+window.validateEditPhonenumber = contactModal.validateEditPhonenumber;
+window.hideAddNewUserDialogFromBG = contactModal.hideAddNewUserDialogFromBG;
+window.hideEditChosenUserDialogFromBG = contactModal.hideEditChosenUserDialogFromBG;
 
 /**
- * Imports the function to initialize the summary component.
+ * Imports functions for handling summary operations.
  *
  * @module summary
- * @function initSummary - Initializes the summary component.
  */
-import { initSummary, redirectToBoard } from "../components/summary/summary.js";
+import * as summary from "../components/summary/summary.js";
 
 /**
- * Exposes the initSummary function to the global window object.
- *
- * @function initSummary - Initializes the summary component.
+ * Exposes functions to the global window object for initializing the summary component and redirecting to the board.
  */
-window.initSummary = initSummary;
-window.redirectToBoard = redirectToBoard;
-
-/**
- * References to various DOM elements used in the script.
- *
- * @constant {HTMLElement} addContactNameInputRef - Reference to the input element for adding a contact's name.
- * @constant {HTMLElement} addContactEmailInputRef - Reference to the input element for adding a contact's email.
- * @constant {HTMLElement} addContactPhoneInputRef - Reference to the input element for adding a contact's phone number.
- * @constant {HTMLElement} editContactNameInputRef - Reference to the input element for editing a contact's name.
- * @constant {HTMLElement} editContactEmailInputRef - Reference to the input element for editing a contact's email.
- * @constant {HTMLElement} editContactPhoneInputRef - Reference to the input element for editing a contact's phone number.
- * @constant {HTMLElement} editNewUserLogoRef - Reference to the element for editing a new user's logo.
- * @constant {HTMLElement} saveEditedUserButtonRef - Reference to the button for saving an edited user.
- * @constant {HTMLElement} deleteChosenUserBtnRef - Reference to the button for deleting the chosen user.
- * @constant {HTMLElement} addedUserFeedbackRef - Reference to the element for displaying feedback after adding a user.
- * @constant {HTMLElement} editUserFeedbackRef - Reference to the element for displaying feedback after editing a user.
- * @constant {HTMLElement} confirmDeleteUserModalRef - Reference to the modal for confirming user deletion.
- * @constant {HTMLElement} sureToDeleteContactBtnRef - Reference to the button for confirming contact deletion.
- * @constant {HTMLElement} newTaskUserFeedbackRef - Reference to the element for displaying feedback for a new task.
- * @constant {HTMLElement} editTaskUserFeedbackRef - Reference to the element for displaying feedback for an edited task.
- * @constant {HTMLElement} contactModalRef - Reference to the contact modal element.
- * @constant {HTMLElement} addNameWarningRef - Reference to the element for displaying a warning when adding a name.
- * @constant {HTMLElement} addEmailWarningRef - Reference to the element for displaying a warning when adding an email.
- * @constant {HTMLElement} addPhoneWarningRef - Reference to the element for displaying a warning when adding a phone number.
- * @constant {HTMLElement} editNameWarningRef - Reference to the element for displaying a warning when editing a name.
- * @constant {HTMLElement} editEmailWarningRef - Reference to the element for displaying a warning when editing an email.
- * @constant {HTMLElement} editPhoneWarningRef - Reference to the element for displaying a warning when editing a phone number.
- */
-export let addContactNameInputRef = document.getElementById("addContactNameInput");
-export let addContactEmailInputRef = document.getElementById("addContactEmailInput");
-export let addContactPhoneInputRef = document.getElementById("addContactPhoneInput");
-export let editContactNameInputRef = document.getElementById("editContactNameInput");
-export let editContactEmailInputRef = document.getElementById("editContactEmailInput");
-export let editContactPhoneInputRef = document.getElementById("editContactPhoneInput");
-export let editNewUserLogoRef = document.getElementById("editNewUserLogo");
-export let saveEditedUserButtonRef = document.getElementById("saveEditedUserButton");
-export let deleteChosenUserBtnRef = document.getElementById("deleteChosenUserBtn");
-export let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
-export let editUserFeedbackRef = document.getElementById("editUserFeedback");
-export let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
-export let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteContactBtn");
-export let newTaskUserFeedbackRef = document.getElementById("newTaskUserFeedback");
-export let editTaskUserFeedbackRef = document.getElementById("editTaskUserFeedback");
-export let contactModalRef = document.getElementById("contactModal");
-export let addNameWarningRef = document.getElementById("addNameWarning");
-export let addEmailWarningRef = document.getElementById("addEmailWarning");
-export let addPhoneWarningRef = document.getElementById("addPhoneWarning");
-export let editNameWarningRef = document.getElementById("editNameWarning");
-export let editEmailWarningRef = document.getElementById("editEmailWarning");
-export let editPhoneWarningRef = document.getElementById("editPhoneWarning");
+window.initSummary = summary.initSummary;
+window.redirectToBoard = summary.redirectToBoard;
 
 /**
  * Asynchronously retrieves an array of users.
@@ -574,7 +277,7 @@ export let editPhoneWarningRef = document.getElementById("editPhoneWarning");
  * @returns {Promise<Array>} A promise that resolves to an array of users.
  */
 export async function getUsersArray() {
-  let usersArray = await loadUsers();
+  let usersArray = await apiService.loadUsers();
   return usersArray;
 }
 getUsersArray();
@@ -585,7 +288,7 @@ getUsersArray();
  * @returns {Promise<Array>} A promise that resolves to an array of tasks.
  */
 export async function getTasksArray() {
-  let tasksArray = await loadTasks();
+  let tasksArray = await tasksApiService.loadTasks();
   return tasksArray;
 }
 getTasksArray();
