@@ -3,52 +3,12 @@
  */
 
 /**
- * Imports various functions and references for handling user contacts.
+ * Imports the function to retrieve the array of users.
  *
  * @module script
- * @function getUsersArray - Retrieves the array of users.
- * @constant {HTMLElement} addContactNameInputRef - Reference to the input element for adding a contact's name.
- * @constant {HTMLElement} addContactEmailInputRef - Reference to the input element for adding a contact's email.
- * @constant {HTMLElement} addContactPhoneInputRef - Reference to the input element for adding a contact's phone number.
- * @constant {HTMLElement} editContactNameInputRef - Reference to the input element for editing a contact's name.
- * @constant {HTMLElement} editContactEmailInputRef - Reference to the input element for editing a contact's email.
- * @constant {HTMLElement} editContactPhoneInputRef - Reference to the input element for editing a contact's phone number.
- * @constant {HTMLElement} editNewUserLogoRef - Reference to the element for editing a new user's logo.
- * @constant {HTMLElement} saveEditedUserButtonRef - Reference to the button for saving an edited user.
- * @constant {HTMLElement} addedUserFeedbackRef - Reference to the element for displaying feedback after adding a user.
- * @constant {HTMLElement} editUserFeedbackRef - Reference to the element for displaying feedback after editing a user.
- * @constant {HTMLElement} confirmDeleteUserModalRef - Reference to the modal for confirming user deletion.
- * @constant {HTMLElement} deleteChosenUserBtnRef - Reference to the button for deleting the chosen user.
- * @constant {HTMLElement} sureToDeleteContactBtnRef - Reference to the button for confirming contact deletion.
- * @constant {HTMLElement} addNameWarningRef - Reference to the element for displaying a warning when adding a name.
- * @constant {HTMLElement} addEmailWarningRef - Reference to the element for displaying a warning when adding an email.
- * @constant {HTMLElement} addPhoneWarningRef - Reference to the element for displaying a warning when adding a phone number.
- * @constant {HTMLElement} editNameWarningRef - Reference to the element for displaying a warning when editing a name.
- * @constant {HTMLElement} editEmailWarningRef - Reference to the element for displaying a warning when editing an email.
- * @constant {HTMLElement} editPhoneWarningRef - Reference to the element for displaying a warning when editing a phone number.
+ * @function getUsersArray - Retrieves the array of users from the script.
  */
-import {
-  getUsersArray,
-  addContactNameInputRef,
-  addContactEmailInputRef,
-  addContactPhoneInputRef,
-  editContactNameInputRef,
-  editContactEmailInputRef,
-  editContactPhoneInputRef,
-  editNewUserLogoRef,
-  saveEditedUserButtonRef,
-  addedUserFeedbackRef,
-  editUserFeedbackRef,
-  confirmDeleteUserModalRef,
-  deleteChosenUserBtnRef,
-  sureToDeleteContactBtnRef,
-  addNameWarningRef,
-  addEmailWarningRef,
-  addPhoneWarningRef,
-  editNameWarningRef,
-  editEmailWarningRef,
-  editPhoneWarningRef,
-} from "../../js/script.js";
+import { getUsersArray } from "../../js/script.js";
 
 /**
  * Imports the function to edit an existing user.
@@ -65,6 +25,31 @@ import { editExistingUser } from "../../js/apiService.js";
  * @function removeAktivContactButton - Removes the active contact button from the contact list.
  */
 import { removeAktivContactButton } from "../contactList/contactList.js";
+
+/**
+ * References to various DOM elements used in the contact modal.
+ *
+ * @type {HTMLElement}
+ */
+let addContactNameInputRef = document.getElementById("addContactNameInput");
+let addContactEmailInputRef = document.getElementById("addContactEmailInput");
+let addContactPhoneInputRef = document.getElementById("addContactPhoneInput");
+let editContactNameInputRef = document.getElementById("editContactNameInput");
+let editContactEmailInputRef = document.getElementById("editContactEmailInput");
+let editContactPhoneInputRef = document.getElementById("editContactPhoneInput");
+let editNewUserLogoRef = document.getElementById("editNewUserLogo");
+let saveEditedUserButtonRef = document.getElementById("saveEditedUserButton");
+let deleteChosenUserBtnRef = document.getElementById("deleteChosenUserBtn");
+let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
+let editUserFeedbackRef = document.getElementById("editUserFeedback");
+let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
+let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteContactBtn");
+let addNameWarningRef = document.getElementById("addNameWarning");
+let addEmailWarningRef = document.getElementById("addEmailWarning");
+let addPhoneWarningRef = document.getElementById("addPhoneWarning");
+let editNameWarningRef = document.getElementById("editNameWarning");
+let editEmailWarningRef = document.getElementById("editEmailWarning");
+let editPhoneWarningRef = document.getElementById("editPhoneWarning");
 
 /**
  * An array of color codes used for user identification.
