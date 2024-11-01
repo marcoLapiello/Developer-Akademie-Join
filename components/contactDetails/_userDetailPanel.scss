@@ -1,0 +1,205 @@
+.userDetailPanel {
+  max-height: calc(100% - 100px);
+  height: 100%;
+  max-width: 100%;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(1500px);
+  opacity: 0;
+
+  @media (max-width: $breakpoint-lg) {
+    transition: all 0s ease-in-out;
+    transform: translateX(0%);
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+
+  .userQuickInfo {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-height: 120px;
+    height: 100%;
+    width: 100%;
+    margin-top: 33px;
+
+    @media (max-width: $breakpoint-lg) {
+      gap: 20px;
+    }
+
+    .userInitials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-height: 120px;
+      height: 100%;
+      max-width: 120px;
+      width: 100%;
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+      font-size: 47px;
+      font-weight: 400;
+      color: #ffffff;
+      line-height: 120%;
+      letter-spacing: -3px;
+      padding-right: 3px;
+      text-align: center;
+
+      @media (max-width: $breakpoint-lg) {
+        max-height: 80px;
+        max-width: 80px;
+        font-size: 27px;
+      }
+
+      @media (max-width: $breakpoint-xs) {
+        max-height: 60px;
+        max-width: 60px;
+        font-size: 20px;
+      }
+    }
+
+    .userActions {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .userName {
+        font-size: 47px;
+        font-weight: 400;
+        line-height: 120%;
+
+        @media (max-width: $breakpoint-lg) {
+          font-size: 27px;
+        }
+
+        @media (max-width: $breakpoint-xs) {
+          font-size: 20px;
+        }
+      }
+      .userProfileButtons {
+        display: flex;
+        gap: 16px;
+
+        @media (max-width: $breakpoint-lg) {
+          display: none;
+          position: absolute;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          bottom: calc(32px + 80px);
+          right: 5px;
+          height: 100px;
+          width: 116px;
+          background-color: #ffffff;
+          border: 0px solid transparent;
+          border-radius: 20px 20px 0px 20px;
+          box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+          z-index: 30;
+        }
+
+        .editButton,
+        .deleteButton {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          gap: 8px;
+          font-size: 16px;
+          line-height: 120%;
+          background-color: unset;
+          border: unset;
+
+          @media (max-width: $breakpoint-lg) {
+            width: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: #29abe2;
+            fill: #29abe2;
+            font-weight: bold;
+          }
+
+          & svg {
+            height: 24px;
+            width: 24px;
+          }
+        }
+
+        .editButton {
+          width: 70px;
+
+          @media (max-width: $breakpoint-lg) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+
+    .heading {
+      display: flex;
+      align-items: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      max-width: 207px;
+      width: 100%;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 120%;
+
+      @media (max-width: $breakpoint-lg) {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      @media (max-width: $breakpoint-xs) {
+        font-size: 16px;
+      }
+    }
+
+    .contactEmail {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .type {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      & a {
+        width: fit-content;
+        @media (max-width: $breakpoint-xs) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .contactPhone {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .type {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      & a {
+        width: fit-content;
+        color: #000000;
+        @media (max-width: $breakpoint-xs) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
