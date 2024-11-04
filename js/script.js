@@ -138,9 +138,20 @@ window.enableLogInButton = logIn.enableLogInButton;
 window.doGuestLogIn = logIn.doGuestLogIn;
 window.toggleRememberMe = logIn.toggleRememberMe;
 window.getUserLogInDataFromLocalStorage = logIn.getUserLogInDataFromLocalStorage;
-window.setBorderColorBlue = logIn.setBorderColorBlue;
-window.setBorderColorGrey = logIn.setBorderColorGrey;
-window.removeValidationWarning = logIn.removeValidationWarning;
+
+/**
+ * Imports functions for handling user authentication and rendering login/signup templates.
+ *
+ * @module logInValidation
+ */
+import * as logInValidation from "../components/logIn/logInValidation.js";
+
+/**
+ * Exposes functions to the global window object for validation of log In.
+ */
+window.setBorderColorBlue = logInValidation.setBorderColorBlue;
+window.setBorderColorGrey = logInValidation.setBorderColorGrey;
+window.removeValidationWarning = logInValidation.removeValidationWarning;
 
 /**
  * Imports functions for handling tasks and subtasks.

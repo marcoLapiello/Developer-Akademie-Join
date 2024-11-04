@@ -1,4 +1,8 @@
 /**
+ * @module "contactModalValidation.js"
+ */
+
+/**
  * References to various DOM elements used in the contact modal.
  *
  * @type {HTMLElement}
