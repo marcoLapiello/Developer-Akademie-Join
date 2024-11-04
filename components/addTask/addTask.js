@@ -283,24 +283,36 @@ export function setGlobalVariablesToDefault() {
  * - Closes the users dropdown list.
  */
 export function clearAddTaskHTML() {
+  document.getElementById("taskDescription").value = "";
+  document.getElementById("currentAssignation").innerHTML = "";
+  document.getElementById("subtaskContainer").innerHTML = "";
+  clearCategory();
+  clearTitle();
+  clearDueDate();
+  setGlobalVariablesToDefault();
+  clearSelectedUsers();
+  closeUsersDropdownList("assignedToDropdownArrow", "contactsToAssign");
+}
+
+function clearTitle() {
   document.getElementById("taskTitleInput").value = "";
   document.getElementById("taskTitleWarning").classList.add("d_none");
   document.getElementById("taskTitleInput").classList.remove("borderColorRed");
   document.getElementById("taskTitleInput").classList.add("borderColorGrey");
-  document.getElementById("taskDescription").value = "";
-  document.getElementById("currentAssignation").innerHTML = "";
+}
+
+function clearDueDate() {
   document.getElementById("taskDueDate").value = "";
   document.getElementById("taskDateWarning").classList.add("d_none");
   document.getElementById("taskDueDate").classList.remove("borderColorRed");
   document.getElementById("taskDueDate").classList.add("borderColorGrey");
+}
+
+function clearCategory() {
   document.getElementById("taskCategory").innerText = "Select task category";
   document.getElementById("taskCategoryWarning").classList.add("d_none");
   document.getElementById("categoryDropdown").classList.remove("borderColorRed");
   document.getElementById("categoryDropdown").classList.add("borderColorGrey");
-  document.getElementById("subtaskContainer").innerHTML = "";
-  setGlobalVariablesToDefault();
-  clearSelectedUsers();
-  closeUsersDropdownList("assignedToDropdownArrow", "contactsToAssign");
 }
 
 /**
