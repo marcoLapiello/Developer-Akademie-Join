@@ -270,12 +270,8 @@ export function editUserFeedback() {
       editUserFeedbackRef.style.left = "746px";
     }
   }, 500);
-  setTimeout(() => {
-    editUserFeedbackRef.style.left = "100%";
-  }, 3000);
-  setTimeout(() => {
-    editUserFeedbackRef.classList.add("d_none");
-  }, 4000);
+  setTimeout(() => (editUserFeedbackRef.style.left = "100%"), 3000);
+  setTimeout(() => editUserFeedbackRef.classList.add("d_none"), 4000);
 }
 
 /**
