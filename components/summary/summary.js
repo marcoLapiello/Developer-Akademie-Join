@@ -18,12 +18,24 @@ const baseUrl = "https://join-storage-460c8-default-rtdb.europe-west1.firebaseda
  * @returns {Promise<void>} A promise that resolves when the summary has been initialized.
  */
 export async function initSummary() {
-  let [currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage, loggedInUser] = await getSummaryData();
+  let [currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage, loggedInUser] =
+    await getSummaryData();
   const previousPage = sessionStorage.get;
   if (window.innerWidth <= 1400 && document.referrer.includes("index.html")) {
     showWelcomeMessageInMobile(welcomeMessage, loggedInUser);
   }
-  renderSummary(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage, loggedInUser);
+  renderSummary(
+    currentTasksAmount,
+    urgentTasksAmount,
+    toDoAmount,
+    inProgressAmount,
+    awaitFeedbackAmount,
+    doneAmount,
+    closestDueDate,
+    isDueDateInThePast,
+    welcomeMessage,
+    loggedInUser
+  );
 }
 
 /**
@@ -67,7 +79,18 @@ async function getSummaryData() {
  * @param {string} loggedInUser - The name of the logged-in user.
  * @returns {Promise<void>} A promise that resolves when the summary is rendered.
  */
-async function renderSummary(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage, loggedInUser) {
+async function renderSummary(
+  currentTasksAmount,
+  urgentTasksAmount,
+  toDoAmount,
+  inProgressAmount,
+  awaitFeedbackAmount,
+  doneAmount,
+  closestDueDate,
+  isDueDateInThePast,
+  welcomeMessage,
+  loggedInUser
+) {
   document.getElementById("summaryContent").innerHTML = getSummaryTemplate(
     currentTasksAmount,
     urgentTasksAmount,
@@ -136,11 +159,12 @@ async function loadUsers() {
  * @param {string} tasks[].1.dueDate - The due date of the task in a string format.
  * @returns {Array} An array containing the formatted closest due date and a boolean indicating if the due date is in the past.
  */
+
 function getClosestDueDate(tasks) {
   const currentDate = new Date();
-  let closestDueDate = null;
-  let smallestDateDifference = Infinity;
-  let isDueDateInThePast = false;
+  let closestDueDate = null,
+    smallestDateDifference = Infinity,
+    isDueDateInThePast = false;
   for (let index = 0; index < tasks.length; index++) {
     if (tasks[index][1].status !== "done") {
       const dueDate = new Date(tasks[index][1].dueDate);
@@ -154,9 +178,7 @@ function getClosestDueDate(tasks) {
   let currentDay = currentDate.getDay();
   let closestDueDateDay = closestDueDate.getDay();
   let formattedDate = getFormattedUpcomingDueDate(closestDueDate);
-  if (closestDueDate < currentDate && closestDueDateDay < currentDay) {
-    isDueDateInThePast = true;
-  }
+  if (closestDueDate < currentDate && closestDueDateDay < currentDay) isDueDateInThePast = true;
   return [formattedDate, isDueDateInThePast];
 }
 
@@ -296,7 +318,18 @@ async function loadTasks() {
  * @param {string} loggedInUser - The name of the logged-in user.
  * @returns {string} The HTML template for the summary section.
  */
-function getSummaryTemplate(currentTasksAmount, urgentTasksAmount, toDoAmount, inProgressAmount, awaitFeedbackAmount, doneAmount, closestDueDate, isDueDateInThePast, welcomeMessage, loggedInUser) {
+function getSummaryTemplate(
+  currentTasksAmount,
+  urgentTasksAmount,
+  toDoAmount,
+  inProgressAmount,
+  awaitFeedbackAmount,
+  doneAmount,
+  closestDueDate,
+  isDueDateInThePast,
+  welcomeMessage,
+  loggedInUser
+) {
   return /*html*/ `              
           <div id="summaryWrapper" class="summaryWrapper">                 
               <div id="summaryHeadline" class="summaryHeadline">
