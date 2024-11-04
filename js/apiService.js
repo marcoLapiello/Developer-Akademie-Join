@@ -31,9 +31,10 @@ import {
   hideConfirmDeleteUserDialog,
   newUserFeedback,
   clearAddInputFields,
-  validateAllInputs,
   editUserFeedback,
 } from "../components/contactModal/contactModal.js";
+
+import { validateAllInputs } from "../components/contactModal/contactModalValidation.js";
 
 /**
  * Imports the function to render the contact list.

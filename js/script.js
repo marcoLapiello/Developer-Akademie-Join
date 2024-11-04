@@ -267,7 +267,6 @@ import * as contactModal from "../components/contactModal/contactModal.js";
 /**
  * Exposes functions to the global window object for handling user dialogs and validation in the contact modal.
  */
-
 window.showAddNewUserDialog = contactModal.showAddNewUserDialog;
 window.hideAddNewUserDialog = contactModal.hideAddNewUserDialog;
 window.showEditChosenUserDialog = contactModal.showEditChosenUserDialog;
@@ -275,10 +274,21 @@ window.hideEditChosenUserDialog = contactModal.hideEditChosenUserDialog;
 window.showConfirmDeleteUserDialog = contactModal.showConfirmDeleteUserDialog;
 window.hideConfirmDeleteUserDialog = contactModal.hideConfirmDeleteUserDialog;
 window.hideConfirmDeleteUserDialogFromBG = contactModal.hideConfirmDeleteUserDialogFromBG;
-window.validateNewPhonenumber = contactModal.validateNewPhonenumber;
-window.validateEditPhonenumber = contactModal.validateEditPhonenumber;
 window.hideAddNewUserDialogFromBG = contactModal.hideAddNewUserDialogFromBG;
 window.hideEditChosenUserDialogFromBG = contactModal.hideEditChosenUserDialogFromBG;
+
+/**
+ * Imports functions for handling user dialogs and validation in the contact modal.
+ *
+ * @module contactModalValidation
+ */
+import * as contactModalValidation from "../components/contactModal/contactModalValidation.js";
+
+/**
+ * Exposes functions to the global window object for handling user dialogs and validation in the contact modal.
+ */
+window.validateNewPhonenumber = contactModalValidation.validateNewPhonenumber;
+window.validateEditPhonenumber = contactModalValidation.validateEditPhonenumber;
 
 /**
  * Imports functions for handling summary operations.
