@@ -13,13 +13,6 @@ let addContactPhoneInputRef = document.getElementById("addContactPhoneInput");
 let editContactNameInputRef = document.getElementById("editContactNameInput");
 let editContactEmailInputRef = document.getElementById("editContactEmailInput");
 let editContactPhoneInputRef = document.getElementById("editContactPhoneInput");
-let editNewUserLogoRef = document.getElementById("editNewUserLogo");
-let saveEditedUserButtonRef = document.getElementById("saveEditedUserButton");
-let deleteChosenUserBtnRef = document.getElementById("deleteChosenUserBtn");
-let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
-let editUserFeedbackRef = document.getElementById("editUserFeedback");
-let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
-let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteContactBtn");
 let addNameWarningRef = document.getElementById("addNameWarning");
 let addEmailWarningRef = document.getElementById("addEmailWarning");
 let addPhoneWarningRef = document.getElementById("addPhoneWarning");
@@ -103,7 +96,6 @@ export function validatePhoneNumberInput(inputRef, warningRef) {
     } else {
       inputRef.classList.remove("borderColorRed");
       warningRef.innerHTML = "";
-
       return true;
     }
   }
