@@ -225,7 +225,7 @@ function renderCardsTemplate(task, assignedUsers) {
         }
         <div class="assignedPriority">
             <div class="assignedTo">
-            ${assignedUsers} <span>${Object.values(task.assignedTo).length > 4 ? `<p>+${Object.values(task.assignedTo).length - 5}</p>` : ""}</span>
+            ${assignedUsers} <span>${Object.values(task.assignedTo).length > 5 ? `<p>+${Object.values(task.assignedTo).length - 5}</p>` : ""}</span>
             </div>
             <div class="priority">
                 ${returnIcon(`${task.priority.toLowerCase()}`, `${task.priority.toLowerCase()}Icon`)}
