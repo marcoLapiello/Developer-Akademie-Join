@@ -31,6 +31,12 @@ import { getTasksArray } from "../../js/script.js";
  */
 import { currentPrio, setGlobalVariablesToDefault, newTaskObject } from "../addTask/addTask.js";
 
+/**
+ * Imports the function to retrieve the subtask template.
+ *
+ * @module addTaskSubtasks
+ * @function getSubtaskTemplate - Retrieves the template for a subtask.
+ */
 import { getSubtaskTemplate } from "../addTask/addTaskSubtasks.js";
 
 /**
@@ -211,9 +217,7 @@ function renderTaskDetailViewEditTemplate(taskData) {
           <div onclick="selectPrio(event)" id="prioMedium" class="priorities ${
             taskData.priority.toLowerCase() == "medium" ? "mediumPrio" : ""
           }">Medium<img src="./assets/icons/medium_icon.png" alt="" /></div>
-          <div onclick="selectPrio(event)" id="prioLow" class="priorities ${
-            taskData.priority.toLowerCase() == "low" ? "lowPrio" : ""
-          }">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioLow" class="priorities ${taskData.priority.toLowerCase() == "low" ? "lowPrio" : ""}">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
           </div>
         </div>
         <div class="assignedToContainer">

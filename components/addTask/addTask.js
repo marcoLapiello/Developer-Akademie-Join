@@ -263,24 +263,18 @@ export function setGlobalVariablesToDefault() {
 }
 
 /**
- * Clears the input fields and resets the UI elements in the add task form.
+ * Clears the HTML content and resets the form fields in the Add Task section.
  *
  * This function performs the following actions:
- * - Clears the value of the task title input field.
- * - Hides the task title warning message.
- * - Resets the border color of the task title input field.
  * - Clears the value of the task description input field.
- * - Clears the current assignation list.
- * - Clears the value of the task due date input field.
- * - Hides the task due date warning message.
- * - Resets the border color of the task due date input field.
- * - Resets the task category text to the default value.
- * - Hides the task category warning message.
- * - Resets the border color of the category dropdown.
- * - Clears the subtask container.
- * - Calls the function to reset global variables to their default values.
- * - Calls the function to clear selected users.
- * - Closes the users dropdown list.
+ * - Clears the inner HTML of the current assignation container.
+ * - Clears the inner HTML of the subtask container.
+ * - Calls the clearCategory function to reset the category selection.
+ * - Calls the clearTitle function to reset the title input field.
+ * - Calls the clearDueDate function to reset the due date input field.
+ * - Calls the setGlobalVariablesToDefault function to reset global variables.
+ * - Calls the clearSelectedUsers function to clear the selected users.
+ * - Closes the users dropdown list by calling the closeUsersDropdownList function with the specified parameters.
  */
 export function clearAddTaskHTML() {
   document.getElementById("taskDescription").value = "";
@@ -294,6 +288,15 @@ export function clearAddTaskHTML() {
   closeUsersDropdownList("assignedToDropdownArrow", "contactsToAssign");
 }
 
+/**
+ * Clears the task title input field and resets its styles.
+ *
+ * This function performs the following actions:
+ * 1. Clears the value of the input field with the ID "taskTitleInput".
+ * 2. Hides the warning message by adding the "d_none" class to the element with the ID "taskTitleWarning".
+ * 3. Removes the "borderColorRed" class from the input field with the ID "taskTitleInput".
+ * 4. Adds the "borderColorGrey" class to the input field with the ID "taskTitleInput".
+ */
 function clearTitle() {
   document.getElementById("taskTitleInput").value = "";
   document.getElementById("taskTitleWarning").classList.add("d_none");
@@ -301,6 +304,14 @@ function clearTitle() {
   document.getElementById("taskTitleInput").classList.add("borderColorGrey");
 }
 
+/**
+ * Clears the due date input field and updates the UI to reflect the cleared state.
+ * Specifically, it:
+ * - Sets the value of the input field with id "taskDueDate" to an empty string.
+ * - Adds the "d_none" class to the element with id "taskDateWarning" to hide it.
+ * - Removes the "borderColorRed" class from the input field with id "taskDueDate".
+ * - Adds the "borderColorGrey" class to the input field with id "taskDueDate".
+ */
 function clearDueDate() {
   document.getElementById("taskDueDate").value = "";
   document.getElementById("taskDateWarning").classList.add("d_none");
@@ -308,6 +319,15 @@ function clearDueDate() {
   document.getElementById("taskDueDate").classList.add("borderColorGrey");
 }
 
+/**
+ * Clears the task category selection and resets the UI elements to their default state.
+ *
+ * This function performs the following actions:
+ * - Sets the inner text of the element with ID "taskCategory" to "Select task category".
+ * - Adds the "d_none" class to the element with ID "taskCategoryWarning".
+ * - Removes the "borderColorRed" class from the element with ID "categoryDropdown".
+ * - Adds the "borderColorGrey" class to the element with ID "categoryDropdown".
+ */
 function clearCategory() {
   document.getElementById("taskCategory").innerText = "Select task category";
   document.getElementById("taskCategoryWarning").classList.add("d_none");
