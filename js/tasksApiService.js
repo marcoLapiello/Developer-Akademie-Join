@@ -165,5 +165,5 @@ export async function patchTaskUpdate(updateData, id, oldCategory) {
     body: JSON.stringify(updateData),
   });
   if (!response.ok) throw new Error("Network response was not ok");
-  renderTasks(`${updateData.status}`, `${oldCategory}`);
+  if (oldCategory) renderTasks(`${updateData.status}`, `${oldCategory}`);
 }

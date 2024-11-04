@@ -36,6 +36,10 @@ import {
 
 import { validateAllInputs } from "../components/contactModal/contactModalValidation.js";
 
+import { getTasksArray } from "./script.js";
+
+import { patchTaskUpdate } from "./tasksApiService.js";
+
 /**
  * Imports the function to render the contact list.
  *
@@ -114,6 +118,26 @@ async function deleteUserData(id) {
     method: "DELETE",
   });
   if (!response.ok) throw new Error("Network response was not ok");
+  deletUserFromTasks(id);
+}
+
+export async function deletUserFromTasks(id) {
+  let allTasks = await getTasksArray();
+  allTasks.forEach((element) => {
+    let currentAssignationIdsArray = Object.keys(element[1].assignedTo);
+    let indexToRemove = currentAssignationIdsArray.indexOf(id);
+    if (indexToRemove != -1) {
+      currentAssignationIdsArray.splice(indexToRemove, 1);
+      let assignedToObject = {};
+      currentAssignationIdsArray.forEach((e) => {
+        assignedToObject[e] = e;
+      });
+      element[1].assignedTo = assignedToObject;
+      let currentTaskId = element[1].id;
+      let currentTask = element[1];
+      patchTaskUpdate(currentTask, currentTaskId);
+    }
+  });
 }
 
 /**

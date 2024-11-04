@@ -234,6 +234,7 @@ import * as apiService from "../js/apiService.js";
  */
 window.addContact = apiService.addContact;
 window.deleteChosenUser = apiService.deleteChosenUser;
+window.deletUserFromTasks = apiService.deletUserFromTasks;
 
 /**
  * Imports functions for handling board operations.
