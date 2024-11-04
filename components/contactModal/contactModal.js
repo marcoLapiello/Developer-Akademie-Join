@@ -10,18 +10,7 @@
  */
 import { getUsersArray } from "../../js/script.js";
 
-import {
-  validateNameInput,
-  validateEmailInput,
-  validatePhoneNumberInput,
-  validateAllInputs,
-  validateAllAddInputs,
-  validateAllEditInputs,
-  clearAddErrorAlerts,
-  clearEditErrorAlerts,
-  validateNewPhonenumber,
-  validateEditPhonenumber,
-} from "./contactModalValidation.js";
+import { clearAddErrorAlerts, clearEditErrorAlerts } from "./contactModalValidation.js";
 
 /**
  * Imports the function to edit an existing user.
@@ -57,12 +46,6 @@ let addedUserFeedbackRef = document.getElementById("addedUserFeedback");
 let editUserFeedbackRef = document.getElementById("editUserFeedback");
 let confirmDeleteUserModalRef = document.getElementById("confirmDeleteUserModal");
 let sureToDeleteContactBtnRef = document.getElementById("sureToDeleteContactBtn");
-let addNameWarningRef = document.getElementById("addNameWarning");
-let addEmailWarningRef = document.getElementById("addEmailWarning");
-let addPhoneWarningRef = document.getElementById("addPhoneWarning");
-let editNameWarningRef = document.getElementById("editNameWarning");
-let editEmailWarningRef = document.getElementById("editEmailWarning");
-let editPhoneWarningRef = document.getElementById("editPhoneWarning");
 
 /**
  * An array of color codes used for user identification.
@@ -226,7 +209,6 @@ export function clearAddInputFields() {
  */
 export function newUserFeedback() {
   addedUserFeedbackRef.classList.remove("d_none");
-
   setTimeout(() => {
     if (window.innerWidth < 1400) {
       addedUserFeedbackRef.style.left = "calc(50% - 163px)";
