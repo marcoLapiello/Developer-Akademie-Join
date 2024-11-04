@@ -236,16 +236,10 @@ export function closeDropdownFromWindow(event, content) {
   let isAddTaskContainer = event.target.id == "addTaskContainer";
   let isAddTaskMiddleLeft = event.target.id == "addTaskMiddleLeft";
   let isAddTaskMiddleRight = event.target.id == "addTaskMiddleRight";
-  if (isDropdownVisible) {
-    if (isSubtaskContainer || isAddTaskContainer || isAddTaskMiddleLeft || isAddTaskMiddleRight) {
-      openCloseDropdown("assignedToDropdownArrow", "contactsToAssign");
-    }
-  }
-  if (isCategoryDropVisible) {
-    if (isSubtaskContainer || isAddTaskContainer || isAddTaskMiddleLeft || isAddTaskMiddleRight) {
-      openCloseDropdown("categoryDropdownArrow", "categorySelectionContainer");
-    }
-  }
+  if (isDropdownVisible && (isSubtaskContainer || isAddTaskContainer || isAddTaskMiddleLeft || isAddTaskMiddleRight))
+    openCloseDropdown("assignedToDropdownArrow", "contactsToAssign");
+  if (isCategoryDropVisible && (isSubtaskContainer || isAddTaskContainer || isAddTaskMiddleLeft || isAddTaskMiddleRight))
+    openCloseDropdown("categoryDropdownArrow", "categorySelectionContainer");
 }
 
 /**
