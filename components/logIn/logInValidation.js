@@ -7,9 +7,8 @@
  *
  * @module apiService
  * @function loadUsers - Loads the users.
- * @function patchNewUser - Patches a new user to the API.
  */
-import { loadUsers, patchNewUser } from "../../js/apiService.js";
+import { loadUsers } from "../../js/apiService.js";
 
 /**
  * Compares the new user data with the existing users to check for email duplication.
@@ -23,9 +22,7 @@ export async function compareSignUpWithUsers() {
   let newUser = getNewUserData();
   let isComparisionOK = true;
   usersArray.forEach((element) => {
-    if (element[1].profile.email == newUser.profile.email) {
-      isComparisionOK = false;
-    }
+    if (element[1].profile.email == newUser.profile.email) isComparisionOK = false;
   });
   return isComparisionOK;
 }
@@ -244,18 +241,10 @@ export function setBorderColorGrey(inputId, warningId) {
     document.getElementById(inputId).classList.add("borderColorRed");
     document.getElementById(inputId).classList.remove("borderColorBlue");
     document.getElementById(inputId).classList.remove("borderColorGrey");
-    if ((inputId = "signUpInputName")) {
-      validateSignUpName();
-    }
-    if ((inputId = "signUpInputEmail")) {
-      validateEmailInput();
-    }
-    if ((inputId = "signUpInputPassword")) {
-      validateSignUpPassword();
-    }
-    if ((inputId = "signUpInputPasswordRepeat")) {
-      compareSignUpPasswords();
-    }
+    if ((inputId = "signUpInputName")) validateSignUpName();
+    if ((inputId = "signUpInputEmail")) validateEmailInput();
+    if ((inputId = "signUpInputPassword")) validateSignUpPassword();
+    if ((inputId = "signUpInputPasswordRepeat")) compareSignUpPasswords();
   }
 }
 
@@ -268,18 +257,10 @@ export function setBorderColorGrey(inputId, warningId) {
 export function removeValidationWarning(inputId, warningId) {
   let warningText = document.getElementById(warningId).innerText;
   if (warningText) {
-    if ((inputId = "signUpInputName")) {
-      validateSignUpName();
-    }
-    if ((inputId = "signUpInputEmail")) {
-      validateEmailInput();
-    }
-    if ((inputId = "signUpInputPassword")) {
-      validateSignUpPassword();
-    }
-    if ((inputId = "signUpInputPasswordRepeat")) {
-      compareSignUpPasswords();
-    }
+    if ((inputId = "signUpInputName")) validateSignUpName();
+    if ((inputId = "signUpInputEmail")) validateEmailInput();
+    if ((inputId = "signUpInputPassword")) validateSignUpPassword();
+    if ((inputId = "signUpInputPasswordRepeat")) compareSignUpPasswords();
   } else {
     return;
   }
