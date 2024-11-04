@@ -44,6 +44,12 @@ export function signUpCompleteValidation() {
   }
 }
 
+/**
+ * Sets the border color of the input element to red.
+ * Removes any existing blue or grey border color classes and adds the red border color class.
+ *
+ * @param {HTMLElement} inputRef - The reference to the input element whose border color needs to be changed.
+ */
 function setBorderColorToRed(inputRef) {
   inputRef.classList.remove("borderColorBlue");
   inputRef.classList.remove("borderColorGrey");

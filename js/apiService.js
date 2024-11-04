@@ -34,10 +34,28 @@ import {
   editUserFeedback,
 } from "../components/contactModal/contactModal.js";
 
+/**
+ * Imports the function to validate all inputs in the contact modal.
+ *
+ * @module contactModalValidation
+ * @function validateAllInputs - Validates all inputs in the contact modal.
+ */
 import { validateAllInputs } from "../components/contactModal/contactModalValidation.js";
 
+/**
+ * Imports the function to retrieve the array of tasks.
+ *
+ * @module script
+ * @function getTasksArray - Retrieves the array of tasks from the script.
+ */
 import { getTasksArray } from "./script.js";
 
+/**
+ * Imports the function to update a task in the database service.
+ *
+ * @module tasksApiService
+ * @function patchTaskUpdate - Updates a task in the database.
+ */
 import { patchTaskUpdate } from "./tasksApiService.js";
 
 /**

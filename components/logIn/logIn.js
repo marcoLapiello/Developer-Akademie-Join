@@ -12,6 +12,15 @@
  */
 import { returnIcon } from "../icons.js";
 
+/**
+ * Imports functions for validating and handling user sign-up and login processes.
+ *
+ * @module logInValidation
+ * @function compareSignUpWithUsers - Compares sign-up data with existing users.
+ * @function signUpCompleteValidation - Validates the complete sign-up process.
+ * @function userFeedbackAfterSignUp - Provides user feedback after sign-up.
+ * @function compareLogInData - Compares login data with existing users.
+ */
 import { compareSignUpWithUsers, signUpCompleteValidation, userFeedbackAfterSignUp, compareLogInData } from "./logInValidation.js";
 
 /**
