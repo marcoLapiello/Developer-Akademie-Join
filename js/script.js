@@ -157,13 +157,6 @@ window.selectPrio = addTask.selectPrio;
 window.selectCategory = addTask.selectCategory;
 window.renderTaskTemplate = addTask.renderTaskTemplate;
 window.renderDeleteTaskTemplate = addTask.renderDeleteTaskTemplate;
-window.createNewSubtask = addTask.createNewSubtask;
-window.renderSubtaskElement = addTask.renderSubtaskElement;
-window.editSubtask = addTask.editSubtask;
-window.deleteSubtask = addTask.deleteSubtask;
-window.saveSubtaskEditing = addTask.saveSubtaskEditing;
-window.setHighlightSubtaskDivBorder = addTask.setHighlightSubtaskDivBorder;
-window.removeHighlightSubtaskDivBorder = addTask.removeHighlightSubtaskDivBorder;
 window.openTaskModal = addTask.openTaskModal;
 window.hideTaskModal = addTask.hideTaskModal;
 window.hideTaskModalFromBG = addTask.hideTaskModalFromBG;
@@ -180,13 +173,31 @@ window.editTaskUserFeedback = addTask.editTaskUserFeedback;
 import * as addTaskValidation from "../components/addTask/addTaskValidation.js";
 
 /**
- * Exposes functions to the global window object for handling tasks and subtasks.
+ * Exposes functions to the global window to validate input fields of the add Task component.
  */
 window.validateNewTaskInputs = addTaskValidation.validateNewTaskInputs;
 window.validateTaskTitleInput = addTaskValidation.validateTaskTitleInput;
 window.validateTaskDateInput = addTaskValidation.validateTaskDateInput;
 window.validateTaskCategoryInput = addTaskValidation.validateTaskCategoryInput;
 window.validateTaskTitleByOninput = addTaskValidation.validateTaskTitleByOninput;
+
+/**
+ * Imports functions for handling to create and edit subtasks.
+ *
+ * @module addTaskSubtasks
+ */
+import * as addTaskSubtasks from "../components/addTask/addTaskSubtasks.js";
+
+/**
+ * Exposes functions to the global window to create and edit subtasks.
+ */
+window.createNewSubtask = addTaskSubtasks.createNewSubtask;
+window.renderSubtaskElement = addTaskSubtasks.renderSubtaskElement;
+window.editSubtask = addTaskSubtasks.editSubtask;
+window.deleteSubtask = addTaskSubtasks.deleteSubtask;
+window.saveSubtaskEditing = addTaskSubtasks.saveSubtaskEditing;
+window.setHighlightSubtaskDivBorder = addTaskSubtasks.setHighlightSubtaskDivBorder;
+window.removeHighlightSubtaskDivBorder = addTaskSubtasks.removeHighlightSubtaskDivBorder;
 
 /**
  * Imports functions for handling task detail view editing.

@@ -29,7 +29,9 @@ import { getTasksArray } from "../../js/script.js";
  * @function getSubtaskTemplate - Retrieves the template for a subtask.
  * @variable newTaskObject - An object template for a new task.
  */
-import { currentPrio, setGlobalVariablesToDefault, getSubtaskTemplate, newTaskObject } from "../addTask/addTask.js";
+import { currentPrio, setGlobalVariablesToDefault, newTaskObject } from "../addTask/addTask.js";
+
+import { getSubtaskTemplate } from "../addTask/addTaskSubtasks.js";
 
 /**
  * Imports functions and variables for handling the user dropdown list in the add task component.
@@ -209,7 +211,9 @@ function renderTaskDetailViewEditTemplate(taskData) {
           <div onclick="selectPrio(event)" id="prioMedium" class="priorities ${
             taskData.priority.toLowerCase() == "medium" ? "mediumPrio" : ""
           }">Medium<img src="./assets/icons/medium_icon.png" alt="" /></div>
-          <div onclick="selectPrio(event)" id="prioLow" class="priorities ${taskData.priority.toLowerCase() == "low" ? "lowPrio" : ""}">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
+          <div onclick="selectPrio(event)" id="prioLow" class="priorities ${
+            taskData.priority.toLowerCase() == "low" ? "lowPrio" : ""
+          }">Low<img src="./assets/icons/low_icon.png" alt="" /></div>
           </div>
         </div>
         <div class="assignedToContainer">
