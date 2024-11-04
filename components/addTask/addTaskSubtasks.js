@@ -2,9 +2,23 @@
  * @module "addTaskSubtasks.js"
  */
 
+/**
+ * Imports the function to retrieve an icon element for use in the user interface.
+ *
+ * @module icons
+ * @function returnIcon - Generates and returns an HTML element representing the specified icon.
+ * @param {string} iconName - The name or identifier of the icon to retrieve.
+ * @returns {HTMLElement} - The HTML element representing the requested icon.
+ */
 import { returnIcon } from "../icons.js";
 
-import { newTaskObject, createSubtaskObject } from "../addTask/addTask.js";
+/**
+ * Imports the newTaskObject from the addTask module.
+ *
+ * @module addTask
+ * @variable newTaskObject - An object template for a new task.
+ */
+import { newTaskObject } from "../addTask/addTask.js";
 
 /**
  * Generates the HTML template for a subtask element.
