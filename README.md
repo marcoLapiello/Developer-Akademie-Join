@@ -2,7 +2,7 @@
 
 ⏳ **Note:** This project is still under development and not yet complete.
 
-Welcome to **Join**, our second group project as part of the Developer Academy! This web-based Kanban board helps you organize tasks, manage workflows, and improve productivity. With an intuitive drag-and-drop interface, you can easily move tasks between different stages like "To-Do", "In Progress", and "Done".
+Welcome to **Join**, our second group project as part of the Developer Academy! This web-based Kanban board helps you organize tasks, manage workflows, and improve productivity. With an intuitive drag-and-drop interface, you can easily move tasks between different stages like "To-Do", "In Progress", "Await feedback" and "Done".
 
 ## 📋 Features
 - **Task Management:** Create, edit, and delete tasks.
@@ -28,19 +28,7 @@ git clone https://github.com/MirkoRinke/Developer-Akademie-Join.git
    cd Developer-Akademie-Join
    ```
 
-### 📦 4. Install dependencies
-If you're using `SCSS`, you'll need to install the necessary tools (like `node-sass` or `sass` for compiling SCSS to CSS):
-```bash
-npm install
-```
-
-### 🖥️ 5. Compile SCSS
-To compile SCSS to CSS, run the following command:
-```bash
-npm run scss
-```
-
-### 📂 6. Open the project
+### 📂 4. Open the project
 Open the `index.html` file in your web browser to view the application.
 
 ### 🤝 Contributing
