@@ -4,7 +4,7 @@
 
 import { returnIcon } from "../icons.js";
 
-import { newTaskObject } from "../addTask/addTask.js";
+import { newTaskObject, createSubtaskObject } from "../addTask/addTask.js";
 
 /**
  * Generates the HTML template for a subtask element.
