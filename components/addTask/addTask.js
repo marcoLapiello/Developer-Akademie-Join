@@ -309,7 +309,7 @@ export function clearAddTaskHTML() {
  * @param {string} subtaskText - The text description of the subtask.
  * @returns {string} The unique identifier of the newly created subtask.
  */
-function createSubtaskObject(subtaskText) {
+export function createSubtaskObject(subtaskText) {
   let subtaskID = "SUBTASK" + Date.now();
   let newSubtask = {
     creationDate: Date.now(),
