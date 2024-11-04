@@ -409,21 +409,11 @@ export function newTaskUserFeedback() {
   newTaskUserFeedbackRef.classList.remove("d_none");
   if (window.innerWidth < 1400) {
     taskFeedbackResponsive(newTaskUserFeedbackRef);
-    if (window.location.pathname === "/addTask.html") {
-      setTimeout(() => {
-        window.location.href = "/board.html";
-      }, 2300);
-    }
+    if (window.location.pathname === "/addTask.html") setTimeout(() => (window.location.href = "/board.html"), 2300);
   } else {
-    if (window.location.pathname == "/board.html") {
-      hideTaskModal();
-    }
+    if (window.location.pathname == "/board.html") hideTaskModal();
     taskFeedbackDesktop(newTaskUserFeedbackRef);
-    if (window.location.pathname === "/addTask.html") {
-      setTimeout(() => {
-        window.location.href = "/board.html";
-      }, 2300);
-    }
+    if (window.location.pathname === "/addTask.html") setTimeout(() => (window.location.href = "/board.html"), 2300);
   }
 }
 

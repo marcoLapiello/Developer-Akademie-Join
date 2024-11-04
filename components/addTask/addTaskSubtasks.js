@@ -18,7 +18,7 @@ import { returnIcon } from "../icons.js";
  * @module addTask
  * @variable newTaskObject - An object template for a new task.
  */
-import { newTaskObject } from "../addTask/addTask.js";
+import { newTaskObject, createSubtaskObject } from "../addTask/addTask.js";
 
 /**
  * Generates the HTML template for a subtask element.
