@@ -164,11 +164,6 @@ window.deleteSubtask = addTask.deleteSubtask;
 window.saveSubtaskEditing = addTask.saveSubtaskEditing;
 window.setHighlightSubtaskDivBorder = addTask.setHighlightSubtaskDivBorder;
 window.removeHighlightSubtaskDivBorder = addTask.removeHighlightSubtaskDivBorder;
-window.validateNewTaskInputs = addTask.validateNewTaskInputs;
-window.validateTaskTitleInput = addTask.validateTaskTitleInput;
-window.validateTaskDateInput = addTask.validateTaskDateInput;
-window.validateTaskCategoryInput = addTask.validateTaskCategoryInput;
-window.validateTaskTitleByOninput = addTask.validateTaskTitleByOninput;
 window.openTaskModal = addTask.openTaskModal;
 window.hideTaskModal = addTask.hideTaskModal;
 window.hideTaskModalFromBG = addTask.hideTaskModalFromBG;
@@ -176,6 +171,22 @@ window.clearAddTaskHTML = addTask.clearAddTaskHTML;
 window.getHashParameter = addTask.getHashParameter;
 window.newTaskUserFeedback = addTask.newTaskUserFeedback;
 window.editTaskUserFeedback = addTask.editTaskUserFeedback;
+
+/**
+ * Imports functions for handling to validate input fields of the add Task component.
+ *
+ * @module addTaskValidation
+ */
+import * as addTaskValidation from "../components/addTask/addTaskValidation.js";
+
+/**
+ * Exposes functions to the global window object for handling tasks and subtasks.
+ */
+window.validateNewTaskInputs = addTaskValidation.validateNewTaskInputs;
+window.validateTaskTitleInput = addTaskValidation.validateTaskTitleInput;
+window.validateTaskDateInput = addTaskValidation.validateTaskDateInput;
+window.validateTaskCategoryInput = addTaskValidation.validateTaskCategoryInput;
+window.validateTaskTitleByOninput = addTaskValidation.validateTaskTitleByOninput;
 
 /**
  * Imports functions for handling task detail view editing.
