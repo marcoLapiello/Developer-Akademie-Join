@@ -15,16 +15,6 @@ import { validateNewTaskInputs } from "./addTaskValidation.js";
 import { closeUsersDropdownList, selectedUsers, clearSelectedUsers } from "../addTask/userDropdown.js";
 
 /**
- * Imports the function to retrieve an icon element for use in the user interface.
- *
- * @module icons
- * @function returnIcon - Generates and returns an HTML element representing the specified icon.
- * @param {string} iconName - The name or identifier of the icon to retrieve.
- * @returns {HTMLElement} - The HTML element representing the requested icon.
- */
-import { returnIcon } from "../icons.js";
-
-/**
  * Imports functions to retrieve task templates.
  *
  * @module taskTemplate
@@ -244,19 +234,13 @@ export function getNewTaskTemplate() {
   newTaskObject.creatorId = "";
   newTaskObject.priority = currentPrio;
   newTaskObject.category = document.getElementById("taskCategory").innerText;
-  if (newTaskObject.category == "Technical task") {
-    newTaskObject.categoryColor = "#1fd7c1";
-  }
-  if (newTaskObject.category == "User story") {
-    newTaskObject.categoryColor = "#0038ff";
-  }
+  if (newTaskObject.category == "Technical task") newTaskObject.categoryColor = "#1fd7c1";
+  if (newTaskObject.category == "User story") newTaskObject.categoryColor = "#0038ff";
   newTaskObject.progress = currentProgress;
   newTaskObject.status = currentStatus;
   getSelectedUsers();
   let newTask = newTaskObject;
-  if (!validateNewTaskInputs()) {
-    return;
-  }
+  if (!validateNewTaskInputs()) return;
   clearAddTaskHTML();
   clearSelectedUsers();
   return newTask;
