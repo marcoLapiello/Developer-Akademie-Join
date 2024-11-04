@@ -243,17 +243,11 @@ export async function showEditChosenUserDialog(id) {
   editContactPhoneInputRef.value = user[1].profile.phone;
   editNewUserLogoRef.style.backgroundColor = user[1].user_color;
   editNewUserLogoRef.innerHTML = `<span>${user[1].profile.initials}</span>`;
-  saveEditedUserButtonRef.addEventListener("click", () => {
-    editExistingUser(id, user);
-  });
-  deleteChosenUserBtnRef.addEventListener("click", () => {
-    showConfirmDeleteUserDialog(id);
-  });
+  saveEditedUserButtonRef.addEventListener("click", () => editExistingUser(id, user));
+  deleteChosenUserBtnRef.addEventListener("click", () => showConfirmDeleteUserDialog(id));
   document.getElementById("editContactModal").classList.remove("d_none");
   clearEditErrorAlerts();
-  setTimeout(() => {
-    document.getElementById("editContactContainer").style.left = "50%";
-  }, 50);
+  setTimeout(() => (document.getElementById("editContactContainer").style.left = "50%"), 50);
 }
 
 /**
