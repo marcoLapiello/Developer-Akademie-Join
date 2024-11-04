@@ -47,6 +47,12 @@ export function signUpCompleteValidation() {
   }
 }
 
+function setBorderColorToRed(inputRef) {
+  inputRef.classList.remove("borderColorBlue");
+  inputRef.classList.remove("borderColorGrey");
+  inputRef.classList.add("borderColorRed");
+}
+
 /**
  * Validates the sign-up name input field.
  *
@@ -71,9 +77,7 @@ export function validateSignUpName() {
     let nameFirstLetter = nameInput[0];
     if (namePartsCount != 2 || nameLastLetter == " " || nameFirstLetter == " ") {
       warningRef.innerHTML = "Enter name & surname, with space or hyphen.";
-      inputRef.classList.remove("borderColorBlue");
-      inputRef.classList.remove("borderColorGrey");
-      inputRef.classList.add("borderColorRed");
+      setBorderColorToRed(inputRef);
       return false;
     } else {
       inputRef.classList.remove("borderColorRed");
@@ -103,9 +107,7 @@ export function validateEmailInput() {
   let inputRef = document.getElementById("signUpInputEmail");
   let warningRef = document.getElementById("signUpInputEmailWarning");
   if (!inputRef.value || inputRef.value.length < 6) {
-    inputRef.classList.remove("borderColorBlue");
-    inputRef.classList.remove("borderColorGrey");
-    inputRef.classList.add("borderColorRed");
+    setBorderColorToRed(inputRef);
     warningRef.innerHTML = "Enter a valid email address.";
     return false;
   }
@@ -123,9 +125,7 @@ export function validateEmailInput() {
       emailInput[emailInput.length - 1] == "." ||
       emailInput[emailInput.length - 2] == "."
     ) {
-      inputRef.classList.remove("borderColorBlue");
-      inputRef.classList.remove("borderColorGrey");
-      inputRef.classList.add("borderColorRed");
+      setBorderColorToRed(inputRef);
       warningRef.innerHTML = "Enter a valid email address.";
       return false;
     }
@@ -148,17 +148,15 @@ export function validateEmailInput() {
  * @returns {boolean} - Returns `true` if the password is valid, otherwise `false`.
  */
 export function validateSignUpPassword() {
-  let passwordInputRef = document.getElementById("signUpInputPassword");
+  let inputRef = document.getElementById("signUpInputPassword");
   let passwordWarningRef = document.getElementById("signUpInputPasswordWarning");
-  let isPasswordIncludingWhitespaces = passwordInputRef.value.includes(" ");
-  if (passwordInputRef.value.length < 6 || isPasswordIncludingWhitespaces) {
-    passwordInputRef.classList.remove("borderColorBlue");
-    passwordInputRef.classList.remove("borderColorGrey");
-    passwordInputRef.classList.add("borderColorRed");
+  let isPasswordIncludingWhitespaces = inputRef.value.includes(" ");
+  if (inputRef.value.length < 6 || isPasswordIncludingWhitespaces) {
+    setBorderColorToRed(inputRef);
     passwordWarningRef.innerHTML = "Enter a password of at least six characters.";
     return false;
   } else {
-    passwordInputRef.classList.remove("borderColorRed");
+    inputRef.classList.remove("borderColorRed");
     passwordWarningRef.innerHTML = "";
     return true;
   }
@@ -178,16 +176,14 @@ export function compareSignUpPasswords() {
   let isPasswordInputValid = validateSignUpPassword();
   if (isPasswordInputValid) {
     let passwordInputRef = document.getElementById("signUpInputPassword");
-    let passwordRepeatInputRef = document.getElementById("signUpInputPasswordRepeat");
+    let inputRef = document.getElementById("signUpInputPasswordRepeat");
     let passwordRepeatWarningRef = document.getElementById("signUpInputPasswordRepeatWarning");
-    if (passwordInputRef.value && passwordInputRef.value != passwordRepeatInputRef.value) {
-      passwordRepeatInputRef.classList.remove("borderColorBlue");
-      passwordRepeatInputRef.classList.remove("borderColorGrey");
-      passwordRepeatInputRef.classList.add("borderColorRed");
+    if (passwordInputRef.value && passwordInputRef.value != inputRef.value) {
+      setBorderColorToRed(inputRef);
       passwordRepeatWarningRef.innerHTML = "The passwords do not match. Please try again.";
       return false;
     } else {
-      passwordRepeatInputRef.classList.remove("borderColorRed");
+      inputRef.classList.remove("borderColorRed");
       passwordRepeatWarningRef.innerHTML = "";
       return true;
     }
