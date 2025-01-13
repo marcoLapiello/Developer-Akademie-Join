@@ -30,13 +30,13 @@
   // max-width: calc(1920px - 232px);
   width: 100%;
   height: 100%;
-  padding: 80px 96px 48px 96px;
+  padding: 30px 96px 30px 96px;
   display: flex;
   flex-direction: column;
   align-items: start;
   user-select: none;
   position: relative;
-  overflow-y: auto;
+  // overflow-y: auto;
 
   @media (max-width: $breakpoint-lg) {
     max-height: calc(100dvh - 80px - 80px);
@@ -61,6 +61,7 @@
     top: 48px;
     right: 100px;
     z-index: 500;
+    
 
     &:hover {
       cursor: pointer;
@@ -801,4 +802,8 @@
     justify-content: center;
     align-items: center;
   }
+}
+
+.d_none {
+  display: none;
 }

@@ -184,7 +184,7 @@ export function enableLogInButton() {
 export function doGuestLogIn() {
   setGuestAsLoggedInToLocalStorage();
   setTimeout(() => {
-    window.location.href = "../summary.html";
+    window.location.href = "./summary.html";
   }, 100);
 }
 
@@ -202,7 +202,7 @@ export async function logInRegistratedUser() {
     toggleRememberMe();
     setUserIDToLocalStorage();
     setTimeout(() => {
-      window.location.href = "../summary.html";
+      window.location.href = "./summary.html";
     }, 100);
   } else {
     return;

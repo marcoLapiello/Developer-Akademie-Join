@@ -26,7 +26,7 @@ function getBoardTemplate() {
     <div class="boardContainer">
       <div class="boardLeft">
         <p>Board</p>
-        <a href="../addTask.html">
+        <a href="./addTask.html">
           <button onclick="addNewTask()" class="boardTaskAddBtnSmall">
             ${returnIcon("plus", "addIcon")}
           </button>
